@@ -71,7 +71,7 @@
 <link href="/css/main.css?v=5.1.0" rel="stylesheet" type="text/css" />
 
 
-  <meta name="keywords" content="css," />
+  <meta name="keywords" content="queryString," />
 
 
 
@@ -87,19 +87,28 @@
 
 
 
-<meta name="description" content="代码如下：1&amp;lt;div style=&quot;width:100px;height:20px;text-overflow:ellipsis; white-space:nowrap; overflow:hidden; &quot;&amp;gt;a b c d e f g h i j k l , msa sd sd sa w df f &amp;lt;/div&amp;gt;
-text-overflow属性仅是注解，当文本溢出时是否显示">
+<meta name="description" content="在nodejs中，提供了querystring这个模块，用来做url查询参数的解析。在做node服务端开发的时候基本都会用到，使用非常简单。github地址:https://github.com/manlili/node_learn里面的lesson05
+parse方法作用是解析url查询参数，定义如下：1querystring.parse(str[, sep[, eq[, options]]])">
 <meta property="og:type" content="article">
-<meta property="og:title" content="CSS控制文本的长度，超过一行显示省略号">
-<meta property="og:url" content="http://yoursite.com/2015/02/12/CSS控制文本的长度，超过一行显示省略号/index.html">
+<meta property="og:title" content="Node之queryString讲解">
+<meta property="og:url" content="http://yoursite.com/2015/05/27/1/index.html">
 <meta property="og:site_name" content="manlili blog">
-<meta property="og:description" content="代码如下：1&amp;lt;div style=&quot;width:100px;height:20px;text-overflow:ellipsis; white-space:nowrap; overflow:hidden; &quot;&amp;gt;a b c d e f g h i j k l , msa sd sd sa w df f &amp;lt;/div&amp;gt;
-text-overflow属性仅是注解，当文本溢出时是否显示">
-<meta property="og:updated_time" content="2015-02-12T07:49:34.280Z">
+<meta property="og:description" content="在nodejs中，提供了querystring这个模块，用来做url查询参数的解析。在做node服务端开发的时候基本都会用到，使用非常简单。github地址:https://github.com/manlili/node_learn里面的lesson05
+parse方法作用是解析url查询参数，定义如下：1querystring.parse(str[, sep[, eq[, options]]])">
+<meta property="og:image" content="https://manlili.github.io/img/150527/1.png">
+<meta property="og:image" content="https://manlili.github.io/img/150527/2.png">
+<meta property="og:image" content="https://manlili.github.io/img/150527/3.png">
+<meta property="og:image" content="https://manlili.github.io/img/150527/4.png">
+<meta property="og:image" content="https://manlili.github.io/img/150527/5.png">
+<meta property="og:image" content="https://manlili.github.io/img/150527/6.png">
+<meta property="og:image" content="https://manlili.github.io/img/150527/7.png">
+<meta property="og:image" content="https://manlili.github.io/img/150527/8.png">
+<meta property="og:updated_time" content="2017-02-21T07:42:07.073Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="CSS控制文本的长度，超过一行显示省略号">
-<meta name="twitter:description" content="代码如下：1&amp;lt;div style=&quot;width:100px;height:20px;text-overflow:ellipsis; white-space:nowrap; overflow:hidden; &quot;&amp;gt;a b c d e f g h i j k l , msa sd sd sa w df f &amp;lt;/div&amp;gt;
-text-overflow属性仅是注解，当文本溢出时是否显示">
+<meta name="twitter:title" content="Node之queryString讲解">
+<meta name="twitter:description" content="在nodejs中，提供了querystring这个模块，用来做url查询参数的解析。在做node服务端开发的时候基本都会用到，使用非常简单。github地址:https://github.com/manlili/node_learn里面的lesson05
+parse方法作用是解析url查询参数，定义如下：1querystring.parse(str[, sep[, eq[, options]]])">
+<meta name="twitter:image" content="https://manlili.github.io/img/150527/1.png">
 
 
 
@@ -127,13 +136,13 @@ text-overflow属性仅是注解，当文本溢出时是否显示">
 
 
 
-  <link rel="canonical" href="http://yoursite.com/2015/02/12/CSS控制文本的长度，超过一行显示省略号/"/>
+  <link rel="canonical" href="http://yoursite.com/2015/05/27/1/"/>
 
 
 
 
 
-  <title> CSS控制文本的长度，超过一行显示省略号 | manlili blog </title>
+  <title> Node之queryString讲解 | manlili blog </title>
 </head>
 
 <body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
@@ -280,7 +289,7 @@ text-overflow属性仅是注解，当文本溢出时是否显示">
   
 
   <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
-  <link itemprop="mainEntityOfPage" href="http://yoursite.com/2015/02/12/CSS控制文本的长度，超过一行显示省略号/">
+  <link itemprop="mainEntityOfPage" href="http://yoursite.com/2015/05/27/1/">
 
   <span style="display:none" itemprop="author" itemscope itemtype="http://schema.org/Person">
     <meta itemprop="name" content="满利利">
@@ -304,7 +313,7 @@ text-overflow属性仅是注解，当文本溢出时是否显示">
             
             
               
-                CSS控制文本的长度，超过一行显示省略号
+                Node之queryString讲解
               
             
           </h1>
@@ -319,8 +328,8 @@ text-overflow属性仅是注解，当文本溢出时是否显示">
               
                 <span class="post-meta-item-text">发表于</span>
               
-              <time title="Post created" itemprop="dateCreated datePublished" datetime="2015-02-12T15:47:14+08:00">
-                2015-02-12
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2015-05-27T15:37:53+08:00">
+                2015-05-27
               </time>
             
 
@@ -342,8 +351,8 @@ text-overflow属性仅是注解，当文本溢出时是否显示">
               
               
                 <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/css技术/" itemprop="url" rel="index">
-                    <span itemprop="name">css技术</span>
+                  <a href="/categories/node技术/" itemprop="url" rel="index">
+                    <span itemprop="name">node技术</span>
                   </a>
                 </span>
 
@@ -360,8 +369,8 @@ text-overflow属性仅是注解，当文本溢出时是否显示">
                 <span class="post-meta-item-icon">
                   <i class="fa fa-comment-o"></i>
                 </span>
-                <a href="/2015/02/12/CSS控制文本的长度，超过一行显示省略号/#comments" itemprop="discussionUrl">
-                  <span class="post-comments-count ds-thread-count" data-thread-key="2015/02/12/CSS控制文本的长度，超过一行显示省略号/" itemprop="commentCount"></span>
+                <a href="/2015/05/27/1/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count ds-thread-count" data-thread-key="2015/05/27/1/" itemprop="commentCount"></span>
                 </a>
               </span>
             
@@ -369,7 +378,7 @@ text-overflow属性仅是注解，当文本溢出时是否显示">
 
           
           
-             <span id="/2015/02/12/CSS控制文本的长度，超过一行显示省略号/" class="leancloud_visitors" data-flag-title="CSS控制文本的长度，超过一行显示省略号">
+             <span id="/2015/05/27/1/" class="leancloud_visitors" data-flag-title="Node之queryString讲解">
                <span class="post-meta-divider">|</span>
                <span class="post-meta-item-icon">
                  <i class="fa fa-eye"></i>
@@ -398,8 +407,24 @@ text-overflow属性仅是注解，当文本溢出时是否显示">
       
 
       
-        <p>代码如下：<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">&lt;div style=<span class="string">"width:100px;height:20px;text-overflow:ellipsis; white-space:nowrap; overflow:hidden; "</span>&gt;a b c d e f g h i j k l , msa sd sd sa w df f &lt;/div&gt;</div></pre></td></tr></table></figure></p>
-<p>text-overflow属性仅是注解，当文本溢出时是否显示省略标记。并不具备其它的样式属性定义。我们想要实现溢出时产生省略号的效果。还必须定义：强制文本在一行内显示（white-space:nowrap）及溢出内容为隐藏（overflow:hidden）。只有这样才能实现溢出文本显示省略号的效果。<br>一、仅定义text-overflow:ellipsis; 不能实现省略号效果。　　<br>二、定义text-overflow:ellipsis; white-space:nowrap; 同样不能实现省略号效果。<br>三、同时应用： text-overflow:ellipsis; white-space:nowrap; overflow:hidden; 可实现所想要得到的溢出文本。</p>
+        <p>在nodejs中，提供了querystring这个模块，用来做url查询参数的解析。在做node服务端开发的时候基本都会用到，使用非常简单。<br>github地址:<a href="https://github.com/manlili/node_learn" target="_blank" rel="external">https://github.com/manlili/node_learn</a>里面的lesson05</p>
+<h2 id="parse方法"><a href="#parse方法" class="headerlink" title="parse方法"></a>parse方法</h2><p>作用是解析url查询参数，定义如下：<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">querystring.parse(str[, sep[, eq[, options]]])</div></pre></td></tr></table></figure></p>
+<p>使用方法①<br>先进入node控制台，然后输入querystring.parse,就可以解析这个地址<br><img src="https://manlili.github.io/img/150527/1.png" alt="图"></p>
+<p>使用方法②<br>由于queryString是node自带的模块，可以直接引用<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">var querystring = require(<span class="string">"querystring"</span>);</div><div class="line">var a = querystring.parse(<span class="string">'foo=bra&amp;haha=lli&amp;haha=568'</span>);</div><div class="line">console.log(a);</div></pre></td></tr></table></figure></p>
+<p>然后进入js所在的文件夹执行：<br><img src="https://manlili.github.io/img/150527/2.png" alt="图"></p>
+<h2 id="stringify方法"><a href="#stringify方法" class="headerlink" title="stringify方法"></a>stringify方法</h2><p>作用是将对象拼接成url查询参数，定义如下：<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">querystring.stringify(obj[, sep[, eq[, options]]])</div></pre></td></tr></table></figure></p>
+<p>使用方法①<br>需要将下面的对象<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">&#123; foo: <span class="string">'bra'</span>, haha: [ <span class="string">'lli'</span>, <span class="string">'568'</span> ] &#125;</div></pre></td></tr></table></figure></p>
+<p>拼接成url查询参数，先进入node控制台，然后输入querystring.stringify,就可以解析这个地址<br><img src="https://manlili.github.io/img/150527/3.png" alt="图"></p>
+<p>使用方法②<br>由于queryString是node自带的模块，可以直接引用<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">var querystring = require(<span class="string">"querystring"</span>);</div><div class="line">var b = querystring.stringify(&#123; foo: <span class="string">'bra'</span>, haha: [ <span class="string">'lli'</span>, <span class="string">'568'</span> ] &#125;);</div><div class="line">console.log(b);</div></pre></td></tr></table></figure></p>
+<p>然后进入js所在的文件夹执行：<br><img src="https://manlili.github.io/img/150527/4.png" alt="图"></p>
+<h2 id="escape方法"><a href="#escape方法" class="headerlink" title="escape方法"></a>escape方法</h2><p>作用是转义url，定义如下：<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">querystring.escape(str)</div></pre></td></tr></table></figure></p>
+<p>使用方法①<br>假设需要转义“&lt;中文&gt;”，先进入node控制台，然后输入querystring.escape,就可以解析这个地址<br><img src="https://manlili.github.io/img/150527/5.png" alt="图"></p>
+<p>使用方法②<br>由于queryString是node自带的模块，可以直接引用<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">var querystring = require(<span class="string">"querystring"</span>);</div><div class="line">var c = querystring.escape(<span class="string">"&lt;中文&gt;"</span>);</div><div class="line">console.log(c);</div></pre></td></tr></table></figure></p>
+<p>然后进入js所在的文件夹执行：<br><img src="https://manlili.github.io/img/150527/6.png" alt="图"></p>
+<h2 id="unescape方法"><a href="#unescape方法" class="headerlink" title="unescape方法"></a>unescape方法</h2><p>作用是反转义url，定义如下：<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">querystring.unescape(str)</div></pre></td></tr></table></figure></p>
+<p>使用方法①<br>假设需要反转义“%3C%E4%B8%AD%E6%96%87%3E”，先进入node控制台，然后输入querystring.unescape,就可以解析这个地址<br><img src="https://manlili.github.io/img/150527/7.png" alt="图"></p>
+<p>使用方法②<br>由于queryString是node自带的模块，可以直接引用<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">var querystring = require(<span class="string">"querystring"</span>);</div><div class="line">var d = querystring.unescape(<span class="string">"%3C%E4%B8%AD%E6%96%87%3E"</span>);</div><div class="line">console.log(d);</div></pre></td></tr></table></figure></p>
+<p>然后进入js所在的文件夹执行：<br><img src="https://manlili.github.io/img/150527/8.png" alt="图"></p>
 
       
     </div>
@@ -444,7 +469,7 @@ text-overflow属性仅是注解，当文本溢出时是否显示">
       
         <div class="post-tags">
           
-            <a href="/tags/css/" rel="tag"># css</a>
+            <a href="/tags/queryString/" rel="tag"># queryString</a>
           
         </div>
       
@@ -457,8 +482,8 @@ text-overflow属性仅是注解，当文本溢出时是否显示">
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2015/01/21/浏览器加载的顺序/" rel="next" title="浏览器加载的顺序">
-                <i class="fa fa-chevron-left"></i> 浏览器加载的顺序
+              <a href="/2015/05/27/Node之querystring讲解/" rel="next" title="Node之queryString讲解">
+                <i class="fa fa-chevron-left"></i> Node之queryString讲解
               </a>
             
           </div>
@@ -467,8 +492,8 @@ text-overflow属性仅是注解，当文本溢出时是否显示">
 
           <div class="post-nav-prev post-nav-item">
             
-              <a href="/2015/02/24/rem单位引用/" rel="prev" title="rem单位引用">
-                rem单位引用 <i class="fa fa-chevron-right"></i>
+              <a href="/2016/03/04/Vue入门演示/" rel="prev" title="Vue入门演示">
+                Vue入门演示 <i class="fa fa-chevron-right"></i>
               </a>
             
           </div>
@@ -495,8 +520,8 @@ text-overflow属性仅是注解，当文本溢出时是否显示">
           
   <div class="comments" id="comments">
     
-      <div class="ds-thread" data-thread-key="2015/02/12/CSS控制文本的长度，超过一行显示省略号/"
-           data-title="CSS控制文本的长度，超过一行显示省略号" data-url="http://yoursite.com/2015/02/12/CSS控制文本的长度，超过一行显示省略号/">
+      <div class="ds-thread" data-thread-key="2015/05/27/1/"
+           data-title="Node之queryString讲解" data-url="http://yoursite.com/2015/05/27/1/">
       </div>
     
   </div>
@@ -520,8 +545,17 @@ text-overflow属性仅是注解，当文本溢出时是否显示">
       
 
       
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap" >
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview">
+            站点概览
+          </li>
+        </ul>
+      
 
-      <section class="site-overview sidebar-panel sidebar-panel-active">
+      <section class="site-overview sidebar-panel">
         <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
           <img class="site-author-image" itemprop="image"
                src="/uploads/avatar.jpg"
@@ -599,6 +633,22 @@ text-overflow属性仅是注解，当文本溢出时是否显示">
 
       </section>
 
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#parse方法"><span class="nav-number">1.</span> <span class="nav-text">parse方法</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#stringify方法"><span class="nav-number">2.</span> <span class="nav-text">stringify方法</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#escape方法"><span class="nav-number">3.</span> <span class="nav-text">escape方法</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#unescape方法"><span class="nav-number">4.</span> <span class="nav-text">unescape方法</span></a></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
       
 
     </div>
