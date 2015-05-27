@@ -71,7 +71,7 @@
 <link href="/css/main.css?v=5.1.0" rel="stylesheet" type="text/css" />
 
 
-  <meta name="keywords" content="manlili blogs" />
+  <meta name="keywords" content="css3,动画," />
 
 
 
@@ -87,26 +87,17 @@
 
 
 
-<meta name="description" content="title: CSS3实现文字淡入的动画tags: 
-- css3
-- 动画
-categories: CSS技术今天有空把css3里面动画研究一下，都是一些简单的东西，但是千里之行始于足下，我虽然走的慢，但是未停下前进的脚步,下来看下我做的“淡入的文字”最终动态效果：上面这个动画效果制作的过程是：（1）先自定义一个透明度从0到1变化的动画，然后在animation中调用这个动画效果（2）注意不同">
+<meta name="description" content="今天有空把css3里面动画研究一下，都是一些简单的东西，但是千里之行始于足下，我虽然走的慢，但是未停下前进的脚步,下来看下我做的“淡入的文字”最终动态效果：上面这个动画效果制作的过程是：（1）先自定义一个透明度从0到1变化的动画，然后在animation中调用这个动画效果（2）注意不同行文字出现的时间先后，这个通过animation中延时属性可以实现（3）规定文字最终动态为动画的最终显示状态，否则">
 <meta property="og:type" content="article">
 <meta property="og:title" content="CSS3实现文字淡入的动画">
 <meta property="og:url" content="http://yoursite.com/2014/10/07/CSS3实现文字淡入的动画/index.html">
 <meta property="og:site_name" content="manlili blog">
-<meta property="og:description" content="title: CSS3实现文字淡入的动画tags: 
-- css3
-- 动画
-categories: CSS技术今天有空把css3里面动画研究一下，都是一些简单的东西，但是千里之行始于足下，我虽然走的慢，但是未停下前进的脚步,下来看下我做的“淡入的文字”最终动态效果：上面这个动画效果制作的过程是：（1）先自定义一个透明度从0到1变化的动画，然后在animation中调用这个动画效果（2）注意不同">
+<meta property="og:description" content="今天有空把css3里面动画研究一下，都是一些简单的东西，但是千里之行始于足下，我虽然走的慢，但是未停下前进的脚步,下来看下我做的“淡入的文字”最终动态效果：上面这个动画效果制作的过程是：（1）先自定义一个透明度从0到1变化的动画，然后在animation中调用这个动画效果（2）注意不同行文字出现的时间先后，这个通过animation中延时属性可以实现（3）规定文字最终动态为动画的最终显示状态，否则">
 <meta property="og:image" content="https://manlili.github.io/img/141007/wordanimate.gif">
-<meta property="og:updated_time" content="2014-10-07T09:52:29.447Z">
+<meta property="og:updated_time" content="2015-05-27T05:33:52.468Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="CSS3实现文字淡入的动画">
-<meta name="twitter:description" content="title: CSS3实现文字淡入的动画tags: 
-- css3
-- 动画
-categories: CSS技术今天有空把css3里面动画研究一下，都是一些简单的东西，但是千里之行始于足下，我虽然走的慢，但是未停下前进的脚步,下来看下我做的“淡入的文字”最终动态效果：上面这个动画效果制作的过程是：（1）先自定义一个透明度从0到1变化的动画，然后在animation中调用这个动画效果（2）注意不同">
+<meta name="twitter:description" content="今天有空把css3里面动画研究一下，都是一些简单的东西，但是千里之行始于足下，我虽然走的慢，但是未停下前进的脚步,下来看下我做的“淡入的文字”最终动态效果：上面这个动画效果制作的过程是：（1）先自定义一个透明度从0到1变化的动画，然后在animation中调用这个动画效果（2）注意不同行文字出现的时间先后，这个通过animation中延时属性可以实现（3）规定文字最终动态为动画的最终显示状态，否则">
 <meta name="twitter:image" content="https://manlili.github.io/img/141007/wordanimate.gif">
 
 
@@ -338,6 +329,28 @@ categories: CSS技术今天有空把css3里面动画研究一下，都是一些�
           </span>
 
           
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/CSS技术/" itemprop="url" rel="index">
+                    <span itemprop="name">CSS技术</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
 
           
             
@@ -384,11 +397,7 @@ categories: CSS技术今天有空把css3里面动画研究一下，都是一些�
       
 
       
-        <hr>
-<p>title: CSS3实现文字淡入的动画<br>tags: </p>
-<pre><code>- css3
-- 动画
-</code></pre><h2 id="categories-CSS技术"><a href="#categories-CSS技术" class="headerlink" title="categories: CSS技术"></a>categories: CSS技术</h2><p>今天有空把css3里面动画研究一下，都是一些简单的东西，但是千里之行始于足下，我虽然走的慢，但是未停下前进的脚步,<br>下来看下我做的“淡入的文字”最终动态效果：<br><img src="https://manlili.github.io/img/141007/wordanimate.gif" alt="文字淡入"><br>上面这个动画效果制作的过程是：<br>（1）先自定义一个透明度从0到1变化的动画，然后在animation中调用这个动画效果<br>（2）注意不同行文字出现的时间先后，这个通过animation中延时属性可以实现<br>（3）规定文字最终动态为动画的最终显示状态，否则文字显示完会自动消失，这个用animation-fill-mode可以实现</p>
+        <p>今天有空把css3里面动画研究一下，都是一些简单的东西，但是千里之行始于足下，我虽然走的慢，但是未停下前进的脚步,<br>下来看下我做的“淡入的文字”最终动态效果：<br><img src="https://manlili.github.io/img/141007/wordanimate.gif" alt="文字淡入"><br>上面这个动画效果制作的过程是：<br>（1）先自定义一个透明度从0到1变化的动画，然后在animation中调用这个动画效果<br>（2）注意不同行文字出现的时间先后，这个通过animation中延时属性可以实现<br>（3）规定文字最终动态为动画的最终显示状态，否则文字显示完会自动消失，这个用animation-fill-mode可以实现</p>
 <h2 id="主体结构"><a href="#主体结构" class="headerlink" title="主体结构"></a>主体结构</h2><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div></pre></td><td class="code"><pre><div class="line">&lt;!DOCTYPE html&gt;</div><div class="line">&lt;html&gt;</div><div class="line">    &lt;head&gt;</div><div class="line">        &lt;meta charset=<span class="string">"utf-8"</span> /&gt;</div><div class="line">        &lt;title&gt;淡入的文字&lt;/title&gt;</div><div class="line">        &lt;link <span class="built_in">type</span>=<span class="string">"text/css"</span> rel=<span class="string">"stylesheet"</span> href=<span class="string">"css/animate.css"</span> /&gt;</div><div class="line">    &lt;/head&gt;</div><div class="line">    &lt;body&gt;</div><div class="line">        &lt;div class=<span class="string">"fade-in-words"</span>&gt;</div><div class="line">            &lt;div class=<span class="string">"first-words"</span>&gt;山一程，水一程，&lt;/div&gt;</div><div class="line">            &lt;div class=<span class="string">"second-words"</span>&gt;身向榆关那畔行，&lt;/div&gt;</div><div class="line">            &lt;div class=<span class="string">"third-words"</span>&gt;夜深千帐灯。&lt;/div&gt;</div><div class="line">            &lt;div class=<span class="string">"four-words"</span>&gt;风一更，雪一更，&lt;/div&gt;</div><div class="line">            &lt;div class=<span class="string">"five-words"</span>&gt;聒碎乡心梦不成，&lt;/div&gt;</div><div class="line">            &lt;div class=<span class="string">"six-words"</span>&gt;故园无此声。&lt;/div&gt;</div><div class="line">        &lt;/div&gt;</div><div class="line">    &lt;/body&gt;</div><div class="line">&lt;/html&gt;</div></pre></td></tr></table></figure>
 <p>由于只是单纯的练习css，暂时不牵扯太多js，文字都是提前布局好的，先来看下知识点</p>
 <h3 id="css3中动画属性"><a href="#css3中动画属性" class="headerlink" title="css3中动画属性"></a>css3中动画属性</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">animation: name duration timing-function delay iteration-count direction;</div></pre></td></tr></table></figure>
@@ -474,6 +483,14 @@ categories: CSS技术今天有空把css3里面动画研究一下，都是一些�
 
 
     <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/css3/" rel="tag"># css3</a>
+          
+            <a href="/tags/动画/" rel="tag"># 动画</a>
+          
+        </div>
       
 
       
@@ -568,7 +585,7 @@ categories: CSS技术今天有空把css3里面动画研究一下，都是一些�
           
             <div class="site-state-item site-state-posts">
               <a href="/archives">
-                <span class="site-state-item-count">37</span>
+                <span class="site-state-item-count">36</span>
                 <span class="site-state-item-name">日志</span>
               </a>
             </div>
@@ -641,7 +658,7 @@ categories: CSS技术今天有空把css3里面动画研究一下，都是一些�
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#categories-CSS技术"><span class="nav-number">1.</span> <span class="nav-text">categories: CSS技术</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#主体结构"><span class="nav-number">2.</span> <span class="nav-text">主体结构</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#css3中动画属性"><span class="nav-number">2.1.</span> <span class="nav-text">css3中动画属性</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#animation-name"><span class="nav-number">2.1.1.</span> <span class="nav-text">animation-name</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#animation-duration"><span class="nav-number">2.1.2.</span> <span class="nav-text">animation-duration</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#animation-timing-function"><span class="nav-number">2.1.3.</span> <span class="nav-text">animation-timing-function</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#animation-delay"><span class="nav-number">2.1.4.</span> <span class="nav-text">animation-delay</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#animation-iteration-count"><span class="nav-number">2.1.5.</span> <span class="nav-text">animation-iteration-count</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#animation-direction"><span class="nav-number">2.1.6.</span> <span class="nav-text">animation-direction</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#animation-fill-mode"><span class="nav-number">2.1.7.</span> <span class="nav-text">animation-fill-mode</span></a></li></ol></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#全部的css"><span class="nav-number">3.</span> <span class="nav-text">全部的css</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#主体结构"><span class="nav-number">1.</span> <span class="nav-text">主体结构</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#css3中动画属性"><span class="nav-number">1.1.</span> <span class="nav-text">css3中动画属性</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#animation-name"><span class="nav-number">1.1.1.</span> <span class="nav-text">animation-name</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#animation-duration"><span class="nav-number">1.1.2.</span> <span class="nav-text">animation-duration</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#animation-timing-function"><span class="nav-number">1.1.3.</span> <span class="nav-text">animation-timing-function</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#animation-delay"><span class="nav-number">1.1.4.</span> <span class="nav-text">animation-delay</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#animation-iteration-count"><span class="nav-number">1.1.5.</span> <span class="nav-text">animation-iteration-count</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#animation-direction"><span class="nav-number">1.1.6.</span> <span class="nav-text">animation-direction</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#animation-fill-mode"><span class="nav-number">1.1.7.</span> <span class="nav-text">animation-fill-mode</span></a></li></ol></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#全部的css"><span class="nav-number">2.</span> <span class="nav-text">全部的css</span></a></li></ol></div>
             
 
           </div>
