@@ -1,0 +1,859 @@
+<!doctype html>
+
+
+
+  
+
+
+<html class="theme-next mist use-motion" lang="zh-Hans">
+<head>
+  <meta charset="UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+  <link href="/lib/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css" />
+
+
+
+
+  
+  
+  
+  
+
+  
+    
+    
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+    
+    
+    <link href="//fonts.googleapis.com/css?family=Lato:300,300italic,400,400italic,700,700italic&subset=latin,latin-ext" rel="stylesheet" type="text/css">
+  
+
+
+
+
+
+
+<link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css" />
+
+<link href="/css/main.css?v=5.1.0" rel="stylesheet" type="text/css" />
+
+
+  <meta name="keywords" content="manlili blogs" />
+
+
+
+
+
+
+
+
+  <link rel="shortcut icon" type="image/x-icon" href="/favicon.ico?v=5.1.0" />
+
+
+
+
+
+
+<meta name="description" content="github地址:[https://github.com/manlili/sass]
+用到的sass语法是:1sass --watch test.scss:test.css --style expanded
+SASS高级语法导入外部文件,缺省文件后缀默认是sass/scss文件,一般在头部声明test.scss内容是:12345678910111213141516171819202122@impo">
+<meta property="og:type" content="article">
+<meta property="og:title" content="SASS高级语法">
+<meta property="og:url" content="http://yoursite.com/2016/03/30/SASS高级语法/index.html">
+<meta property="og:site_name" content="manlili blog">
+<meta property="og:description" content="github地址:[https://github.com/manlili/sass]
+用到的sass语法是:1sass --watch test.scss:test.css --style expanded
+SASS高级语法导入外部文件,缺省文件后缀默认是sass/scss文件,一般在头部声明test.scss内容是:12345678910111213141516171819202122@impo">
+<meta property="og:updated_time" content="2016-03-30T06:19:02.640Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="SASS高级语法">
+<meta name="twitter:description" content="github地址:[https://github.com/manlili/sass]
+用到的sass语法是:1sass --watch test.scss:test.css --style expanded
+SASS高级语法导入外部文件,缺省文件后缀默认是sass/scss文件,一般在头部声明test.scss内容是:12345678910111213141516171819202122@impo">
+
+
+
+<script type="text/javascript" id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Mist',
+    sidebar: {"position":"left","display":"post"},
+    fancybox: true,
+    motion: true,
+    duoshuo: {
+      userId: '0',
+      author: '博主'
+    },
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
+
+
+
+  <link rel="canonical" href="http://yoursite.com/2016/03/30/SASS高级语法/"/>
+
+
+
+
+
+  <title> SASS高级语法 | manlili blog </title>
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
+  
+
+
+
+  <script type="text/javascript">
+    var _hmt = _hmt || [];
+    (function() {
+      var hm = document.createElement("script");
+      hm.src = "https://hm.baidu.com/hm.js?f37e17c195d69bf54199e99faa624b7b　";
+      var s = document.getElementsByTagName("script")[0];
+      s.parentNode.insertBefore(hm, s);
+    })();
+  </script>
+
+
+
+
+
+
+
+
+  
+  
+    
+  
+
+  <div class="container one-collumn sidebar-position-left page-post-detail ">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-meta ">
+  
+
+  <div class="custom-logo-site-title">
+    <a href="/"  class="brand" rel="start">
+      <span class="logo-line-before"><i></i></span>
+      <span class="site-title">manlili blog</span>
+      <span class="logo-line-after"><i></i></span>
+    </a>
+  </div>
+    
+      <p class="site-subtitle">记录技术上的点点心得</p>
+    
+</div>
+
+<div class="site-nav-toggle">
+  <button>
+    <span class="btn-bar"></span>
+    <span class="btn-bar"></span>
+    <span class="btn-bar"></span>
+  </button>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-home"></i> <br />
+            
+            首页
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/archives" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-archive"></i> <br />
+            
+            归档
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-categories">
+          <a href="/categories" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-th"></i> <br />
+            
+            分类
+          </a>
+        </li>
+      
+
+      
+    </ul>
+  
+
+  
+</nav>
+
+
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+  <link itemprop="mainEntityOfPage" href="http://yoursite.com/2016/03/30/SASS高级语法/">
+
+  <span style="display:none" itemprop="author" itemscope itemtype="http://schema.org/Person">
+    <meta itemprop="name" content="满利利">
+    <meta itemprop="description" content="">
+    <meta itemprop="image" content="/uploads/avatar.jpg">
+  </span>
+
+  <span style="display:none" itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+    <meta itemprop="name" content="manlili blog">
+    <span style="display:none" itemprop="logo" itemscope itemtype="http://schema.org/ImageObject">
+      <img style="display:none;" itemprop="url image" alt="manlili blog" src="">
+    </span>
+  </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+            
+            
+              
+                SASS高级语法
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2016-03-30T14:16:40+08:00">
+                2016-03-30
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+
+          
+            
+              <span class="post-comments-count">
+                <span class="post-meta-divider">|</span>
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-comment-o"></i>
+                </span>
+                <a href="/2016/03/30/SASS高级语法/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count ds-thread-count" data-thread-key="2016/03/30/SASS高级语法/" itemprop="commentCount"></span>
+                </a>
+              </span>
+            
+          
+
+          
+
+          
+          
+             <span id="/2016/03/30/SASS高级语法/" class="leancloud_visitors" data-flag-title="SASS高级语法">
+               <span class="post-meta-divider">|</span>
+               <span class="post-meta-item-icon">
+                 <i class="fa fa-eye"></i>
+               </span>
+               
+                 <span class="post-meta-item-text">阅读次数 </span>
+               
+                 <span class="leancloud-visitors-count"></span>
+             </span>
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <p>github地址:[<a href="https://github.com/manlili/sass" target="_blank" rel="external">https://github.com/manlili/sass</a>]</p>
+<p>用到的sass语法是:<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">sass --watch test.scss:test.css --style expanded</div></pre></td></tr></table></figure></p>
+<h2 id="SASS高级语法"><a href="#SASS高级语法" class="headerlink" title="SASS高级语法"></a>SASS高级语法</h2><h3 id="导入外部文件-缺省文件后缀默认是sass-scss文件-一般在头部声明"><a href="#导入外部文件-缺省文件后缀默认是sass-scss文件-一般在头部声明" class="headerlink" title="导入外部文件,缺省文件后缀默认是sass/scss文件,一般在头部声明"></a>导入外部文件,缺省文件后缀默认是sass/scss文件,一般在头部声明</h3><p>test.scss内容是:<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div></pre></td><td class="code"><pre><div class="line">@import <span class="string">"lili.scss"</span>;  //导入一个文件</div><div class="line">@import <span class="string">"lili.scss"</span>, <span class="string">"haha.scss"</span>; //导入两个文件 </div><div class="line">/*但在以下情况下， 仅作为普通的 CSS @import 规则语句，不会导入任何 Sass 文件。</div><div class="line">*(1) 如果文件的扩展名是 .css。</div><div class="line">*(2) 如果文件名以 http:// 开始。</div><div class="line">*(3) 如果文件名是 url()</div><div class="line">*(4)如果@import 中包含任何的媒体查询（media queries)</div><div class="line">*/</div><div class="line">@import <span class="string">"lili.css"</span>;</div><div class="line">@import <span class="string">"http://foo.com/bar"</span>;</div><div class="line">@import url(lili);</div><div class="line">@import <span class="string">"lili"</span> screen;</div><div class="line"></div><div class="line">/*在import里面插入动态变量,但是仅适用于url方式*/</div><div class="line"><span class="variable">$name</span>:family;</div><div class="line">@import url(<span class="string">"http://fonts.googleapis.com/css?family=#&#123;<span class="variable">$name</span>&#125;"</span>);</div><div class="line"></div><div class="line">/*导入scss文件,却不需要将它编译为css文件做法:</div><div class="line"> *(1)新建一个文件夹,为了将不需要编译的文件和需要编译的文件分开,这点千万注意</div><div class="line"> *(2)在已经建好的文件夹里面,将不要编译的*.scss文件命名为_*.scss</div><div class="line"> *(3)导入的时候不要用下划线,直接@import(<span class="string">"新建文件夹名字/*.scss"</span>)</div><div class="line"> */</div></pre></td></tr></table></figure></p>
+<p>其中lili.scss内容是:<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">.test1 &#123;</div><div class="line">    color: black;</div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
+<p>其中haha.scss内容是:<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">.test11 &#123;</div><div class="line">    color: deeppink;</div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
+<p>编译成test.css内容是:<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div></pre></td><td class="code"><pre><div class="line">@import url(lili.css);</div><div class="line">@import <span class="string">"http://foo.com/bar"</span>;</div><div class="line">@import url(lili);</div><div class="line">@import <span class="string">"lili"</span> screen;</div><div class="line">@import url(<span class="string">"http://fonts.googleapis.com/css?family=family"</span>);</div><div class="line">.test1 &#123;</div><div class="line">  color: black;</div><div class="line">&#125;</div><div class="line"></div><div class="line">.test1 &#123;</div><div class="line">  color: black;</div><div class="line">&#125;</div><div class="line"></div><div class="line">.test11 &#123;</div><div class="line">  color: deeppink;</div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
+<h3 id="extend函数-不只继承类名选择器的样式-还继承与它相关的样式-包括继承它的父选择器"><a href="#extend函数-不只继承类名选择器的样式-还继承与它相关的样式-包括继承它的父选择器" class="headerlink" title="extend函数,不只继承类名选择器的样式,还继承与它相关的样式,包括继承它的父选择器"></a>extend函数,不只继承类名选择器的样式,还继承与它相关的样式,包括继承它的父选择器</h3><p>test.scss内容是:<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div></pre></td><td class="code"><pre><div class="line">.test2 &#123;</div><div class="line">  border: 1px <span class="comment">#f00;</span></div><div class="line">  background-color: <span class="comment">#fdd;</span></div><div class="line">&#125;</div><div class="line">.test2.test21 &#123;</div><div class="line">  background-image: url(<span class="string">"/image/hacked.png"</span>);</div><div class="line">&#125;</div><div class="line">.test2 .test22 &#123;</div><div class="line">  background-image: url(<span class="string">"/image/haha.png"</span>);</div><div class="line">&#125;</div><div class="line">html .test2 &#123;</div><div class="line">  width: 100px;</div><div class="line">&#125;</div><div class="line">.lili &#123;</div><div class="line">  @extend .test2;</div><div class="line">  border-width: 3px;</div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
+<p>编译成test.css内容是:<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div></pre></td><td class="code"><pre><div class="line">.test2, .lili &#123;</div><div class="line">  border: 1px <span class="comment">#f00;</span></div><div class="line">  background-color: <span class="comment">#fdd;</span></div><div class="line">&#125;</div><div class="line"> </div><div class="line">.test2.test21, .test21.lili &#123;</div><div class="line">  background-image: url(<span class="string">"/image/hacked.png"</span>);</div><div class="line">&#125;</div><div class="line"> </div><div class="line">.test2 .test22, .lili .test22 &#123;</div><div class="line">  background-image: url(<span class="string">"/image/haha.png"</span>);</div><div class="line">&#125;</div><div class="line"> </div><div class="line">html .test2, html .lili &#123;</div><div class="line">  width: 100px;</div><div class="line">&#125;</div><div class="line"> </div><div class="line">.lili &#123;</div><div class="line">  border-width: 3px;</div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
+<h3 id="extend函数-继承单元素选择器样式-同时继承与它相关的样式-包括继承它的父选择器"><a href="#extend函数-继承单元素选择器样式-同时继承与它相关的样式-包括继承它的父选择器" class="headerlink" title="extend函数,继承单元素选择器样式,同时继承与它相关的样式,包括继承它的父选择器"></a>extend函数,继承单元素选择器样式,同时继承与它相关的样式,包括继承它的父选择器</h3><p>test.scss内容是:<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div></pre></td><td class="code"><pre><div class="line">a:hover &#123;</div><div class="line">    color: green;</div><div class="line">&#125;</div><div class="line">a.class1:hover &#123;</div><div class="line">    height: 10px;</div><div class="line">&#125;</div><div class="line">html a:hover &#123;</div><div class="line">    width: 10px;</div><div class="line">&#125;</div><div class="line">.test3 &#123;</div><div class="line">    @extend a:hover;</div><div class="line">    width: 20px;</div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
+<p>编译成test.css内容是:<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div></pre></td><td class="code"><pre><div class="line">a:hover, .test3 &#123;</div><div class="line">  color: green;</div><div class="line">&#125;</div><div class="line"></div><div class="line">a.class1:hover, .class1.test3 &#123;</div><div class="line">  height: 10px;</div><div class="line">&#125;</div><div class="line"></div><div class="line">html a:hover, html .test3 &#123;</div><div class="line">  width: 10px;</div><div class="line">&#125;</div><div class="line"></div><div class="line">.test3 &#123;</div><div class="line">  width: 20px;</div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
+<h3 id="extend中链式扩展"><a href="#extend中链式扩展" class="headerlink" title="extend中链式扩展"></a>extend中链式扩展</h3><p>test.scss内容是:<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div></pre></td><td class="code"><pre><div class="line">.test4 &#123;</div><div class="line">    width:20px;</div><div class="line">&#125;</div><div class="line">.test41 &#123;</div><div class="line">    @extend .test4;</div><div class="line">    height: 20px;</div><div class="line">&#125;</div><div class="line">.test42 &#123;</div><div class="line">    @extend .test41;</div><div class="line">    top:20px;</div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
+<p>编译成test.css内容是:<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div></pre></td><td class="code"><pre><div class="line">.test4, .test41, .test42 &#123;</div><div class="line">  width: 20px;</div><div class="line">&#125;</div><div class="line"></div><div class="line">.test41, .test42 &#123;</div><div class="line">  height: 20px;</div><div class="line">&#125;</div><div class="line"></div><div class="line">.test42 &#123;</div><div class="line">  top: 20px;</div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
+<h3 id="占位符-不会被编译到css里面"><a href="#占位符-不会被编译到css里面" class="headerlink" title="占位符%,%不会被编译到css里面"></a>占位符%,%不会被编译到css里面</h3><p>test.scss内容是:<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line">.test5 a%name &#123;</div><div class="line">    width: 100px;</div><div class="line">&#125;</div><div class="line">.lili &#123;</div><div class="line">    height: 200%;</div><div class="line">    @extend %name;</div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
+<p>编译成test.css内容是:<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line">.test5 a.lili &#123;</div><div class="line">  width: 100px;</div><div class="line">&#125;</div><div class="line"></div><div class="line">.lili &#123;</div><div class="line">  height: 200%;</div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
+<h3 id="extend中防止继承不存在的样式出错-用-optional直接跳过空样式"><a href="#extend中防止继承不存在的样式出错-用-optional直接跳过空样式" class="headerlink" title="extend中防止继承不存在的样式出错,用!optional直接跳过空样式"></a>extend中防止继承不存在的样式出错,用!optional直接跳过空样式</h3><p>test.scss内容是:<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">.test6 &#123;</div><div class="line">    @extend noexist!optional;</div><div class="line">    height: 100px;</div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
+<p>编译成test.css内容是:<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">.test6 &#123;</div><div class="line">  height: 100px;</div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
+<h3 id="at-root指令导致一个或多个规则被限定输出在文档的根层级上，而不是被嵌套在其父选择器下"><a href="#at-root指令导致一个或多个规则被限定输出在文档的根层级上，而不是被嵌套在其父选择器下" class="headerlink" title="@at-root指令导致一个或多个规则被限定输出在文档的根层级上，而不是被嵌套在其父选择器下"></a>@at-root指令导致一个或多个规则被限定输出在文档的根层级上，而不是被嵌套在其父选择器下</h3><p>test.scss内容是:<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div></pre></td><td class="code"><pre><div class="line">.test7 &#123;</div><div class="line">    height: 20px;</div><div class="line">    @at-root &#123;</div><div class="line">        .children1 &#123;</div><div class="line">            color: red;</div><div class="line">        &#125;</div><div class="line">        .children2 &#123;</div><div class="line">            color: black;</div><div class="line">        &#125;</div><div class="line">    &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
+<p>编译成test.css内容是:<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div></pre></td><td class="code"><pre><div class="line">.test7 &#123;</div><div class="line">  height: 20px;</div><div class="line">&#125;</div><div class="line">.children1 &#123;</div><div class="line">  color: red;</div><div class="line">&#125;</div><div class="line"></div><div class="line">.children2 &#123;</div><div class="line">  color: black;</div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
+<h3 id="at-root-without-类名-将选择器移动到嵌套指令之外"><a href="#at-root-without-类名-将选择器移动到嵌套指令之外" class="headerlink" title="@at-root(without:类名)将选择器移动到嵌套指令之外"></a>@at-root(without:类名)将选择器移动到嵌套指令之外</h3><p>test.scss内容是:<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div></pre></td><td class="code"><pre><div class="line">.gaga &#123;</div><div class="line">    @media name &#123;</div><div class="line">      .page &#123;</div><div class="line">        width: 8px;</div><div class="line">        @at-root (without: media) &#123;  //注意此处目前测试是不支持类名的,比如.test8</div><div class="line">          color: red;</div><div class="line">        &#125;</div><div class="line">      &#125;</div><div class="line">    &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
+<p>编译成test.css内容是:<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div></pre></td><td class="code"><pre><div class="line">@media name &#123;</div><div class="line">  .gaga .page &#123;</div><div class="line">    width: 8px;</div><div class="line">  &#125;</div><div class="line">&#125;</div><div class="line">.gaga .page &#123;</div><div class="line">  color: red;</div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
+<h3 id="if条件判断-注意不支持if…else…"><a href="#if条件判断-注意不支持if…else…" class="headerlink" title="if条件判断,注意不支持if…else…"></a>if条件判断,注意不支持if…else…</h3><p>test.scss内容是:<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div></pre></td><td class="code"><pre><div class="line">.test8 &#123;   //if...if..</div><div class="line">    @<span class="keyword">if</span> 1+1 == 2 &#123;</div><div class="line">        width: 20px;</div><div class="line">    &#125;</div><div class="line">    @<span class="keyword">if</span> 5 &lt; 3 &#123;</div><div class="line">        width: 100px;</div><div class="line">    &#125;</div><div class="line">&#125;</div><div class="line">.test81 &#123;  //if...else if...</div><div class="line">    @<span class="keyword">if</span> 1+1 != 2 &#123;</div><div class="line">        width: 20px;</div><div class="line">    &#125;</div><div class="line">    @<span class="keyword">else</span> <span class="keyword">if</span> 5 &gt; 3 &#123;</div><div class="line">        width: 100px;</div><div class="line">    &#125;</div><div class="line">&#125;</div><div class="line">.test82 &#123;  //if...else if...else...</div><div class="line">    @<span class="keyword">if</span> 1+1 != 2 &#123;</div><div class="line">        width: 20px;</div><div class="line">    &#125;</div><div class="line">    @<span class="keyword">else</span> <span class="keyword">if</span> 5 &lt; 3 &#123; </div><div class="line">        width: 100px;</div><div class="line">    &#125;</div><div class="line">    @<span class="keyword">else</span> &#123;</div><div class="line">        width: 10px;</div><div class="line">    &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
+<p>编译成test.css内容是:<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div></pre></td><td class="code"><pre><div class="line">.test8 &#123;</div><div class="line">  width: 20px;</div><div class="line">&#125;</div><div class="line"></div><div class="line">.test81 &#123;</div><div class="line">  width: 100px;</div><div class="line">&#125;</div><div class="line"></div><div class="line">.test82 &#123;</div><div class="line">  width: 10px;</div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
+<h3 id="for循环语句"><a href="#for循环语句" class="headerlink" title="for循环语句"></a>for循环语句</h3><p>test.scss内容是:<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div></pre></td><td class="code"><pre><div class="line">//第一种格式 @<span class="keyword">for</span> <span class="variable">$var</span> from &lt;start&gt; through &lt;end&gt;,注意范围包括&lt;start&gt;和&lt;end&gt;的值</div><div class="line">@<span class="keyword">for</span> <span class="variable">$i</span> from 1 through 3 &#123;</div><div class="line">    .gray<span class="comment">#&#123;$i*3&#125; &#123;</span></div><div class="line">        color: <span class="comment">#333*$i; </span></div><div class="line">    &#125;</div><div class="line">&#125;</div><div class="line"></div><div class="line">//第二种格式 @<span class="keyword">for</span> <span class="variable">$var</span> from &lt;start&gt; to &lt;end&gt;,注意范围从&lt;start&gt;开始运行，但不包括&lt;end&gt;的值</div><div class="line">@<span class="keyword">for</span> <span class="variable">$i</span> from 1 to 4 &#123;</div><div class="line">    .gray2<span class="comment">#&#123;$i*3&#125; &#123;</span></div><div class="line">        color: <span class="comment">#333*$i; </span></div><div class="line">    &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
+<p>编译成test.css内容是:<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div></pre></td><td class="code"><pre><div class="line">.gray3 &#123;</div><div class="line">  color: <span class="comment">#333333;</span></div><div class="line">&#125;</div><div class="line"></div><div class="line">.gray6 &#123;</div><div class="line">  color: <span class="comment">#666666;</span></div><div class="line">&#125;</div><div class="line"></div><div class="line">.gray9 &#123;</div><div class="line">  color: <span class="comment">#999999;</span></div><div class="line">&#125;</div><div class="line"></div><div class="line">.gray23 &#123;</div><div class="line">  color: <span class="comment">#333333;</span></div><div class="line">&#125;</div><div class="line"></div><div class="line">.gray26 &#123;</div><div class="line">  color: <span class="comment">#666666;</span></div><div class="line">&#125;</div><div class="line"></div><div class="line">.gray29 &#123;</div><div class="line">  color: <span class="comment">#999999;</span></div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
+<h3 id="each循环语句-each-var-in"><a href="#each循环语句-each-var-in" class="headerlink" title="each循环语句  @each $var in "></a>each循环语句  @each $var in <list or="" map=""></list></h3><p>test.scss内容是:<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div></pre></td><td class="code"><pre><div class="line"><span class="variable">$name</span>:<span class="string">"lili"</span>,<span class="string">"yaya"</span>,<span class="string">"sansa"</span>;  //注意数组list的写法</div><div class="line">@each <span class="variable">$i</span> <span class="keyword">in</span> <span class="variable">$name</span> &#123;</div><div class="line">    <span class="built_in">test</span>9.<span class="comment">#&#123;$i&#125; &#123;</span></div><div class="line">        width: 10px;</div><div class="line">    &#125;</div><div class="line">&#125;</div><div class="line"></div><div class="line"><span class="variable">$name2</span>:(name21:<span class="string">"lili"</span>,name22:<span class="string">"yaya"</span>,name23:<span class="string">"sansa"</span>);  //注意对象map的写法</div><div class="line">@each <span class="variable">$i</span> <span class="keyword">in</span> <span class="variable">$name2</span> &#123;</div><div class="line">    <span class="built_in">test</span>9.<span class="comment">#&#123;$i&#125; &#123;</span></div><div class="line">        width: 10px;</div><div class="line">    &#125;</div><div class="line">&#125;</div><div class="line"></div><div class="line"><span class="variable">$name3</span>:(name31:1,name32:2,name33:3);  //注意对象map的写法</div><div class="line">@each <span class="variable">$key</span>,<span class="variable">$value</span> <span class="keyword">in</span> <span class="variable">$name3</span> &#123;</div><div class="line">    <span class="built_in">test</span>9.<span class="comment">#&#123;$key&#125; &#123;</span></div><div class="line">        width: 10px*<span class="variable">$value</span>;</div><div class="line">    &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
+<p>编译成test.css内容是:<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div></pre></td><td class="code"><pre><div class="line"><span class="built_in">test</span>9.lili &#123;</div><div class="line">  width: 10px;</div><div class="line">&#125;</div><div class="line"> </div><div class="line"><span class="built_in">test</span>9.yaya &#123;</div><div class="line">  width: 10px;</div><div class="line">&#125;</div><div class="line"> </div><div class="line"><span class="built_in">test</span>9.sansa &#123;</div><div class="line">  width: 10px;</div><div class="line">&#125;</div><div class="line"> </div><div class="line"><span class="built_in">test</span>9.name21 lili &#123;</div><div class="line">  width: 10px;</div><div class="line">&#125;</div><div class="line"> </div><div class="line"><span class="built_in">test</span>9.name22 yaya &#123;</div><div class="line">  width: 10px;</div><div class="line">&#125;</div><div class="line"> </div><div class="line"><span class="built_in">test</span>9.name23 sansa &#123;</div><div class="line">  width: 10px;</div><div class="line">&#125;</div><div class="line"> </div><div class="line"><span class="built_in">test</span>9.name31 &#123;</div><div class="line">  width: 10px;</div><div class="line">&#125;</div><div class="line"> </div><div class="line"><span class="built_in">test</span>9.name32 &#123;</div><div class="line">  width: 20px;</div><div class="line">&#125;</div><div class="line"> </div><div class="line"><span class="built_in">test</span>9.name33 &#123;</div><div class="line">  width: 30px;</div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
+<h3 id="while循环语句"><a href="#while循环语句" class="headerlink" title="while循环语句"></a>while循环语句</h3><p>test.scss内容是:<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line"><span class="variable">$i</span>:3;</div><div class="line">@<span class="keyword">while</span> <span class="variable">$i</span> &gt; 0 &#123;</div><div class="line">    .gray<span class="comment">#&#123;$i&#125; &#123;</span></div><div class="line">        color: <span class="comment">#333*$i;</span></div><div class="line">    &#125;</div><div class="line">    <span class="variable">$i</span>:<span class="variable">$i</span> - 1; //注意此处不能写成<span class="variable">$i</span>:<span class="variable">$i</span>-1,因为会被当成字符串</div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
+<p>编译成test.css内容是:<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div></pre></td><td class="code"><pre><div class="line">.gray3 &#123;</div><div class="line">  color: <span class="comment">#999999;</span></div><div class="line">&#125;</div><div class="line"> </div><div class="line">.gray2 &#123;</div><div class="line">  color: <span class="comment">#666666;</span></div><div class="line">&#125;</div><div class="line"> </div><div class="line">.gray1 &#123;</div><div class="line">  color: <span class="comment">#333333;</span></div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
+<h3 id="混入指令-实现代码块复用"><a href="#混入指令-实现代码块复用" class="headerlink" title="混入指令,实现代码块复用"></a>混入指令,实现代码块复用</h3><p>test.scss内容是:<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div><div class="line">39</div><div class="line">40</div><div class="line">41</div><div class="line">42</div><div class="line">43</div><div class="line">44</div><div class="line">45</div><div class="line">46</div><div class="line">47</div><div class="line">48</div><div class="line">49</div><div class="line">50</div><div class="line">51</div></pre></td><td class="code"><pre><div class="line">@mixin left01 &#123;  //不带参数</div><div class="line">    <span class="built_in">float</span>: left;</div><div class="line">&#125;</div><div class="line">.test10 &#123;</div><div class="line">    @include left01;</div><div class="line">&#125;</div><div class="line"> </div><div class="line">@mixin left02(<span class="variable">$left</span>) &#123;  //带1个参数</div><div class="line">    <span class="built_in">float</span>: <span class="variable">$left</span>;</div><div class="line">&#125;</div><div class="line">.test101 &#123;</div><div class="line">    @include left02(left);</div><div class="line">&#125;</div><div class="line"> </div><div class="line">@mixin left03(<span class="variable">$left</span>,<span class="variable">$width</span>) &#123;  //带2个参数,或者说参数为数组</div><div class="line">    <span class="built_in">float</span>: <span class="variable">$left</span>;</div><div class="line">    .lili &#123;</div><div class="line">        width: <span class="variable">$width</span>;</div><div class="line">    &#125;</div><div class="line">&#125;</div><div class="line">.test102 &#123;</div><div class="line">    @include left03(left,100px);</div><div class="line">&#125;</div><div class="line"> </div><div class="line">@mixin left04(<span class="variable">$name31</span>,<span class="variable">$name32</span>,<span class="variable">$name33</span>) &#123;  //参数为对象,但是接受传递的参数必须是对象相对应key,同时需要用...传递参数</div><div class="line">    .lili &#123;</div><div class="line">        width: <span class="variable">$name31</span>;</div><div class="line">        height: <span class="variable">$name32</span>;</div><div class="line">        top: <span class="variable">$name33</span>;</div><div class="line">    &#125;</div><div class="line">&#125;</div><div class="line"><span class="variable">$map</span>:(name31:<span class="string">"1px"</span>,name32:<span class="string">"2px"</span>,name33:<span class="string">"3px"</span>);</div><div class="line">.test103 &#123;</div><div class="line">    @include left04(<span class="variable">$map</span>...);</div><div class="line">&#125;</div><div class="line"> </div><div class="line">@mixin left05(<span class="variable">$left</span>:right) &#123;  //带默认参数,不传参的话就用默认参数</div><div class="line">    <span class="built_in">float</span>: <span class="variable">$left</span>;</div><div class="line">&#125;</div><div class="line">.test104 &#123;</div><div class="line">    @include left05;</div><div class="line">&#125;</div><div class="line"> </div><div class="line">@mixin box-shadow(<span class="variable">$shadows</span>...) &#123;  //不定参数,用...</div><div class="line">      -moz-box-shadow: <span class="variable">$shadows</span>;</div><div class="line">      -webkit-box-shadow: <span class="variable">$shadows</span>;</div><div class="line">      box-shadow: <span class="variable">$shadows</span>;</div><div class="line">&#125;</div><div class="line">.shadows &#123;</div><div class="line">  @include box-shadow(0px 4px 5px <span class="comment">#666, 2px 6px 10px #999);</span></div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
+<p>编译成test.css内容是:<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div></pre></td><td class="code"><pre><div class="line">.test10 &#123;</div><div class="line">  <span class="built_in">float</span>: left;</div><div class="line">&#125;</div><div class="line"> </div><div class="line">.test101 &#123;</div><div class="line">  <span class="built_in">float</span>: left;</div><div class="line">&#125;</div><div class="line"> </div><div class="line">.test102 &#123;</div><div class="line">  <span class="built_in">float</span>: left;</div><div class="line">&#125;</div><div class="line">.test102 .lili &#123;</div><div class="line">  width: 100px;</div><div class="line">&#125;</div><div class="line"> </div><div class="line">.test103 .lili &#123;</div><div class="line">  width: <span class="string">"1px"</span>;</div><div class="line">  height: <span class="string">"2px"</span>;</div><div class="line">  top: <span class="string">"3px"</span>;</div><div class="line">&#125;</div><div class="line"> </div><div class="line">.test104 &#123;</div><div class="line">  <span class="built_in">float</span>: right;</div><div class="line">&#125;</div><div class="line"> </div><div class="line">.shadows &#123;</div><div class="line">  -moz-box-shadow: 0px 4px 5px <span class="comment">#666, 2px 6px 10px #999;</span></div><div class="line">  -webkit-box-shadow: 0px 4px 5px <span class="comment">#666, 2px 6px 10px #999;</span></div><div class="line">  box-shadow: 0px 4px 5px <span class="comment">#666, 2px 6px 10px #999;</span></div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
+<h3 id="传递内容块-content到混入-传递到-content位置"><a href="#传递内容块-content到混入-传递到-content位置" class="headerlink" title="传递内容块@content到混入,传递到@content位置"></a>传递内容块@content到混入,传递到@content位置</h3><p>test.scss内容是:<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div></pre></td><td class="code"><pre><div class="line">@mixin lala &#123;</div><div class="line">    html &#123;</div><div class="line">        color: <span class="comment">#888;</span></div><div class="line">        @content;</div><div class="line">    &#125;</div><div class="line">&#125;</div><div class="line">@include lala &#123;  //此处名字必须和上面保持一致</div><div class="line">    .logo &#123;</div><div class="line">        font-size: 15px;</div><div class="line">    &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
+<p>编译成test.css内容是:<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line">html &#123;</div><div class="line">  color: <span class="comment">#888;</span></div><div class="line">&#125;</div><div class="line">html .logo &#123;</div><div class="line">  font-size: 15px;</div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
+<h3 id="变量在混入-mixin的作用域"><a href="#变量在混入-mixin的作用域" class="headerlink" title="变量在混入@mixin的作用域"></a>变量在混入@mixin的作用域</h3><p>即传递给混入（mixin）的内容块在其被定义的作用域中进行运算，而不是混入（mixin）的作用域。这意味着混入（mixin）的局部变量不能传递给样式块使用<br>test.scss内容是:<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div></pre></td><td class="code"><pre><div class="line"><span class="variable">$color</span>: white;</div><div class="line">@mixin haha(<span class="variable">$color</span>:black) &#123;</div><div class="line">    background-color: <span class="variable">$color</span>;</div><div class="line">    @content;</div><div class="line">&#125;</div><div class="line">.test12 &#123;</div><div class="line">    @include haha&#123;</div><div class="line">        color: <span class="variable">$color</span>;</div><div class="line">    &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
+<p>编译成test.css内容是:<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">.test12 &#123;</div><div class="line">  background-color: black;</div><div class="line">  color: white;</div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
+<h3 id="函数-用法类似-mixin"><a href="#函数-用法类似-mixin" class="headerlink" title="函数,用法类似@mixin"></a>函数,用法类似@mixin</h3><p>test.scss内容是:<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line">@<span class="keyword">function</span> sasa(<span class="variable">$name</span>) &#123;</div><div class="line">    @<span class="built_in">return</span> <span class="variable">$name</span>;</div><div class="line">&#125;</div><div class="line">.test13 &#123;</div><div class="line">    font-size: sasa(15px);</div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
+<p>编译成test.css内容是:<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">.test13 &#123;</div><div class="line">  font-size: 15px;</div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
+
+      
+    </div>
+
+    <div>
+      
+        
+
+      
+    </div>
+
+    <div>
+      
+        
+  <div style="padding: 10px 0; margin: 20px auto; width: 90%; text-align: center;">
+    <div>打赏我的人运气不会太差哦！</div>
+    <button id="rewardButton" disable="enable" onclick="var qr = document.getElementById('QR'); if (qr.style.display === 'none') {qr.style.display='block';} else {qr.style.display='none'}">
+      <span>赏</span>
+    </button>
+    <div id="QR" style="display: none;">
+      
+        <div id="wechat" style="display: inline-block">
+          <img id="wechat_qr" src="/pay/wetcharpay.png" alt="满利利 WeChat Pay"/>
+          <p>微信打赏</p>
+        </div>
+      
+      
+        <div id="alipay" style="display: inline-block">
+          <img id="alipay_qr" src="/pay/Alipay.jpg" alt="满利利 Alipay"/>
+          <p>支付宝打赏</p>
+        </div>
+      
+    </div>
+  </div>
+
+
+      
+    </div>
+
+
+    <footer class="post-footer">
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2016/03/27/SASS中级语法/" rel="next" title="SASS中级语法">
+                <i class="fa fa-chevron-left"></i> SASS中级语法
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2016/03/31/chrome-调试-SASS/" rel="prev" title="chrome 调试 SASS">
+                chrome 调试 SASS <i class="fa fa-chevron-right"></i>
+              </a>
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </article>
+
+
+
+    <div class="post-spread">
+      
+    </div>
+  </div>
+
+          
+          </div>
+          
+
+
+          
+  <div class="comments" id="comments">
+    
+      <div class="ds-thread" data-thread-key="2016/03/30/SASS高级语法/"
+           data-title="SASS高级语法" data-url="http://yoursite.com/2016/03/30/SASS高级语法/">
+      </div>
+    
+  </div>
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap" >
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview">
+            站点概览
+          </li>
+        </ul>
+      
+
+      <section class="site-overview sidebar-panel">
+        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+          <img class="site-author-image" itemprop="image"
+               src="/uploads/avatar.jpg"
+               alt="满利利" />
+          <p class="site-author-name" itemprop="name">满利利</p>
+          <p class="site-description motion-element" itemprop="description">前端开发/走向全栈/幽默有趣</p>
+        </div>
+        <nav class="site-state motion-element">
+        
+          
+            <div class="site-state-item site-state-posts">
+              <a href="/archives">
+                <span class="site-state-item-count">50</span>
+                <span class="site-state-item-name">日志</span>
+              </a>
+            </div>
+          
+
+          
+            <div class="site-state-item site-state-categories">
+              <a href="/categories">
+                <span class="site-state-item-count">8</span>
+                <span class="site-state-item-name">分类</span>
+              </a>
+            </div>
+          
+
+          
+            <div class="site-state-item site-state-tags">
+              
+                <span class="site-state-item-count">57</span>
+                <span class="site-state-item-name">标签</span>
+              
+            </div>
+          
+
+        </nav>
+
+        
+
+        <div class="links-of-author motion-element">
+          
+            
+              <span class="links-of-author-item">
+                <a href="" target="_blank" title="644166434">
+                  
+                    <i class="fa fa-fw fa-qq"></i>
+                  
+                  644166434
+                </a>
+              </span>
+            
+              <span class="links-of-author-item">
+                <a href="https://github.com/manlili" target="_blank" title="GitHub">
+                  
+                    <i class="fa fa-fw fa-github"></i>
+                  
+                  GitHub
+                </a>
+              </span>
+            
+          
+        </div>
+
+        
+        
+
+        
+        
+
+        <div class="trunk"><div><div><div><div><div><div><div><div></div><div></div></div><div><div></div><div></div></div></div><div><div><div></div><div></div></div><div><div></div><div></div></div></div></div><div><div><div><div></div><div></div></div><div><div></div><div></div></div></div><div><div><div></div><div></div></div><div><div></div><div></div></div></div></div></div><div><div><div><div><div></div><div></div></div><div><div></div><div></div></div></div><div><div><div></div><div></div></div><div><div></div><div></div></div></div></div><div><div><div><div></div><div></div></div><div><div></div><div></div></div></div><div><div><div></div><div></div></div><div><div></div><div></div></div></div></div></div></div><div><div><div><div><div><div></div><div></div></div><div><div></div><div></div></div></div><div><div><div></div><div></div></div><div><div></div><div></div></div></div></div><div><div><div><div></div><div></div></div><div><div></div><div></div></div></div><div><div><div></div><div></div></div><div><div></div><div></div></div></div></div></div><div><div><div><div><div></div><div></div></div><div><div></div><div></div></div></div><div><div><div></div><div></div></div><div><div></div><div></div></div></div></div><div><div><div><div></div><div></div></div><div><div></div><div></div></div></div><div><div><div></div><div></div></div><div><div></div><div></div></div></div></div></div></div></div><div><div><div><div><div><div><div></div><div></div></div><div><div></div><div></div></div></div><div><div><div></div><div></div></div><div><div></div><div></div></div></div></div><div><div><div><div></div><div></div></div><div><div></div><div></div></div></div><div><div><div></div><div></div></div><div><div></div><div></div></div></div></div></div><div><div><div><div><div></div><div></div></div><div><div></div><div></div></div></div><div><div><div></div><div></div></div><div><div></div><div></div></div></div></div><div><div><div><div></div><div></div></div><div><div></div><div></div></div></div><div><div><div></div><div></div></div><div><div></div><div></div></div></div></div></div></div><div><div><div><div><div><div></div><div></div></div><div><div></div><div></div></div></div><div><div><div></div><div></div></div><div><div></div><div></div></div></div></div><div><div><div><div></div><div></div></div><div><div></div><div></div></div></div><div><div><div></div><div></div></div><div><div></div><div></div></div></div></div></div><div><div><div><div><div></div><div></div></div><div><div></div><div></div></div></div><div><div><div></div><div></div></div><div><div></div><div></div></div></div></div><div><div><div><div></div><div></div></div><div><div></div><div></div></div></div><div><div><div></div><div></div></div><div><div></div><div></div></div></div></div></div></div></div></div><div><div><div><div><div><div><div><div></div><div></div></div><div><div></div><div></div></div></div><div><div><div></div><div></div></div><div><div></div><div></div></div></div></div><div><div><div><div></div><div></div></div><div><div></div><div></div></div></div><div><div><div></div><div></div></div><div><div></div><div></div></div></div></div></div><div><div><div><div><div></div><div></div></div><div><div></div><div></div></div></div><div><div><div></div><div></div></div><div><div></div><div></div></div></div></div><div><div><div><div></div><div></div></div><div><div></div><div></div></div></div><div><div><div></div><div></div></div><div><div></div><div></div></div></div></div></div></div><div><div><div><div><div><div></div><div></div></div><div><div></div><div></div></div></div><div><div><div></div><div></div></div><div><div></div><div></div></div></div></div><div><div><div><div></div><div></div></div><div><div></div><div></div></div></div><div><div><div></div><div></div></div><div><div></div><div></div></div></div></div></div><div><div><div><div><div></div><div></div></div><div><div></div><div></div></div></div><div><div><div></div><div></div></div><div><div></div><div></div></div></div></div><div><div><div><div></div><div></div></div><div><div></div><div></div></div></div><div><div><div></div><div></div></div><div><div></div><div></div></div></div></div></div></div></div><div><div><div><div><div><div><div></div><div></div></div><div><div></div><div></div></div></div><div><div><div></div><div></div></div><div><div></div><div></div></div></div></div><div><div><div><div></div><div></div></div><div><div></div><div></div></div></div><div><div><div></div><div></div></div><div><div></div><div></div></div></div></div></div><div><div><div><div><div></div><div></div></div><div><div></div><div></div></div></div><div><div><div></div><div></div></div><div><div></div><div></div></div></div></div><div><div><div><div></div><div></div></div><div><div></div><div></div></div></div><div><div><div></div><div></div></div><div><div></div><div></div></div></div></div></div></div><div><div><div><div><div><div></div><div></div></div><div><div></div><div></div></div></div><div><div><div></div><div></div></div><div><div></div><div></div></div></div></div><div><div><div><div></div><div></div></div><div><div></div><div></div></div></div><div><div><div></div><div></div></div><div><div></div><div></div></div></div></div></div><div><div><div><div><div></div><div></div></div><div><div></div><div></div></div></div><div><div><div></div><div></div></div><div><div></div><div></div></div></div></div><div><div><div><div></div><div></div></div><div><div></div><div></div></div></div><div><div><div></div><div></div></div><div><div></div><div></div></div></div></div></div></div></div></div></div>
+
+
+      </section>
+
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#SASS高级语法"><span class="nav-number">1.</span> <span class="nav-text">SASS高级语法</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#导入外部文件-缺省文件后缀默认是sass-scss文件-一般在头部声明"><span class="nav-number">1.1.</span> <span class="nav-text">导入外部文件,缺省文件后缀默认是sass/scss文件,一般在头部声明</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#extend函数-不只继承类名选择器的样式-还继承与它相关的样式-包括继承它的父选择器"><span class="nav-number">1.2.</span> <span class="nav-text">extend函数,不只继承类名选择器的样式,还继承与它相关的样式,包括继承它的父选择器</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#extend函数-继承单元素选择器样式-同时继承与它相关的样式-包括继承它的父选择器"><span class="nav-number">1.3.</span> <span class="nav-text">extend函数,继承单元素选择器样式,同时继承与它相关的样式,包括继承它的父选择器</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#extend中链式扩展"><span class="nav-number">1.4.</span> <span class="nav-text">extend中链式扩展</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#占位符-不会被编译到css里面"><span class="nav-number">1.5.</span> <span class="nav-text">占位符%,%不会被编译到css里面</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#extend中防止继承不存在的样式出错-用-optional直接跳过空样式"><span class="nav-number">1.6.</span> <span class="nav-text">extend中防止继承不存在的样式出错,用!optional直接跳过空样式</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#at-root指令导致一个或多个规则被限定输出在文档的根层级上，而不是被嵌套在其父选择器下"><span class="nav-number">1.7.</span> <span class="nav-text">@at-root指令导致一个或多个规则被限定输出在文档的根层级上，而不是被嵌套在其父选择器下</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#at-root-without-类名-将选择器移动到嵌套指令之外"><span class="nav-number">1.8.</span> <span class="nav-text">@at-root(without:类名)将选择器移动到嵌套指令之外</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#if条件判断-注意不支持if…else…"><span class="nav-number">1.9.</span> <span class="nav-text">if条件判断,注意不支持if…else…</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#for循环语句"><span class="nav-number">1.10.</span> <span class="nav-text">for循环语句</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#each循环语句-each-var-in"><span class="nav-number">1.11.</span> <span class="nav-text">each循环语句  @each $var in </span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#while循环语句"><span class="nav-number">1.12.</span> <span class="nav-text">while循环语句</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#混入指令-实现代码块复用"><span class="nav-number">1.13.</span> <span class="nav-text">混入指令,实现代码块复用</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#传递内容块-content到混入-传递到-content位置"><span class="nav-number">1.14.</span> <span class="nav-text">传递内容块@content到混入,传递到@content位置</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#变量在混入-mixin的作用域"><span class="nav-number">1.15.</span> <span class="nav-text">变量在混入@mixin的作用域</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#函数-用法类似-mixin"><span class="nav-number">1.16.</span> <span class="nav-text">函数,用法类似@mixin</span></a></li></ol></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright" >
+  
+  &copy; 
+  <span itemprop="copyrightYear">2016</span>
+  <span class="with-love">
+    <i class="fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">满利利</span>
+</div>
+
+
+
+        
+
+        
+      </div>
+    </footer>
+
+    <div class="back-to-top">
+      <i class="fa fa-arrow-up"></i>
+    </div>
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+  
+  <script type="text/javascript" src="/lib/jquery/index.js?v=2.1.3"></script>
+
+  
+  <script type="text/javascript" src="/lib/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+
+  
+  <script type="text/javascript" src="/lib/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+
+  
+  <script type="text/javascript" src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+
+  
+  <script type="text/javascript" src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+
+  
+  <script type="text/javascript" src="/lib/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=5.1.0"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=5.1.0"></script>
+
+
+
+  
+  
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.0"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.1.0"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.1.0"></script>
+
+
+
+  
+
+  
+    
+  
+
+  <script type="text/javascript">
+    var duoshuoQuery = {short_name:"manlili"};
+    (function() {
+      var ds = document.createElement('script');
+      ds.type = 'text/javascript';ds.async = true;
+      ds.id = 'duoshuo-script';
+      ds.src = (document.location.protocol == 'https:' ? 'https:' : 'http:') + '//static.duoshuo.com/embed.js';
+      ds.charset = 'UTF-8';
+      (document.getElementsByTagName('head')[0]
+      || document.getElementsByTagName('body')[0]).appendChild(ds);
+    })();
+  </script>
+
+  
+    
+    
+    <script src="/lib/ua-parser-js/dist/ua-parser.min.js?v=0.7.9"></script>
+    <script src="/js/src/hook-duoshuo.js"></script>
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+
+  
+
+  
+
+  
+  <script src="https://cdn1.lncld.net/static/js/av-core-mini-0.6.1.js"></script>
+  <script>AV.initialize("Y2iTQ8Fc2RRvW4mqBqzfOdSX-gzGzoHsz", "gHlHLDuIiCTTcE93RMzpOYxY");</script>
+  <script>
+    function showTime(Counter) {
+      var query = new AV.Query(Counter);
+      var entries = [];
+      var $visitors = $(".leancloud_visitors");
+
+      $visitors.each(function () {
+        entries.push( $(this).attr("id").trim() );
+      });
+
+      query.containedIn('url', entries);
+      query.find()
+        .done(function (results) {
+          var COUNT_CONTAINER_REF = '.leancloud-visitors-count';
+
+          if (results.length === 0) {
+            $visitors.find(COUNT_CONTAINER_REF).text(0);
+            return;
+          }
+
+          for (var i = 0; i < results.length; i++) {
+            var item = results[i];
+            var url = item.get('url');
+            var time = item.get('time');
+            var element = document.getElementById(url);
+
+            $(element).find(COUNT_CONTAINER_REF).text(time);
+          }
+          for(var i = 0; i < entries.length; i++) {
+            var url = entries[i];
+            var element = document.getElementById(url);
+            var countSpan = $(element).find(COUNT_CONTAINER_REF);
+            if( countSpan.text() == '') {
+              countSpan.text(0);
+            }
+          }
+        })
+        .fail(function (object, error) {
+          console.log("Error: " + error.code + " " + error.message);
+        });
+    }
+
+    function addCount(Counter) {
+      var $visitors = $(".leancloud_visitors");
+      var url = $visitors.attr('id').trim();
+      var title = $visitors.attr('data-flag-title').trim();
+      var query = new AV.Query(Counter);
+
+      query.equalTo("url", url);
+      query.find({
+        success: function(results) {
+          if (results.length > 0) {
+            var counter = results[0];
+            counter.fetchWhenSave(true);
+            counter.increment("time");
+            counter.save(null, {
+              success: function(counter) {
+                var $element = $(document.getElementById(url));
+                $element.find('.leancloud-visitors-count').text(counter.get('time'));
+              },
+              error: function(counter, error) {
+                console.log('Failed to save Visitor num, with error message: ' + error.message);
+              }
+            });
+          } else {
+            var newcounter = new Counter();
+            /* Set ACL */
+            var acl = new AV.ACL();
+            acl.setPublicReadAccess(true);
+            acl.setPublicWriteAccess(true);
+            newcounter.setACL(acl);
+            /* End Set ACL */
+            newcounter.set("title", title);
+            newcounter.set("url", url);
+            newcounter.set("time", 1);
+            newcounter.save(null, {
+              success: function(newcounter) {
+                var $element = $(document.getElementById(url));
+                $element.find('.leancloud-visitors-count').text(newcounter.get('time'));
+              },
+              error: function(newcounter, error) {
+                console.log('Failed to create');
+              }
+            });
+          }
+        },
+        error: function(error) {
+          console.log('Error:' + error.code + " " + error.message);
+        }
+      });
+    }
+
+    $(function() {
+      var Counter = AV.Object.extend("Counter");
+      if ($('.leancloud_visitors').length == 1) {
+        addCount(Counter);
+      } else if ($('.post-title-link').length > 1) {
+        showTime(Counter);
+      }
+    });
+  </script>
+
+
+
+  
+
+  
+
+
+</body>
+</html>
