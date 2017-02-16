@@ -1,0 +1,915 @@
+<!doctype html>
+
+
+
+  
+
+
+<html class="theme-next mist use-motion" lang="zh-Hans">
+<head>
+  <meta charset="UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+  <link href="/lib/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css" />
+
+
+
+
+  
+  
+  
+  
+
+  
+    
+    
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+    
+    
+    <link href="//fonts.googleapis.com/css?family=Lato:300,300italic,400,400italic,700,700italic&subset=latin,latin-ext" rel="stylesheet" type="text/css">
+  
+
+
+
+
+
+
+<link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css" />
+
+<link href="/css/main.css?v=5.1.0" rel="stylesheet" type="text/css" />
+
+
+  <meta name="keywords" content="juery,轮播图," />
+
+
+
+
+
+
+
+
+  <link rel="shortcut icon" type="image/x-icon" href="/favicon.ico?v=5.1.0" />
+
+
+
+
+
+
+<meta name="description" content="写了一个轮播图练练手，先写了一个手动点击轮播的轮播图，随后我会慢慢接着深入写自动轮播图和鼠标悬浮图片停止移动轮播图等,不能找借口放松自己，原地踏步也算后退.下面来看看最终做的手动点击轮播效果：
+原理说明（1）首先是轮播图的架构，我采用了一个最外边的大div包住两个小div，一个小div里面放四张图片，另一个小div里面放四个数字按钮（2）对最外边的大div设置的宽度为图片的宽度，超出大div宽度的">
+<meta property="og:type" content="article">
+<meta property="og:title" content="jquery实现图片轮播">
+<meta property="og:url" content="http://yoursite.com/2014/11/23/jquery实现图片轮播/index.html">
+<meta property="og:site_name" content="manlili blog">
+<meta property="og:description" content="写了一个轮播图练练手，先写了一个手动点击轮播的轮播图，随后我会慢慢接着深入写自动轮播图和鼠标悬浮图片停止移动轮播图等,不能找借口放松自己，原地踏步也算后退.下面来看看最终做的手动点击轮播效果：
+原理说明（1）首先是轮播图的架构，我采用了一个最外边的大div包住两个小div，一个小div里面放四张图片，另一个小div里面放四个数字按钮（2）对最外边的大div设置的宽度为图片的宽度，超出大div宽度的">
+<meta property="og:image" content="https://manlili.github.io/img/141123/carousel.gif">
+<meta property="og:image" content="https://manlili.github.io/img/141123/carousel.jpg">
+<meta property="og:image" content="https://manlili.github.io/img/141123/carousel02.gif">
+<meta property="og:image" content="https://manlili.github.io/img/141123/carousel03.gif">
+<meta property="og:updated_time" content="2014-11-23T09:57:42.991Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="jquery实现图片轮播">
+<meta name="twitter:description" content="写了一个轮播图练练手，先写了一个手动点击轮播的轮播图，随后我会慢慢接着深入写自动轮播图和鼠标悬浮图片停止移动轮播图等,不能找借口放松自己，原地踏步也算后退.下面来看看最终做的手动点击轮播效果：
+原理说明（1）首先是轮播图的架构，我采用了一个最外边的大div包住两个小div，一个小div里面放四张图片，另一个小div里面放四个数字按钮（2）对最外边的大div设置的宽度为图片的宽度，超出大div宽度的">
+<meta name="twitter:image" content="https://manlili.github.io/img/141123/carousel.gif">
+
+
+
+<script type="text/javascript" id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Mist',
+    sidebar: {"position":"left","display":"post"},
+    fancybox: true,
+    motion: true,
+    duoshuo: {
+      userId: '0',
+      author: '博主'
+    },
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
+
+
+
+  <link rel="canonical" href="http://yoursite.com/2014/11/23/jquery实现图片轮播/"/>
+
+
+
+
+
+  <title> jquery实现图片轮播 | manlili blog </title>
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
+
+  
+
+
+
+
+
+  <script type="text/javascript">
+    var _hmt = _hmt || [];
+    (function() {
+      var hm = document.createElement("script");
+      hm.src = "https://hm.baidu.com/hm.js?f37e17c195d69bf54199e99faa624b7b　";
+      var s = document.getElementsByTagName("script")[0];
+      s.parentNode.insertBefore(hm, s);
+    })();
+  </script>
+
+
+
+
+
+
+
+
+
+
+  
+  
+    
+  
+
+  <div class="container one-collumn sidebar-position-left page-post-detail ">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-meta ">
+  
+
+  <div class="custom-logo-site-title">
+    <a href="/"  class="brand" rel="start">
+      <span class="logo-line-before"><i></i></span>
+      <span class="site-title">manlili blog</span>
+      <span class="logo-line-after"><i></i></span>
+    </a>
+  </div>
+    
+      <p class="site-subtitle">记录技术上的点点心得</p>
+    
+</div>
+
+<div class="site-nav-toggle">
+  <button>
+    <span class="btn-bar"></span>
+    <span class="btn-bar"></span>
+    <span class="btn-bar"></span>
+  </button>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-home"></i> <br />
+            
+            首页
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/archives" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-archive"></i> <br />
+            
+            归档
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-categories">
+          <a href="/categories" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-th"></i> <br />
+            
+            分类
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-about">
+          <a href="/about" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-user"></i> <br />
+            
+            关于
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-commonweal">
+          <a href="/404.html" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-heartbeat"></i> <br />
+            
+            公益404
+          </a>
+        </li>
+      
+
+      
+    </ul>
+  
+
+  
+</nav>
+
+
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+  <link itemprop="mainEntityOfPage" href="http://yoursite.com/2014/11/23/jquery实现图片轮播/">
+
+  <span style="display:none" itemprop="author" itemscope itemtype="http://schema.org/Person">
+    <meta itemprop="name" content="满利利">
+    <meta itemprop="description" content="">
+    <meta itemprop="image" content="/uploads/avatar.jpg">
+  </span>
+
+  <span style="display:none" itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+    <meta itemprop="name" content="manlili blog">
+    <span style="display:none" itemprop="logo" itemscope itemtype="http://schema.org/ImageObject">
+      <img style="display:none;" itemprop="url image" alt="manlili blog" src="">
+    </span>
+  </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+            
+            
+              
+                jquery实现图片轮播
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2014-11-23T17:57:29+08:00">
+                2014-11-23
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/js技术/" itemprop="url" rel="index">
+                    <span itemprop="name">js技术</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+              <span class="post-comments-count">
+                <span class="post-meta-divider">|</span>
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-comment-o"></i>
+                </span>
+                <a href="/2014/11/23/jquery实现图片轮播/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count ds-thread-count" data-thread-key="2014/11/23/jquery实现图片轮播/" itemprop="commentCount"></span>
+                </a>
+              </span>
+            
+          
+
+          
+          
+             <span id="/2014/11/23/jquery实现图片轮播/" class="leancloud_visitors" data-flag-title="jquery实现图片轮播">
+               <span class="post-meta-divider">|</span>
+               <span class="post-meta-item-icon">
+                 <i class="fa fa-eye"></i>
+               </span>
+               
+                 <span class="post-meta-item-text">阅读次数 </span>
+               
+                 <span class="leancloud-visitors-count"></span>
+             </span>
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <p>写了一个轮播图练练手，先写了一个手动点击轮播的轮播图，随后我会慢慢接着深入写自动轮播图和鼠标悬浮图片停止移动轮播图等,不能找借口放松自己，原地踏步也算后退.<br>下面来看看最终做的手动点击轮播效果：<br><img src="https://manlili.github.io/img/141123/carousel.gif" alt="图片轮播"></p>
+<h2 id="原理说明"><a href="#原理说明" class="headerlink" title="原理说明"></a>原理说明</h2><p>（1）首先是轮播图的架构，我采用了一个最外边的大div包住两个小div，一个小div里面放四张图片，另一个小div里面放四个数字按钮<br>（2）对最外边的大div设置的宽度为图片的宽度，超出大div宽度的都需要隐藏，但是对于盛放图片的小div设置宽度为2000px，大一点方便四张图左浮动布局<br>（3）当数字按钮点击时，获取按钮的索引值，这样就可以知道每张图片左移多少宽度</p>
+<p>好吧，我觉得纯文字说明有点淡淡的忧伤，估计你们也不好理解，我闲的无聊就做了一张搞笑的原理说明图，我要放大招了~~~~<br><img src="https://manlili.github.io/img/141123/carousel.jpg" alt="图片轮播"></p>
+<h2 id="主体程序"><a href="#主体程序" class="headerlink" title="主体程序"></a>主体程序</h2><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div></pre></td><td class="code"><pre><div class="line">&lt;!DOCTYPE html&gt;</div><div class="line">&lt;html&gt;</div><div class="line">    &lt;head&gt;</div><div class="line">        &lt;meta charset=<span class="string">"utf-8"</span> /&gt;</div><div class="line">        &lt;title&gt;轮播图①（手动点击轮播）&lt;/title&gt;</div><div class="line">        &lt;link <span class="built_in">type</span>=<span class="string">"text/css"</span> rel=<span class="string">"stylesheet"</span> href=<span class="string">"css/layout.css"</span>  /&gt;</div><div class="line">    &lt;/head&gt;</div><div class="line">    &lt;body&gt;</div><div class="line">        &lt;div class=<span class="string">"slideShow"</span>&gt;</div><div class="line">            &lt;!--图片布局开始--&gt;</div><div class="line">            &lt;ul&gt;</div><div class="line">                &lt;li&gt;&lt;a href=<span class="string">"#"</span>&gt;&lt;img src=<span class="string">"img/picture01.jpg"</span> /&gt;&lt;/a&gt;&lt;/li&gt;</div><div class="line">                &lt;li&gt;&lt;a href=<span class="string">"#"</span>&gt;&lt;img src=<span class="string">"img/picture02.jpg"</span> /&gt;&lt;/a&gt;&lt;/li&gt;</div><div class="line">                &lt;li&gt;&lt;a href=<span class="string">"#"</span>&gt;&lt;img src=<span class="string">"img/picture03.jpg"</span> /&gt;&lt;/a&gt;&lt;/li&gt;</div><div class="line">                &lt;li&gt;&lt;a href=<span class="string">"#"</span>&gt;&lt;img src=<span class="string">"img/picture04.jpg"</span> /&gt;&lt;/a&gt;&lt;/li&gt;</div><div class="line">            &lt;/ul&gt;</div><div class="line">            &lt;!--图片布局结束--&gt;</div><div class="line">            </div><div class="line">            &lt;!--按钮布局开始--&gt;</div><div class="line">            &lt;div class=<span class="string">"showNav"</span>&gt;</div><div class="line">                &lt;span class=<span class="string">"active"</span>&gt;1&lt;/span&gt;</div><div class="line">                &lt;span&gt;2&lt;/span&gt;</div><div class="line">                &lt;span&gt;3&lt;/span&gt;</div><div class="line">                &lt;span&gt;4&lt;/span&gt;</div><div class="line">            &lt;/div&gt;</div><div class="line">            &lt;!--按钮布局结束--&gt;</div><div class="line">        &lt;/div&gt;</div><div class="line">        &lt;script src=<span class="string">"js/jquery-1.11.3.js"</span>&gt;&lt;/script&gt;</div><div class="line">        &lt;script src=<span class="string">"js/layout.js"</span>&gt;&lt;/script&gt;</div><div class="line">    &lt;/body&gt;</div><div class="line">&lt;/html&gt;</div></pre></td></tr></table></figure>
+<p>上面布局我已经在原理中说明了，感兴趣的自己看原理.</p>
+<h2 id="css样式"><a href="#css样式" class="headerlink" title="css样式"></a>css样式</h2><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div><div class="line">39</div><div class="line">40</div><div class="line">41</div><div class="line">42</div><div class="line">43</div><div class="line">44</div></pre></td><td class="code"><pre><div class="line">*&#123;</div><div class="line">    margin: 0;</div><div class="line">    padding: 0;</div><div class="line">&#125;</div><div class="line">ul&#123;</div><div class="line">    list-style: none;</div><div class="line">&#125;</div><div class="line">.slideShow&#123;</div><div class="line">    width: 346px;</div><div class="line">    height: 210px;     /*其实就是图片的高度*/</div><div class="line">    border: 1px <span class="comment">#eeeeee solid;</span></div><div class="line">    margin: 100px auto;</div><div class="line">    position: relative;</div><div class="line">    overflow: hidden;    /*此处需要将溢出框架的图片部分隐藏*/</div><div class="line">&#125;</div><div class="line">.slideShow ul&#123;</div><div class="line">    width: 2000px;</div><div class="line">    position: relative;     /*此处需注意relative : 对象不可层叠，但将依据left，right，top，bottom等属性在正常文档流中偏移位置，如果没有这个属性，图片将不可左右移动*/</div><div class="line">&#125;</div><div class="line">.slideShow ul li&#123;</div><div class="line">    <span class="built_in">float</span>: left;     /*让四张图片左浮动，形成并排的横着布局，方便点击按钮时的左移动*/</div><div class="line">    width: 346px;</div><div class="line">&#125;</div><div class="line">.slideShow .showNav&#123;     /*用绝对定位给数字按钮进行布局*/</div><div class="line">    position: absolute;</div><div class="line">    right: 10px;</div><div class="line">    bottom: 5px;</div><div class="line">    text-align:center;</div><div class="line">    font-size: 12px;    </div><div class="line">    line-height: 20px;</div><div class="line">&#125;</div><div class="line">.slideShow .showNav span&#123;</div><div class="line">    cursor: pointer;</div><div class="line">    display: block;</div><div class="line">    <span class="built_in">float</span>: left;</div><div class="line">    width: 20px;</div><div class="line">    height: 20px;</div><div class="line">    background: <span class="comment">#ff5a28;</span></div><div class="line">    margin-left: 2px;</div><div class="line">    color: <span class="comment">#fff;</span></div><div class="line">&#125;</div><div class="line">.slideShow .showNav .active&#123;</div><div class="line">    background: <span class="comment">#b63e1a;</span></div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<p>上面样式我已经备注出来很重要的地方了，相信有基础的很容易看懂，刚开始我在.slideShow ul样式里面忘了写position: relative;导致后面的jquery程序图片一直无法移动，耽误了很长时间才找出这个错误，希望大家可以注意这个地方.</p>
+<h2 id="手动轮播图的jquery程序"><a href="#手动轮播图的jquery程序" class="headerlink" title="手动轮播图的jquery程序"></a>手动轮播图的jquery程序</h2><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div></pre></td><td class="code"><pre><div class="line">$(document).ready(<span class="function"><span class="title">function</span></span>()&#123;</div><div class="line">    var slideShow=$(<span class="string">".slideShow"</span>),     //获取最外层框架的名称</div><div class="line">        ul=slideShow.find(<span class="string">"ul"</span>),      </div><div class="line">        showNumber=slideShow.find(<span class="string">".showNav span"</span>),//获取按钮</div><div class="line">        oneWidth=slideShow.find(<span class="string">"ul li"</span>).eq(0).width();   //获取每个图片的宽度</div><div class="line">        </div><div class="line">        showNumber.on(<span class="string">"click"</span>,<span class="function"><span class="title">function</span></span>()&#123;           //为每个按钮绑定一个点击事件      </div><div class="line">            $(this).addClass(<span class="string">"active"</span>).siblings().removeClass(<span class="string">"active"</span>);   //按钮被点击时为这个按钮添加高亮状态，并且将其他按钮高亮状态去掉</div><div class="line">            var index=$(this).index();  //获取哪个按钮被点击，也就是找到被点击按钮的索引值</div><div class="line">            ul.animate(&#123;</div><div class="line">                <span class="string">"left"</span>:-oneWidth*index,   //注意此处用到left属性，所以ul的样式里面需要设置position: relative; 让ul左移N个图片大小的宽度，N根据被点击的按钮索引值index确定</div><div class="line">            &#125;)</div><div class="line">        &#125;)</div><div class="line">&#125;)</div></pre></td></tr></table></figure>
+<p>上面只是手动点击时的轮播，但是想进一步实现定时轮播，下面来看一下分析</p>
+<h2 id="定时轮播图的jquery程序"><a href="#定时轮播图的jquery程序" class="headerlink" title="定时轮播图的jquery程序"></a>定时轮播图的jquery程序</h2><p>首先说一下定时自动轮播的原理：<br>1、首先得开一个定时器，假设定时器的时间设置为2000ms，也就是2S定时器执行一次操作<br>2、定时器每隔2S执行的操作就是模拟按次序点击数字按钮，也就是触发click事件，让图片左移</p>
+<p>先来看大体效果实现的jQuery代码一：<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line">var timer=null;   //定时器返回值，主要用于关闭定时器</div><div class="line">        var iNow=0;      //iNow为正在展示的图片索引值，当用户打开网页时首先显示第一张图，即索引值为0</div><div class="line">        timer=<span class="built_in">set</span>Interval(<span class="function"><span class="title">function</span></span>()&#123;        //打开定时器</div><div class="line">            iNow++;                          //让图片的索引值次序加1，这样就可以实现顺序轮播图片</div><div class="line">            showNumber.eq(iNow).trigger(<span class="string">"click"</span>);    //模拟触发数字按钮的click事件</div><div class="line">        &#125;,2000);   //2000为轮播的时间</div></pre></td></tr></table></figure></p>
+<p>上面的程序可以实现每隔2S图片的轮播效果，但是轮播到最后一张图的时候会停止，因为没有判断iNow是否到达最后一张图，所以有了下面的代码二：<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div></pre></td><td class="code"><pre><div class="line">var timer=null;   //定时器返回值，主要用于关闭定时器</div><div class="line">var iNow=0;      //iNow为正在展示的图片索引值，当用户打开网页时首先显示第一张图，即索引值为0</div><div class="line">timer=<span class="built_in">set</span>Interval(<span class="function"><span class="title">function</span></span>()&#123;        //打开定时器</div><div class="line">	iNow++;                          //让图片的索引值次序加1，这样就可以实现顺序轮播图片</div><div class="line">	<span class="keyword">if</span>(iNow&gt;showNumber.length-1)&#123;    //当到达最后一张图的时候，让iNow赋值为第一张图的索引值，轮播效果跳转到第一张图重新开始</div><div class="line">		iNow=0;</div><div class="line">	&#125;</div><div class="line">	showNumber.eq(iNow).trigger(<span class="string">"click"</span>);    //模拟触发数字按钮的click</div><div class="line">&#125;,2000);   //2000为轮播的时间</div></pre></td></tr></table></figure></p>
+<p>所以自动jQuery程序的完整代码程序如下：<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div></pre></td><td class="code"><pre><div class="line">$(document).ready(<span class="function"><span class="title">function</span></span>()&#123;</div><div class="line">    var slideShow=$(<span class="string">".slideShow"</span>),     //获取最外层框架的名称</div><div class="line">        ul=slideShow.find(<span class="string">"ul"</span>),      </div><div class="line">        showNumber=slideShow.find(<span class="string">".showNav span"</span>),//获取按钮</div><div class="line">        oneWidth=slideShow.find(<span class="string">"ul li"</span>).eq(0).width();   //获取每个图片的宽度</div><div class="line">        var timer=null;   //定时器返回值，主要用于关闭定时器</div><div class="line">        var iNow=0;      //iNow为正在展示的图片索引值，当用户打开网页时首先显示第一张图，即索引值为0</div><div class="line">        </div><div class="line">        showNumber.on(<span class="string">"click"</span>,<span class="function"><span class="title">function</span></span>()&#123;           //为每个按钮绑定一个点击事件      </div><div class="line">            $(this).addClass(<span class="string">"active"</span>).siblings().removeClass(<span class="string">"active"</span>);   //按钮点击时为这个按钮添加高亮状态，并且将其他按钮高亮状态去掉</div><div class="line">            var index=$(this).index();  //获取哪个按钮被点击，也就是找到被点击按钮的索引值</div><div class="line">            ul.animate(&#123;</div><div class="line">                <span class="string">"left"</span>:-oneWidth*iNow,   //注意此处用到left属性，所以ul的样式里面需要设置position: relative; 让ul左移N个图片大小的宽度，N根据被点击的按钮索引值index确定</div><div class="line">            &#125;)</div><div class="line">        &#125;);</div><div class="line">        </div><div class="line">        timer=<span class="built_in">set</span>Interval(<span class="function"><span class="title">function</span></span>()&#123;        //打开定时器</div><div class="line">            iNow++;                          //让图片的索引值次序加1，这样就可以实现顺序轮播图片</div><div class="line">            <span class="keyword">if</span>(iNow&gt;showNumber.length-1)&#123;    //当到达最后一张图的时候，让iNow赋值为第一张图的索引值，轮播效果跳转到第一张图重新开始</div><div class="line">                iNow=0;</div><div class="line">            &#125;</div><div class="line">            showNumber.eq(iNow).trigger(<span class="string">"click"</span>);    //模拟触发数字按钮的click</div><div class="line">        &#125;,2000);   //2000为轮播的时间</div><div class="line">&#125;)</div></pre></td></tr></table></figure></p>
+<p>上面的注释写的很详细了，主要是为了方便想学习的小伙伴看，但是实际上我写程序不会注释的那么详细，都是很简单的内容啦，看到这里你可能以为jQuery程序就完了，那就大错特错了，因为自动轮播效果是正确的，但是手动点击时就会出错，图片自动轮播时，你就算点击按钮它也只是附和你一下，跳转到你点击的按钮，但是仅仅持续一会还是按它轮播的次序，不理会你点击的按钮后应该走的轮播次序，至于原因嘛,是因为手动点击时index的值未赋值给定时器的图片索引iNow，这样iNow就无法存储你点击的按钮索引值，也就是不知道你点击的哪个按钮，既然知道了原因，那么下面就需要进行修改了：<br>修改完成后的jQuery程序最终版就是：<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div></pre></td><td class="code"><pre><div class="line">$(document).ready(<span class="function"><span class="title">function</span></span>()&#123;</div><div class="line">    var slideShow=$(<span class="string">".slideShow"</span>),     //获取最外层框架的名称</div><div class="line">        ul=slideShow.find(<span class="string">"ul"</span>),      </div><div class="line">        showNumber=slideShow.find(<span class="string">".showNav span"</span>),//获取按钮</div><div class="line">        oneWidth=slideShow.find(<span class="string">"ul li"</span>).eq(0).width();   //获取每个图片的宽度</div><div class="line">        var timer=null;   //定时器返回值，主要用于关闭定时器</div><div class="line">        var iNow=0;      //iNow为正在展示的图片索引值，当用户打开网页时首先显示第一张图，即索引值为0</div><div class="line">        </div><div class="line">        showNumber.on(<span class="string">"click"</span>,<span class="function"><span class="title">function</span></span>()&#123;           //为每个按钮绑定一个点击事件      </div><div class="line">            $(this).addClass(<span class="string">"active"</span>).siblings().removeClass(<span class="string">"active"</span>);   //按钮点击时为这个按钮添加高亮状态，并且将其他按钮高亮状态去掉</div><div class="line">            var index=$(this).index();  //获取哪个按钮被点击，也就是找到被点击按钮的索引值</div><div class="line">            iNow=index;</div><div class="line">            ul.animate(&#123;</div><div class="line">                <span class="string">"left"</span>:-oneWidth*iNow,   //注意此处用到left属性，所以ul的样式里面需要设置position: relative; 让ul左移N个图片大小的宽度，N根据被点击的按钮索引值iNOWx确定</div><div class="line">            &#125;)</div><div class="line">        &#125;);</div><div class="line">        </div><div class="line">        timer=<span class="built_in">set</span>Interval(<span class="function"><span class="title">function</span></span>()&#123;        //打开定时器</div><div class="line">            iNow++;                          //让图片的索引值次序加1，这样就可以实现顺序轮播图片</div><div class="line">            <span class="keyword">if</span>(iNow&gt;showNumber.length-1)&#123;    //当到达最后一张图的时候，让iNow赋值为第一张图的索引值，轮播效果跳转到第一张图重新开始</div><div class="line">                iNow=0;</div><div class="line">            &#125;</div><div class="line">            showNumber.eq(iNow).trigger(<span class="string">"click"</span>);    //模拟触发数字按钮的click</div><div class="line">        &#125;,2000);   //2000为轮播的时间</div><div class="line">&#125;)</div></pre></td></tr></table></figure></p>
+<p>来看一下最终实现的效果<br><img src="https://manlili.github.io/img/141123/carousel02.gif" alt="图片轮播"><br>总算写完了,很有成就感，但是鼠标悬浮在轮播图上方时图片停止轮播，鼠标移走后图片接着进行轮播的代码还是要研究一下，毕竟PC端很常见。</p>
+<h2 id="鼠标悬浮轮播图暂停"><a href="#鼠标悬浮轮播图暂停" class="headerlink" title="鼠标悬浮轮播图暂停"></a>鼠标悬浮轮播图暂停</h2><p>先说一下鼠标悬浮图片轮播停止，鼠标移走图片轮播开始的原理：<br>1、当鼠标悬浮在框架上方时，清除定时器即用clearInterval(timer)关闭定时器，使自动轮播停止<br>2、当鼠标离开框架上方时，重新启动定时器<br>3、鼠标的悬浮和离开借助于hover函数</p>
+<p> hover(over,out)一个模仿悬停事件（鼠标移动到一个对象上面及移出这个对象）的方法。这是一个自定义的方法，它为频繁使用的任务提供了一种“保持在其中”的状态。<br>参数:</p>
+<ul>
+<li>over (Function) : 鼠标移到元素上要触发的函数。</li>
+<li>out (Function): 鼠标移出元素要触发的函数。</li>
+</ul>
+<p>下面来看jQuery程序：<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div></pre></td><td class="code"><pre><div class="line">/*定时自动轮播图片代码开始*/</div><div class="line">        <span class="keyword">function</span> <span class="function"><span class="title">autoPlay</span></span>()&#123;</div><div class="line">            timer=<span class="built_in">set</span>Interval(<span class="function"><span class="title">function</span></span>()&#123;        //打开定时器</div><div class="line">            iNow++;                          //让图片的索引值次序加1，这样就可以实现顺序轮播图片</div><div class="line">            <span class="keyword">if</span>(iNow&gt;showNumber.length-1)&#123;    //当到达最后一张图的时候，让iNow赋值为第一张图的索引值，轮播效果跳转到第一张图重新开始</div><div class="line">                iNow=0;</div><div class="line">            &#125;</div><div class="line">            showNumber.eq(iNow).trigger(<span class="string">"click"</span>);    //模拟触发数字按钮的click</div><div class="line">            &#125;,2000);   //2000为轮播的时间</div><div class="line">        &#125;</div><div class="line">        autoPlay();</div><div class="line"> /*定时自动轮播图片代码结束*/</div></pre></td></tr></table></figure></p>
+<p>定义完成后不要忘记调用这个函数，即autoPlay();</p>
+<p>那么最终版的jQuery程序如下：<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div><div class="line">39</div><div class="line">40</div><div class="line">41</div></pre></td><td class="code"><pre><div class="line">$(document).ready(<span class="function"><span class="title">function</span></span>()&#123;</div><div class="line">    var slideShow=$(<span class="string">".slideShow"</span>),     //获取最外层框架的名称</div><div class="line">        ul=slideShow.find(<span class="string">"ul"</span>),      </div><div class="line">        showNumber=slideShow.find(<span class="string">".showNav span"</span>),//获取按钮</div><div class="line">        oneWidth=slideShow.find(<span class="string">"ul li"</span>).eq(0).width();   //获取每个图片的宽度</div><div class="line">        var timer=null;   //定时器返回值，主要用于关闭定时器</div><div class="line">        var iNow=0;      //iNow为正在展示的图片索引值，当用户打开网页时首先显示第一张图，即索引值为0</div><div class="line">        </div><div class="line">        /*手动点击按钮进行图片轮播代码开始*/</div><div class="line">        showNumber.on(<span class="string">"click"</span>,<span class="function"><span class="title">function</span></span>()&#123;           //为每个按钮绑定一个点击事件      </div><div class="line">            $(this).addClass(<span class="string">"active"</span>).siblings().removeClass(<span class="string">"active"</span>);   //按钮点击时为这个按钮添加高亮状态，并且将其他按钮高亮状态去掉</div><div class="line">            var index=$(this).index();  //获取哪个按钮被点击，也就是找到被点击按钮的索引值</div><div class="line">            iNow=index;</div><div class="line">            ul.animate(&#123;</div><div class="line">                <span class="string">"left"</span>:-oneWidth*iNow,   //注意此处用到left属性，所以ul的样式里面需要设置position: relative; 让ul左移N个图片大小的宽度，N根据被点击的按钮索引值iNow确定</div><div class="line">            &#125;)</div><div class="line">        &#125;);</div><div class="line">        /*手动点击按钮进行图片轮播代码结束*/</div><div class="line">        </div><div class="line">        </div><div class="line">        /*定时自动轮播图片代码开始*/</div><div class="line">        <span class="keyword">function</span> <span class="function"><span class="title">autoPlay</span></span>()&#123;</div><div class="line">            timer=<span class="built_in">set</span>Interval(<span class="function"><span class="title">function</span></span>()&#123;        //打开定时器</div><div class="line">            iNow++;                          //让图片的索引值次序加1，这样就可以实现顺序轮播图片</div><div class="line">            <span class="keyword">if</span>(iNow&gt;showNumber.length-1)&#123;    //当到达最后一张图的时候，让iNow赋值为第一张图的索引值，轮播效果跳转到第一张图重新开始</div><div class="line">                iNow=0;</div><div class="line">            &#125;</div><div class="line">            showNumber.eq(iNow).trigger(<span class="string">"click"</span>);    //模拟触发数字按钮的click</div><div class="line">            &#125;,2000);   //2000为轮播的时间</div><div class="line">        &#125;</div><div class="line">        autoPlay();</div><div class="line">        /*定时自动轮播图片代码结束*/</div><div class="line">        </div><div class="line">        /*鼠标悬浮图片停止轮播代码开始*/</div><div class="line">        slideShow.hover(</div><div class="line">            <span class="function"><span class="title">function</span></span>()&#123;</div><div class="line">                clearInterval(timer);</div><div class="line">            &#125;,autoPlay</div><div class="line">        );</div><div class="line">        /*鼠标悬浮图片停止轮播代码结束*/</div><div class="line">&#125;)</div></pre></td></tr></table></figure></p>
+<p>来看一下最终实现的效果<br><img src="https://manlili.github.io/img/141123/carousel03.gif" alt="图片轮播"><br>已经把轮播图写的差不多了，基本上满足了我明天项目上的应用,有时间再把轮播图的其他功能完善一下吧,还是周末好，可以自由自在的写代.</p>
+
+      
+    </div>
+
+    <div>
+      
+        
+
+      
+    </div>
+
+    <div>
+      
+        
+  <div style="padding: 10px 0; margin: 20px auto; width: 90%; text-align: center;">
+    <div>打赏我的人运气不会太差哦！</div>
+    <button id="rewardButton" disable="enable" onclick="var qr = document.getElementById('QR'); if (qr.style.display === 'none') {qr.style.display='block';} else {qr.style.display='none'}">
+      <span>赏</span>
+    </button>
+    <div id="QR" style="display: none;">
+      
+        <div id="wechat" style="display: inline-block">
+          <img id="wechat_qr" src="https://manlili.github.io/img/pay/wetcharpay.png" alt="满利利 WeChat Pay"/>
+          <p>微信打赏</p>
+        </div>
+      
+      
+        <div id="alipay" style="display: inline-block">
+          <img id="alipay_qr" src="https://manlili.github.io/img/pay/Alipay.jpg" alt="满利利 Alipay"/>
+          <p>支付宝打赏</p>
+        </div>
+      
+    </div>
+  </div>
+
+
+      
+    </div>
+
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/juery/" rel="tag"># juery</a>
+          
+            <a href="/tags/轮播图/" rel="tag"># 轮播图</a>
+          
+        </div>
+      
+
+      
+        
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2014/11/11/javascript学习的思维导图/" rel="next" title="javascript学习的思维导图">
+                <i class="fa fa-chevron-left"></i> javascript学习的思维导图
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2014/12/05/css3实现页面遮罩效果/" rel="prev" title="css3实现页面遮罩效果">
+                css3实现页面遮罩效果 <i class="fa fa-chevron-right"></i>
+              </a>
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </article>
+
+
+
+    <div class="post-spread">
+      
+    </div>
+  </div>
+
+          
+          </div>
+          
+
+
+          
+  <div class="comments" id="comments">
+    
+      <div class="ds-thread" data-thread-key="2014/11/23/jquery实现图片轮播/"
+           data-title="jquery实现图片轮播" data-url="http://yoursite.com/2014/11/23/jquery实现图片轮播/">
+      </div>
+    
+  </div>
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap" >
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview">
+            站点概览
+          </li>
+        </ul>
+      
+
+      <section class="site-overview sidebar-panel">
+        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+          <img class="site-author-image" itemprop="image"
+               src="/uploads/avatar.jpg"
+               alt="满利利" />
+          <p class="site-author-name" itemprop="name">满利利</p>
+           
+              <p class="site-description motion-element" itemprop="description">前端开发/走向全栈/幽默有趣</p>
+          
+        </div>
+        <nav class="site-state motion-element">
+        
+          
+            <div class="site-state-item site-state-posts">
+              <a href="/archives">
+                <span class="site-state-item-count">10</span>
+                <span class="site-state-item-name">日志</span>
+              </a>
+            </div>
+          
+
+          
+            <div class="site-state-item site-state-categories">
+              <a href="/categories">
+                <span class="site-state-item-count">6</span>
+                <span class="site-state-item-name">分类</span>
+              </a>
+            </div>
+          
+
+          
+            <div class="site-state-item site-state-tags">
+              
+                <span class="site-state-item-count">15</span>
+                <span class="site-state-item-name">标签</span>
+              
+            </div>
+          
+
+        </nav>
+
+        
+
+        <div class="links-of-author motion-element">
+          
+            
+              <span class="links-of-author-item">
+                <a href="" target="_blank" title="644166434">
+                  
+                    <i class="fa fa-fw fa-qq"></i>
+                  
+                  644166434
+                </a>
+              </span>
+            
+              <span class="links-of-author-item">
+                <a href="https://github.com/manlili" target="_blank" title="GitHub">
+                  
+                    <i class="fa fa-fw fa-github"></i>
+                  
+                  GitHub
+                </a>
+              </span>
+            
+          
+        </div>
+
+        
+        
+
+        
+        
+
+        
+
+
+      </section>
+
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#原理说明"><span class="nav-number">1.</span> <span class="nav-text">原理说明</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#主体程序"><span class="nav-number">2.</span> <span class="nav-text">主体程序</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#css样式"><span class="nav-number">3.</span> <span class="nav-text">css样式</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#手动轮播图的jquery程序"><span class="nav-number">4.</span> <span class="nav-text">手动轮播图的jquery程序</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#定时轮播图的jquery程序"><span class="nav-number">5.</span> <span class="nav-text">定时轮播图的jquery程序</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#鼠标悬浮轮播图暂停"><span class="nav-number">6.</span> <span class="nav-text">鼠标悬浮轮播图暂停</span></a></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright" >
+  
+  &copy; 
+  <span itemprop="copyrightYear">2017</span>
+  <span class="with-love">
+    <i class="fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">满利利</span>
+</div>
+
+
+
+        
+
+        
+      </div>
+    </footer>
+
+    <div class="back-to-top">
+      <i class="fa fa-arrow-up"></i>
+    </div>
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+  
+  <script type="text/javascript" src="/lib/jquery/index.js?v=2.1.3"></script>
+
+  
+  <script type="text/javascript" src="/lib/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+
+  
+  <script type="text/javascript" src="/lib/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+
+  
+  <script type="text/javascript" src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+
+  
+  <script type="text/javascript" src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+
+  
+  <script type="text/javascript" src="/lib/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=5.1.0"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=5.1.0"></script>
+
+
+
+  
+  
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.0"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.1.0"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.1.0"></script>
+
+
+
+  
+
+  
+    
+  
+
+  <script type="text/javascript">
+    var duoshuoQuery = {short_name:"manlili"};
+    (function() {
+      var ds = document.createElement('script');
+      ds.type = 'text/javascript';ds.async = true;
+      ds.id = 'duoshuo-script';
+      ds.src = (document.location.protocol == 'https:' ? 'https:' : 'http:') + '//static.duoshuo.com/embed.js';
+      ds.charset = 'UTF-8';
+      (document.getElementsByTagName('head')[0]
+      || document.getElementsByTagName('body')[0]).appendChild(ds);
+    })();
+  </script>
+
+  
+    
+    
+    <script src="/lib/ua-parser-js/dist/ua-parser.min.js?v=0.7.9"></script>
+    <script src="/js/src/hook-duoshuo.js"></script>
+  
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+
+  
+
+  
+
+  
+  <script src="https://cdn1.lncld.net/static/js/av-core-mini-0.6.1.js"></script>
+  <script>AV.initialize("Y2iTQ8Fc2RRvW4mqBqzfOdSX-gzGzoHsz", "gHlHLDuIiCTTcE93RMzpOYxY");</script>
+  <script>
+    function showTime(Counter) {
+      var query = new AV.Query(Counter);
+      var entries = [];
+      var $visitors = $(".leancloud_visitors");
+
+      $visitors.each(function () {
+        entries.push( $(this).attr("id").trim() );
+      });
+
+      query.containedIn('url', entries);
+      query.find()
+        .done(function (results) {
+          var COUNT_CONTAINER_REF = '.leancloud-visitors-count';
+
+          if (results.length === 0) {
+            $visitors.find(COUNT_CONTAINER_REF).text(0);
+            return;
+          }
+
+          for (var i = 0; i < results.length; i++) {
+            var item = results[i];
+            var url = item.get('url');
+            var time = item.get('time');
+            var element = document.getElementById(url);
+
+            $(element).find(COUNT_CONTAINER_REF).text(time);
+          }
+          for(var i = 0; i < entries.length; i++) {
+            var url = entries[i];
+            var element = document.getElementById(url);
+            var countSpan = $(element).find(COUNT_CONTAINER_REF);
+            if( countSpan.text() == '') {
+              countSpan.text(0);
+            }
+          }
+        })
+        .fail(function (object, error) {
+          console.log("Error: " + error.code + " " + error.message);
+        });
+    }
+
+    function addCount(Counter) {
+      var $visitors = $(".leancloud_visitors");
+      var url = $visitors.attr('id').trim();
+      var title = $visitors.attr('data-flag-title').trim();
+      var query = new AV.Query(Counter);
+
+      query.equalTo("url", url);
+      query.find({
+        success: function(results) {
+          if (results.length > 0) {
+            var counter = results[0];
+            counter.fetchWhenSave(true);
+            counter.increment("time");
+            counter.save(null, {
+              success: function(counter) {
+                var $element = $(document.getElementById(url));
+                $element.find('.leancloud-visitors-count').text(counter.get('time'));
+              },
+              error: function(counter, error) {
+                console.log('Failed to save Visitor num, with error message: ' + error.message);
+              }
+            });
+          } else {
+            var newcounter = new Counter();
+            /* Set ACL */
+            var acl = new AV.ACL();
+            acl.setPublicReadAccess(true);
+            acl.setPublicWriteAccess(true);
+            newcounter.setACL(acl);
+            /* End Set ACL */
+            newcounter.set("title", title);
+            newcounter.set("url", url);
+            newcounter.set("time", 1);
+            newcounter.save(null, {
+              success: function(newcounter) {
+                var $element = $(document.getElementById(url));
+                $element.find('.leancloud-visitors-count').text(newcounter.get('time'));
+              },
+              error: function(newcounter, error) {
+                console.log('Failed to create');
+              }
+            });
+          }
+        },
+        error: function(error) {
+          console.log('Error:' + error.code + " " + error.message);
+        }
+      });
+    }
+
+    $(function() {
+      var Counter = AV.Object.extend("Counter");
+      if ($('.leancloud_visitors').length == 1) {
+        addCount(Counter);
+      } else if ($('.post-title-link').length > 1) {
+        showTime(Counter);
+      }
+    });
+  </script>
+
+
+
+  
+
+  
+
+
+</body>
+</html>
