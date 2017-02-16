@@ -107,9 +107,9 @@ seo优化上，github在google上权重高
 seo优化上，github在google上权重高
 
 准">
-<meta property="og:image" content="https://manlili.github.io/img/150106/1.png">
-<meta property="og:image" content="https://manlili.github.io/img/150106/2.png">
-<meta property="og:updated_time" content="2014-10-16T09:33:41.297Z">
+<meta property="og:image" content="https://manlili.github.io/img/141016/1.png">
+<meta property="og:image" content="https://manlili.github.io/img/141016/2.png">
+<meta property="og:updated_time" content="2017-02-16T09:41:16.871Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="利用github pages + hexo搭建自己的博客">
 <meta name="twitter:description" content="之前也搭了自己的网站，但是每个月都需要花费一定的费用去维护网站，后来发现在github可以建立自己的免费博客，觉得很划算，就试一试，结果发现效果还是很好的，还可以自定义主题和样式在，很方便。
@@ -120,7 +120,7 @@ seo优化上，github在google上权重高
 seo优化上，github在google上权重高
 
 准">
-<meta name="twitter:image" content="https://manlili.github.io/img/150106/1.png">
+<meta name="twitter:image" content="https://manlili.github.io/img/141016/1.png">
 
 
 
@@ -440,7 +440,7 @@ seo优化上，github在google上权重高
 <p>然后系统会要你输入密码。这个密码会在你提交项目时使用，如果为空的话提交项目时则不用输入，最好密码设为空。<br>接着输入命令<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ ls</div></pre></td></tr></table></figure></p>
 <p>会出现id_rsa 和 id_rsa.pub ，这里我们主要是需要公钥 id_rsa.pub内容,输入命令<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ cat  id_rsa.pub</div></pre></td></tr></table></figure></p>
 <p>会得到一串字符串，这就是SSH keys记得复制保存</p>
-<h4 id="第二步：将SSH-keys添加到Github上"><a href="#第二步：将SSH-keys添加到Github上" class="headerlink" title="第二步：将SSH keys添加到Github上"></a>第二步：将SSH keys添加到Github上</h4><p>登陆github系统。点击右上角的图像—&gt;Settings —&gt; SSH and GPG keys。如下图<br><img src="https://manlili.github.io/img/150106/1.png" alt="Alt text"><br><img src="https://manlili.github.io/img/150106/2.png" alt="Alt text"><br>点击右上角New SSH key，把你刚刚复制SSH keys黏贴到里面（Key文本框中）， 点击Add SSH key就ok了<br>测试一下</p>
+<h4 id="第二步：将SSH-keys添加到Github上"><a href="#第二步：将SSH-keys添加到Github上" class="headerlink" title="第二步：将SSH keys添加到Github上"></a>第二步：将SSH keys添加到Github上</h4><p>登陆github系统。点击右上角的图像—&gt;Settings —&gt; SSH and GPG keys。如下图<br><img src="https://manlili.github.io/img/141016/1.png" alt="Alt text"><br><img src="https://manlili.github.io/img/141016/2.png" alt="Alt text"><br>点击右上角New SSH key，把你刚刚复制SSH keys黏贴到里面（Key文本框中）， 点击Add SSH key就ok了<br>测试一下</p>
 <p>可以输入下面的命令，看看设置是否成功，git@github.com的部分不要修改：<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ ssh -T git@github.com</div></pre></td></tr></table></figure></p>
 <p>然后输入yes，就会看到<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">Hi manlili! You<span class="string">'ve successfully authenticated, but GitHub does not provide shell access.</span></div></pre></td></tr></table></figure></p>
 <h4 id="第三步：开始建立博客"><a href="#第三步：开始建立博客" class="headerlink" title="第三步：开始建立博客"></a>第三步：开始建立博客</h4><p>①与GitHub建立好链接之后，就可以方便的使用它提供的Pages服务，GitHub Pages分两种，<br>一种是你的GitHub用户名建立的username.github.io这样的用户&amp;组织页（站），另一种是依附项目的pages。<br>想建立个人博客是用的第一种，形如<a href="https://manlili.github.io/" target="_blank" rel="external">https://manlili.github.io/</a>这样的可访问的站，每个用户名下面只能建立一个。</p>
