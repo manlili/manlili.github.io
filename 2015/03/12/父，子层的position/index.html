@@ -71,7 +71,7 @@
 <link href="/css/main.css?v=5.1.0" rel="stylesheet" type="text/css" />
 
 
-  <meta name="keywords" content="manlili blogs" />
+  <meta name="keywords" content="position," />
 
 
 
@@ -87,16 +87,22 @@
 
 
 
-<meta name="description" content="前端开发/走向全栈/幽默有趣">
+<meta name="description" content="本次主要讲父层与子层的 position 属性在不同组合下的情况。
+主体代码html代码如下：12345&amp;lt;div class=&quot;fu&quot;&amp;gt;	父层	&amp;lt;div class=&quot;zi1&quot;&amp;gt;子层1&amp;lt;/div&amp;gt;	&amp;lt;div class=&quot;zi2&quot;&amp;gt;子层2&amp;lt;/div&amp;gt;&amp;lt;/div&amp;gt;
+css代码如下：123456789101112131415161">
 <meta property="og:type" content="article">
 <meta property="og:title" content="父，子层的position">
 <meta property="og:url" content="http://yoursite.com/2015/03/12/父，子层的position/index.html">
 <meta property="og:site_name" content="manlili blog">
-<meta property="og:description" content="前端开发/走向全栈/幽默有趣">
-<meta property="og:updated_time" content="2015-03-12T07:55:37.207Z">
+<meta property="og:description" content="本次主要讲父层与子层的 position 属性在不同组合下的情况。
+主体代码html代码如下：12345&amp;lt;div class=&quot;fu&quot;&amp;gt;	父层	&amp;lt;div class=&quot;zi1&quot;&amp;gt;子层1&amp;lt;/div&amp;gt;	&amp;lt;div class=&quot;zi2&quot;&amp;gt;子层2&amp;lt;/div&amp;gt;&amp;lt;/div&amp;gt;
+css代码如下：123456789101112131415161">
+<meta property="og:updated_time" content="2017-02-17T09:24:43.534Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="父，子层的position">
-<meta name="twitter:description" content="前端开发/走向全栈/幽默有趣">
+<meta name="twitter:description" content="本次主要讲父层与子层的 position 属性在不同组合下的情况。
+主体代码html代码如下：12345&amp;lt;div class=&quot;fu&quot;&amp;gt;	父层	&amp;lt;div class=&quot;zi1&quot;&amp;gt;子层1&amp;lt;/div&amp;gt;	&amp;lt;div class=&quot;zi2&quot;&amp;gt;子层2&amp;lt;/div&amp;gt;&amp;lt;/div&amp;gt;
+css代码如下：123456789101112131415161">
 
 
 
@@ -327,6 +333,28 @@
           </span>
 
           
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/css技术/" itemprop="url" rel="index">
+                    <span itemprop="name">css技术</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
 
           
             
@@ -373,7 +401,10 @@
       
 
       
-        
+        <p>本次主要讲父层与子层的 position 属性在不同组合下的情况。</p>
+<h2 id="主体代码"><a href="#主体代码" class="headerlink" title="主体代码"></a>主体代码</h2><p>html代码如下：<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">&lt;div class=<span class="string">"fu"</span>&gt;</div><div class="line">	父层</div><div class="line">	&lt;div class=<span class="string">"zi1"</span>&gt;子层1&lt;/div&gt;</div><div class="line">	&lt;div class=<span class="string">"zi2"</span>&gt;子层2&lt;/div&gt;</div><div class="line">&lt;/div&gt;</div></pre></td></tr></table></figure></p>
+<p>css代码如下：<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div></pre></td><td class="code"><pre><div class="line">.fu &#123; </div><div class="line">    background-color: <span class="comment">#CCC; </span></div><div class="line">    height: 300px; </div><div class="line">    width: 400px; </div><div class="line">    border: 5px dotted <span class="comment">#0F0; </span></div><div class="line">    left: 200px; </div><div class="line">    top: 300px; </div><div class="line">    margin: 0px; </div><div class="line">    padding: 0px; </div><div class="line">&#125; </div><div class="line">.zi1 &#123; </div><div class="line">    height: 80px; </div><div class="line">    width: 100px; </div><div class="line">    border: 3px dashed <span class="comment">#96F; </span></div><div class="line">    background-color: <span class="comment">#3F9; </span></div><div class="line">    left: 50px; </div><div class="line">    top: 50px; </div><div class="line">    margin: 0px; </div><div class="line">    padding: 0px; </div><div class="line">&#125; </div><div class="line">.zi2 &#123; </div><div class="line">    height: 150px; </div><div class="line">    width: 100px; </div><div class="line">    border: 3px solid <span class="comment">#CC3; </span></div><div class="line">    background-color: <span class="comment">#F60; </span></div><div class="line">    left: 100px; </div><div class="line">    top: 100px; </div><div class="line">    margin: 0px; </div><div class="line">    padding: 0px; </div><div class="line">&#125; </div><div class="line">body &#123; </div><div class="line">    background-color: <span class="comment">#FF9; </span></div><div class="line">    margin: 0px; </div><div class="line">    padding: 0px; </div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
+<h2 id="父层position属性为absolute"><a href="#父层position属性为absolute" class="headerlink" title="父层position属性为absolute"></a>父层position属性为absolute</h2>
       
     </div>
 
@@ -414,6 +445,12 @@
 
 
     <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/position/" rel="tag"># position</a>
+          
+        </div>
       
 
       
@@ -487,8 +524,17 @@
       
 
       
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap" >
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview">
+            站点概览
+          </li>
+        </ul>
+      
 
-      <section class="site-overview sidebar-panel sidebar-panel-active">
+      <section class="site-overview sidebar-panel">
         <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
           <img class="site-author-image" itemprop="image"
                src="/uploads/avatar.jpg"
@@ -521,7 +567,7 @@
           
             <div class="site-state-item site-state-tags">
               
-                <span class="site-state-item-count">40</span>
+                <span class="site-state-item-count">42</span>
                 <span class="site-state-item-name">标签</span>
               
             </div>
@@ -566,6 +612,22 @@
 
       </section>
 
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#主体代码"><span class="nav-number">1.</span> <span class="nav-text">主体代码</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#父层position属性为absolute"><span class="nav-number">2.</span> <span class="nav-text">父层position属性为absolute</span></a></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
       
 
     </div>
