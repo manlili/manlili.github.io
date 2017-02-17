@@ -71,7 +71,7 @@
 <link href="/css/main.css?v=5.1.0" rel="stylesheet" type="text/css" />
 
 
-  <meta name="keywords" content="manlili blogs" />
+  <meta name="keywords" content="vue,混合," />
 
 
 
@@ -87,16 +87,27 @@
 
 
 
-<meta name="description" content="前端开发/走向全栈/幽默有趣">
+<meta name="description" content="class和style绑定的方法很多，本文写下来总结一下：gitHub地址:[https://github.com/manlili/vue_learn]里面的lesson13
+定位混合以一种灵活的方式为组件提供分布复用功能。混合对象可以包含任意的组件选项。当组件使用了混合对象时，混合对象的所有选项将被“混入”组件自己的选项中。实际上,我也没搞懂这句话,项目中也没用到，先研究再说,放个一年也许就自己">
 <meta property="og:type" content="article">
 <meta property="og:title" content="Vue混合">
 <meta property="og:url" content="http://yoursite.com/2016/07/24/Vue混合/index.html">
 <meta property="og:site_name" content="manlili blog">
-<meta property="og:description" content="前端开发/走向全栈/幽默有趣">
-<meta property="og:updated_time" content="2016-07-24T02:31:04.574Z">
+<meta property="og:description" content="class和style绑定的方法很多，本文写下来总结一下：gitHub地址:[https://github.com/manlili/vue_learn]里面的lesson13
+定位混合以一种灵活的方式为组件提供分布复用功能。混合对象可以包含任意的组件选项。当组件使用了混合对象时，混合对象的所有选项将被“混入”组件自己的选项中。实际上,我也没搞懂这句话,项目中也没用到，先研究再说,放个一年也许就自己">
+<meta property="og:image" content="https://manlili.github.io/img/160724/1.png">
+<meta property="og:image" content="https://manlili.github.io/img/160724/2.png">
+<meta property="og:image" content="https://manlili.github.io/img/160724/3.png">
+<meta property="og:image" content="https://manlili.github.io/img/160724/4.png">
+<meta property="og:image" content="https://manlili.github.io/img/160724/5.png">
+<meta property="og:image" content="https://manlili.github.io/img/160724/6.png">
+<meta property="og:image" content="https://manlili.github.io/img/160724/7.png">
+<meta property="og:updated_time" content="2017-02-17T05:32:00.863Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Vue混合">
-<meta name="twitter:description" content="前端开发/走向全栈/幽默有趣">
+<meta name="twitter:description" content="class和style绑定的方法很多，本文写下来总结一下：gitHub地址:[https://github.com/manlili/vue_learn]里面的lesson13
+定位混合以一种灵活的方式为组件提供分布复用功能。混合对象可以包含任意的组件选项。当组件使用了混合对象时，混合对象的所有选项将被“混入”组件自己的选项中。实际上,我也没搞懂这句话,项目中也没用到，先研究再说,放个一年也许就自己">
+<meta name="twitter:image" content="https://manlili.github.io/img/160724/1.png">
 
 
 
@@ -327,6 +338,28 @@
           </span>
 
           
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/vue技术/" itemprop="url" rel="index">
+                    <span itemprop="name">vue技术</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
 
           
             
@@ -373,7 +406,15 @@
       
 
       
-        
+        <p>class和style绑定的方法很多，本文写下来总结一下：<br>gitHub地址:[<a href="https://github.com/manlili/vue_learn]里面的lesson13" target="_blank" rel="external">https://github.com/manlili/vue_learn]里面的lesson13</a></p>
+<h2 id="定位"><a href="#定位" class="headerlink" title="定位"></a>定位</h2><p>混合以一种灵活的方式为组件提供分布复用功能。混合对象可以包含任意的组件选项。当组件使用了混合对象时，混合对象的所有选项将被“混入”组件自己的选项中。<br>实际上,我也没搞懂这句话,项目中也没用到，先研究再说,放个一年也许就自己慢慢懂了,时间这玩意可以发酵</p>
+<h2 id="定义"><a href="#定义" class="headerlink" title="定义"></a>定义</h2><p>先拿个例子说明：<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div></pre></td><td class="code"><pre><div class="line">&lt;!DOCTYPE html&gt;</div><div class="line">&lt;html&gt;</div><div class="line">    &lt;head&gt;</div><div class="line">        &lt;meta charset=<span class="string">"UTF-8"</span>&gt;</div><div class="line">        &lt;title&gt;Vue混合--定义&lt;/title&gt;</div><div class="line">        &lt;script src=<span class="string">"../js/vue.js"</span> <span class="built_in">type</span>=<span class="string">"text/javascript"</span> charset=<span class="string">"utf-8"</span>&gt;&lt;/script&gt;</div><div class="line">        &lt;meta name=<span class="string">"viewport"</span> content=<span class="string">"width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no"</span> /&gt;</div><div class="line">    &lt;/head&gt;</div><div class="line">    &lt;body&gt;</div><div class="line">        &lt;script <span class="built_in">type</span>=<span class="string">"text/javascript"</span>&gt;</div><div class="line">            var myMinxin= &#123;             //第一步,创建一个混合数据</div><div class="line">                created: <span class="function"><span class="title">function</span></span> () &#123;</div><div class="line">                    this.hello();</div><div class="line">                &#125;,</div><div class="line">                methods: &#123;</div><div class="line">                    hello: <span class="function"><span class="title">function</span></span> () &#123;</div><div class="line">                        alert(<span class="string">'你好'</span>);</div><div class="line">                    &#125;</div><div class="line">                &#125;</div><div class="line">            &#125;</div><div class="line">            </div><div class="line">            var myComponent = Vue.extend(&#123;    //将混合注册到Vue</div><div class="line">                mixins: [myMinxin]</div><div class="line">            &#125;)</div><div class="line">            </div><div class="line">            new myComponent();    //实例化这个混合</div><div class="line">        &lt;/script&gt;</div><div class="line">    &lt;/body&gt;</div><div class="line">&lt;/html&gt;</div></pre></td></tr></table></figure></p>
+<p>上面代码,弹出:<br><img src="https://manlili.github.io/img/160724/1.png" alt="图"></p>
+<h2 id="混合与Vue同名冲突"><a href="#混合与Vue同名冲突" class="headerlink" title="混合与Vue同名冲突"></a>混合与Vue同名冲突</h2><p>混合对象与组件包含同名选项时，这些选项将以适当的策略合并。例如，同名钩子函数被并入一个数组，因而都会被调用。另外，混合的钩子将在组件自己的钩子之前调用。<br>同名钩子函数冲突,代码如下:<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div></pre></td><td class="code"><pre><div class="line">&lt;!DOCTYPE html&gt;</div><div class="line">&lt;html&gt;</div><div class="line">    &lt;head&gt;</div><div class="line">        &lt;meta charset=<span class="string">"UTF-8"</span>&gt;</div><div class="line">        &lt;title&gt;Vue混合--同名冲突&lt;/title&gt;</div><div class="line">        &lt;script src=<span class="string">"../js/vue.js"</span> <span class="built_in">type</span>=<span class="string">"text/javascript"</span> charset=<span class="string">"utf-8"</span>&gt;&lt;/script&gt;</div><div class="line">        &lt;meta name=<span class="string">"viewport"</span> content=<span class="string">"width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no"</span> /&gt;</div><div class="line">    &lt;/head&gt;</div><div class="line">    &lt;body&gt;</div><div class="line">        &lt;script <span class="built_in">type</span>=<span class="string">"text/javascript"</span>&gt;</div><div class="line">            var myMinxin= &#123;             //第一步,创建一个混合数据</div><div class="line">                created: <span class="function"><span class="title">function</span></span> () &#123;</div><div class="line">                    this.hello();</div><div class="line">                &#125;,</div><div class="line">                methods: &#123;</div><div class="line">                    hello: <span class="function"><span class="title">function</span></span> () &#123;</div><div class="line">                        alert(<span class="string">'你好'</span>);</div><div class="line">                    &#125;</div><div class="line">                &#125;</div><div class="line">            &#125;</div><div class="line">            </div><div class="line">            var myComponent = Vue.extend(&#123;    //注意Vue的created与minxin的created重合,这里将先执行minxin的created</div><div class="line">                created: <span class="function"><span class="title">function</span></span> () &#123;</div><div class="line">                    alert(<span class="string">'我是Vue的created'</span>);</div><div class="line">                &#125;,</div><div class="line">                mixins: [myMinxin]</div><div class="line">            &#125;)</div><div class="line">            </div><div class="line">            new myComponent();    //实例化这个混合</div><div class="line">        &lt;/script&gt;</div><div class="line">    &lt;/body&gt;</div><div class="line">&lt;/html&gt;</div></pre></td></tr></table></figure></p>
+<p>先弹出:<br><img src="https://manlili.github.io/img/160724/2.png" alt="图"><br>再弹出<br><img src="https://manlili.github.io/img/160724/3.png" alt="图"></p>
+<p>值为对象同名冲突,代码如下:<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div><div class="line">39</div><div class="line">40</div><div class="line">41</div><div class="line">42</div><div class="line">43</div><div class="line">44</div><div class="line">45</div></pre></td><td class="code"><pre><div class="line">&lt;!DOCTYPE html&gt;</div><div class="line">&lt;html&gt;</div><div class="line">    &lt;head&gt;</div><div class="line">        &lt;meta charset=<span class="string">"UTF-8"</span>&gt;</div><div class="line">        &lt;title&gt;Vue混合--同名冲突&lt;/title&gt;</div><div class="line">        &lt;script src=<span class="string">"../js/vue.js"</span> <span class="built_in">type</span>=<span class="string">"text/javascript"</span> charset=<span class="string">"utf-8"</span>&gt;&lt;/script&gt;</div><div class="line">        &lt;meta name=<span class="string">"viewport"</span> content=<span class="string">"width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no"</span> /&gt;</div><div class="line">    &lt;/head&gt;</div><div class="line">    &lt;body&gt;</div><div class="line">        &lt;script <span class="built_in">type</span>=<span class="string">"text/javascript"</span>&gt;</div><div class="line">            var myMinxin= &#123;             //第一步,创建一个混合数据</div><div class="line">                created: <span class="function"><span class="title">function</span></span> () &#123;</div><div class="line">                    this.hello();</div><div class="line">                    this.nono();</div><div class="line">                &#125;,</div><div class="line">                methods: &#123;</div><div class="line">                    hello: <span class="function"><span class="title">function</span></span> () &#123;</div><div class="line">                        alert(<span class="string">'你好1'</span>);</div><div class="line">                    &#125;,</div><div class="line">                    nono: <span class="function"><span class="title">function</span></span> () &#123;</div><div class="line">                        alert(<span class="string">'nono1'</span>);</div><div class="line">                    &#125;</div><div class="line">                &#125;</div><div class="line">            &#125;</div><div class="line">            </div><div class="line">            var myComponent = Vue.extend(&#123;     //methods中对象冲突,只显示Vue实例中的方法</div><div class="line">                created: <span class="function"><span class="title">function</span></span> () &#123;</div><div class="line">                    this.hello();</div><div class="line">                    this.nono();</div><div class="line">                &#125;,</div><div class="line">                mixins: [myMinxin],</div><div class="line">                methods: &#123;</div><div class="line">                    hello: <span class="function"><span class="title">function</span></span> () &#123;</div><div class="line">                        alert(<span class="string">'你好2'</span>);</div><div class="line">                    &#125;,</div><div class="line">                    nono: <span class="function"><span class="title">function</span></span> () &#123;</div><div class="line">                        alert(<span class="string">'nono2'</span>);</div><div class="line">                    &#125;</div><div class="line">                &#125;</div><div class="line">            &#125;)</div><div class="line">            </div><div class="line">            new myComponent();    //实例化这个混合</div><div class="line">        &lt;/script&gt;</div><div class="line">    &lt;/body&gt;</div><div class="line">&lt;/html&gt;</div></pre></td></tr></table></figure></p>
+<p>依次输出如下:<br><img src="https://manlili.github.io/img/160724/4.png" alt="图"><br><img src="https://manlili.github.io/img/160724/5.png" alt="图"><br><img src="https://manlili.github.io/img/160724/6.png" alt="图"><br><img src="https://manlili.github.io/img/160724/7.png" alt="图"></p>
+
       
     </div>
 
@@ -414,6 +455,14 @@
 
 
     <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/vue/" rel="tag"># vue</a>
+          
+            <a href="/tags/混合/" rel="tag"># 混合</a>
+          
+        </div>
       
 
       
@@ -487,8 +536,17 @@
       
 
       
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap" >
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview">
+            站点概览
+          </li>
+        </ul>
+      
 
-      <section class="site-overview sidebar-panel sidebar-panel-active">
+      <section class="site-overview sidebar-panel">
         <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
           <img class="site-author-image" itemprop="image"
                src="/uploads/avatar.jpg"
@@ -521,7 +579,7 @@
           
             <div class="site-state-item site-state-tags">
               
-                <span class="site-state-item-count">31</span>
+                <span class="site-state-item-count">32</span>
                 <span class="site-state-item-name">标签</span>
               
             </div>
@@ -566,6 +624,22 @@
 
       </section>
 
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#定位"><span class="nav-number">1.</span> <span class="nav-text">定位</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#定义"><span class="nav-number">2.</span> <span class="nav-text">定义</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#混合与Vue同名冲突"><span class="nav-number">3.</span> <span class="nav-text">混合与Vue同名冲突</span></a></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
       
 
     </div>
