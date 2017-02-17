@@ -71,7 +71,7 @@
 <link href="/css/main.css?v=5.1.0" rel="stylesheet" type="text/css" />
 
 
-  <meta name="keywords" content="manlili blogs" />
+  <meta name="keywords" content="vue,条件," />
 
 
 
@@ -87,16 +87,19 @@
 
 
 
-<meta name="description" content="前端开发/走向全栈/幽默有趣">
+<meta name="description" content="项目中最常用的是列表的循环，本次写几个测试例子总结一下：gitHub地址:[https://github.com/manlili/vue_learn]
+for循环数组举个例子：123456789101112131415161718192021222324252627282930&amp;lt;!DOCTYPE html&amp;gt;&amp;lt;html&amp;gt;    &amp;lt;head&amp;gt;        &amp;lt;">
 <meta property="og:type" content="article">
-<meta property="og:title" content="Vue列表渲染">
+<meta property="og:title" content="Vue条件渲染">
 <meta property="og:url" content="http://yoursite.com/2016/06/24/Vue列表渲染/index.html">
 <meta property="og:site_name" content="manlili blog">
-<meta property="og:description" content="前端开发/走向全栈/幽默有趣">
-<meta property="og:updated_time" content="2016-06-24T02:29:59.080Z">
+<meta property="og:description" content="项目中最常用的是列表的循环，本次写几个测试例子总结一下：gitHub地址:[https://github.com/manlili/vue_learn]
+for循环数组举个例子：123456789101112131415161718192021222324252627282930&amp;lt;!DOCTYPE html&amp;gt;&amp;lt;html&amp;gt;    &amp;lt;head&amp;gt;        &amp;lt;">
+<meta property="og:updated_time" content="2017-02-17T02:47:49.500Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Vue列表渲染">
-<meta name="twitter:description" content="前端开发/走向全栈/幽默有趣">
+<meta name="twitter:title" content="Vue条件渲染">
+<meta name="twitter:description" content="项目中最常用的是列表的循环，本次写几个测试例子总结一下：gitHub地址:[https://github.com/manlili/vue_learn]
+for循环数组举个例子：123456789101112131415161718192021222324252627282930&amp;lt;!DOCTYPE html&amp;gt;&amp;lt;html&amp;gt;    &amp;lt;head&amp;gt;        &amp;lt;">
 
 
 
@@ -130,7 +133,7 @@
 
 
 
-  <title> Vue列表渲染 | manlili blog </title>
+  <title> Vue条件渲染 | manlili blog </title>
 </head>
 
 <body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
@@ -301,7 +304,7 @@
             
             
               
-                Vue列表渲染
+                Vue条件渲染
               
             
           </h1>
@@ -327,6 +330,28 @@
           </span>
 
           
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/vue技术/" itemprop="url" rel="index">
+                    <span itemprop="name">vue技术</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
 
           
             
@@ -344,7 +369,7 @@
 
           
           
-             <span id="/2016/06/24/Vue列表渲染/" class="leancloud_visitors" data-flag-title="Vue列表渲染">
+             <span id="/2016/06/24/Vue列表渲染/" class="leancloud_visitors" data-flag-title="Vue条件渲染">
                <span class="post-meta-divider">|</span>
                <span class="post-meta-item-icon">
                  <i class="fa fa-eye"></i>
@@ -373,7 +398,11 @@
       
 
       
-        
+        <p>项目中最常用的是列表的循环，本次写几个测试例子总结一下：<br>gitHub地址:[<a href="https://github.com/manlili/vue_learn" target="_blank" rel="external">https://github.com/manlili/vue_learn</a>]</p>
+<h2 id="for循环数组"><a href="#for循环数组" class="headerlink" title="for循环数组"></a>for循环数组</h2><p>举个例子：<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div></pre></td><td class="code"><pre><div class="line">&lt;!DOCTYPE html&gt;</div><div class="line">&lt;html&gt;</div><div class="line">    &lt;head&gt;</div><div class="line">        &lt;meta charset=<span class="string">"UTF-8"</span>&gt;</div><div class="line">        &lt;title&gt;Vue列表&lt;/title&gt;</div><div class="line">        &lt;meta name=<span class="string">"viewport"</span> content=<span class="string">"width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no"</span> /&gt;</div><div class="line">        &lt;script src=<span class="string">"../js/vue.js"</span> <span class="built_in">type</span>=<span class="string">"text/javascript"</span> charset=<span class="string">"utf-8"</span>&gt;&lt;/script&gt;</div><div class="line">    &lt;/head&gt;</div><div class="line">    &lt;body&gt;</div><div class="line">        &lt;ul class=<span class="string">"test"</span>&gt;</div><div class="line">            &lt;li v-for=<span class="string">"item in name"</span>&gt; &lt;!--获取位置第一种写法:<span class="variable">$index</span>是vue自带的位置索引--&gt;</div><div class="line">                &#123;&#123;<span class="variable">$index</span>&#125;&#125;--&#123;&#123;item.message&#125;&#125;        &lt;!--输出0--Foo    1--Bar--&gt;</div><div class="line">            &lt;/li&gt;</div><div class="line">            &lt;li v-for=<span class="string">"(index,item) in name"</span>&gt;  &lt;!--获取位置第二种写法:自定义一个index变量直接跟着item--&gt;</div><div class="line">                &#123;&#123;index&#125;&#125;**&#123;&#123;item.message&#125;&#125;                    &lt;!--输出0**Foo    1**Bar--&gt;</div><div class="line">            &lt;/li&gt;</div><div class="line">        &lt;/ul&gt;</div><div class="line">        &lt;script <span class="built_in">type</span>=<span class="string">"text/javascript"</span>&gt;</div><div class="line">            var myVue = new Vue(&#123;</div><div class="line">                el: <span class="string">".test"</span>,</div><div class="line">                data: &#123;</div><div class="line">                    name: [   //注意name是数组</div><div class="line">					  &#123; message: <span class="string">'Foo'</span> &#125;,</div><div class="line">					  &#123; message: <span class="string">'Bar'</span> &#125;</div><div class="line">					]</div><div class="line">                &#125;</div><div class="line">            &#125;)</div><div class="line">        &lt;/script&gt;</div><div class="line">    &lt;/body&gt;</div><div class="line">&lt;/html&gt;</div></pre></td></tr></table></figure></p>
+<h2 id="for循环对象"><a href="#for循环对象" class="headerlink" title="for循环对象"></a>for循环对象</h2><p>直接上个例子，注意看注释<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div></pre></td><td class="code"><pre><div class="line">&lt;!DOCTYPE html&gt;</div><div class="line">&lt;html&gt;</div><div class="line">    &lt;head&gt;</div><div class="line">        &lt;meta charset=<span class="string">"UTF-8"</span>&gt;</div><div class="line">        &lt;title&gt;Vue列表&lt;/title&gt;</div><div class="line">        &lt;meta name=<span class="string">"viewport"</span> content=<span class="string">"width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no"</span> /&gt;</div><div class="line">        &lt;script src=<span class="string">"../js/vue.js"</span> <span class="built_in">type</span>=<span class="string">"text/javascript"</span> charset=<span class="string">"utf-8"</span>&gt;&lt;/script&gt;</div><div class="line">    &lt;/head&gt;</div><div class="line">    &lt;body&gt;</div><div class="line">        &lt;ul class=<span class="string">"test"</span>&gt;</div><div class="line">            &lt;li v-for=<span class="string">"value in name"</span>&gt; </div><div class="line">                &#123;&#123;<span class="variable">$key</span>&#125;&#125;--&#123;&#123;value&#125;&#125;     &lt;!--输出是 FirstName--John LastName--Doe Age--30--&gt;</div><div class="line">            &lt;/li&gt;</div><div class="line">        &lt;/ul&gt;</div><div class="line">        &lt;script <span class="built_in">type</span>=<span class="string">"text/javascript"</span>&gt;</div><div class="line">            var myVue = new Vue(&#123;</div><div class="line">                el: <span class="string">".test"</span>,</div><div class="line">                data: &#123;</div><div class="line">                    name:&#123; //注意name是对象</div><div class="line">					  FirstName: <span class="string">'John'</span>,</div><div class="line">					  LastName: <span class="string">'Doe'</span>,</div><div class="line">					  Age: 30</div><div class="line">					&#125;</div><div class="line">                &#125;</div><div class="line">            &#125;)</div><div class="line">        &lt;/script&gt;</div><div class="line">    &lt;/body&gt;</div><div class="line">&lt;/html&gt;</div></pre></td></tr></table></figure></p>
+<h2 id="track-by定义不需重新渲染的DOM片段"><a href="#track-by定义不需重新渲染的DOM片段" class="headerlink" title="track-by定义不需重新渲染的DOM片段"></a>track-by定义不需重新渲染的DOM片段</h2><p>功能:有时候数组数据变化,页面所有DOM都需要重新渲染,这样会增加渲染时间,但是track-by可以定义哪些DOM被复用,使Vue.js 因而能尽可能地复用已有实例.<br>下面写个测试例子：<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div></pre></td><td class="code"><pre><div class="line">&lt;!DOCTYPE html&gt;</div><div class="line">&lt;html&gt;</div><div class="line">    &lt;head&gt;</div><div class="line">        &lt;meta charset=<span class="string">"UTF-8"</span>&gt;</div><div class="line">        &lt;title&gt;Vue列表&lt;/title&gt;</div><div class="line">        &lt;meta name=<span class="string">"viewport"</span> content=<span class="string">"width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no"</span> /&gt;</div><div class="line">        &lt;script src=<span class="string">"../js/vue.js"</span> <span class="built_in">type</span>=<span class="string">"text/javascript"</span> charset=<span class="string">"utf-8"</span>&gt;&lt;/script&gt;</div><div class="line">    &lt;/head&gt;</div><div class="line">    &lt;body&gt;</div><div class="line">        &lt;ul class=<span class="string">"test"</span>&gt;</div><div class="line">            &lt;li v-for=<span class="string">"item in name"</span> track-by=<span class="string">"id"</span>&gt; &lt;!--然后在替换数组 name 时，如果 Vue.js 遇到一个包含id:<span class="string">'01'</span> 的新对象，vue可以复用这个已有对象的作用域与 DOM 元素。--&gt;</div><div class="line">                &#123;&#123;<span class="variable">$index</span>&#125;&#125;--&#123;&#123;item.message&#125;&#125;        &lt;!--输出0--Foo    1--Bar--&gt;</div><div class="line">            &lt;/li&gt;</div><div class="line">        &lt;/ul&gt;</div><div class="line">        &lt;script <span class="built_in">type</span>=<span class="string">"text/javascript"</span>&gt;</div><div class="line">            var myVue = new Vue(&#123;</div><div class="line">                el: <span class="string">".test"</span>,</div><div class="line">                data: &#123;</div><div class="line">                    name: [   //注意item是数组</div><div class="line">					  &#123; message: <span class="string">'Foo'</span>,id:01 &#125;,</div><div class="line">					  &#123; message: <span class="string">'Bar'</span>,id:02 &#125;</div><div class="line">					]</div><div class="line">                &#125;</div><div class="line">            &#125;)</div><div class="line">        &lt;/script&gt;</div><div class="line">    &lt;/body&gt;</div><div class="line">&lt;/html&gt;</div></pre></td></tr></table></figure></p>
+
       
     </div>
 
@@ -414,6 +443,14 @@
 
 
     <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/vue/" rel="tag"># vue</a>
+          
+            <a href="/tags/条件/" rel="tag"># 条件</a>
+          
+        </div>
       
 
       
@@ -463,7 +500,7 @@
   <div class="comments" id="comments">
     
       <div class="ds-thread" data-thread-key="2016/06/24/Vue列表渲染/"
-           data-title="Vue列表渲染" data-url="http://yoursite.com/2016/06/24/Vue列表渲染/">
+           data-title="Vue条件渲染" data-url="http://yoursite.com/2016/06/24/Vue列表渲染/">
       </div>
     
   </div>
@@ -487,8 +524,17 @@
       
 
       
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap" >
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview">
+            站点概览
+          </li>
+        </ul>
+      
 
-      <section class="site-overview sidebar-panel sidebar-panel-active">
+      <section class="site-overview sidebar-panel">
         <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
           <img class="site-author-image" itemprop="image"
                src="/uploads/avatar.jpg"
@@ -566,6 +612,22 @@
 
       </section>
 
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#for循环数组"><span class="nav-number">1.</span> <span class="nav-text">for循环数组</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#for循环对象"><span class="nav-number">2.</span> <span class="nav-text">for循环对象</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#track-by定义不需重新渲染的DOM片段"><span class="nav-number">3.</span> <span class="nav-text">track-by定义不需重新渲染的DOM片段</span></a></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
       
 
     </div>
