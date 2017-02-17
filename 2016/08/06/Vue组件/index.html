@@ -71,7 +71,7 @@
 <link href="/css/main.css?v=5.1.0" rel="stylesheet" type="text/css" />
 
 
-  <meta name="keywords" content="manlili blogs" />
+  <meta name="keywords" content="vue,组件," />
 
 
 
@@ -87,16 +87,19 @@
 
 
 
-<meta name="description" content="前端开发/走向全栈/幽默有趣">
+<meta name="description" content="class和style绑定的方法很多，本文写下来总结一下：gitHub地址:[https://github.com/manlili/vue_learn]里面的lesson12
+创建组件的步骤直接用例子说明12345678910111213141516171819202122232425&amp;lt;!DOCTYPE html&amp;gt;&amp;lt;html&amp;gt;    &amp;lt;head&amp;gt;">
 <meta property="og:type" content="article">
 <meta property="og:title" content="Vue组件">
 <meta property="og:url" content="http://yoursite.com/2016/08/06/Vue组件/index.html">
 <meta property="og:site_name" content="manlili blog">
-<meta property="og:description" content="前端开发/走向全栈/幽默有趣">
-<meta property="og:updated_time" content="2016-08-06T02:31:55.805Z">
+<meta property="og:description" content="class和style绑定的方法很多，本文写下来总结一下：gitHub地址:[https://github.com/manlili/vue_learn]里面的lesson12
+创建组件的步骤直接用例子说明12345678910111213141516171819202122232425&amp;lt;!DOCTYPE html&amp;gt;&amp;lt;html&amp;gt;    &amp;lt;head&amp;gt;">
+<meta property="og:updated_time" content="2017-02-17T05:39:43.054Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Vue组件">
-<meta name="twitter:description" content="前端开发/走向全栈/幽默有趣">
+<meta name="twitter:description" content="class和style绑定的方法很多，本文写下来总结一下：gitHub地址:[https://github.com/manlili/vue_learn]里面的lesson12
+创建组件的步骤直接用例子说明12345678910111213141516171819202122232425&amp;lt;!DOCTYPE html&amp;gt;&amp;lt;html&amp;gt;    &amp;lt;head&amp;gt;">
 
 
 
@@ -327,6 +330,28 @@
           </span>
 
           
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/vue技术/" itemprop="url" rel="index">
+                    <span itemprop="name">vue技术</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
 
           
             
@@ -373,7 +398,13 @@
       
 
       
-        
+        <p>class和style绑定的方法很多，本文写下来总结一下：<br>gitHub地址:[<a href="https://github.com/manlili/vue_learn]里面的lesson12" target="_blank" rel="external">https://github.com/manlili/vue_learn]里面的lesson12</a></p>
+<h2 id="创建组件的步骤"><a href="#创建组件的步骤" class="headerlink" title="创建组件的步骤"></a>创建组件的步骤</h2><p>直接用例子说明<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div></pre></td><td class="code"><pre><div class="line">&lt;!DOCTYPE html&gt;</div><div class="line">&lt;html&gt;</div><div class="line">    &lt;head&gt;</div><div class="line">        &lt;meta charset=<span class="string">"UTF-8"</span>&gt;</div><div class="line">        &lt;title&gt;Vue组件&lt;/title&gt;</div><div class="line">        &lt;meta name=<span class="string">"viewport"</span> content=<span class="string">"width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no"</span> /&gt;</div><div class="line">        &lt;script src=<span class="string">"../js/vue.js"</span> <span class="built_in">type</span>=<span class="string">"text/javascript"</span> charset=<span class="string">"utf-8"</span>&gt;&lt;/script&gt;</div><div class="line">    &lt;/head&gt;</div><div class="line">    &lt;body&gt;</div><div class="line">        &lt;div class=<span class="string">"test"</span>&gt;</div><div class="line">            &lt;zujian&gt;&lt;/zujian&gt;</div><div class="line">        &lt;/div&gt;</div><div class="line">        &lt;script <span class="built_in">type</span>=<span class="string">"text/javascript"</span>&gt;</div><div class="line">            var myComponent = Vue.extend(&#123;   //第一步:定义</div><div class="line">                template: <span class="string">'&lt;div&gt;我是内容&lt;/div&gt;'</span></div><div class="line">            &#125;)</div><div class="line">            </div><div class="line">            Vue.component(<span class="string">'zujian'</span>,myComponent)  //第二步:注册到Vue上面</div><div class="line">            </div><div class="line">            var myVue = new Vue(&#123;    //第三步:创建实例化</div><div class="line">                el: <span class="string">'.test'</span></div><div class="line">            &#125;)</div><div class="line">        &lt;/script&gt;</div><div class="line">    &lt;/body&gt;</div><div class="line">&lt;/html&gt;</div></pre></td></tr></table></figure></p>
+<p>或者用一种简单的方法创建组件<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div></pre></td><td class="code"><pre><div class="line">&lt;!DOCTYPE html&gt;</div><div class="line">&lt;html&gt;</div><div class="line">    &lt;head&gt;</div><div class="line">        &lt;meta charset=<span class="string">"UTF-8"</span>&gt;</div><div class="line">        &lt;title&gt;Vue组件&lt;/title&gt;</div><div class="line">        &lt;meta name=<span class="string">"viewport"</span> content=<span class="string">"width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no"</span> /&gt;</div><div class="line">        &lt;script src=<span class="string">"../js/vue.js"</span> <span class="built_in">type</span>=<span class="string">"text/javascript"</span> charset=<span class="string">"utf-8"</span>&gt;&lt;/script&gt;</div><div class="line">    &lt;/head&gt;</div><div class="line">    &lt;body&gt;</div><div class="line">        &lt;template id=<span class="string">"lili-template"</span>&gt; &lt;!--注意此处必须是id,用class不行--&gt;</div><div class="line">            &lt;div&gt;我是内容2&lt;/div&gt;</div><div class="line">        &lt;/template&gt;</div><div class="line">        &lt;div class=<span class="string">"test"</span>&gt;</div><div class="line">            &lt;zujian&gt;&lt;/zujian&gt;</div><div class="line">        &lt;/div&gt;</div><div class="line">        &lt;script <span class="built_in">type</span>=<span class="string">"text/javascript"</span>&gt;</div><div class="line">            var myVue = new Vue(&#123;</div><div class="line">                el: <span class="string">'.test'</span>,</div><div class="line">                components: &#123;</div><div class="line">                    zujian: &#123;</div><div class="line">                        template: <span class="string">'#lili-template'</span></div><div class="line">                    &#125;</div><div class="line">                &#125;</div><div class="line">            &#125;)</div><div class="line">        &lt;/script&gt;</div><div class="line">    &lt;/body&gt;</div><div class="line">&lt;/html&gt;</div></pre></td></tr></table></figure></p>
+<h2 id="父子组件"><a href="#父子组件" class="headerlink" title="父子组件"></a>父子组件</h2><p>下面来看个例子<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div></pre></td><td class="code"><pre><div class="line">&lt;!DOCTYPE html&gt;</div><div class="line">&lt;html&gt;</div><div class="line">    &lt;head&gt;</div><div class="line">        &lt;meta charset=<span class="string">"UTF-8"</span>&gt;</div><div class="line">        &lt;title&gt;Vue组件--父子组件&lt;/title&gt;</div><div class="line">        &lt;meta name=<span class="string">"viewport"</span> content=<span class="string">"width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no"</span> /&gt;</div><div class="line">        &lt;script src=<span class="string">"../js/vue.js"</span> <span class="built_in">type</span>=<span class="string">"text/javascript"</span> charset=<span class="string">"utf-8"</span>&gt;&lt;/script&gt;</div><div class="line">    &lt;/head&gt;</div><div class="line">    &lt;body&gt;</div><div class="line">        &lt;div class=<span class="string">"test"</span>&gt; &lt;!--局部注册--&gt;</div><div class="line">            &lt;zujian&gt;&lt;/zujian&gt;</div><div class="line">        &lt;/div&gt;</div><div class="line">        &lt;script <span class="built_in">type</span>=<span class="string">"text/javascript"</span>&gt;</div><div class="line">            var childComponent = Vue.extend(&#123;   //第一步:定义</div><div class="line">                template: <span class="string">'&lt;div class="mychild"&gt;我是孩子&lt;/div&gt;'</span></div><div class="line">            &#125;);</div><div class="line">            var parentComponent = Vue.extend(&#123;</div><div class="line">                template: <span class="string">'&lt;div class="myParent"&gt;我是父容器&lt;child&gt;&lt;/child&gt;&lt;/div&gt;'</span>,  //注意此处要引用孩子组件</div><div class="line">                components: &#123;</div><div class="line">                    <span class="string">'child'</span>: childComponent</div><div class="line">                &#125;</div><div class="line">            &#125;);</div><div class="line">            Vue.component(<span class="string">'zujian'</span>,parentComponent);  //第二步:注册到Vue上面</div><div class="line">            </div><div class="line">            var myVue = new Vue(&#123;    //第三步:创建实例化</div><div class="line">                el: <span class="string">'.test'</span></div><div class="line">            &#125;)</div><div class="line">        &lt;/script&gt;</div><div class="line">    &lt;/body&gt;</div><div class="line">&lt;/html&gt;</div></pre></td></tr></table></figure></p>
+<p>或者另一种比较明了的写法:<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div><div class="line">39</div><div class="line">40</div><div class="line">41</div><div class="line">42</div><div class="line">43</div></pre></td><td class="code"><pre><div class="line">&lt;!DOCTYPE html&gt;</div><div class="line">&lt;html&gt;</div><div class="line">    &lt;head&gt;</div><div class="line">        &lt;meta charset=<span class="string">"UTF-8"</span>&gt;</div><div class="line">        &lt;title&gt;Vue组件--父子组件另一种写法&lt;/title&gt;</div><div class="line">        &lt;meta name=<span class="string">"viewport"</span> content=<span class="string">"width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no"</span> /&gt;</div><div class="line">        &lt;script src=<span class="string">"../js/vue.js"</span> <span class="built_in">type</span>=<span class="string">"text/javascript"</span> charset=<span class="string">"utf-8"</span>&gt;&lt;/script&gt;</div><div class="line">    &lt;/head&gt;</div><div class="line">    &lt;body&gt;</div><div class="line">        &lt;div class=<span class="string">"test"</span>&gt;</div><div class="line">            &lt;zujian&gt;&lt;/zujian&gt;</div><div class="line">        &lt;/div&gt;</div><div class="line">        &lt;template id=<span class="string">"parentComponent"</span>&gt;</div><div class="line">            &lt;div class=<span class="string">"myParent"</span>&gt;</div><div class="line">                我是父容器</div><div class="line">                &lt;child&gt;&lt;/child&gt;</div><div class="line">            &lt;/div&gt;</div><div class="line">        &lt;/template&gt;</div><div class="line">        </div><div class="line">        &lt;template id=<span class="string">"childComponent"</span>&gt;</div><div class="line">            &lt;div class=<span class="string">"mychild"</span>&gt;</div><div class="line">                我是孩子</div><div class="line">            &lt;/div&gt;</div><div class="line">        &lt;/template&gt;</div><div class="line">        </div><div class="line">        &lt;script <span class="built_in">type</span>=<span class="string">"text/javascript"</span>&gt;</div><div class="line">            </div><div class="line">            var myVue = new Vue(&#123; </div><div class="line">                el: <span class="string">'.test'</span>,</div><div class="line">                components: &#123;</div><div class="line">                    zujian: &#123;</div><div class="line">                        template:<span class="string">'#parentComponent'</span>,</div><div class="line">                        components: &#123;</div><div class="line">                            child: &#123;</div><div class="line">                                template:<span class="string">'#childComponent'</span></div><div class="line">                            &#125;</div><div class="line">                        &#125;</div><div class="line">                    &#125;</div><div class="line">                &#125;</div><div class="line">            &#125;)</div><div class="line">        &lt;/script&gt;</div><div class="line">    &lt;/body&gt;</div><div class="line">&lt;/html&gt;</div></pre></td></tr></table></figure></p>
+<h2 id="Vue组件选项"><a href="#Vue组件选项" class="headerlink" title="Vue组件选项"></a>Vue组件选项</h2><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div></pre></td><td class="code"><pre><div class="line">&lt;!DOCTYPE html&gt;</div><div class="line">&lt;html&gt;</div><div class="line">    &lt;head&gt;</div><div class="line">        &lt;meta charset=<span class="string">"UTF-8"</span>&gt;</div><div class="line">        &lt;title&gt;Vue组件--组件选项&lt;/title&gt;</div><div class="line">        &lt;meta name=<span class="string">"viewport"</span> content=<span class="string">"width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no"</span> /&gt;</div><div class="line">        &lt;script src=<span class="string">"../js/vue.js"</span> <span class="built_in">type</span>=<span class="string">"text/javascript"</span> charset=<span class="string">"utf-8"</span>&gt;&lt;/script&gt;</div><div class="line">    &lt;/head&gt;</div><div class="line">    &lt;body&gt;</div><div class="line">        &lt;div class=<span class="string">"test"</span>&gt;</div><div class="line">            &lt;div class=<span class="string">"lala"</span>&gt;</div><div class="line">                &lt;zujian&gt;&lt;/zujian&gt;</div><div class="line">            &lt;/div&gt;</div><div class="line">        &lt;/div&gt;</div><div class="line">        &lt;script <span class="built_in">type</span>=<span class="string">"text/javascript"</span>&gt;</div><div class="line">            var myComponent = Vue.extend(&#123;   </div><div class="line">                template: <span class="string">'&lt;div&gt;我是&#123;&#123;a&#125;&#125;&#123;&#123;b&#125;&#125;&lt;/div&gt;'</span>,</div><div class="line">                data : <span class="function"><span class="title">function</span></span> () &#123;   //不想让MyComponent 所有的实例将共享同一个 data 对象,所以将data写成函数形式返回</div><div class="line">                    <span class="built_in">return</span> &#123;</div><div class="line">                        a: 1,</div><div class="line">                        b: 2</div><div class="line">                    &#125;</div><div class="line">                &#125;,</div><div class="line">                el: <span class="function"><span class="title">function</span></span> () &#123;   //不想让MyComponent 所有的实例将共享同一个 el 对象,所以将el写成函数形式返回</div><div class="line">                    <span class="built_in">return</span> <span class="string">".lala"</span></div><div class="line">                &#125;</div><div class="line">            &#125;)                    </div><div class="line">            var myVue = new Vue(&#123;</div><div class="line">                el: <span class="string">'.test'</span>,</div><div class="line">                components: &#123;</div><div class="line">                    zujian:myComponent</div><div class="line">                &#125;</div><div class="line">            &#125;)</div><div class="line">        &lt;/script&gt;</div><div class="line">    &lt;/body&gt;</div><div class="line">&lt;/html&gt;</div></pre></td></tr></table></figure>
+<h2 id="Vue组件作用域-父子通信"><a href="#Vue组件作用域-父子通信" class="headerlink" title="Vue组件作用域(父子通信)"></a>Vue组件作用域(父子通信)</h2><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div><div class="line">39</div><div class="line">40</div></pre></td><td class="code"><pre><div class="line">&lt;!DOCTYPE html&gt;</div><div class="line">&lt;html&gt;</div><div class="line">    &lt;head&gt;</div><div class="line">        &lt;meta charset=<span class="string">"UTF-8"</span>&gt;</div><div class="line">        &lt;title&gt;Vue组件--组件作用域&lt;/title&gt;</div><div class="line">        &lt;meta name=<span class="string">"viewport"</span> content=<span class="string">"width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no"</span> /&gt;</div><div class="line">        &lt;script src=<span class="string">"../js/vue.js"</span> <span class="built_in">type</span>=<span class="string">"text/javascript"</span> charset=<span class="string">"utf-8"</span>&gt;&lt;/script&gt;</div><div class="line">    &lt;/head&gt;</div><div class="line">    &lt;body&gt;</div><div class="line">        &lt;!-- 子组件模板 --&gt;</div><div class="line">        &lt;template id=<span class="string">"child-template"</span>&gt;</div><div class="line">          &#123;&#123;msg1&#125;&#125;</div><div class="line">        &lt;/template&gt;</div><div class="line">        </div><div class="line">        &lt;!-- 父组件模板 --&gt;</div><div class="line">        &lt;div id=<span class="string">"events-example"</span>&gt;</div><div class="line">          &lt;p&gt;Messages: &#123;&#123; messages | json &#125;&#125;&lt;/p&gt;</div><div class="line">          &lt;child :msg1=<span class="string">"mssss"</span>&gt;</div><div class="line">              </div><div class="line">          &lt;/child&gt;</div><div class="line">        &lt;/div&gt;</div><div class="line">        </div><div class="line">        &lt;script <span class="built_in">type</span>=<span class="string">"text/javascript"</span>&gt;</div><div class="line"></div><div class="line">            var parent = new Vue(&#123;</div><div class="line">              el: <span class="string">'#events-example'</span>,</div><div class="line">              data: &#123;</div><div class="line">                messages: <span class="string">'我是父框架222'</span>,</div><div class="line">                mssss: <span class="string">'ddddddd'</span></div><div class="line">              &#125;,</div><div class="line">              components: &#123;</div><div class="line">                  child: &#123;</div><div class="line">                      template: <span class="string">'#child-template'</span>,</div><div class="line">                      props: &#123;msg1: String &#125;</div><div class="line">                    &#125;</div><div class="line">              &#125;</div><div class="line">            &#125;)</div><div class="line">        &lt;/script&gt;</div><div class="line">    &lt;/body&gt;</div><div class="line">&lt;/html&gt;</div></pre></td></tr></table></figure>
       
     </div>
 
@@ -414,6 +445,14 @@
 
 
     <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/vue/" rel="tag"># vue</a>
+          
+            <a href="/tags/组件/" rel="tag"># 组件</a>
+          
+        </div>
       
 
       
@@ -487,8 +526,17 @@
       
 
       
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap" >
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview">
+            站点概览
+          </li>
+        </ul>
+      
 
-      <section class="site-overview sidebar-panel sidebar-panel-active">
+      <section class="site-overview sidebar-panel">
         <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
           <img class="site-author-image" itemprop="image"
                src="/uploads/avatar.jpg"
@@ -521,7 +569,7 @@
           
             <div class="site-state-item site-state-tags">
               
-                <span class="site-state-item-count">32</span>
+                <span class="site-state-item-count">33</span>
                 <span class="site-state-item-name">标签</span>
               
             </div>
@@ -566,6 +614,22 @@
 
       </section>
 
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#创建组件的步骤"><span class="nav-number">1.</span> <span class="nav-text">创建组件的步骤</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#父子组件"><span class="nav-number">2.</span> <span class="nav-text">父子组件</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Vue组件选项"><span class="nav-number">3.</span> <span class="nav-text">Vue组件选项</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Vue组件作用域-父子通信"><span class="nav-number">4.</span> <span class="nav-text">Vue组件作用域(父子通信)</span></a></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
       
 
     </div>
