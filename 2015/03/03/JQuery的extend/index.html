@@ -71,7 +71,7 @@
 <link href="/css/main.css?v=5.1.0" rel="stylesheet" type="text/css" />
 
 
-  <meta name="keywords" content="manlili blogs" />
+  <meta name="keywords" content="jquery,extend," />
 
 
 
@@ -87,16 +87,22 @@
 
 
 
-<meta name="description" content="前端开发/走向全栈/幽默有趣">
+<meta name="description" content="Jquery的扩展方法extend是我们在写插件的过程中常用的方法，该方法有一些重载原型，在此，我们一起去了解了解。
+Jquery的扩展方法原型是:　1extend(dest,src1,src2,src3...);
+它的含义是将src1,src2,src3…合并到dest中,返回值为合并后的dest,由此可以看出该方法合并后，是修改了dest的结构的。如果想要得到合并的结果却又不想修改dest的结">
 <meta property="og:type" content="article">
 <meta property="og:title" content="JQuery的extend">
 <meta property="og:url" content="http://yoursite.com/2015/03/03/JQuery的extend/index.html">
 <meta property="og:site_name" content="manlili blog">
-<meta property="og:description" content="前端开发/走向全栈/幽默有趣">
-<meta property="og:updated_time" content="2015-03-03T07:55:05.114Z">
+<meta property="og:description" content="Jquery的扩展方法extend是我们在写插件的过程中常用的方法，该方法有一些重载原型，在此，我们一起去了解了解。
+Jquery的扩展方法原型是:　1extend(dest,src1,src2,src3...);
+它的含义是将src1,src2,src3…合并到dest中,返回值为合并后的dest,由此可以看出该方法合并后，是修改了dest的结构的。如果想要得到合并的结果却又不想修改dest的结">
+<meta property="og:updated_time" content="2017-02-17T09:18:50.368Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="JQuery的extend">
-<meta name="twitter:description" content="前端开发/走向全栈/幽默有趣">
+<meta name="twitter:description" content="Jquery的扩展方法extend是我们在写插件的过程中常用的方法，该方法有一些重载原型，在此，我们一起去了解了解。
+Jquery的扩展方法原型是:　1extend(dest,src1,src2,src3...);
+它的含义是将src1,src2,src3…合并到dest中,返回值为合并后的dest,由此可以看出该方法合并后，是修改了dest的结构的。如果想要得到合并的结果却又不想修改dest的结">
 
 
 
@@ -327,6 +333,28 @@
           </span>
 
           
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/js技术/" itemprop="url" rel="index">
+                    <span itemprop="name">js技术</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
 
           
             
@@ -373,7 +401,26 @@
       
 
       
-        
+        <p>Jquery的扩展方法extend是我们在写插件的过程中常用的方法，该方法有一些重载原型，在此，我们一起去了解了解。</p>
+<h2 id="Jquery的扩展方法原型是"><a href="#Jquery的扩展方法原型是" class="headerlink" title="Jquery的扩展方法原型是:　"></a>Jquery的扩展方法原型是:　</h2><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">extend(dest,src1,src2,src3...);</div></pre></td></tr></table></figure>
+<p>它的含义是将src1,src2,src3…合并到dest中,返回值为合并后的dest,由此可以看出该方法合并后，是修改了dest的结构的。如果想要得到合并的结果却又不想修改dest的结构，可以如下使用：<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">var newSrc=$.extend(&#123;&#125;,src1,src2,src3...)//也就是将<span class="string">"&#123;&#125;"</span>作为dest参数。</div></pre></td></tr></table></figure></p>
+<p>这样就可以将src1,src2,src3…进行合并，然后将合并结果返回给newSrc了。如下例：<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">var result=$.extend(&#123;&#125;,&#123;name:<span class="string">"Tom"</span>,age:21&#125;,&#123;name:<span class="string">"Jerry"</span>,sex:<span class="string">"Boy"</span>&#125;)</div></pre></td></tr></table></figure></p>
+<p>那么合并后的结果是<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">result=&#123;name:<span class="string">"Jerry"</span>,age:21,sex:<span class="string">"Boy"</span>&#125;</div></pre></td></tr></table></figure></p>
+<p> 也就是说后面的参数如果和前面的参数存在相同的名称，那么后面的会覆盖前面的参数值。</p>
+<h2 id="省略dest参数"><a href="#省略dest参数" class="headerlink" title="省略dest参数"></a>省略dest参数</h2><p>上述的extend方法原型中的dest参数是可以省略的，如果省略了，则该方法就只能有一个src参数，而且是将该src合并到调用extend方法的对象中去，如：</p>
+<h3 id="extend-src"><a href="#extend-src" class="headerlink" title="$.extend(src)"></a>$.extend(src)</h3><p>该方法就是将src合并到jquery的全局对象中去，如：<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">$.extend(&#123;</div><div class="line">	hello:<span class="function"><span class="title">function</span></span>()&#123;alert(<span class="string">'hello'</span>);&#125;</div><div class="line">&#125;);</div></pre></td></tr></table></figure></p>
+<p>上面就是将hello方法合并到jquery的全局对象中。</p>
+<h3 id="fn-extend-src"><a href="#fn-extend-src" class="headerlink" title="$.fn.extend(src)"></a>$.fn.extend(src)</h3><p>该方法将src合并到jquery的实例对象中去，如:<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">$.fn.extend(&#123;</div><div class="line">	hello:<span class="function"><span class="title">function</span></span>()&#123;alert(<span class="string">'hello'</span>);&#125;</div><div class="line">&#125;);</div></pre></td></tr></table></figure></p>
+<p>就是将hello方法合并到jquery的实例对象中。</p>
+<p>下面例举几个常用的扩展实例：<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">$.extend($.net,&#123;</div><div class="line">	hello:<span class="function"><span class="title">function</span></span>()&#123;alert(<span class="string">'hello'</span>);&#125;</div><div class="line">&#125;)</div></pre></td></tr></table></figure></p>
+<p>这是在jquery全局对象中扩展一个net命名空间</p>
+<h2 id="Jquery的extend方法还有一个重载原型"><a href="#Jquery的extend方法还有一个重载原型" class="headerlink" title="Jquery的extend方法还有一个重载原型"></a>Jquery的extend方法还有一个重载原型</h2><p>参数如下：<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">extend(boolean,dest,src1,src2,src3...)</div></pre></td></tr></table></figure></p>
+<p>第一个参数boolean代表是否进行深度拷贝，其余参数和前面介绍的一致，什么叫深层拷贝，我们看一个例子：<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">var result=$.extend( <span class="literal">true</span>, &#123;&#125;, </div><div class="line">&#123; name: <span class="string">"John"</span>, location: &#123;city: <span class="string">"Boston"</span>,county:<span class="string">"USA"</span>&#125; &#125;, </div><div class="line">&#123; last: <span class="string">"Resig"</span>, location: &#123;state: <span class="string">"MA"</span>,county:<span class="string">"China"</span>&#125; &#125; </div><div class="line">);</div></pre></td></tr></table></figure></p>
+<p>我们可以看出src1中嵌套子对象location:{city:”Boston”},src2中也嵌套子对象location:{state:”MA”},第一个深度拷贝参数为true，那么合并后的结果就是：<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">result=&#123;name:<span class="string">"John"</span>,last:<span class="string">"Resig"</span>,location:&#123;city:<span class="string">"Boston"</span>,state:<span class="string">"MA"</span>,county:<span class="string">"China"</span>&#125;&#125;</div></pre></td></tr></table></figure></p>
+<p>也就是说它会将src中的嵌套子对象也进行合并，而如果第一个参数boolean为false，我们看看合并的结果是什么，如下：<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">var result=$.extend( <span class="literal">false</span>, &#123;&#125;, </div><div class="line">&#123; name: <span class="string">"John"</span>, location:&#123;city: <span class="string">"Boston"</span>,county:<span class="string">"USA"</span>&#125; &#125;, </div><div class="line">&#123; last: <span class="string">"Resig"</span>, location: &#123;state: <span class="string">"MA"</span>,county:<span class="string">"China"</span>&#125; &#125; </div><div class="line">);</div></pre></td></tr></table></figure></p>
+<p>那么合并后的结果就是:<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">result=&#123;name:<span class="string">"John"</span>,last:<span class="string">"Resig"</span>,location:&#123;state:<span class="string">"MA"</span>,county:<span class="string">"China"</span>&#125;&#125;</div></pre></td></tr></table></figure></p>
+<p>以上就是$.extend()在项目中经常会使用到的一些细节。</p>
+
       
     </div>
 
@@ -414,6 +461,14 @@
 
 
     <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/jquery/" rel="tag"># jquery</a>
+          
+            <a href="/tags/extend/" rel="tag"># extend</a>
+          
+        </div>
       
 
       
@@ -487,8 +542,17 @@
       
 
       
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap" >
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview">
+            站点概览
+          </li>
+        </ul>
+      
 
-      <section class="site-overview sidebar-panel sidebar-panel-active">
+      <section class="site-overview sidebar-panel">
         <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
           <img class="site-author-image" itemprop="image"
                src="/uploads/avatar.jpg"
@@ -521,7 +585,7 @@
           
             <div class="site-state-item site-state-tags">
               
-                <span class="site-state-item-count">38</span>
+                <span class="site-state-item-count">40</span>
                 <span class="site-state-item-name">标签</span>
               
             </div>
@@ -566,6 +630,22 @@
 
       </section>
 
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#Jquery的扩展方法原型是"><span class="nav-number">1.</span> <span class="nav-text">Jquery的扩展方法原型是:　</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#省略dest参数"><span class="nav-number">2.</span> <span class="nav-text">省略dest参数</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#extend-src"><span class="nav-number">2.1.</span> <span class="nav-text">$.extend(src)</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#fn-extend-src"><span class="nav-number">2.2.</span> <span class="nav-text">$.fn.extend(src)</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Jquery的extend方法还有一个重载原型"><span class="nav-number">3.</span> <span class="nav-text">Jquery的extend方法还有一个重载原型</span></a></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
       
 
     </div>
