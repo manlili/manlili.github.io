@@ -98,7 +98,8 @@
 <meta property="og:image" content="https://manlili.github.io/img/150406/1.png">
 <meta property="og:image" content="https://manlili.github.io/img/150406/2.png">
 <meta property="og:image" content="https://manlili.github.io/img/150406/3.png">
-<meta property="og:updated_time" content="2017-02-19T06:23:18.778Z">
+<meta property="og:image" content="https://manlili.github.io/img/150406/4.png">
+<meta property="og:updated_time" content="2017-02-19T06:27:45.016Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Node入门">
 <meta name="twitter:description" content="最近有空，花点时间学下node,关于node的安装就不用说了吧，直接进入正题吧。
@@ -410,7 +411,7 @@
 <h2 id="创建应用"><a href="#创建应用" class="headerlink" title="创建应用"></a>创建应用</h2><p>在我们创建 Node.js 第一个 “Hello, World!” 应用前，让我们先了解下 Node.js 应用是由哪几部分组成的：<br>(1)引入 required 模块：我们可以使用 require 指令来载入 Node.js 模块。<br>(2)创建服务器：服务器可以监听客户端的请求，类似于 Apache 、Nginx 等 HTTP 服务器。<br>(3)接收请求与响应请求 服务器很容易创建，客户端可以使用浏览器或终端发送 HTTP 请求，服务器接收请求后返回响应数据。</p>
 <h3 id="第一步"><a href="#第一步" class="headerlink" title="第一步"></a>第一步</h3><p>引入 required 模块<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">var http = require(<span class="string">"http"</span>);</div></pre></td></tr></table></figure></p>
 <h3 id="创建服务器"><a href="#创建服务器" class="headerlink" title="创建服务器"></a>创建服务器</h3><p>接下来我们使用 http.createServer() 方法创建服务器，并使用 listen 方法绑定 8888 端口。 函数通过 request, response 参数来接收和响应数据。<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div></pre></td><td class="code"><pre><div class="line">var http = require(<span class="string">'http'</span>);</div><div class="line">http.createServer(<span class="keyword">function</span> (request, response) &#123;</div><div class="line"></div><div class="line">	// 发送 HTTP 头部 </div><div class="line">	// HTTP 状态值: 200 : OK</div><div class="line">	// 内容类型: text/plain</div><div class="line">	response.writeHead(200, &#123;<span class="string">'Content-Type'</span>: <span class="string">'text/plain'</span>&#125;);</div><div class="line"></div><div class="line">	// 发送响应数据 <span class="string">"Hello World"</span></div><div class="line">	response.end(<span class="string">'Hello World\n'</span>);</div><div class="line">&#125;).listen(8888);</div><div class="line"></div><div class="line">// 终端打印如下信息</div><div class="line">console.log(<span class="string">'Server running at http://127.0.0.1:8888/'</span>);</div></pre></td></tr></table></figure></p>
-<p>来看下结果：<br><img src="https://manlili.github.io/img/150406/3.png" alt="图"></p>
+<p>来看下控制台结果：<br><img src="https://manlili.github.io/img/150406/3.png" alt="图"><br>在浏览器打印出的结果如下：<br><img src="https://manlili.github.io/img/150406/4.png" alt="图"></p>
 
       
     </div>
