@@ -1,0 +1,918 @@
+<!doctype html>
+
+
+
+  
+
+
+<html class="theme-next mist use-motion" lang="zh-Hans">
+<head>
+  <meta charset="UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+  <link href="/lib/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css" />
+
+
+
+
+  
+  
+  
+  
+
+  
+    
+    
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+    
+    
+    <link href="//fonts.googleapis.com/css?family=Lato:300,300italic,400,400italic,700,700italic&subset=latin,latin-ext" rel="stylesheet" type="text/css">
+  
+
+
+
+
+
+
+<link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css" />
+
+<link href="/css/main.css?v=5.1.0" rel="stylesheet" type="text/css" />
+
+
+  <meta name="keywords" content="node,npm," />
+
+
+
+
+
+
+
+
+  <link rel="shortcut icon" type="image/x-icon" href="/favicon.ico?v=5.1.0" />
+
+
+
+
+
+
+<meta name="description" content="定位npm的全称是Node Package Manager，也就是node的包管理工具，具体使用场景如下：(1)允许用户从NPM服务器下载别人编写的第三方包到本地使用。(2)允许用户从NPM服务器下载并安装别人编写的命令行程序到本地使用。(3)允许用户将自己编写的包或命令行程序上传到NPM服务器供别人使用。
+由于新版的nodejs已经集成了npm，所以安装node的时候也把npm安装好了。同样可以">
+<meta property="og:type" content="article">
+<meta property="og:title" content="npm使用">
+<meta property="og:url" content="http://yoursite.com/2015/04/13/npm使用/index.html">
+<meta property="og:site_name" content="manlili blog">
+<meta property="og:description" content="定位npm的全称是Node Package Manager，也就是node的包管理工具，具体使用场景如下：(1)允许用户从NPM服务器下载别人编写的第三方包到本地使用。(2)允许用户从NPM服务器下载并安装别人编写的命令行程序到本地使用。(3)允许用户将自己编写的包或命令行程序上传到NPM服务器供别人使用。
+由于新版的nodejs已经集成了npm，所以安装node的时候也把npm安装好了。同样可以">
+<meta property="og:image" content="https://manlili.github.io/img/150413/1.png">
+<meta property="og:image" content="https://manlili.github.io/img/150413/2.png">
+<meta property="og:updated_time" content="2017-02-19T08:39:22.102Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="npm使用">
+<meta name="twitter:description" content="定位npm的全称是Node Package Manager，也就是node的包管理工具，具体使用场景如下：(1)允许用户从NPM服务器下载别人编写的第三方包到本地使用。(2)允许用户从NPM服务器下载并安装别人编写的命令行程序到本地使用。(3)允许用户将自己编写的包或命令行程序上传到NPM服务器供别人使用。
+由于新版的nodejs已经集成了npm，所以安装node的时候也把npm安装好了。同样可以">
+<meta name="twitter:image" content="https://manlili.github.io/img/150413/1.png">
+
+
+
+<script type="text/javascript" id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Mist',
+    sidebar: {"position":"left","display":"post"},
+    fancybox: true,
+    motion: true,
+    duoshuo: {
+      userId: '0',
+      author: '博主'
+    },
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
+
+
+
+  <link rel="canonical" href="http://yoursite.com/2015/04/13/npm使用/"/>
+
+
+
+
+
+  <title> npm使用 | manlili blog </title>
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
+
+  
+
+
+
+
+
+  <script type="text/javascript">
+    var _hmt = _hmt || [];
+    (function() {
+      var hm = document.createElement("script");
+      hm.src = "https://hm.baidu.com/hm.js?f37e17c195d69bf54199e99faa624b7b　";
+      var s = document.getElementsByTagName("script")[0];
+      s.parentNode.insertBefore(hm, s);
+    })();
+  </script>
+
+
+
+
+
+
+
+
+
+
+  
+  
+    
+  
+
+  <div class="container one-collumn sidebar-position-left page-post-detail ">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-meta ">
+  
+
+  <div class="custom-logo-site-title">
+    <a href="/"  class="brand" rel="start">
+      <span class="logo-line-before"><i></i></span>
+      <span class="site-title">manlili blog</span>
+      <span class="logo-line-after"><i></i></span>
+    </a>
+  </div>
+    
+      <p class="site-subtitle">记录技术上的点点心得</p>
+    
+</div>
+
+<div class="site-nav-toggle">
+  <button>
+    <span class="btn-bar"></span>
+    <span class="btn-bar"></span>
+    <span class="btn-bar"></span>
+  </button>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-home"></i> <br />
+            
+            首页
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/archives" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-archive"></i> <br />
+            
+            归档
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-categories">
+          <a href="/categories" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-th"></i> <br />
+            
+            分类
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-about">
+          <a href="/about" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-user"></i> <br />
+            
+            关于
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-commonweal">
+          <a href="/404.html" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-heartbeat"></i> <br />
+            
+            公益404
+          </a>
+        </li>
+      
+
+      
+    </ul>
+  
+
+  
+</nav>
+
+
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+  <link itemprop="mainEntityOfPage" href="http://yoursite.com/2015/04/13/npm使用/">
+
+  <span style="display:none" itemprop="author" itemscope itemtype="http://schema.org/Person">
+    <meta itemprop="name" content="满利利">
+    <meta itemprop="description" content="">
+    <meta itemprop="image" content="/uploads/avatar.jpg">
+  </span>
+
+  <span style="display:none" itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+    <meta itemprop="name" content="manlili blog">
+    <span style="display:none" itemprop="logo" itemscope itemtype="http://schema.org/ImageObject">
+      <img style="display:none;" itemprop="url image" alt="manlili blog" src="">
+    </span>
+  </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+            
+            
+              
+                npm使用
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2015-04-13T14:30:18+08:00">
+                2015-04-13
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/node技术/" itemprop="url" rel="index">
+                    <span itemprop="name">node技术</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+              <span class="post-comments-count">
+                <span class="post-meta-divider">|</span>
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-comment-o"></i>
+                </span>
+                <a href="/2015/04/13/npm使用/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count ds-thread-count" data-thread-key="2015/04/13/npm使用/" itemprop="commentCount"></span>
+                </a>
+              </span>
+            
+          
+
+          
+          
+             <span id="/2015/04/13/npm使用/" class="leancloud_visitors" data-flag-title="npm使用">
+               <span class="post-meta-divider">|</span>
+               <span class="post-meta-item-icon">
+                 <i class="fa fa-eye"></i>
+               </span>
+               
+                 <span class="post-meta-item-text">阅读次数 </span>
+               
+                 <span class="leancloud-visitors-count"></span>
+             </span>
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <h2 id="定位"><a href="#定位" class="headerlink" title="定位"></a>定位</h2><p>npm的全称是Node Package Manager，也就是node的包管理工具，具体使用场景如下：<br>(1)允许用户从NPM服务器下载别人编写的第三方包到本地使用。<br>(2)允许用户从NPM服务器下载并安装别人编写的命令行程序到本地使用。<br>(3)允许用户将自己编写的包或命令行程序上传到NPM服务器供别人使用。</p>
+<p>由于新版的nodejs已经集成了npm，所以安装node的时候也把npm安装好了。同样可以通过输入 “npm -v” 来测试是否成功安装。命令如下，出现版本提示表示安装成功:<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">npm -v</div></pre></td></tr></table></figure></p>
+<h2 id="使用-npm-命令安装模块"><a href="#使用-npm-命令安装模块" class="headerlink" title="使用 npm 命令安装模块"></a>使用 npm 命令安装模块</h2><p>学安装前需要先去npm官网[<a href="https://www.npmjs.com/]，大致的浏览下有哪些模块包，为后面讲解做准备" target="_blank" rel="external">https://www.npmjs.com/]，大致的浏览下有哪些模块包，为后面讲解做准备</a><br>安装语法如下：<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ npm install 模块名字</div></pre></td></tr></table></figure></p>
+<p>下面去npm官网里面随便找一个包进行下载，比如vue的下载地址[<a href="https://www.npmjs.com/package/vue],按照里面的英文描述，可以在右边找下vue下载额方法" target="_blank" rel="external">https://www.npmjs.com/package/vue],按照里面的英文描述，可以在右边找下vue下载额方法</a><br><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">npm install vue</div></pre></td></tr></table></figure></p>
+<p>安装好之后，vue 包就放在了工程目录下的 node_modules 目录中，因此在代码中只需要通过 require(‘vue’) 的方式就好，无需指定第三方包路径。</p>
+<h2 id="全局安装与本地安装"><a href="#全局安装与本地安装" class="headerlink" title="全局安装与本地安装"></a>全局安装与本地安装</h2><h3 id="安装区别"><a href="#安装区别" class="headerlink" title="安装区别"></a>安装区别</h3><p>npm 的包安装分为本地安装（local）、全局安装（global）两种，从敲的命令行来看，差别只是有没有-g而已。<br>比如<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">npm install express          <span class="comment"># 本地安装</span></div><div class="line">npm install express -g   <span class="comment"># 全局安装</span></div></pre></td></tr></table></figure></p>
+<h3 id="使用区别"><a href="#使用区别" class="headerlink" title="使用区别"></a>使用区别</h3><p>本地安装</p>
+<ol>
+<li>将安装包放在 ./node_modules 下（运行 npm 命令时所在的目录），如果没有 node_modules 目录，会在当前执行 npm 命令的目录下生成 node_modules 目录。</li>
+<li>可以通过 require() 来引入本地安装的包。</li>
+</ol>
+<p>全局安装</p>
+<ol>
+<li>将安装包放在 /usr/local 下或者你 node 的安装目录。</li>
+<li>可以直接在命令行里使用。</li>
+</ol>
+<p>##查看已安装的包<br>(1) 找到node_modules文件夹在里面直接查看<br>(2) 使用命令查看<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ npm ls -g</div></pre></td></tr></table></figure></p>
+<h2 id="使用-npm-命令卸载模块"><a href="#使用-npm-命令卸载模块" class="headerlink" title="使用 npm 命令卸载模块"></a>使用 npm 命令卸载模块</h2><p>命令如下：<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ npm uninstall 模块名</div></pre></td></tr></table></figure></p>
+<h2 id="使用-npm-命令更新模块"><a href="#使用-npm-命令更新模块" class="headerlink" title="使用 npm 命令更新模块"></a>使用 npm 命令更新模块</h2><p>命令如下：<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ npm update 模块名</div></pre></td></tr></table></figure></p>
+<h2 id="使用-npm-命令搜索模块"><a href="#使用-npm-命令搜索模块" class="headerlink" title="使用 npm 命令搜索模块"></a>使用 npm 命令搜索模块</h2><p>命令如下：<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ npm search 模块名</div></pre></td></tr></table></figure></p>
+<h2 id="package-json"><a href="#package-json" class="headerlink" title="package.json"></a>package.json</h2><h3 id="定义"><a href="#定义" class="headerlink" title="定义"></a>定义</h3><p>package.json 位于模块的目录下，用于定义包的属性。</p>
+<h3 id="主要字段说明"><a href="#主要字段说明" class="headerlink" title="主要字段说明"></a>主要字段说明</h3><p>name - 包名。<br>version - 包的版本号。<br>description - 包的描述。<br>homepage - 包的官网 url 。<br>author - 包的作者姓名。<br>contributors - 包的其他贡献者姓名。<br>dependencies - 依赖包列表。如果依赖包没有安装，npm 会自动将依赖包安装在 node_module 目录下。<br>repository - 包代码存放的地方的类型，可以是 git 或 svn，git 可在 Github 上。<br>main - main 字段是一个模块ID，它是一个指向你程序的主要项目。就是说，如果你包的名字叫 express，然后用户安装它，然后require(“express”)。<br>keywords - 关键字</p>
+<h3 id="举例"><a href="#举例" class="headerlink" title="举例"></a>举例</h3><p>接下来让我们来看下 vue 包的 package.json 文件，位于 node_modules/vue/package.json 内容：<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div><div class="line">39</div><div class="line">40</div><div class="line">41</div><div class="line">42</div><div class="line">43</div><div class="line">44</div><div class="line">45</div><div class="line">46</div><div class="line">47</div><div class="line">48</div><div class="line">49</div><div class="line">50</div><div class="line">51</div><div class="line">52</div><div class="line">53</div><div class="line">54</div><div class="line">55</div><div class="line">56</div><div class="line">57</div><div class="line">58</div><div class="line">59</div><div class="line">60</div><div class="line">61</div><div class="line">62</div><div class="line">63</div><div class="line">64</div><div class="line">65</div><div class="line">66</div><div class="line">67</div><div class="line">68</div><div class="line">69</div><div class="line">70</div><div class="line">71</div><div class="line">72</div><div class="line">73</div><div class="line">74</div><div class="line">75</div><div class="line">76</div><div class="line">77</div><div class="line">78</div><div class="line">79</div><div class="line">80</div><div class="line">81</div><div class="line">82</div><div class="line">83</div><div class="line">84</div><div class="line">85</div><div class="line">86</div><div class="line">87</div><div class="line">88</div><div class="line">89</div><div class="line">90</div><div class="line">91</div><div class="line">92</div><div class="line">93</div><div class="line">94</div><div class="line">95</div><div class="line">96</div><div class="line">97</div><div class="line">98</div><div class="line">99</div><div class="line">100</div><div class="line">101</div><div class="line">102</div><div class="line">103</div><div class="line">104</div><div class="line">105</div><div class="line">106</div><div class="line">107</div><div class="line">108</div><div class="line">109</div><div class="line">110</div><div class="line">111</div><div class="line">112</div><div class="line">113</div><div class="line">114</div><div class="line">115</div><div class="line">116</div><div class="line">117</div><div class="line">118</div><div class="line">119</div><div class="line">120</div><div class="line">121</div><div class="line">122</div><div class="line">123</div><div class="line">124</div><div class="line">125</div><div class="line">126</div><div class="line">127</div><div class="line">128</div><div class="line">129</div><div class="line">130</div><div class="line">131</div><div class="line">132</div><div class="line">133</div><div class="line">134</div><div class="line">135</div><div class="line">136</div><div class="line">137</div><div class="line">138</div><div class="line">139</div><div class="line">140</div><div class="line">141</div><div class="line">142</div><div class="line">143</div><div class="line">144</div><div class="line">145</div><div class="line">146</div><div class="line">147</div><div class="line">148</div><div class="line">149</div><div class="line">150</div><div class="line">151</div><div class="line">152</div><div class="line">153</div><div class="line">154</div><div class="line">155</div><div class="line">156</div><div class="line">157</div><div class="line">158</div><div class="line">159</div><div class="line">160</div><div class="line">161</div><div class="line">162</div><div class="line">163</div><div class="line">164</div><div class="line">165</div><div class="line">166</div><div class="line">167</div><div class="line">168</div><div class="line">169</div><div class="line">170</div><div class="line">171</div><div class="line">172</div><div class="line">173</div><div class="line">174</div><div class="line">175</div><div class="line">176</div><div class="line">177</div><div class="line">178</div><div class="line">179</div><div class="line">180</div><div class="line">181</div></pre></td><td class="code"><pre><div class="line">&#123;</div><div class="line">  <span class="string">"_args"</span>: [</div><div class="line">    [</div><div class="line">      &#123;</div><div class="line">        <span class="string">"raw"</span>: <span class="string">"vue"</span>,</div><div class="line">        <span class="string">"scope"</span>: null,</div><div class="line">        <span class="string">"escapedName"</span>: <span class="string">"vue"</span>,</div><div class="line">        <span class="string">"name"</span>: <span class="string">"vue"</span>,</div><div class="line">        <span class="string">"rawSpec"</span>: <span class="string">""</span>,</div><div class="line">        <span class="string">"spec"</span>: <span class="string">"latest"</span>,</div><div class="line">        <span class="string">"type"</span>: <span class="string">"tag"</span></div><div class="line">      &#125;,</div><div class="line">      <span class="string">"F:\\manlili"</span></div><div class="line">    ]</div><div class="line">  ],</div><div class="line">  <span class="string">"_from"</span>: <span class="string">"vue@latest"</span>,</div><div class="line">  <span class="string">"_id"</span>: <span class="string">"vue@2.1.10"</span>,</div><div class="line">  <span class="string">"_inCache"</span>: <span class="literal">true</span>,</div><div class="line">  <span class="string">"_location"</span>: <span class="string">"/vue"</span>,</div><div class="line">  <span class="string">"_nodeVersion"</span>: <span class="string">"6.9.1"</span>,</div><div class="line">  <span class="string">"_npmOperationalInternal"</span>: &#123;</div><div class="line">    <span class="string">"host"</span>: <span class="string">"packages-12-west.internal.npmjs.com"</span>,</div><div class="line">    <span class="string">"tmp"</span>: <span class="string">"tmp/vue-2.1.10.tgz_1484673441093_0.458372725173831"</span></div><div class="line">  &#125;,</div><div class="line">  <span class="string">"_npmUser"</span>: &#123;</div><div class="line">    <span class="string">"name"</span>: <span class="string">"yyx990803"</span>,</div><div class="line">    <span class="string">"email"</span>: <span class="string">"yyx990803@gmail.com"</span></div><div class="line">  &#125;,</div><div class="line">  <span class="string">"_npmVersion"</span>: <span class="string">"3.10.8"</span>,</div><div class="line">  <span class="string">"_phantomChildren"</span>: &#123;&#125;,</div><div class="line">  <span class="string">"_requested"</span>: &#123;</div><div class="line">    <span class="string">"raw"</span>: <span class="string">"vue"</span>,</div><div class="line">    <span class="string">"scope"</span>: null,</div><div class="line">    <span class="string">"escapedName"</span>: <span class="string">"vue"</span>,</div><div class="line">    <span class="string">"name"</span>: <span class="string">"vue"</span>,</div><div class="line">    <span class="string">"rawSpec"</span>: <span class="string">""</span>,</div><div class="line">    <span class="string">"spec"</span>: <span class="string">"latest"</span>,</div><div class="line">    <span class="string">"type"</span>: <span class="string">"tag"</span></div><div class="line">  &#125;,</div><div class="line">  <span class="string">"_requiredBy"</span>: [</div><div class="line">    <span class="string">"#USER"</span></div><div class="line">  ],</div><div class="line">  <span class="string">"_resolved"</span>: <span class="string">"https://registry.npmjs.org/vue/-/vue-2.1.10.tgz"</span>,</div><div class="line">  <span class="string">"_shasum"</span>: <span class="string">"c9235ca48c7925137be5807832ac4e3ac180427b"</span>,</div><div class="line">  <span class="string">"_shrinkwrap"</span>: null,</div><div class="line">  <span class="string">"_spec"</span>: <span class="string">"vue"</span>,</div><div class="line">  <span class="string">"_where"</span>: <span class="string">"F:\\manlili"</span>,</div><div class="line">  <span class="string">"author"</span>: &#123;</div><div class="line">    <span class="string">"name"</span>: <span class="string">"Evan You"</span></div><div class="line">  &#125;,</div><div class="line">  <span class="string">"bugs"</span>: &#123;</div><div class="line">    <span class="string">"url"</span>: <span class="string">"https://github.com/vuejs/vue/issues"</span></div><div class="line">  &#125;,</div><div class="line">  <span class="string">"dependencies"</span>: &#123;&#125;,</div><div class="line">  <span class="string">"description"</span>: <span class="string">"Reactive, component-oriented view layer for modern web interfaces."</span>,</div><div class="line">  <span class="string">"devDependencies"</span>: &#123;</div><div class="line">    <span class="string">"babel-core"</span>: <span class="string">"^6.9.0"</span>,</div><div class="line">    <span class="string">"babel-eslint"</span>: <span class="string">"^7.1.0"</span>,</div><div class="line">    <span class="string">"babel-helper-vue-jsx-merge-props"</span>: <span class="string">"^2.0.2"</span>,</div><div class="line">    <span class="string">"babel-loader"</span>: <span class="string">"^6.2.4"</span>,</div><div class="line">    <span class="string">"babel-plugin-istanbul"</span>: <span class="string">"^3.0.0"</span>,</div><div class="line">    <span class="string">"babel-plugin-syntax-jsx"</span>: <span class="string">"^6.18.0"</span>,</div><div class="line">    <span class="string">"babel-plugin-transform-vue-jsx"</span>: <span class="string">"^3.2.0"</span>,</div><div class="line">    <span class="string">"babel-preset-es2015"</span>: <span class="string">"^6.9.0"</span>,</div><div class="line">    <span class="string">"babel-preset-flow-vue"</span>: <span class="string">"^1.0.0"</span>,</div><div class="line">    <span class="string">"buble"</span>: <span class="string">"^0.14.0"</span>,</div><div class="line">    <span class="string">"chromedriver"</span>: <span class="string">"^2.21.2"</span>,</div><div class="line">    <span class="string">"codecov.io"</span>: <span class="string">"^0.1.6"</span>,</div><div class="line">    <span class="string">"cross-spawn"</span>: <span class="string">"^5.0.1"</span>,</div><div class="line">    <span class="string">"de-indent"</span>: <span class="string">"^1.0.2"</span>,</div><div class="line">    <span class="string">"es6-promise"</span>: <span class="string">"^4.0.5"</span>,</div><div class="line">    <span class="string">"eslint"</span>: <span class="string">"^3.10.1"</span>,</div><div class="line">    <span class="string">"eslint-config-vue"</span>: <span class="string">"^2.0.1"</span>,</div><div class="line">    <span class="string">"eslint-loader"</span>: <span class="string">"^1.3.0"</span>,</div><div class="line">    <span class="string">"eslint-plugin-flowtype"</span>: <span class="string">"^2.16.0"</span>,</div><div class="line">    <span class="string">"eslint-plugin-jasmine"</span>: <span class="string">"^2.1.0"</span>,</div><div class="line">    <span class="string">"eslint-plugin-vue"</span>: <span class="string">"^1.0.0"</span>,</div><div class="line">    <span class="string">"flow-bin"</span>: <span class="string">"^0.33.0"</span>,</div><div class="line">    <span class="string">"he"</span>: <span class="string">"^1.1.0"</span>,</div><div class="line">    <span class="string">"http-server"</span>: <span class="string">"^0.9.0"</span>,</div><div class="line">    <span class="string">"jasmine"</span>: <span class="string">"^2.5.2"</span>,</div><div class="line">    <span class="string">"jasmine-core"</span>: <span class="string">"^2.5.2"</span>,</div><div class="line">    <span class="string">"karma"</span>: <span class="string">"^1.1.0"</span>,</div><div class="line">    <span class="string">"karma-chrome-launcher"</span>: <span class="string">"^2.0.0"</span>,</div><div class="line">    <span class="string">"karma-coverage"</span>: <span class="string">"^1.0.0"</span>,</div><div class="line">    <span class="string">"karma-firefox-launcher"</span>: <span class="string">"^1.0.0"</span>,</div><div class="line">    <span class="string">"karma-jasmine"</span>: <span class="string">"^1.0.2"</span>,</div><div class="line">    <span class="string">"karma-mocha-reporter"</span>: <span class="string">"^2.0.4"</span>,</div><div class="line">    <span class="string">"karma-phantomjs-launcher"</span>: <span class="string">"^1.0.0"</span>,</div><div class="line">    <span class="string">"karma-safari-launcher"</span>: <span class="string">"^1.0.0"</span>,</div><div class="line">    <span class="string">"karma-sauce-launcher"</span>: <span class="string">"^1.0.0"</span>,</div><div class="line">    <span class="string">"karma-sourcemap-loader"</span>: <span class="string">"^0.3.0"</span>,</div><div class="line">    <span class="string">"karma-webpack"</span>: <span class="string">"^1.7.0"</span>,</div><div class="line">    <span class="string">"lodash"</span>: <span class="string">"^4.17.1"</span>,</div><div class="line">    <span class="string">"nightwatch"</span>: <span class="string">"^0.9.9"</span>,</div><div class="line">    <span class="string">"nightwatch-helpers"</span>: <span class="string">"^1.2.0"</span>,</div><div class="line">    <span class="string">"phantomjs-prebuilt"</span>: <span class="string">"^2.1.1"</span>,</div><div class="line">    <span class="string">"rollup"</span>: <span class="string">"^0.36.1"</span>,</div><div class="line">    <span class="string">"rollup-plugin-alias"</span>: <span class="string">"^1.2.0"</span>,</div><div class="line">    <span class="string">"rollup-plugin-babel"</span>: <span class="string">"^2.4.0"</span>,</div><div class="line">    <span class="string">"rollup-plugin-buble"</span>: <span class="string">"^0.14.0"</span>,</div><div class="line">    <span class="string">"rollup-plugin-flow-no-whitespace"</span>: <span class="string">"^1.0.0"</span>,</div><div class="line">    <span class="string">"rollup-plugin-replace"</span>: <span class="string">"^1.1.0"</span>,</div><div class="line">    <span class="string">"rollup-watch"</span>: <span class="string">"^2.5.0"</span>,</div><div class="line">    <span class="string">"selenium-server"</span>: <span class="string">"2.53.1"</span>,</div><div class="line">    <span class="string">"typescript"</span>: <span class="string">"^2.0.9"</span>,</div><div class="line">    <span class="string">"uglify-js"</span>: <span class="string">"^2.6.2"</span>,</div><div class="line">    <span class="string">"webpack"</span>: <span class="string">"^1.13.2"</span>,</div><div class="line">    <span class="string">"weex-js-runtime"</span>: <span class="string">"^0.17.0-alpha4"</span>,</div><div class="line">    <span class="string">"weex-vdom-tester"</span>: <span class="string">"^0.1.3"</span></div><div class="line">  &#125;,</div><div class="line">  <span class="string">"directories"</span>: &#123;&#125;,</div><div class="line">  <span class="string">"dist"</span>: &#123;</div><div class="line">    <span class="string">"shasum"</span>: <span class="string">"c9235ca48c7925137be5807832ac4e3ac180427b"</span>,</div><div class="line">    <span class="string">"tarball"</span>: <span class="string">"https://registry.npmjs.org/vue/-/vue-2.1.10.tgz"</span></div><div class="line">  &#125;,</div><div class="line">  <span class="string">"files"</span>: [</div><div class="line">    <span class="string">"dist/vue.js"</span>,</div><div class="line">    <span class="string">"dist/vue.min.js"</span>,</div><div class="line">    <span class="string">"dist/vue.runtime.js"</span>,</div><div class="line">    <span class="string">"dist/vue.runtime.min.js"</span>,</div><div class="line">    <span class="string">"dist/vue.common.js"</span>,</div><div class="line">    <span class="string">"dist/vue.runtime.common.js"</span>,</div><div class="line">    <span class="string">"src"</span>,</div><div class="line">    <span class="string">"types/index.d.ts"</span>,</div><div class="line">    <span class="string">"types/options.d.ts"</span>,</div><div class="line">    <span class="string">"types/plugin.d.ts"</span>,</div><div class="line">    <span class="string">"types/vnode.d.ts"</span>,</div><div class="line">    <span class="string">"types/vue.d.ts"</span></div><div class="line">  ],</div><div class="line">  <span class="string">"gitHead"</span>: <span class="string">"994aee4f869d68a00c3b9d87daa9c8d84623ac42"</span>,</div><div class="line">  <span class="string">"homepage"</span>: <span class="string">"https://github.com/vuejs/vue#readme"</span>,</div><div class="line">  <span class="string">"keywords"</span>: [</div><div class="line">    <span class="string">"vue"</span></div><div class="line">  ],</div><div class="line">  <span class="string">"license"</span>: <span class="string">"MIT"</span>,</div><div class="line">  <span class="string">"main"</span>: <span class="string">"dist/vue.runtime.common.js"</span>,</div><div class="line">  <span class="string">"maintainers"</span>: [</div><div class="line">    &#123;</div><div class="line">      <span class="string">"name"</span>: <span class="string">"yyx990803"</span>,</div><div class="line">      <span class="string">"email"</span>: <span class="string">"yyx990803@gmail.com"</span></div><div class="line">    &#125;</div><div class="line">  ],</div><div class="line">  <span class="string">"name"</span>: <span class="string">"vue"</span>,</div><div class="line">  <span class="string">"optionalDependencies"</span>: &#123;&#125;,</div><div class="line">  <span class="string">"readme"</span>: <span class="string">"ERROR: No README data found!"</span>,</div><div class="line">  <span class="string">"repository"</span>: &#123;</div><div class="line">    <span class="string">"type"</span>: <span class="string">"git"</span>,</div><div class="line">    <span class="string">"url"</span>: <span class="string">"git+https://github.com/vuejs/vue.git"</span></div><div class="line">  &#125;,</div><div class="line">  <span class="string">"scripts"</span>: &#123;</div><div class="line">    <span class="string">"bench:ssr"</span>: <span class="string">"npm run build:ssr &amp;&amp; NODE_ENV=production node benchmarks/ssr/renderToString.js &amp;&amp; NODE_ENV=production VUE_ENV=server node benchmarks/ssr/renderToStream.js"</span>,</div><div class="line">    <span class="string">"build"</span>: <span class="string">"node build/build.js"</span>,</div><div class="line">    <span class="string">"build:ssr"</span>: <span class="string">"npm run build -- vue.runtime.common.js,vue-server-renderer"</span>,</div><div class="line">    <span class="string">"build:weex"</span>: <span class="string">"npm run build -- weex-vue-framework,weex-template-compiler"</span>,</div><div class="line">    <span class="string">"dev"</span>: <span class="string">"TARGET=web-full-dev rollup -w -c build/config.js"</span>,</div><div class="line">    <span class="string">"dev:cjs"</span>: <span class="string">"TARGET=web-runtime-cjs rollup -w -c build/config.js"</span>,</div><div class="line">    <span class="string">"dev:compiler"</span>: <span class="string">"TARGET=web-compiler rollup -w -c build/config.js"</span>,</div><div class="line">    <span class="string">"dev:ssr"</span>: <span class="string">"TARGET=web-server-renderer rollup -w -c build/config.js"</span>,</div><div class="line">    <span class="string">"dev:test"</span>: <span class="string">"karma start build/karma.dev.config.js"</span>,</div><div class="line">    <span class="string">"dev:weex"</span>: <span class="string">"TARGET=weex-framework rollup -w -c build/config.js"</span>,</div><div class="line">    <span class="string">"dev:weex:compiler"</span>: <span class="string">"TARGET=weex-compiler rollup -w -c build/config.js"</span>,</div><div class="line">    <span class="string">"flow"</span>: <span class="string">"flow check"</span>,</div><div class="line">    <span class="string">"install:hooks"</span>: <span class="string">"ln -fs ../../build/git-hooks/pre-commit .git/hooks/pre-commit"</span>,</div><div class="line">    <span class="string">"lint"</span>: <span class="string">"eslint src build test"</span>,</div><div class="line">    <span class="string">"release"</span>: <span class="string">"bash build/release.sh"</span>,</div><div class="line">    <span class="string">"release:weex"</span>: <span class="string">"bash build/release-weex.sh"</span>,</div><div class="line">    <span class="string">"sauce"</span>: <span class="string">"SAUCE=true karma start build/karma.sauce.config.js"</span>,</div><div class="line">    <span class="string">"test"</span>: <span class="string">"npm run lint &amp;&amp; flow check &amp;&amp; npm run test:types &amp;&amp; npm run test:cover &amp;&amp; npm run test:e2e -- --env phantomjs &amp;&amp; npm run test:ssr"</span>,</div><div class="line">    <span class="string">"test:cover"</span>: <span class="string">"karma start build/karma.cover.config.js"</span>,</div><div class="line">    <span class="string">"test:e2e"</span>: <span class="string">"npm run build -- vue.min.js &amp;&amp; node test/e2e/runner.js"</span>,</div><div class="line">    <span class="string">"test:sauce"</span>: <span class="string">"npm run sauce -- 0 &amp;&amp; npm run sauce -- 1 &amp;&amp; npm run sauce -- 2"</span>,</div><div class="line">    <span class="string">"test:ssr"</span>: <span class="string">"npm run build:ssr &amp;&amp; jasmine JASMINE_CONFIG_PATH=test/ssr/jasmine.json"</span>,</div><div class="line">    <span class="string">"test:types"</span>: <span class="string">"tsc -p ./types/test/tsconfig.json"</span>,</div><div class="line">    <span class="string">"test:unit"</span>: <span class="string">"karma start build/karma.unit.config.js"</span>,</div><div class="line">    <span class="string">"test:weex"</span>: <span class="string">"npm run build:weex &amp;&amp; jasmine JASMINE_CONFIG_PATH=test/weex/jasmine.json"</span></div><div class="line">  &#125;,</div><div class="line">  <span class="string">"typings"</span>: <span class="string">"types/index.d.ts"</span>,</div><div class="line">  <span class="string">"unpkg"</span>: <span class="string">"dist/vue.js"</span>,</div><div class="line">  <span class="string">"version"</span>: <span class="string">"2.1.10"</span></div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
+<h2 id="创建模块"><a href="#创建模块" class="headerlink" title="创建模块"></a>创建模块</h2><p>创建模块，package.json 文件是必不可少的。我们可以使用 NPM 生成 package.json 文件，生成的文件包含了基本的结果<br>命令如下：<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">npm init</div></pre></td></tr></table></figure></p>
+<p>然后根据提示一步一步输入，直到输入“yes”代表生成package.json完毕。<br>如下图所示：<br><img src="https://manlili.github.io/img/150413/1.png" alt="图"><br>接下来我们可以使用以下命令在 npm 资源库中注册用户<br>命令如下：<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">npm adduser</div></pre></td></tr></table></figure></p>
+<p>根据提示填写自己的信息，看到如下结果<br><img src="https://manlili.github.io/img/150413/2.png" alt="图"><br>接下来我们就用以下命令来发布模块<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">npm publish</div></pre></td></tr></table></figure></p>
+<p>如果你以上的步骤都操作正确，你就可以跟其他模块一样使用 npm 来安装。</p>
+<h2 id="版本号"><a href="#版本号" class="headerlink" title="版本号"></a>版本号</h2><p>使用NPM下载和发布代码时都会接触到版本号。NPM使用语义版本号来管理代码，这里简单介绍一下。<br>语义版本号分为X.Y.Z三位，分别代表主版本号、次版本号和补丁版本号。当代码变更时，版本号按以下原则更新。<br>(1)如果只是修复bug，需要更新Z位。<br>(2)如果是新增了功能，但是向下兼容，需要更新Y位。<br>(3)如果有大变动，向下不兼容，需要更新X位。<br>版本号有了这个保证后，在申明第三方包依赖时，除了可依赖于一个固定版本号外，还可依赖于某个范围的版本号。例如”argv”: “0.0.x”表示依赖于0.0.x系列的最新版argv。</p>
+<h2 id="使用淘宝-NPM-镜像"><a href="#使用淘宝-NPM-镜像" class="headerlink" title="使用淘宝 NPM 镜像"></a>使用淘宝 NPM 镜像</h2><p>大家都知道国内直接使用 npm 的官方镜像是非常慢的，这里推荐使用淘宝 NPM 镜像。<br>淘宝 NPM 镜像是一个完整 npmjs.org 镜像，你可以用此代替官方版本(只读)，同步频率目前为 10分钟 一次以保证尽量与官方服务同步。<br>你可以使用淘宝定制的 cnpm (gzip 压缩支持) 命令行工具代替默认的 npm:<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">npm install -g cnpm --registry=https://registry.npm.taobao.org</div></pre></td></tr></table></figure></p>
+<p>这样就可以使用 cnpm 命令来安装模块了：<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">cnpm install [name]</div></pre></td></tr></table></figure></p>
+
+      
+    </div>
+
+    <div>
+      
+        
+
+      
+    </div>
+
+    <div>
+      
+        
+  <div style="padding: 10px 0; margin: 20px auto; width: 90%; text-align: center;">
+    <div>打赏我的人运气不会太差哦！</div>
+    <button id="rewardButton" disable="enable" onclick="var qr = document.getElementById('QR'); if (qr.style.display === 'none') {qr.style.display='block';} else {qr.style.display='none'}">
+      <span>赏</span>
+    </button>
+    <div id="QR" style="display: none;">
+      
+        <div id="wechat" style="display: inline-block">
+          <img id="wechat_qr" src="https://manlili.github.io/img/pay/wetcharpay.png" alt="满利利 WeChat Pay"/>
+          <p>微信打赏</p>
+        </div>
+      
+      
+        <div id="alipay" style="display: inline-block">
+          <img id="alipay_qr" src="https://manlili.github.io/img/pay/Alipay.jpg" alt="满利利 Alipay"/>
+          <p>支付宝打赏</p>
+        </div>
+      
+    </div>
+  </div>
+
+
+      
+    </div>
+
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/node/" rel="tag"># node</a>
+          
+            <a href="/tags/npm/" rel="tag"># npm</a>
+          
+        </div>
+      
+
+      
+        
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2015/04/06/Node入门/" rel="next" title="Node入门">
+                <i class="fa fa-chevron-left"></i> Node入门
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2016/03/04/Vue入门演示/" rel="prev" title="Vue入门演示">
+                Vue入门演示 <i class="fa fa-chevron-right"></i>
+              </a>
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </article>
+
+
+
+    <div class="post-spread">
+      
+    </div>
+  </div>
+
+          
+          </div>
+          
+
+
+          
+  <div class="comments" id="comments">
+    
+      <div class="ds-thread" data-thread-key="2015/04/13/npm使用/"
+           data-title="npm使用" data-url="http://yoursite.com/2015/04/13/npm使用/">
+      </div>
+    
+  </div>
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap" >
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview">
+            站点概览
+          </li>
+        </ul>
+      
+
+      <section class="site-overview sidebar-panel">
+        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+          <img class="site-author-image" itemprop="image"
+               src="/uploads/avatar.jpg"
+               alt="满利利" />
+          <p class="site-author-name" itemprop="name">满利利</p>
+           
+              <p class="site-description motion-element" itemprop="description">前端开发/走向全栈/幽默有趣</p>
+          
+        </div>
+        <nav class="site-state motion-element">
+        
+          
+            <div class="site-state-item site-state-posts">
+              <a href="/archives">
+                <span class="site-state-item-count">32</span>
+                <span class="site-state-item-name">日志</span>
+              </a>
+            </div>
+          
+
+          
+            <div class="site-state-item site-state-categories">
+              <a href="/categories">
+                <span class="site-state-item-count">9</span>
+                <span class="site-state-item-name">分类</span>
+              </a>
+            </div>
+          
+
+          
+            <div class="site-state-item site-state-tags">
+              
+                <span class="site-state-item-count">44</span>
+                <span class="site-state-item-name">标签</span>
+              
+            </div>
+          
+
+        </nav>
+
+        
+
+        <div class="links-of-author motion-element">
+          
+            
+              <span class="links-of-author-item">
+                <a href="" target="_blank" title="644166434">
+                  
+                    <i class="fa fa-fw fa-qq"></i>
+                  
+                  644166434
+                </a>
+              </span>
+            
+              <span class="links-of-author-item">
+                <a href="https://github.com/manlili" target="_blank" title="GitHub">
+                  
+                    <i class="fa fa-fw fa-github"></i>
+                  
+                  GitHub
+                </a>
+              </span>
+            
+          
+        </div>
+
+        
+        
+
+        
+        
+
+        
+
+
+      </section>
+
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#定位"><span class="nav-number">1.</span> <span class="nav-text">定位</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#使用-npm-命令安装模块"><span class="nav-number">2.</span> <span class="nav-text">使用 npm 命令安装模块</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#全局安装与本地安装"><span class="nav-number">3.</span> <span class="nav-text">全局安装与本地安装</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#安装区别"><span class="nav-number">3.1.</span> <span class="nav-text">安装区别</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#使用区别"><span class="nav-number">3.2.</span> <span class="nav-text">使用区别</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#使用-npm-命令卸载模块"><span class="nav-number">4.</span> <span class="nav-text">使用 npm 命令卸载模块</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#使用-npm-命令更新模块"><span class="nav-number">5.</span> <span class="nav-text">使用 npm 命令更新模块</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#使用-npm-命令搜索模块"><span class="nav-number">6.</span> <span class="nav-text">使用 npm 命令搜索模块</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#package-json"><span class="nav-number">7.</span> <span class="nav-text">package.json</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#定义"><span class="nav-number">7.1.</span> <span class="nav-text">定义</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#主要字段说明"><span class="nav-number">7.2.</span> <span class="nav-text">主要字段说明</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#举例"><span class="nav-number">7.3.</span> <span class="nav-text">举例</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#创建模块"><span class="nav-number">8.</span> <span class="nav-text">创建模块</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#版本号"><span class="nav-number">9.</span> <span class="nav-text">版本号</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#使用淘宝-NPM-镜像"><span class="nav-number">10.</span> <span class="nav-text">使用淘宝 NPM 镜像</span></a></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright" >
+  
+  &copy; 
+  <span itemprop="copyrightYear">2017</span>
+  <span class="with-love">
+    <i class="fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">满利利</span>
+</div>
+
+
+
+        
+
+        
+      </div>
+    </footer>
+
+    <div class="back-to-top">
+      <i class="fa fa-arrow-up"></i>
+    </div>
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+  
+  <script type="text/javascript" src="/lib/jquery/index.js?v=2.1.3"></script>
+
+  
+  <script type="text/javascript" src="/lib/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+
+  
+  <script type="text/javascript" src="/lib/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+
+  
+  <script type="text/javascript" src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+
+  
+  <script type="text/javascript" src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+
+  
+  <script type="text/javascript" src="/lib/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=5.1.0"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=5.1.0"></script>
+
+
+
+  
+  
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.0"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.1.0"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.1.0"></script>
+
+
+
+  
+
+  
+    
+  
+
+  <script type="text/javascript">
+    var duoshuoQuery = {short_name:"manlili"};
+    (function() {
+      var ds = document.createElement('script');
+      ds.type = 'text/javascript';ds.async = true;
+      ds.id = 'duoshuo-script';
+      ds.src = (document.location.protocol == 'https:' ? 'https:' : 'http:') + '//static.duoshuo.com/embed.js';
+      ds.charset = 'UTF-8';
+      (document.getElementsByTagName('head')[0]
+      || document.getElementsByTagName('body')[0]).appendChild(ds);
+    })();
+  </script>
+
+  
+    
+    
+    <script src="/lib/ua-parser-js/dist/ua-parser.min.js?v=0.7.9"></script>
+    <script src="/js/src/hook-duoshuo.js"></script>
+  
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+
+  
+
+  
+
+  
+  <script src="https://cdn1.lncld.net/static/js/av-core-mini-0.6.1.js"></script>
+  <script>AV.initialize("Y2iTQ8Fc2RRvW4mqBqzfOdSX-gzGzoHsz", "gHlHLDuIiCTTcE93RMzpOYxY");</script>
+  <script>
+    function showTime(Counter) {
+      var query = new AV.Query(Counter);
+      var entries = [];
+      var $visitors = $(".leancloud_visitors");
+
+      $visitors.each(function () {
+        entries.push( $(this).attr("id").trim() );
+      });
+
+      query.containedIn('url', entries);
+      query.find()
+        .done(function (results) {
+          var COUNT_CONTAINER_REF = '.leancloud-visitors-count';
+
+          if (results.length === 0) {
+            $visitors.find(COUNT_CONTAINER_REF).text(0);
+            return;
+          }
+
+          for (var i = 0; i < results.length; i++) {
+            var item = results[i];
+            var url = item.get('url');
+            var time = item.get('time');
+            var element = document.getElementById(url);
+
+            $(element).find(COUNT_CONTAINER_REF).text(time);
+          }
+          for(var i = 0; i < entries.length; i++) {
+            var url = entries[i];
+            var element = document.getElementById(url);
+            var countSpan = $(element).find(COUNT_CONTAINER_REF);
+            if( countSpan.text() == '') {
+              countSpan.text(0);
+            }
+          }
+        })
+        .fail(function (object, error) {
+          console.log("Error: " + error.code + " " + error.message);
+        });
+    }
+
+    function addCount(Counter) {
+      var $visitors = $(".leancloud_visitors");
+      var url = $visitors.attr('id').trim();
+      var title = $visitors.attr('data-flag-title').trim();
+      var query = new AV.Query(Counter);
+
+      query.equalTo("url", url);
+      query.find({
+        success: function(results) {
+          if (results.length > 0) {
+            var counter = results[0];
+            counter.fetchWhenSave(true);
+            counter.increment("time");
+            counter.save(null, {
+              success: function(counter) {
+                var $element = $(document.getElementById(url));
+                $element.find('.leancloud-visitors-count').text(counter.get('time'));
+              },
+              error: function(counter, error) {
+                console.log('Failed to save Visitor num, with error message: ' + error.message);
+              }
+            });
+          } else {
+            var newcounter = new Counter();
+            /* Set ACL */
+            var acl = new AV.ACL();
+            acl.setPublicReadAccess(true);
+            acl.setPublicWriteAccess(true);
+            newcounter.setACL(acl);
+            /* End Set ACL */
+            newcounter.set("title", title);
+            newcounter.set("url", url);
+            newcounter.set("time", 1);
+            newcounter.save(null, {
+              success: function(newcounter) {
+                var $element = $(document.getElementById(url));
+                $element.find('.leancloud-visitors-count').text(newcounter.get('time'));
+              },
+              error: function(newcounter, error) {
+                console.log('Failed to create');
+              }
+            });
+          }
+        },
+        error: function(error) {
+          console.log('Error:' + error.code + " " + error.message);
+        }
+      });
+    }
+
+    $(function() {
+      var Counter = AV.Object.extend("Counter");
+      if ($('.leancloud_visitors').length == 1) {
+        addCount(Counter);
+      } else if ($('.post-title-link').length > 1) {
+        showTime(Counter);
+      }
+    });
+  </script>
+
+
+
+  
+
+  
+
+
+</body>
+</html>
