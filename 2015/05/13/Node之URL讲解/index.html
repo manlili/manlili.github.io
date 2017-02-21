@@ -87,25 +87,25 @@
 
 
 
-<meta name="description" content="url是我们项目中最常用到的，页面间传值经常追加在url后面带过去，如果想要解析url还需要费点力气，但是node里面有了url的api，可以很方便的使用，文档地址在：https://nodejs.org/api/url.html
-parse方法使用方法：1url.parse(urlString[, parseQueryString[, slashesDenoteHost]])
-使用方法如下，先进">
+<meta name="description" content="url是我们项目中最常用到的，页面间传值经常追加在url后面带过去，如果想要解析url还需要费点力气，但是node原生自带url的api，可以很方便的使用，文档地址在：https://nodejs.org/api/url.html；github地址:[(https://github.com/manlili/node_learn)]里面的lesson04
+parse方法作用是解析网址，定义如下：1u">
 <meta property="og:type" content="article">
 <meta property="og:title" content="Node之URL讲解">
 <meta property="og:url" content="http://yoursite.com/2015/05/13/Node之URL讲解/index.html">
 <meta property="og:site_name" content="manlili blog">
-<meta property="og:description" content="url是我们项目中最常用到的，页面间传值经常追加在url后面带过去，如果想要解析url还需要费点力气，但是node里面有了url的api，可以很方便的使用，文档地址在：https://nodejs.org/api/url.html
-parse方法使用方法：1url.parse(urlString[, parseQueryString[, slashesDenoteHost]])
-使用方法如下，先进">
+<meta property="og:description" content="url是我们项目中最常用到的，页面间传值经常追加在url后面带过去，如果想要解析url还需要费点力气，但是node原生自带url的api，可以很方便的使用，文档地址在：https://nodejs.org/api/url.html；github地址:[(https://github.com/manlili/node_learn)]里面的lesson04
+parse方法作用是解析网址，定义如下：1u">
 <meta property="og:image" content="https://manlili.github.io/img/150513/1.png">
+<meta property="og:image" content="https://manlili.github.io/img/150513/11.png">
 <meta property="og:image" content="https://manlili.github.io/img/150513/2.png">
+<meta property="og:image" content="https://manlili.github.io/img/150513/21.png">
 <meta property="og:image" content="https://manlili.github.io/img/150513/3.png">
-<meta property="og:updated_time" content="2017-02-20T09:52:04.250Z">
+<meta property="og:image" content="https://manlili.github.io/img/150513/31.png">
+<meta property="og:updated_time" content="2017-02-21T03:04:55.405Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Node之URL讲解">
-<meta name="twitter:description" content="url是我们项目中最常用到的，页面间传值经常追加在url后面带过去，如果想要解析url还需要费点力气，但是node里面有了url的api，可以很方便的使用，文档地址在：https://nodejs.org/api/url.html
-parse方法使用方法：1url.parse(urlString[, parseQueryString[, slashesDenoteHost]])
-使用方法如下，先进">
+<meta name="twitter:description" content="url是我们项目中最常用到的，页面间传值经常追加在url后面带过去，如果想要解析url还需要费点力气，但是node原生自带url的api，可以很方便的使用，文档地址在：https://nodejs.org/api/url.html；github地址:[(https://github.com/manlili/node_learn)]里面的lesson04
+parse方法作用是解析网址，定义如下：1u">
 <meta name="twitter:image" content="https://manlili.github.io/img/150513/1.png">
 
 
@@ -405,14 +405,20 @@ parse方法使用方法：1url.parse(urlString[, parseQueryString[, slashesDenot
       
 
       
-        <p>url是我们项目中最常用到的，页面间传值经常追加在url后面带过去，如果想要解析url还需要费点力气，但是node里面有了url的api，可以很方便的使用，文档地址在：<a href="https://nodejs.org/api/url.html" target="_blank" rel="external">https://nodejs.org/api/url.html</a></p>
-<h2 id="parse方法"><a href="#parse方法" class="headerlink" title="parse方法"></a>parse方法</h2><p>使用方法：<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">url.parse(urlString[, parseQueryString[, slashesDenoteHost]])</div></pre></td></tr></table></figure></p>
-<p>使用方法如下，先进入node控制台，然后输入url.parse,就可以解析这个地址<br><img src="https://manlili.github.io/img/150513/1.png" alt="图"></p>
-<h2 id="format方法"><a href="#format方法" class="headerlink" title="format方法"></a>format方法</h2><p>使用方法<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">url.format(urlObject)</div></pre></td></tr></table></figure></p>
-<p>如果想将对象拼成url比如：<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div></pre></td><td class="code"><pre><div class="line">&#123;</div><div class="line">   protocol: <span class="string">'https:'</span>,</div><div class="line">   slashes: <span class="literal">true</span>,</div><div class="line">   auth: null,</div><div class="line">   host: <span class="string">'github.com'</span>,</div><div class="line">   port: null,</div><div class="line">   hostname: <span class="string">'github.com'</span>,</div><div class="line">   <span class="built_in">hash</span>: <span class="string">'#123'</span>,</div><div class="line">   search: <span class="string">'?form=shanghai&amp;name=lili'</span>,</div><div class="line">   query: <span class="string">'form=shanghai&amp;name=lili'</span>,</div><div class="line">   pathname: <span class="string">'/manlili/node_learn'</span>,</div><div class="line">   path: <span class="string">'/manlili/node_learn?form=shanghai&amp;name=lili'</span>,</div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
-<p>将上面对象使用url.format方法可以生成一个URL链接，如下图<br><img src="https://manlili.github.io/img/150513/2.png" alt="图"></p>
-<h2 id="resolve方法"><a href="#resolve方法" class="headerlink" title="resolve方法"></a>resolve方法</h2><p>使用方法<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">url.resolve(from, to)</div></pre></td></tr></table></figure></p>
-<p>如果想将两个字符串拼成一个URL,可以使用url.resolve方法，如下图<br><img src="https://manlili.github.io/img/150513/3.png" alt="图"></p>
+        <p>url是我们项目中最常用到的，页面间传值经常追加在url后面带过去，如果想要解析url还需要费点力气，但是node原生自带url的api，可以很方便的使用，文档地址在：<a href="https://nodejs.org/api/url.html" target="_blank" rel="external">https://nodejs.org/api/url.html</a>；<br>github地址:[(<a href="https://github.com/manlili/node_learn)]里面的lesson04" target="_blank" rel="external">https://github.com/manlili/node_learn)]里面的lesson04</a></p>
+<h2 id="parse方法"><a href="#parse方法" class="headerlink" title="parse方法"></a>parse方法</h2><p>作用是解析网址，定义如下：<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">url.parse(urlString[, parseQueryString[, slashesDenoteHost]])</div></pre></td></tr></table></figure></p>
+<p>使用方法①<br>先进入node控制台，然后输入url.parse,就可以解析这个地址<br><img src="https://manlili.github.io/img/150513/1.png" alt="图"></p>
+<p>使用方法②<br>由于url是node自带的模块，可以直接引用<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">var url = require(<span class="string">"url"</span>);</div><div class="line">var a = url.parse(<span class="string">"https://github.com/manlili/node_learn?from=shanghai&amp;name=lili#123"</span>);</div><div class="line">console.log(a);</div></pre></td></tr></table></figure></p>
+<p>然后进入js所在的文件夹执行：<br><img src="https://manlili.github.io/img/150513/11.png" alt="图"></p>
+<h2 id="format方法"><a href="#format方法" class="headerlink" title="format方法"></a>format方法</h2><p>作用是将对象拼接成网址，定义如下：<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">url.format(urlObject)</div></pre></td></tr></table></figure></p>
+<p>如果想将下面对象拼成url比如：<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div></pre></td><td class="code"><pre><div class="line">&#123;</div><div class="line">   protocol: <span class="string">'https:'</span>,</div><div class="line">   slashes: <span class="literal">true</span>,</div><div class="line">   auth: null,</div><div class="line">   host: <span class="string">'github.com'</span>,</div><div class="line">   port: null,</div><div class="line">   hostname: <span class="string">'github.com'</span>,</div><div class="line">   <span class="built_in">hash</span>: <span class="string">'#123'</span>,</div><div class="line">   search: <span class="string">'?form=shanghai&amp;name=lili'</span>,</div><div class="line">   query: <span class="string">'form=shanghai&amp;name=lili'</span>,</div><div class="line">   pathname: <span class="string">'/manlili/node_learn'</span>,</div><div class="line">   path: <span class="string">'/manlili/node_learn?form=shanghai&amp;name=lili'</span>,</div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
+<p>使用方法①<br>将上面对象使用url.format方法可以生成一个URL链接，进入node控制台输入下图命令：<br><img src="https://manlili.github.io/img/150513/2.png" alt="图"></p>
+<p>使用方法②<br>由于url是node自带的模块，可以直接引用<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div></pre></td><td class="code"><pre><div class="line">var url = require(<span class="string">"url"</span>);</div><div class="line">var obj = &#123;</div><div class="line">   protocol: <span class="string">'https:'</span>,</div><div class="line">   slashes: <span class="literal">true</span>,</div><div class="line">   auth: null,</div><div class="line">   host: <span class="string">'github.com'</span>,</div><div class="line">   port: null,</div><div class="line">   hostname: <span class="string">'github.com'</span>,</div><div class="line">   <span class="built_in">hash</span>: <span class="string">'#123'</span>,</div><div class="line">   search: <span class="string">'?form=shanghai&amp;name=lili'</span>,</div><div class="line">   query: <span class="string">'form=shanghai&amp;name=lili'</span>,</div><div class="line">   pathname: <span class="string">'/manlili/node_learn'</span>,</div><div class="line">   path: <span class="string">'/manlili/node_learn?form=shanghai&amp;name=lili'</span>,</div><div class="line">&#125;</div><div class="line">var b = url.format(obj);</div><div class="line">console.log(b);</div></pre></td></tr></table></figure></p>
+<p>然后进入js所在的文件夹执行：<br><img src="https://manlili.github.io/img/150513/21.png" alt="图"></p>
+<h2 id="resolve方法"><a href="#resolve方法" class="headerlink" title="resolve方法"></a>resolve方法</h2><p>作用将两个字符串拼成一个URL，定义如下：<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">url.resolve(from, to)</div></pre></td></tr></table></figure></p>
+<p>使用方法①<br>如果想将两个字符串拼成一个URL,可以使用url.resolve方法，进入node控制台输入下图命令：<br><img src="https://manlili.github.io/img/150513/3.png" alt="图"></p>
+<p>使用方法②<br>由于url是node自带的模块，可以直接引用<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">var url = require(<span class="string">"url"</span>);</div><div class="line">var c = url.resolve(<span class="string">"https://github.com/manlili/"</span>, <span class="string">"node_learn"</span>);</div><div class="line">console.log(c);</div></pre></td></tr></table></figure></p>
+<p>然后进入js所在的文件夹执行：<br><img src="https://manlili.github.io/img/150513/31.png" alt="图"></p>
 
       
     </div>
@@ -480,8 +486,8 @@ parse方法使用方法：1url.parse(urlString[, parseQueryString[, slashesDenot
 
           <div class="post-nav-prev post-nav-item">
             
-              <a href="/2016/03/04/Vue入门演示/" rel="prev" title="Vue入门演示">
-                Vue入门演示 <i class="fa fa-chevron-right"></i>
+              <a href="/2015/05/27/Node之queryString/" rel="prev" title="Node之queryString">
+                Node之queryString <i class="fa fa-chevron-right"></i>
               </a>
             
           </div>
@@ -558,7 +564,7 @@ parse方法使用方法：1url.parse(urlString[, parseQueryString[, slashesDenot
           
             <div class="site-state-item site-state-posts">
               <a href="/archives">
-                <span class="site-state-item-count">35</span>
+                <span class="site-state-item-count">36</span>
                 <span class="site-state-item-name">日志</span>
               </a>
             </div>
