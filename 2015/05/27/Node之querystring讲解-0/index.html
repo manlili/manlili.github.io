@@ -71,7 +71,7 @@
 <link href="/css/main.css?v=5.1.0" rel="stylesheet" type="text/css" />
 
 
-  <meta name="keywords" content="vue," />
+  <meta name="keywords" content="queryString," />
 
 
 
@@ -87,21 +87,28 @@
 
 
 
-<meta name="description" content="研究下最近很流行的vue，写几个测试代码gitHub地址:[https://github.com/manlili/vue_learn]目录如下：
-单向数据绑定12345678910111213141516171819202122&amp;lt;!DOCTYPE html&amp;gt;&amp;lt;html&amp;gt;    &amp;lt;head&amp;gt;        &amp;lt;meta charset=&quot;utf-8&quot; /&amp;gt">
+<meta name="description" content="在nodejs中，提供了querystring这个模块，用来做url查询参数的解析。在做node服务端开发的时候基本都会用到，使用非常简单。github地址:[(https://github.com/manlili/node_learn)]里面的lesson05
+parse方法作用是解析url查询参数，定义如下：1querystring.parse(str[, sep[, eq[, options">
 <meta property="og:type" content="article">
-<meta property="og:title" content="Vue入门演示">
-<meta property="og:url" content="http://yoursite.com/2016/03/04/Vue入门演示/index.html">
+<meta property="og:title" content="Node之queryString讲解">
+<meta property="og:url" content="http://yoursite.com/2015/05/27/Node之querystring讲解-0/index.html">
 <meta property="og:site_name" content="manlili blog">
-<meta property="og:description" content="研究下最近很流行的vue，写几个测试代码gitHub地址:[https://github.com/manlili/vue_learn]目录如下：
-单向数据绑定12345678910111213141516171819202122&amp;lt;!DOCTYPE html&amp;gt;&amp;lt;html&amp;gt;    &amp;lt;head&amp;gt;        &amp;lt;meta charset=&quot;utf-8&quot; /&amp;gt">
-<meta property="og:image" content="https://manlili.github.io/img/160304/1.png">
-<meta property="og:updated_time" content="2016-03-14T12:25:02.996Z">
+<meta property="og:description" content="在nodejs中，提供了querystring这个模块，用来做url查询参数的解析。在做node服务端开发的时候基本都会用到，使用非常简单。github地址:[(https://github.com/manlili/node_learn)]里面的lesson05
+parse方法作用是解析url查询参数，定义如下：1querystring.parse(str[, sep[, eq[, options">
+<meta property="og:image" content="https://manlili.github.io/img/150527/1.png">
+<meta property="og:image" content="https://manlili.github.io/img/150527/2.png">
+<meta property="og:image" content="https://manlili.github.io/img/150527/3.png">
+<meta property="og:image" content="https://manlili.github.io/img/150527/4.png">
+<meta property="og:image" content="https://manlili.github.io/img/150527/5.png">
+<meta property="og:image" content="https://manlili.github.io/img/150527/6.png">
+<meta property="og:image" content="https://manlili.github.io/img/150527/7.png">
+<meta property="og:image" content="https://manlili.github.io/img/150527/8.png">
+<meta property="og:updated_time" content="2015-05-27T07:38:09.376Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Vue入门演示">
-<meta name="twitter:description" content="研究下最近很流行的vue，写几个测试代码gitHub地址:[https://github.com/manlili/vue_learn]目录如下：
-单向数据绑定12345678910111213141516171819202122&amp;lt;!DOCTYPE html&amp;gt;&amp;lt;html&amp;gt;    &amp;lt;head&amp;gt;        &amp;lt;meta charset=&quot;utf-8&quot; /&amp;gt">
-<meta name="twitter:image" content="https://manlili.github.io/img/160304/1.png">
+<meta name="twitter:title" content="Node之queryString讲解">
+<meta name="twitter:description" content="在nodejs中，提供了querystring这个模块，用来做url查询参数的解析。在做node服务端开发的时候基本都会用到，使用非常简单。github地址:[(https://github.com/manlili/node_learn)]里面的lesson05
+parse方法作用是解析url查询参数，定义如下：1querystring.parse(str[, sep[, eq[, options">
+<meta name="twitter:image" content="https://manlili.github.io/img/150527/1.png">
 
 
 
@@ -129,13 +136,13 @@
 
 
 
-  <link rel="canonical" href="http://yoursite.com/2016/03/04/Vue入门演示/"/>
+  <link rel="canonical" href="http://yoursite.com/2015/05/27/Node之querystring讲解-0/"/>
 
 
 
 
 
-  <title> Vue入门演示 | manlili blog </title>
+  <title> Node之queryString讲解 | manlili blog </title>
 </head>
 
 <body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
@@ -282,7 +289,7 @@
   
 
   <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
-  <link itemprop="mainEntityOfPage" href="http://yoursite.com/2016/03/04/Vue入门演示/">
+  <link itemprop="mainEntityOfPage" href="http://yoursite.com/2015/05/27/Node之querystring讲解-0/">
 
   <span style="display:none" itemprop="author" itemscope itemtype="http://schema.org/Person">
     <meta itemprop="name" content="满利利">
@@ -306,7 +313,7 @@
             
             
               
-                Vue入门演示
+                Node之queryString讲解
               
             
           </h1>
@@ -321,8 +328,8 @@
               
                 <span class="post-meta-item-text">发表于</span>
               
-              <time title="Post created" itemprop="dateCreated datePublished" datetime="2016-03-04T20:16:52+08:00">
-                2016-03-04
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2015-05-27T15:37:53+08:00">
+                2015-05-27
               </time>
             
 
@@ -344,8 +351,8 @@
               
               
                 <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/vue技术/" itemprop="url" rel="index">
-                    <span itemprop="name">vue技术</span>
+                  <a href="/categories/node技术/" itemprop="url" rel="index">
+                    <span itemprop="name">node技术</span>
                   </a>
                 </span>
 
@@ -362,8 +369,8 @@
                 <span class="post-meta-item-icon">
                   <i class="fa fa-comment-o"></i>
                 </span>
-                <a href="/2016/03/04/Vue入门演示/#comments" itemprop="discussionUrl">
-                  <span class="post-comments-count ds-thread-count" data-thread-key="2016/03/04/Vue入门演示/" itemprop="commentCount"></span>
+                <a href="/2015/05/27/Node之querystring讲解-0/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count ds-thread-count" data-thread-key="2015/05/27/Node之querystring讲解-0/" itemprop="commentCount"></span>
                 </a>
               </span>
             
@@ -371,7 +378,7 @@
 
           
           
-             <span id="/2016/03/04/Vue入门演示/" class="leancloud_visitors" data-flag-title="Vue入门演示">
+             <span id="/2015/05/27/Node之querystring讲解-0/" class="leancloud_visitors" data-flag-title="Node之queryString讲解">
                <span class="post-meta-divider">|</span>
                <span class="post-meta-item-icon">
                  <i class="fa fa-eye"></i>
@@ -400,12 +407,25 @@
       
 
       
-        <p>研究下最近很流行的vue，写几个测试代码<br>gitHub地址:[<a href="https://github.com/manlili/vue_learn" target="_blank" rel="external">https://github.com/manlili/vue_learn</a>]<br>目录如下：<br><img src="https://manlili.github.io/img/160304/1.png" alt="图"></p>
-<h2 id="单向数据绑定"><a href="#单向数据绑定" class="headerlink" title="单向数据绑定"></a>单向数据绑定</h2><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div></pre></td><td class="code"><pre><div class="line">&lt;!DOCTYPE html&gt;</div><div class="line">&lt;html&gt;</div><div class="line">    &lt;head&gt;</div><div class="line">        &lt;meta charset=<span class="string">"utf-8"</span> /&gt;</div><div class="line">        &lt;title&gt;vue&lt;/title&gt;</div><div class="line">        &lt;meta name=<span class="string">"viewport"</span> content=<span class="string">"width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no"</span> /&gt;</div><div class="line">        &lt;script src=<span class="string">"js/vue.js"</span>&gt;&lt;/script&gt;</div><div class="line">    &lt;/head&gt;</div><div class="line">    &lt;body&gt;</div><div class="line">        &lt;div class=<span class="string">"test"</span>&gt;</div><div class="line">            &#123;&#123;message&#125;&#125;</div><div class="line">    &lt;/div&gt;</div><div class="line">        &lt;script&gt;</div><div class="line">            var vue = new Vue(&#123;</div><div class="line">                el: <span class="string">".test"</span>,   //必须有el</div><div class="line">                data:&#123;</div><div class="line">                    message:<span class="string">"这是个测试"</span></div><div class="line">                &#125;</div><div class="line">            &#125;)</div><div class="line">        &lt;/script&gt;</div><div class="line">    &lt;/body&gt;</div><div class="line">&lt;/html&gt;</div></pre></td></tr></table></figure>
-<h2 id="双向数据绑定"><a href="#双向数据绑定" class="headerlink" title="双向数据绑定"></a>双向数据绑定</h2><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div></pre></td><td class="code"><pre><div class="line">&lt;!DOCTYPE html&gt;</div><div class="line">&lt;html&gt;</div><div class="line">    &lt;head&gt;</div><div class="line">        &lt;meta charset=<span class="string">"utf-8"</span>&gt;</div><div class="line">        &lt;title&gt;vue双向数据成功&lt;/title&gt;</div><div class="line">        &lt;meta name=<span class="string">"viewport"</span> content=<span class="string">"width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no"</span>&gt;</div><div class="line">        &lt;script src=<span class="string">"js/vue.js"</span>&gt;&lt;/script&gt;</div><div class="line">    &lt;/head&gt;</div><div class="line">    &lt;body&gt;</div><div class="line">        &lt;div class=<span class="string">"test"</span>&gt;  &lt;!--注意文本和input要在同一个el下面,要不然input输入改变不了p里面内容--&gt;</div><div class="line">            &lt;p&gt;&#123;&#123;message&#125;&#125;&lt;/p&gt;</div><div class="line">            &lt;input <span class="built_in">type</span>=<span class="string">"text"</span> v-model=<span class="string">"message"</span>&gt;</div><div class="line">    &lt;/div&gt;</div><div class="line">        &lt;script&gt;</div><div class="line">            var vue = new Vue(&#123;</div><div class="line">                el: <span class="string">".test"</span>,   //必须有el</div><div class="line">                data:&#123;</div><div class="line">                    message:<span class="string">"这是个测试"</span></div><div class="line">                &#125;</div><div class="line">            &#125;)</div><div class="line">        &lt;/script&gt;</div><div class="line">    &lt;/body&gt;</div><div class="line">&lt;/html&gt;</div></pre></td></tr></table></figure>
-<h2 id="访问数组数据"><a href="#访问数组数据" class="headerlink" title="访问数组数据"></a>访问数组数据</h2><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div></pre></td><td class="code"><pre><div class="line">&lt;!DOCTYPE html&gt;</div><div class="line">&lt;html&gt;</div><div class="line">    &lt;head&gt;</div><div class="line">        &lt;meta charset=<span class="string">"utf-8"</span>&gt;</div><div class="line">        &lt;title&gt;vue数组&lt;/title&gt;</div><div class="line">        &lt;meta name=<span class="string">"viewport"</span> content=<span class="string">"width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no"</span>&gt;</div><div class="line">        &lt;script src=<span class="string">"js/vue.js"</span>&gt;&lt;/script&gt;</div><div class="line">    &lt;/head&gt;</div><div class="line">    &lt;body&gt;</div><div class="line">        &lt;ul class=<span class="string">"test"</span> v-for=<span class="string">"item in message"</span>&gt;</div><div class="line">                &lt;li&gt;&#123;&#123;item&#125;&#125;&lt;/li&gt;</div><div class="line">        &lt;/ul&gt;</div><div class="line">        &lt;script&gt;</div><div class="line">            var vue = new Vue(&#123;</div><div class="line">                el: <span class="string">".test"</span>,   //必须有el</div><div class="line">                data:&#123;</div><div class="line">                    message:[<span class="string">"aa"</span>,<span class="string">"bb"</span>,<span class="string">"cc"</span>]</div><div class="line">                &#125;</div><div class="line">            &#125;)</div><div class="line">        &lt;/script&gt;</div><div class="line">    &lt;/body&gt;</div><div class="line">&lt;/html&gt;</div></pre></td></tr></table></figure>
-<h2 id="访问数组中对象数据"><a href="#访问数组中对象数据" class="headerlink" title="访问数组中对象数据"></a>访问数组中对象数据</h2><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div></pre></td><td class="code"><pre><div class="line">&lt;!DOCTYPE html&gt;</div><div class="line">&lt;html&gt;</div><div class="line">    &lt;head&gt;</div><div class="line">        &lt;meta charset=<span class="string">"utf-8"</span>&gt;</div><div class="line">        &lt;title&gt;vue数组中对象&lt;/title&gt;</div><div class="line">        &lt;meta name=<span class="string">"viewport"</span> content=<span class="string">"width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no"</span>&gt;</div><div class="line">        &lt;script src=<span class="string">"js/vue.js"</span>&gt;&lt;/script&gt;</div><div class="line">    &lt;/head&gt;</div><div class="line">    &lt;body&gt;</div><div class="line">        &lt;ul class=<span class="string">"test"</span> v-for=<span class="string">"item in message"</span>&gt;</div><div class="line">            &lt;li&gt;&#123;&#123;item.name&#125;&#125;&lt;/li&gt;</div><div class="line">        &lt;/ul&gt;</div><div class="line">        &lt;script&gt;</div><div class="line">            var vue = new Vue(&#123;</div><div class="line">                el: <span class="string">".test"</span>,   //必须有el</div><div class="line">                data:&#123;</div><div class="line">                    message:[&#123;name:<span class="string">"lili"</span>&#125;,&#123;name:<span class="string">"haha"</span>&#125;,&#123;name:<span class="string">"kkkk"</span>&#125;], //注意此处name这个key值必须保持一致,要不然数组循环没法访问不同的key值</div><div class="line">                &#125;</div><div class="line">            &#125;)</div><div class="line">        &lt;/script&gt;</div><div class="line">    &lt;/body&gt;</div><div class="line">&lt;/html&gt;</div></pre></td></tr></table></figure>
-<h2 id="vue方法"><a href="#vue方法" class="headerlink" title="vue方法"></a>vue方法</h2><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div></pre></td><td class="code"><pre><div class="line">&lt;!DOCTYPE html&gt;</div><div class="line">&lt;html&gt;</div><div class="line">    &lt;head&gt;</div><div class="line">        &lt;meta charset=<span class="string">"utf-8"</span>&gt;</div><div class="line">        &lt;title&gt;vue方法&lt;/title&gt;</div><div class="line">        &lt;meta name=<span class="string">"viewport"</span> content=<span class="string">"width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no"</span>&gt;</div><div class="line">        &lt;script src=<span class="string">"js/vue.js"</span>&gt;&lt;/script&gt;</div><div class="line">    &lt;/head&gt;</div><div class="line">    &lt;body&gt;</div><div class="line">        &lt;div class=<span class="string">"test"</span>&gt;</div><div class="line">            &lt;p class=<span class="string">"pp"</span>&gt;&#123;&#123;message&#125;&#125;&lt;/p&gt;</div><div class="line">            &lt;button @click=<span class="string">"changeColor"</span>&gt;使用vue方法&lt;/button&gt;</div><div class="line">    &lt;/div&gt;</div><div class="line">        &lt;script&gt;</div><div class="line">            var vue = new Vue(&#123;</div><div class="line">                el: <span class="string">".test"</span>,   //必须有el</div><div class="line">                data:&#123;</div><div class="line">                    message:<span class="string">"这是个测试"</span></div><div class="line">                &#125;,</div><div class="line">                methods:&#123;</div><div class="line">                    changeColor:<span class="function"><span class="title">function</span></span> () &#123;</div><div class="line">                        document.getElementsByClassName(<span class="string">"pp"</span>)[0].style.color=<span class="string">"#ff0000"</span>;</div><div class="line">                    &#125;</div><div class="line">                &#125;</div><div class="line">            &#125;)</div><div class="line">        &lt;/script&gt;</div><div class="line">    &lt;/body&gt;</div><div class="line">&lt;/html&gt;</div></pre></td></tr></table></figure>
+        <p>在nodejs中，提供了querystring这个模块，用来做url查询参数的解析。在做node服务端开发的时候基本都会用到，使用非常简单。<br>github地址:[(<a href="https://github.com/manlili/node_learn)]里面的lesson05" target="_blank" rel="external">https://github.com/manlili/node_learn)]里面的lesson05</a></p>
+<h2 id="parse方法"><a href="#parse方法" class="headerlink" title="parse方法"></a>parse方法</h2><p>作用是解析url查询参数，定义如下：<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">querystring.parse(str[, sep[, eq[, options]]])</div></pre></td></tr></table></figure></p>
+<p>使用方法①<br>先进入node控制台，然后输入querystring.parse,就可以解析这个地址<br><img src="https://manlili.github.io/img/150527/1.png" alt="图"></p>
+<p>使用方法②<br>由于queryString是node自带的模块，可以直接引用<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">var querystring = require(<span class="string">"querystring"</span>);</div><div class="line">var a = querystring.parse(<span class="string">'foo=bra&amp;haha=lli&amp;haha=568'</span>);</div><div class="line">console.log(a);</div></pre></td></tr></table></figure></p>
+<p>然后进入js所在的文件夹执行：<br><img src="https://manlili.github.io/img/150527/2.png" alt="图"></p>
+<h2 id="stringify方法"><a href="#stringify方法" class="headerlink" title="stringify方法"></a>stringify方法</h2><p>作用是将对象拼接成url查询参数，定义如下：<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">querystring.stringify(obj[, sep[, eq[, options]]])</div></pre></td></tr></table></figure></p>
+<p>使用方法①<br>需要将下面的对象<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">&#123; foo: <span class="string">'bra'</span>, haha: [ <span class="string">'lli'</span>, <span class="string">'568'</span> ] &#125;</div></pre></td></tr></table></figure></p>
+<p>拼接成url查询参数，先进入node控制台，然后输入querystring.stringify,就可以解析这个地址<br><img src="https://manlili.github.io/img/150527/3.png" alt="图"></p>
+<p>使用方法②<br>由于queryString是node自带的模块，可以直接引用<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">var querystring = require(<span class="string">"querystring"</span>);</div><div class="line">var b = querystring.stringify(&#123; foo: <span class="string">'bra'</span>, haha: [ <span class="string">'lli'</span>, <span class="string">'568'</span> ] &#125;);</div><div class="line">console.log(b);</div></pre></td></tr></table></figure></p>
+<p>然后进入js所在的文件夹执行：<br><img src="https://manlili.github.io/img/150527/4.png" alt="图"></p>
+<h2 id="escape方法"><a href="#escape方法" class="headerlink" title="escape方法"></a>escape方法</h2><p>作用是转义url，定义如下：<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">querystring.escape(str)</div></pre></td></tr></table></figure></p>
+<p>使用方法①<br>假设需要转义“&lt;中文&gt;”，先进入node控制台，然后输入querystring.escape,就可以解析这个地址<br><img src="https://manlili.github.io/img/150527/5.png" alt="图"></p>
+<p>使用方法②<br>由于queryString是node自带的模块，可以直接引用<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">var querystring = require(<span class="string">"querystring"</span>);</div><div class="line">var c = querystring.escape(<span class="string">"&lt;中文&gt;"</span>);</div><div class="line">console.log(c);</div></pre></td></tr></table></figure></p>
+<p>然后进入js所在的文件夹执行：<br><img src="https://manlili.github.io/img/150527/6.png" alt="图"></p>
+<h2 id="unescape方法"><a href="#unescape方法" class="headerlink" title="unescape方法"></a>unescape方法</h2><p>作用是反转义url，定义如下：<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">querystring.unescape(str)</div></pre></td></tr></table></figure></p>
+<p>使用方法①<br>假设需要反转义“%3C%E4%B8%AD%E6%96%87%3E”，先进入node控制台，然后输入querystring.unescape,就可以解析这个地址<br><img src="https://manlili.github.io/img/150527/7.png" alt="图"></p>
+<p>使用方法②<br>由于queryString是node自带的模块，可以直接引用<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">var querystring = require(<span class="string">"querystring"</span>);</div><div class="line">var d = querystring.unescape(<span class="string">"%3C%E4%B8%AD%E6%96%87%3E"</span>);</div><div class="line">console.log(d);</div></pre></td></tr></table></figure></p>
+<p>然后进入js所在的文件夹执行：<br><img src="https://manlili.github.io/img/150527/8.png" alt="图"></p>
+
       
     </div>
 
@@ -449,7 +469,7 @@
       
         <div class="post-tags">
           
-            <a href="/tags/vue/" rel="tag"># vue</a>
+            <a href="/tags/queryString/" rel="tag"># queryString</a>
           
         </div>
       
@@ -462,7 +482,7 @@
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2015/05/27/Node之querystring讲解-0/" rel="next" title="Node之queryString讲解">
+              <a href="/2015/05/27/Node之queryString讲解/" rel="next" title="Node之queryString讲解">
                 <i class="fa fa-chevron-left"></i> Node之queryString讲解
               </a>
             
@@ -472,8 +492,8 @@
 
           <div class="post-nav-prev post-nav-item">
             
-              <a href="/2016/03/14/Vue基础理论/" rel="prev" title="Vue基础理论">
-                Vue基础理论 <i class="fa fa-chevron-right"></i>
+              <a href="/2016/03/04/Vue入门演示/" rel="prev" title="Vue入门演示">
+                Vue入门演示 <i class="fa fa-chevron-right"></i>
               </a>
             
           </div>
@@ -500,8 +520,8 @@
           
   <div class="comments" id="comments">
     
-      <div class="ds-thread" data-thread-key="2016/03/04/Vue入门演示/"
-           data-title="Vue入门演示" data-url="http://yoursite.com/2016/03/04/Vue入门演示/">
+      <div class="ds-thread" data-thread-key="2015/05/27/Node之querystring讲解-0/"
+           data-title="Node之queryString讲解" data-url="http://yoursite.com/2015/05/27/Node之querystring讲解-0/">
       </div>
     
   </div>
@@ -623,7 +643,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#单向数据绑定"><span class="nav-number">1.</span> <span class="nav-text">单向数据绑定</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#双向数据绑定"><span class="nav-number">2.</span> <span class="nav-text">双向数据绑定</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#访问数组数据"><span class="nav-number">3.</span> <span class="nav-text">访问数组数据</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#访问数组中对象数据"><span class="nav-number">4.</span> <span class="nav-text">访问数组中对象数据</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#vue方法"><span class="nav-number">5.</span> <span class="nav-text">vue方法</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#parse方法"><span class="nav-number">1.</span> <span class="nav-text">parse方法</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#stringify方法"><span class="nav-number">2.</span> <span class="nav-text">stringify方法</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#escape方法"><span class="nav-number">3.</span> <span class="nav-text">escape方法</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#unescape方法"><span class="nav-number">4.</span> <span class="nav-text">unescape方法</span></a></li></ol></div>
             
 
           </div>
