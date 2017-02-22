@@ -1,0 +1,917 @@
+<!doctype html>
+
+
+
+  
+
+
+<html class="theme-next mist use-motion" lang="zh-Hans">
+<head>
+  <meta charset="UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+  <link href="/lib/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css" />
+
+
+
+
+  
+  
+  
+  
+
+  
+    
+    
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+    
+    
+    <link href="//fonts.googleapis.com/css?family=Lato:300,300italic,400,400italic,700,700italic&subset=latin,latin-ext" rel="stylesheet" type="text/css">
+  
+
+
+
+
+
+
+<link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css" />
+
+<link href="/css/main.css?v=5.1.0" rel="stylesheet" type="text/css" />
+
+
+  <meta name="keywords" content="position," />
+
+
+
+
+
+
+
+
+  <link rel="shortcut icon" type="image/x-icon" href="/favicon.ico?v=5.1.0" />
+
+
+
+
+
+
+<meta name="description" content="对position属性的relative和absolute总是很迷糊，今天就花了半天时间对各种情况进行尝试并做了比较。初始状态一个父层、两个子层，都设置宽高、边框、背景色和定位的left和top；html内容：12345&amp;lt;div class=&quot;fu&quot;&amp;gt;  	父层  	&amp;lt;div class=&quot;zi1&quot;&amp;gt;子层1&amp;lt;/div&amp;gt;  	&amp;lt;div class=&quot;zi2&quot;">
+<meta property="og:type" content="article">
+<meta property="og:title" content="父层与子层的 position 属性在不同组合下的情况">
+<meta property="og:url" content="http://yoursite.com/2014/11/29/父层与子层的-position-属性在不同组合下的情况/index.html">
+<meta property="og:site_name" content="manlili blog">
+<meta property="og:description" content="对position属性的relative和absolute总是很迷糊，今天就花了半天时间对各种情况进行尝试并做了比较。初始状态一个父层、两个子层，都设置宽高、边框、背景色和定位的left和top；html内容：12345&amp;lt;div class=&quot;fu&quot;&amp;gt;  	父层  	&amp;lt;div class=&quot;zi1&quot;&amp;gt;子层1&amp;lt;/div&amp;gt;  	&amp;lt;div class=&quot;zi2&quot;">
+<meta property="og:image" content="https://manlili.github.io/img/141129/1.png">
+<meta property="og:image" content="https://manlili.github.io/img/141129/2.png">
+<meta property="og:image" content="https://manlili.github.io/img/141129/3.png">
+<meta property="og:image" content="https://manlili.github.io/img/141129/4.png">
+<meta property="og:image" content="https://manlili.github.io/img/141129/5.png">
+<meta property="og:image" content="https://manlili.github.io/img/141129/6.png">
+<meta property="og:image" content="https://manlili.github.io/img/141129/7.png">
+<meta property="og:image" content="https://manlili.github.io/img/141129/8.png">
+<meta property="og:image" content="https://manlili.github.io/img/141129/9.png">
+<meta property="og:image" content="https://manlili.github.io/img/141129/10.png">
+<meta property="og:image" content="https://manlili.github.io/img/141129/11.png">
+<meta property="og:image" content="https://manlili.github.io/img/141129/12.png">
+<meta property="og:image" content="https://manlili.github.io/img/141129/13.png">
+<meta property="og:image" content="https://manlili.github.io/img/141129/14.png">
+<meta property="og:image" content="https://manlili.github.io/img/141129/15.png">
+<meta property="og:image" content="https://manlili.github.io/img/141129/16.png">
+<meta property="og:updated_time" content="2017-02-22T07:20:51.417Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="父层与子层的 position 属性在不同组合下的情况">
+<meta name="twitter:description" content="对position属性的relative和absolute总是很迷糊，今天就花了半天时间对各种情况进行尝试并做了比较。初始状态一个父层、两个子层，都设置宽高、边框、背景色和定位的left和top；html内容：12345&amp;lt;div class=&quot;fu&quot;&amp;gt;  	父层  	&amp;lt;div class=&quot;zi1&quot;&amp;gt;子层1&amp;lt;/div&amp;gt;  	&amp;lt;div class=&quot;zi2&quot;">
+<meta name="twitter:image" content="https://manlili.github.io/img/141129/1.png">
+
+
+
+<script type="text/javascript" id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Mist',
+    sidebar: {"position":"left","display":"post"},
+    fancybox: true,
+    motion: true,
+    duoshuo: {
+      userId: '0',
+      author: '博主'
+    },
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
+
+
+
+  <link rel="canonical" href="http://yoursite.com/2014/11/29/父层与子层的-position-属性在不同组合下的情况/"/>
+
+
+
+
+
+  <title> 父层与子层的 position 属性在不同组合下的情况 | manlili blog </title>
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
+
+  
+
+
+
+
+
+  <script type="text/javascript">
+    var _hmt = _hmt || [];
+    (function() {
+      var hm = document.createElement("script");
+      hm.src = "https://hm.baidu.com/hm.js?f37e17c195d69bf54199e99faa624b7b　";
+      var s = document.getElementsByTagName("script")[0];
+      s.parentNode.insertBefore(hm, s);
+    })();
+  </script>
+
+
+
+
+
+
+
+
+
+
+  
+  
+    
+  
+
+  <div class="container one-collumn sidebar-position-left page-post-detail ">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-meta ">
+  
+
+  <div class="custom-logo-site-title">
+    <a href="/"  class="brand" rel="start">
+      <span class="logo-line-before"><i></i></span>
+      <span class="site-title">manlili blog</span>
+      <span class="logo-line-after"><i></i></span>
+    </a>
+  </div>
+    
+      <p class="site-subtitle">记录技术上的点点心得</p>
+    
+</div>
+
+<div class="site-nav-toggle">
+  <button>
+    <span class="btn-bar"></span>
+    <span class="btn-bar"></span>
+    <span class="btn-bar"></span>
+  </button>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-home"></i> <br />
+            
+            首页
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/archives" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-archive"></i> <br />
+            
+            归档
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-categories">
+          <a href="/categories" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-th"></i> <br />
+            
+            分类
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-about">
+          <a href="/about" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-user"></i> <br />
+            
+            关于
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-commonweal">
+          <a href="/404.html" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-heartbeat"></i> <br />
+            
+            公益404
+          </a>
+        </li>
+      
+
+      
+    </ul>
+  
+
+  
+</nav>
+
+
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+  <link itemprop="mainEntityOfPage" href="http://yoursite.com/2014/11/29/父层与子层的-position-属性在不同组合下的情况/">
+
+  <span style="display:none" itemprop="author" itemscope itemtype="http://schema.org/Person">
+    <meta itemprop="name" content="满利利">
+    <meta itemprop="description" content="">
+    <meta itemprop="image" content="/uploads/avatar.jpg">
+  </span>
+
+  <span style="display:none" itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+    <meta itemprop="name" content="manlili blog">
+    <span style="display:none" itemprop="logo" itemscope itemtype="http://schema.org/ImageObject">
+      <img style="display:none;" itemprop="url image" alt="manlili blog" src="">
+    </span>
+  </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+            
+            
+              
+                父层与子层的 position 属性在不同组合下的情况
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2014-11-29T14:30:35+08:00">
+                2014-11-29
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/css技术/" itemprop="url" rel="index">
+                    <span itemprop="name">css技术</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+              <span class="post-comments-count">
+                <span class="post-meta-divider">|</span>
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-comment-o"></i>
+                </span>
+                <a href="/2014/11/29/父层与子层的-position-属性在不同组合下的情况/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count ds-thread-count" data-thread-key="2014/11/29/父层与子层的-position-属性在不同组合下的情况/" itemprop="commentCount"></span>
+                </a>
+              </span>
+            
+          
+
+          
+          
+             <span id="/2014/11/29/父层与子层的-position-属性在不同组合下的情况/" class="leancloud_visitors" data-flag-title="父层与子层的 position 属性在不同组合下的情况">
+               <span class="post-meta-divider">|</span>
+               <span class="post-meta-item-icon">
+                 <i class="fa fa-eye"></i>
+               </span>
+               
+                 <span class="post-meta-item-text">阅读次数 </span>
+               
+                 <span class="leancloud-visitors-count"></span>
+             </span>
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <p>对position属性的relative和absolute总是很迷糊，今天就花了半天时间对各种情况进行尝试并做了比较。<br>初始状态一个父层、两个子层，都设置宽高、边框、背景色和定位的left和top；<br>html内容：<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">&lt;div class=<span class="string">"fu"</span>&gt;  </div><div class="line">	父层  </div><div class="line">	&lt;div class=<span class="string">"zi1"</span>&gt;子层1&lt;/div&gt;  </div><div class="line">	&lt;div class=<span class="string">"zi2"</span>&gt;子层2&lt;/div&gt;  </div><div class="line">&lt;/div&gt;</div></pre></td></tr></table></figure></p>
+<p>css代码：<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div></pre></td><td class="code"><pre><div class="line">.fu &#123;</div><div class="line">    background-color: <span class="comment">#CCC;</span></div><div class="line">    height: 300px;</div><div class="line">    width: 400px;</div><div class="line">    border: 5px dotted <span class="comment">#0F0;</span></div><div class="line">    left: 200px;</div><div class="line">    top: 300px;</div><div class="line">    margin: 0px;</div><div class="line">    padding: 0px;</div><div class="line">&#125;</div><div class="line">.zi1 &#123;</div><div class="line">    height: 80px;</div><div class="line">    width: 100px;</div><div class="line">    border: 3px dashed <span class="comment">#96F;</span></div><div class="line">    background-color: <span class="comment">#3F9;</span></div><div class="line">    left: 50px;</div><div class="line">    top: 50px;</div><div class="line">    margin: 0px;</div><div class="line">    padding: 0px;</div><div class="line">&#125;</div><div class="line">.zi2 &#123;</div><div class="line">    height: 150px;</div><div class="line">    width: 100px;</div><div class="line">    border: 3px solid <span class="comment">#CC3;</span></div><div class="line">    background-color: <span class="comment">#F60;</span></div><div class="line">    left: 100px;</div><div class="line">    top: 100px;</div><div class="line">    margin: 0px;</div><div class="line">    padding: 0px;</div><div class="line">&#125;</div><div class="line">body &#123;</div><div class="line">    background-color: <span class="comment">#FF9;</span></div><div class="line">    margin: 0px;</div><div class="line">    padding: 0px;</div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
+<p>##　父层position属性为absolute<br>A.父、子层都为空（即初始状态），如图：<br><img src="https://manlili.github.io/img/141129/1.png" alt="图片轮播"></p>
+<p>B.父：absolute；子：都为空<br>父层相对浏览器 left：200，top：300；<br>子层全部随着父层走，相对父层位置不变。<br><img src="https://manlili.github.io/img/141129/2.png" alt="图片轮播"></p>
+<p>C.父：absolute；子1：absolute；子2：空父层相对浏览器 left：200，top：300；与B相比，子1发生变化：相对父层的边框内边缘左上角left：50，top：50；<br>子2层位置变化，并被子1遮住部分。<br><img src="https://manlili.github.io/img/141129/3.png" alt="图片轮播"></p>
+<p>D.父：absolute；子1：relative；子2：空<br>与C相比，子1变化：相对“父层”这两个字的的左下角的点left：50，top：50。<br>子2变化，因为子1用relative虽然偏移了原来的位置，但是仍占着原来的位置空间，所以子2的状态仍然保持为A时初始状态。<br><img src="https://manlili.github.io/img/141129/4.png" alt="图片轮播"></p>
+<p>E.父：absolute；子1：relative；子2：absolute；<br>与D相比，子1不变，子2变化至：相对父层的边框内边缘左上角left：100，top：100；<br><img src="https://manlili.github.io/img/141129/5.png" alt="图片轮播"></p>
+<p>F.父：absolute；子1：absolute；子2：absolute；<br>变化和预想中的一样，<br>相对于E，子1变回了C中的情况：相对父层的边框内边缘左上角left：50，top：50；<br><img src="https://manlili.github.io/img/141129/6.png" alt="图片轮播"></p>
+<p>G.父：absolute；子1：absolute；子2：relative；<br>子2下移，和D中的子1情况相似，相对“父层”这两个字的的左下角的点left：100，top：100。<br><img src="https://manlili.github.io/img/141129/7.png" alt="图片轮播"></p>
+<h2 id="父层position变为relative"><a href="#父层position变为relative" class="headerlink" title="父层position变为relative"></a>父层position变为relative</h2><p>H.父：relative；子：都为空<br>此处的参照位置应选成A，父层(联带着两个子层)的位置相对于A(即正常流中的位置)：left:200,top:300;<br><img src="https://manlili.github.io/img/141129/8.png" alt="图片轮播"></p>
+<p>I.父：relative；子1：absolute；子2：空<br>与H相比，子1发生变化：相对父层的边框内边缘左上角left：50，top：50；<br>子2层位置变化，并被子1遮住部分。<br>父层内部与C相似。<br><img src="https://manlili.github.io/img/141129/9.png" alt="图片轮播"></p>
+<p>J.父：absolute；子1：relative；子2：空<br>与I相比，子1变化：相对“父层”这两个字的的左下角的点left：50，top：50。<br>子2变化，因为子1用relative虽然偏移了原来的位置，但是仍占着原来的位置空间，所以子2的状态仍然保持为A时初始状态<br><img src="https://manlili.github.io/img/141129/10.png" alt="图片轮播"></p>
+<p>K.父：relative；子1：relative；子2：absolute；<br>与J相比，子1不变，子2变化至：相对父层的边框内边缘左上角left：100，top：100；<br><img src="https://manlili.github.io/img/141129/11.png" alt="图片轮播"></p>
+<p>至此可以发现，父层的position属性为relative或absolute只会影响到 父层(联带着两个子层) 的位置，而对浮层内部的布局内有影响。</p>
+<h2 id="父层的position属性设为空"><a href="#父层的position属性设为空" class="headerlink" title="父层的position属性设为空"></a>父层的position属性设为空</h2><p>M.父：空；子1：absolute；子2：空<br>这时会发现，子1 脱离了正常的文档流，相对浏览器左上角的位置left:50,top:50；<br>而父层与子2层还是保持正常文档流的位置。<br><img src="https://manlili.github.io/img/141129/12.png" alt="图片轮播"></p>
+<p>N.父：空；子1：relative；子2：空<br>这种情况的父层内部的布局与父层的position属性不为空时内部的布局一样。<br><img src="https://manlili.github.io/img/141129/13.png" alt="图片轮播"></p>
+<p>O.父：空；子1：relative；子2：absolute；<br>相对d，子1保持不动，子2脱离正常文档流，相对浏览器左上角的位置left:100,top:100；<br><img src="https://manlili.github.io/img/141129/14.png" alt="图片轮播"></p>
+<p>P.父：空；子1：absolute；子2：absolute；<br>相对初始状态，子1和子2都脱离了正常文档流，进入绝对位置，<br>两个层相互叠加，如果需要调控两者前后位置，需要用到Z-index属性，不在本文记录范围。<br><img src="https://manlili.github.io/img/141129/15.png" alt="图片轮播"></p>
+<p>Q.父：空；子1：absolute；子2：relative；<br>子2回归正常文档流，进入相对位置。<br><img src="https://manlili.github.io/img/141129/16.png" alt="图片轮播"></p>
+<h2 id="总结："><a href="#总结：" class="headerlink" title="总结："></a>总结：</h2><p>1.当父层position属性为空或默认时，内部的子元素如果为absolute，则将会不再受父层的限制。<br>2.如果父层position为relative或absolute，则父层(联带内部子层)根据相应规则进行移动。<br>3.由H、I、J、K等可知，当层position属性为relative时，虽然层的位置会变化，但是该层原本的位置还会被占着，而且可能会覆盖在其他元素上面。<br>4.relative为相对定位，即相对于处于正常流位置。<br>5.absolute为据对定位，相对于上级已经定好位的元素，如果上一级没有定好位的元素，则相对于body定位。<br>6.TOP、RIGHT、BOTTOM、LEFT属性只有当设定了position属性才有效,可以是relative或者absolute。</p>
+
+      
+    </div>
+
+    <div>
+      
+        
+
+      
+    </div>
+
+    <div>
+      
+        
+  <div style="padding: 10px 0; margin: 20px auto; width: 90%; text-align: center;">
+    <div>打赏我的人运气不会太差哦！</div>
+    <button id="rewardButton" disable="enable" onclick="var qr = document.getElementById('QR'); if (qr.style.display === 'none') {qr.style.display='block';} else {qr.style.display='none'}">
+      <span>赏</span>
+    </button>
+    <div id="QR" style="display: none;">
+      
+        <div id="wechat" style="display: inline-block">
+          <img id="wechat_qr" src="https://manlili.github.io/img/pay/wetcharpay.png" alt="满利利 WeChat Pay"/>
+          <p>微信打赏</p>
+        </div>
+      
+      
+        <div id="alipay" style="display: inline-block">
+          <img id="alipay_qr" src="https://manlili.github.io/img/pay/Alipay.jpg" alt="满利利 Alipay"/>
+          <p>支付宝打赏</p>
+        </div>
+      
+    </div>
+  </div>
+
+
+      
+    </div>
+
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/position/" rel="tag"># position</a>
+          
+        </div>
+      
+
+      
+        
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2014/11/23/jquery实现图片轮播/" rel="next" title="jquery实现图片轮播">
+                <i class="fa fa-chevron-left"></i> jquery实现图片轮播
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2014/12/05/css3实现页面遮罩效果/" rel="prev" title="css3实现页面遮罩效果">
+                css3实现页面遮罩效果 <i class="fa fa-chevron-right"></i>
+              </a>
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </article>
+
+
+
+    <div class="post-spread">
+      
+    </div>
+  </div>
+
+          
+          </div>
+          
+
+
+          
+  <div class="comments" id="comments">
+    
+      <div class="ds-thread" data-thread-key="2014/11/29/父层与子层的-position-属性在不同组合下的情况/"
+           data-title="父层与子层的 position 属性在不同组合下的情况" data-url="http://yoursite.com/2014/11/29/父层与子层的-position-属性在不同组合下的情况/">
+      </div>
+    
+  </div>
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap" >
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview">
+            站点概览
+          </li>
+        </ul>
+      
+
+      <section class="site-overview sidebar-panel">
+        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+          <img class="site-author-image" itemprop="image"
+               src="/uploads/avatar.jpg"
+               alt="满利利" />
+          <p class="site-author-name" itemprop="name">满利利</p>
+           
+              <p class="site-description motion-element" itemprop="description">前端开发/走向全栈/幽默有趣</p>
+          
+        </div>
+        <nav class="site-state motion-element">
+        
+          
+            <div class="site-state-item site-state-posts">
+              <a href="/archives">
+                <span class="site-state-item-count">37</span>
+                <span class="site-state-item-name">日志</span>
+              </a>
+            </div>
+          
+
+          
+            <div class="site-state-item site-state-categories">
+              <a href="/categories">
+                <span class="site-state-item-count">9</span>
+                <span class="site-state-item-name">分类</span>
+              </a>
+            </div>
+          
+
+          
+            <div class="site-state-item site-state-tags">
+              
+                <span class="site-state-item-count">48</span>
+                <span class="site-state-item-name">标签</span>
+              
+            </div>
+          
+
+        </nav>
+
+        
+
+        <div class="links-of-author motion-element">
+          
+            
+              <span class="links-of-author-item">
+                <a href="" target="_blank" title="644166434">
+                  
+                    <i class="fa fa-fw fa-qq"></i>
+                  
+                  644166434
+                </a>
+              </span>
+            
+              <span class="links-of-author-item">
+                <a href="https://github.com/manlili" target="_blank" title="GitHub">
+                  
+                    <i class="fa fa-fw fa-github"></i>
+                  
+                  GitHub
+                </a>
+              </span>
+            
+          
+        </div>
+
+        
+        
+
+        
+        
+
+        
+
+
+      </section>
+
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#父层position变为relative"><span class="nav-number">1.</span> <span class="nav-text">父层position变为relative</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#父层的position属性设为空"><span class="nav-number">2.</span> <span class="nav-text">父层的position属性设为空</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#总结："><span class="nav-number">3.</span> <span class="nav-text">总结：</span></a></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright" >
+  
+  &copy; 
+  <span itemprop="copyrightYear">2017</span>
+  <span class="with-love">
+    <i class="fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">满利利</span>
+</div>
+
+
+
+        
+
+        
+      </div>
+    </footer>
+
+    <div class="back-to-top">
+      <i class="fa fa-arrow-up"></i>
+    </div>
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+  
+  <script type="text/javascript" src="/lib/jquery/index.js?v=2.1.3"></script>
+
+  
+  <script type="text/javascript" src="/lib/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+
+  
+  <script type="text/javascript" src="/lib/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+
+  
+  <script type="text/javascript" src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+
+  
+  <script type="text/javascript" src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+
+  
+  <script type="text/javascript" src="/lib/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=5.1.0"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=5.1.0"></script>
+
+
+
+  
+  
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.0"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.1.0"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.1.0"></script>
+
+
+
+  
+
+  
+    
+  
+
+  <script type="text/javascript">
+    var duoshuoQuery = {short_name:"manlili"};
+    (function() {
+      var ds = document.createElement('script');
+      ds.type = 'text/javascript';ds.async = true;
+      ds.id = 'duoshuo-script';
+      ds.src = (document.location.protocol == 'https:' ? 'https:' : 'http:') + '//static.duoshuo.com/embed.js';
+      ds.charset = 'UTF-8';
+      (document.getElementsByTagName('head')[0]
+      || document.getElementsByTagName('body')[0]).appendChild(ds);
+    })();
+  </script>
+
+  
+    
+    
+    <script src="/lib/ua-parser-js/dist/ua-parser.min.js?v=0.7.9"></script>
+    <script src="/js/src/hook-duoshuo.js"></script>
+  
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+
+  
+
+  
+
+  
+  <script src="https://cdn1.lncld.net/static/js/av-core-mini-0.6.1.js"></script>
+  <script>AV.initialize("Y2iTQ8Fc2RRvW4mqBqzfOdSX-gzGzoHsz", "gHlHLDuIiCTTcE93RMzpOYxY");</script>
+  <script>
+    function showTime(Counter) {
+      var query = new AV.Query(Counter);
+      var entries = [];
+      var $visitors = $(".leancloud_visitors");
+
+      $visitors.each(function () {
+        entries.push( $(this).attr("id").trim() );
+      });
+
+      query.containedIn('url', entries);
+      query.find()
+        .done(function (results) {
+          var COUNT_CONTAINER_REF = '.leancloud-visitors-count';
+
+          if (results.length === 0) {
+            $visitors.find(COUNT_CONTAINER_REF).text(0);
+            return;
+          }
+
+          for (var i = 0; i < results.length; i++) {
+            var item = results[i];
+            var url = item.get('url');
+            var time = item.get('time');
+            var element = document.getElementById(url);
+
+            $(element).find(COUNT_CONTAINER_REF).text(time);
+          }
+          for(var i = 0; i < entries.length; i++) {
+            var url = entries[i];
+            var element = document.getElementById(url);
+            var countSpan = $(element).find(COUNT_CONTAINER_REF);
+            if( countSpan.text() == '') {
+              countSpan.text(0);
+            }
+          }
+        })
+        .fail(function (object, error) {
+          console.log("Error: " + error.code + " " + error.message);
+        });
+    }
+
+    function addCount(Counter) {
+      var $visitors = $(".leancloud_visitors");
+      var url = $visitors.attr('id').trim();
+      var title = $visitors.attr('data-flag-title').trim();
+      var query = new AV.Query(Counter);
+
+      query.equalTo("url", url);
+      query.find({
+        success: function(results) {
+          if (results.length > 0) {
+            var counter = results[0];
+            counter.fetchWhenSave(true);
+            counter.increment("time");
+            counter.save(null, {
+              success: function(counter) {
+                var $element = $(document.getElementById(url));
+                $element.find('.leancloud-visitors-count').text(counter.get('time'));
+              },
+              error: function(counter, error) {
+                console.log('Failed to save Visitor num, with error message: ' + error.message);
+              }
+            });
+          } else {
+            var newcounter = new Counter();
+            /* Set ACL */
+            var acl = new AV.ACL();
+            acl.setPublicReadAccess(true);
+            acl.setPublicWriteAccess(true);
+            newcounter.setACL(acl);
+            /* End Set ACL */
+            newcounter.set("title", title);
+            newcounter.set("url", url);
+            newcounter.set("time", 1);
+            newcounter.save(null, {
+              success: function(newcounter) {
+                var $element = $(document.getElementById(url));
+                $element.find('.leancloud-visitors-count').text(newcounter.get('time'));
+              },
+              error: function(newcounter, error) {
+                console.log('Failed to create');
+              }
+            });
+          }
+        },
+        error: function(error) {
+          console.log('Error:' + error.code + " " + error.message);
+        }
+      });
+    }
+
+    $(function() {
+      var Counter = AV.Object.extend("Counter");
+      if ($('.leancloud_visitors').length == 1) {
+        addCount(Counter);
+      } else if ($('.post-title-link').length > 1) {
+        showTime(Counter);
+      }
+    });
+  </script>
+
+
+
+  
+
+  
+
+
+</body>
+</html>
