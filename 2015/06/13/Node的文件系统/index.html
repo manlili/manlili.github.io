@@ -71,7 +71,7 @@
 <link href="/css/main.css?v=5.1.0" rel="stylesheet" type="text/css" />
 
 
-  <meta name="keywords" content="manlili blogs" />
+  <meta name="keywords" content="文件," />
 
 
 
@@ -87,16 +87,27 @@
 
 
 
-<meta name="description" content="前端开发/走向全栈/幽默有趣">
+<meta name="description" content="一般用js没办法对本地盘中文件进行读取或者其他操作，但是node.js有文件系统，可以很方便的读取文件内容。测试例子github地址：https://github.com/manlili/node_learn里面lesson07
+同步和异步读取文件Node 导入文件系统模块(fs)语法如下所示：1var fs = require(&quot;fs&quot;)
+创建readfile.js，内容是12345678910">
 <meta property="og:type" content="article">
 <meta property="og:title" content="Node的文件系统">
 <meta property="og:url" content="http://yoursite.com/2015/06/13/Node的文件系统/index.html">
 <meta property="og:site_name" content="manlili blog">
-<meta property="og:description" content="前端开发/走向全栈/幽默有趣">
-<meta property="og:updated_time" content="2015-06-13T02:27:26.203Z">
+<meta property="og:description" content="一般用js没办法对本地盘中文件进行读取或者其他操作，但是node.js有文件系统，可以很方便的读取文件内容。测试例子github地址：https://github.com/manlili/node_learn里面lesson07
+同步和异步读取文件Node 导入文件系统模块(fs)语法如下所示：1var fs = require(&quot;fs&quot;)
+创建readfile.js，内容是12345678910">
+<meta property="og:image" content="https://manlili.github.io/img/150613/1.png">
+<meta property="og:image" content="https://manlili.github.io/img/150613/2.png">
+<meta property="og:image" content="https://manlili.github.io/img/150613/3.png">
+<meta property="og:image" content="https://manlili.github.io/img/150613/4.png">
+<meta property="og:updated_time" content="2017-02-23T10:59:11.249Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Node的文件系统">
-<meta name="twitter:description" content="前端开发/走向全栈/幽默有趣">
+<meta name="twitter:description" content="一般用js没办法对本地盘中文件进行读取或者其他操作，但是node.js有文件系统，可以很方便的读取文件内容。测试例子github地址：https://github.com/manlili/node_learn里面lesson07
+同步和异步读取文件Node 导入文件系统模块(fs)语法如下所示：1var fs = require(&quot;fs&quot;)
+创建readfile.js，内容是12345678910">
+<meta name="twitter:image" content="https://manlili.github.io/img/150613/1.png">
 
 
 
@@ -327,6 +338,28 @@
           </span>
 
           
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/node技术/" itemprop="url" rel="index">
+                    <span itemprop="name">node技术</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
 
           
             
@@ -373,7 +406,25 @@
       
 
       
-        
+        <p>一般用js没办法对本地盘中文件进行读取或者其他操作，但是node.js有文件系统，可以很方便的读取文件内容。<br>测试例子<a href="https://github.com/manlili/node_learn" target="_blank" rel="external">github地址：https://github.com/manlili/node_learn里面lesson07</a></p>
+<h2 id="同步和异步读取文件"><a href="#同步和异步读取文件" class="headerlink" title="同步和异步读取文件"></a>同步和异步读取文件</h2><p>Node 导入文件系统模块(fs)语法如下所示：<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">var fs = require(<span class="string">"fs"</span>)</div></pre></td></tr></table></figure></p>
+<p>创建readfile.js，内容是<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div></pre></td><td class="code"><pre><div class="line">var fs = require(<span class="string">'fs'</span>);</div><div class="line">fs.readFile(<span class="string">'test.txt'</span>,<span class="keyword">function</span>(err, data) &#123;</div><div class="line">	<span class="keyword">if</span> (err) &#123;</div><div class="line">		<span class="built_in">return</span> console.log(err);</div><div class="line">	&#125;</div><div class="line">	console.log(<span class="string">"异步读取的文件内容是："</span>+data.toString());</div><div class="line">&#125;)</div><div class="line"></div><div class="line">var data = fs.readFileSync(<span class="string">'test.txt'</span>);</div><div class="line">console.log(<span class="string">"同步读取的文件内容是："</span>+data.toString());</div></pre></td></tr></table></figure></p>
+<p>进入js所在的文件夹内，打开gitBash输入：<br><img src="https://manlili.github.io/img/150613/1.png" alt="图"></p>
+<h2 id="打开文件"><a href="#打开文件" class="headerlink" title="打开文件"></a>打开文件</h2><p>定义规则：<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">fs.open(path, flags[, mode], callback)</div></pre></td></tr></table></figure></p>
+<p>参数说明：<br>path - 文件的路径。<br>flags - 文件打开的行为。具体值详见下文。<br>mode - 设置文件模式(权限)，文件创建默认权限为 0666(可读，可写)。<br>callback - 回调函数，带有两个参数如：callback(err, fd)。</p>
+<p>关于flags 参数可以是以下值：<br>r:以读取模式打开文件。如果文件不存在抛出异常。<br>r+:以读写模式打开文件。如果文件不存在抛出异常。<br>rs:以同步的方式读取文件。<br>rs+:以同步的方式读取和写入文件。<br>w:以写入模式打开文件，如果文件不存在则创建。<br>wx:类似 ‘w’，但是如果文件路径存在，则文件写入失败。<br>w+:以读写模式打开文件，如果文件不存在则创建。<br>wx+:类似 ‘w+’， 但是如果文件路径存在，则文件读写失败。<br>a:以追加模式打开文件，如果文件不存在则创建。<br>ax:类似 ‘a’， 但是如果文件路径存在，则文件追加失败。<br>a+:以读取追加模式打开文件，如果文件不存在则创建。<br>ax+:类似 ‘a+’， 但是如果文件路径存在，则文件读取追加失败。</p>
+<p>创建openfile.js，内容是<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div></pre></td><td class="code"><pre><div class="line">var fs = require(<span class="string">'fs'</span>);</div><div class="line">console.log(<span class="string">"准备打开文件"</span>);</div><div class="line">fs.open(<span class="string">'test.txt'</span>,<span class="string">'r+'</span>,<span class="keyword">function</span>(err, data) &#123;</div><div class="line">	<span class="keyword">if</span> (err) &#123;</div><div class="line">		<span class="built_in">return</span> console.log(err);</div><div class="line">	&#125;</div><div class="line">	console.log(<span class="string">"文件打开成功"</span>);</div><div class="line">&#125;)</div></pre></td></tr></table></figure></p>
+<p>进入js所在的文件夹内，打开gitBash输入：<br><img src="https://manlili.github.io/img/150613/2.png" alt="图"></p>
+<h2 id="获取文件信息"><a href="#获取文件信息" class="headerlink" title="获取文件信息"></a>获取文件信息</h2><p>以下为通过异步模式获取文件信息的语法格式：<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">fs.stat(path, callback)</div></pre></td></tr></table></figure></p>
+<p>参数使用说明如下：<br>path - 文件路径。<br>callback - 回调函数，带有两个参数如：(err, stats), stats 是 fs.Stats 对象。<br>其中stats类中的方法有：<br>stats.isFile():如果是文件返回 true，否则返回 false。<br>stats.isDirectory():如果是目录返回 true，否则返回 false。<br>stats.isBlockDevice():如果是块设备返回 true，否则返回 false。<br>stats.isCharacterDevice():如果是字符设备返回 true，否则返回 false。<br>stats.isSymbolicLink():如果是软链接返回 true，否则返回 false。<br>stats.isFIFO():如果是FIFO，返回true，否则返回 false。FIFO是UNIX中的一种特殊类型的命令管道。<br>stats.isSocket():如果是 Socket 返回 true，否则返回 false。</p>
+<p>创建statsfile.js，内容是<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div></pre></td><td class="code"><pre><div class="line">var fs = require(<span class="string">"fs"</span>);</div><div class="line"></div><div class="line">console.log(<span class="string">"准备打开文件！"</span>);</div><div class="line">fs.stat(<span class="string">'test.txt'</span>, <span class="keyword">function</span> (err, stats) &#123;</div><div class="line">   <span class="keyword">if</span> (err) &#123;</div><div class="line">       <span class="built_in">return</span> console.error(err);</div><div class="line">   &#125;</div><div class="line">   console.log(stats);</div><div class="line">   console.log(<span class="string">"读取文件信息成功！"</span>);</div><div class="line">   </div><div class="line">   // 检测文件类型</div><div class="line">   console.log(<span class="string">"是否为文件(isFile) ? "</span> + stats.isFile());</div><div class="line">   console.log(<span class="string">"是否为目录(isDirectory) ? "</span> + stats.isDirectory());    </div><div class="line">&#125;);</div></pre></td></tr></table></figure></p>
+<p>进入js所在的文件夹内，打开gitBash输入：<br><img src="https://manlili.github.io/img/150613/3.png" alt="图"></p>
+<h2 id="写入文件"><a href="#写入文件" class="headerlink" title="写入文件"></a>写入文件</h2><p>以下为异步模式下写入文件的语法格式：<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">fs.writeFile(filename, data[, options], callback)</div></pre></td></tr></table></figure></p>
+<p>参数使用说明如下：<br>path - 文件路径。<br>data - 要写入文件的数据，可以是 String(字符串) 或 Buffer(流) 对象。<br>options - 该参数是一个对象，包含 {encoding, mode, flag}。默认编码为 utf8, 模式为 0666 ， flag 为 ‘w’<br>callback - 回调函数，回调函数只包含错误信息参数(err)，在写入失败时返回。</p>
+<p>创建writefile.js，内容是<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div></pre></td><td class="code"><pre><div class="line">var fs = require(<span class="string">'fs'</span>);</div><div class="line">fs.writeFile(<span class="string">'lili.txt'</span>, <span class="string">'我是一只猪'</span>, <span class="keyword">function</span> (err) &#123;</div><div class="line">	<span class="keyword">if</span> (err) &#123;</div><div class="line">       <span class="built_in">return</span> console.error(err);</div><div class="line">   &#125;</div><div class="line">&#125;)</div><div class="line">fs.readFile(<span class="string">'lili.txt'</span>,<span class="keyword">function</span>(err, data) &#123;</div><div class="line">	console.log(<span class="string">"异步读取文件数据: "</span> + data.toString());</div><div class="line">&#125;)</div></pre></td></tr></table></figure></p>
+<p>进入js所在的文件夹内，打开gitBash输入：<br><img src="https://manlili.github.io/img/150613/4.png" alt="图"></p>
+<p>当然还有很多关于文件的操作，详情请见文件系统手册<a href="http://www.runoob.com/nodejs/nodejs-fs.html" target="_blank" rel="external">http://www.runoob.com/nodejs/nodejs-fs.html</a></p>
+
       
     </div>
 
@@ -414,6 +465,12 @@
 
 
     <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/文件/" rel="tag"># 文件</a>
+          
+        </div>
       
 
       
@@ -487,8 +544,17 @@
       
 
       
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap" >
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview">
+            站点概览
+          </li>
+        </ul>
+      
 
-      <section class="site-overview sidebar-panel sidebar-panel-active">
+      <section class="site-overview sidebar-panel">
         <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
           <img class="site-author-image" itemprop="image"
                src="/uploads/avatar.jpg"
@@ -521,7 +587,7 @@
           
             <div class="site-state-item site-state-tags">
               
-                <span class="site-state-item-count">51</span>
+                <span class="site-state-item-count">52</span>
                 <span class="site-state-item-name">标签</span>
               
             </div>
@@ -566,6 +632,22 @@
 
       </section>
 
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#同步和异步读取文件"><span class="nav-number">1.</span> <span class="nav-text">同步和异步读取文件</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#打开文件"><span class="nav-number">2.</span> <span class="nav-text">打开文件</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#获取文件信息"><span class="nav-number">3.</span> <span class="nav-text">获取文件信息</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#写入文件"><span class="nav-number">4.</span> <span class="nav-text">写入文件</span></a></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
       
 
     </div>
