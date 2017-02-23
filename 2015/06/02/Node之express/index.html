@@ -71,7 +71,7 @@
 <link href="/css/main.css?v=5.1.0" rel="stylesheet" type="text/css" />
 
 
-  <meta name="keywords" content="manlili blogs" />
+  <meta name="keywords" content="express," />
 
 
 
@@ -87,16 +87,29 @@
 
 
 
-<meta name="description" content="前端开发/走向全栈/幽默有趣">
+<meta name="description" content="测试例子github地址：https://github.com/manlili/node_learn里面lesson06相关api可查看express官网http://www.expressjs.com.cn/
+定位Express 是一个简洁而灵活的 node.js Web应用框架, 提供了一系列强大特性帮助你创建各种 Web 应用，和丰富的 HTTP 工具。使用 Express 可以快速地搭建一">
 <meta property="og:type" content="article">
 <meta property="og:title" content="Node之express">
 <meta property="og:url" content="http://yoursite.com/2015/06/02/Node之express/index.html">
 <meta property="og:site_name" content="manlili blog">
-<meta property="og:description" content="前端开发/走向全栈/幽默有趣">
-<meta property="og:updated_time" content="2015-06-02T02:25:59.768Z">
+<meta property="og:description" content="测试例子github地址：https://github.com/manlili/node_learn里面lesson06相关api可查看express官网http://www.expressjs.com.cn/
+定位Express 是一个简洁而灵活的 node.js Web应用框架, 提供了一系列强大特性帮助你创建各种 Web 应用，和丰富的 HTTP 工具。使用 Express 可以快速地搭建一">
+<meta property="og:image" content="https://manlili.github.io/img/150602/1.png">
+<meta property="og:image" content="https://manlili.github.io/img/150602/2.png">
+<meta property="og:image" content="https://manlili.github.io/img/150602/3.png">
+<meta property="og:image" content="https://manlili.github.io/img/150602/4.png">
+<meta property="og:image" content="https://manlili.github.io/img/150602/5.png">
+<meta property="og:image" content="https://manlili.github.io/img/150602/6.png">
+<meta property="og:image" content="https://manlili.github.io/img/150602/7.png">
+<meta property="og:image" content="https://manlili.github.io/img/150602/9.png">
+<meta property="og:image" content="https://manlili.github.io/img/150602/10.png">
+<meta property="og:updated_time" content="2017-02-23T07:46:13.310Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Node之express">
-<meta name="twitter:description" content="前端开发/走向全栈/幽默有趣">
+<meta name="twitter:description" content="测试例子github地址：https://github.com/manlili/node_learn里面lesson06相关api可查看express官网http://www.expressjs.com.cn/
+定位Express 是一个简洁而灵活的 node.js Web应用框架, 提供了一系列强大特性帮助你创建各种 Web 应用，和丰富的 HTTP 工具。使用 Express 可以快速地搭建一">
+<meta name="twitter:image" content="https://manlili.github.io/img/150602/1.png">
 
 
 
@@ -327,6 +340,28 @@
           </span>
 
           
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/node技术/" itemprop="url" rel="index">
+                    <span itemprop="name">node技术</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
 
           
             
@@ -373,7 +408,20 @@
       
 
       
-        
+        <p>测试例子<a href="https://github.com/manlili/node_learn" target="_blank" rel="external">github地址：https://github.com/manlili/node_learn里面lesson06</a><br>相关api可查看express官网<a href="http://www.expressjs.com.cn/" target="_blank" rel="external">http://www.expressjs.com.cn/</a></p>
+<h2 id="定位"><a href="#定位" class="headerlink" title="定位"></a>定位</h2><p>Express 是一个简洁而灵活的 node.js Web应用框架, 提供了一系列强大特性帮助你创建各种 Web 应用，和丰富的 HTTP 工具。使用 Express 可以快速地搭建一个完整功能的网站。</p>
+<h2 id="Express-框架核心特性"><a href="#Express-框架核心特性" class="headerlink" title="Express 框架核心特性"></a>Express 框架核心特性</h2><p>(1)可以设置中间件来响应 HTTP 请求。<br>(2)定义了路由表用于执行不同的 HTTP 请求动作。<br>(3)可以通过向模板传递参数来动态渲染 HTML 页面。</p>
+<h2 id="Express搭建本地服务器"><a href="#Express搭建本地服务器" class="headerlink" title="Express搭建本地服务器"></a>Express搭建本地服务器</h2><p>假设有个express.js代码如下：<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div></pre></td><td class="code"><pre><div class="line">var express = require(<span class="string">'express'</span>);</div><div class="line">var app = express();</div><div class="line"></div><div class="line">app.get(<span class="string">'/'</span>, <span class="keyword">function</span> (req, res) &#123;</div><div class="line">   res.send(<span class="string">'Hello World'</span>);</div><div class="line">&#125;)</div><div class="line"></div><div class="line">var server = app.listen(8081, <span class="function"><span class="title">function</span></span> () &#123;</div><div class="line"></div><div class="line">  var host = server.address().address</div><div class="line">  var port = server.address().port</div><div class="line"></div><div class="line">  console.log(<span class="string">"应用实例，访问地址为 http://%s:%s"</span>, host, port)</div><div class="line"></div><div class="line">&#125;)</div></pre></td></tr></table></figure></p>
+<p>上面的代码启动一个服务并监听从 8081 端口进入的所有连接请求。他将对所有 (/) URL 或 路由 返回 “Hello World!” 字符串。对于其他所有路径全部返回 404 Not Found。<br>在js所在的文件夹里面打开gitBash输入：<br><img src="https://manlili.github.io/img/150602/1.png" alt="图"><br>再在浏览器里面输入<a href="http://127.0.0.1:8081/地址发现：" target="_blank" rel="external">http://127.0.0.1:8081/地址发现：</a><br><img src="https://manlili.github.io/img/150602/2.png" alt="图"></p>
+<h2 id="request-和-response-对象"><a href="#request-和-response-对象" class="headerlink" title="request 和 response 对象"></a>request 和 response 对象</h2><p>上面的例子req和res分别代表请求和响应<br>Request 对象 - request 对象表示 HTTP 请求，包含了请求查询字符串，参数，内容，HTTP 头部等属性。常见属性有：<br>req.app：当callback为外部文件时，用req.app访问express的实例<br>req.baseUrl：获取路由当前安装的URL路径<br>req.body / req.cookies：获得「请求主体」/ Cookies<br>req.fresh / req.stale：判断请求是否还「新鲜」<br>req.hostname / req.ip：获取主机名和IP地址<br>req.originalUrl：获取原始请求URL<br>req.params：获取路由的parameters<br>req.path：获取请求路径<br>req.protocol：获取协议类型<br>req.query：获取URL的查询参数串<br>req.route：获取当前匹配的路由<br>req.subdomains：获取子域名<br>req.accepts()：检查可接受的请求的文档类型<br>req.acceptsCharsets / req.acceptsEncodings / req.acceptsLanguages：返回指定字符集的第一个可接受字符编码<br>req.get()：获取指定的HTTP请求头<br>req.is()：判断请求头Content-Type的MIME类型<br>Response 对象 - response 对象表示 HTTP 响应，即在接收到请求时向客户端发送的 HTTP 响应数据。常见属性有：<br>res.app：同req.app一样<br>res.append()：追加指定HTTP头<br>res.set()在res.append()后将重置之前设置的头<br>res.cookie(name，value [，option])：设置Cookie<br>opition: domain / expires / httpOnly / maxAge / path / secure / signed<br>res.clearCookie()：清除Cookie<br>res.download()：传送指定路径的文件<br>res.get()：返回指定的HTTP头<br>res.json()：传送JSON响应<br>res.jsonp()：传送JSONP响应<br>res.location()：只设置响应的Location HTTP头，不设置状态码或者close response<br>res.redirect()：设置响应的Location HTTP头，并且设置状态码302<br>res.send()：传送HTTP响应<br>res.sendFile(path [，options] [，fn])：传送指定路径的文件 -会自动根据文件extension设定Content-Type<br>res.set()：设置HTTP头，传入object可以一次设置多个头<br>res.status()：设置HTTP状态码<br>res.type()：设置Content-Type的MIME类型</p>
+<h2 id="Express路由"><a href="#Express路由" class="headerlink" title="Express路由"></a>Express路由</h2><p>我们已经了解了 HTTP 请求的基本应用，而路由决定了由谁(指定脚本)去响应客户端请求。每一个路由都可以有一个或者多个处理器函数，当匹配到路由时，这个/些函数将被执行。<br>路由定义：<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">app.method(path, <span class="keyword">function</span>)</div></pre></td></tr></table></figure></p>
+<p>其中，app 是一个 express 实例；method 是某个 HTTP 请求方式中的一个；path 是服务器端的路径；function 是当路由匹配到时需要执行的函数。</p>
+<p>下面来看测试代码expressrounter.js内容<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div><div class="line">39</div><div class="line">40</div><div class="line">41</div><div class="line">42</div><div class="line">43</div></pre></td><td class="code"><pre><div class="line">var express = require(<span class="string">'express'</span>);</div><div class="line">var app = express();</div><div class="line"></div><div class="line">//  主页输出 <span class="string">"Hello World"</span></div><div class="line">app.get(<span class="string">'/'</span>, <span class="keyword">function</span> (req, res) &#123;</div><div class="line">   console.log(<span class="string">"主页 GET 请求"</span>);</div><div class="line">   res.send(<span class="string">'Hello GET'</span>);</div><div class="line">&#125;)</div><div class="line"></div><div class="line"></div><div class="line">//  POST 请求</div><div class="line">app.post(<span class="string">'/'</span>, <span class="keyword">function</span> (req, res) &#123;</div><div class="line">   console.log(<span class="string">"主页 POST 请求"</span>);</div><div class="line">   res.send(<span class="string">'Hello POST'</span>);</div><div class="line">&#125;)</div><div class="line"></div><div class="line">//  /del_user 页面响应</div><div class="line">app.get(<span class="string">'/del_user'</span>, <span class="keyword">function</span> (req, res) &#123;</div><div class="line">   console.log(<span class="string">"/del_user 响应 DELETE 请求"</span>);</div><div class="line">   res.send(<span class="string">'删除页面'</span>);</div><div class="line">&#125;)</div><div class="line"></div><div class="line">//  /list_user 页面 GET 请求</div><div class="line">app.get(<span class="string">'/list_user'</span>, <span class="keyword">function</span> (req, res) &#123;</div><div class="line">   console.log(<span class="string">"/list_user GET 请求"</span>);</div><div class="line">   res.send(<span class="string">'用户列表页面'</span>);</div><div class="line">&#125;)</div><div class="line"></div><div class="line">// 对页面 abcd, abxcd, ab123<span class="built_in">cd</span>, 等响应 GET 请求</div><div class="line">app.get(<span class="string">'/ab*cd'</span>, <span class="keyword">function</span>(req, res) &#123;   </div><div class="line">   console.log(<span class="string">"/ab*cd GET 请求"</span>);</div><div class="line">   res.send(<span class="string">'正则匹配'</span>);</div><div class="line">&#125;)</div><div class="line"></div><div class="line"></div><div class="line">var server = app.listen(3000, <span class="function"><span class="title">function</span></span> () &#123;</div><div class="line"></div><div class="line">  var host = server.address().address</div><div class="line">  var port = server.address().port</div><div class="line"></div><div class="line">  console.log(<span class="string">"应用实例，访问地址为 http://%s:%s"</span>, host, port)</div><div class="line"></div><div class="line">&#125;)</div></pre></td></tr></table></figure></p>
+<p>在js所在的文件夹里面打开gitBash输入：<br><img src="https://manlili.github.io/img/150602/3.png" alt="图"><br>再在浏览器里面输入<a href="http://127.0.0.1:3000/中不同的文件名发现" target="_blank" rel="external">http://127.0.0.1:3000/中不同的文件名发现</a><br><img src="https://manlili.github.io/img/150602/4.png" alt="图"><br><img src="https://manlili.github.io/img/150602/5.png" alt="图"><br><img src="https://manlili.github.io/img/150602/6.png" alt="图"><br><img src="https://manlili.github.io/img/150602/7.png" alt="图"></p>
+<h2 id="Express静态文件"><a href="#Express静态文件" class="headerlink" title="Express静态文件"></a>Express静态文件</h2><p>Express 提供了内置的中间件 express.static 来设置静态文件如：图片， CSS, JavaScript 等。<br>你可以使用 express.static 中间件来设置静态文件路径。例如，如果你将图片， CSS, JavaScript 文件放在 public目录下，你可以这么写：<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">app.use(express.static(<span class="string">'public'</span>));</div></pre></td></tr></table></figure></p>
+<p>我们可以到 public/img 目录下放些图片,如下所示：<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">expressstatic.js</div><div class="line">public/</div><div class="line">public/img</div><div class="line">public/images/timg.jpg</div></pre></td></tr></table></figure></p>
+<p>在js所在的文件夹里面打开gitBash输入：<br><img src="https://manlili.github.io/img/150602/9.png" alt="图"><br>再在浏览器里面输入<a href="http://127.0.0.1:4000/img/timg.jpg发现" target="_blank" rel="external">http://127.0.0.1:4000/img/timg.jpg发现</a><br><img src="https://manlili.github.io/img/150602/10.png" alt="图"></p>
+
       
     </div>
 
@@ -414,6 +462,12 @@
 
 
     <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/express/" rel="tag"># express</a>
+          
+        </div>
       
 
       
@@ -487,8 +541,17 @@
       
 
       
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap" >
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview">
+            站点概览
+          </li>
+        </ul>
+      
 
-      <section class="site-overview sidebar-panel sidebar-panel-active">
+      <section class="site-overview sidebar-panel">
         <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
           <img class="site-author-image" itemprop="image"
                src="/uploads/avatar.jpg"
@@ -521,7 +584,7 @@
           
             <div class="site-state-item site-state-tags">
               
-                <span class="site-state-item-count">50</span>
+                <span class="site-state-item-count">51</span>
                 <span class="site-state-item-name">标签</span>
               
             </div>
@@ -566,6 +629,22 @@
 
       </section>
 
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#定位"><span class="nav-number">1.</span> <span class="nav-text">定位</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Express-框架核心特性"><span class="nav-number">2.</span> <span class="nav-text">Express 框架核心特性</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Express搭建本地服务器"><span class="nav-number">3.</span> <span class="nav-text">Express搭建本地服务器</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#request-和-response-对象"><span class="nav-number">4.</span> <span class="nav-text">request 和 response 对象</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Express路由"><span class="nav-number">5.</span> <span class="nav-text">Express路由</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Express静态文件"><span class="nav-number">6.</span> <span class="nav-text">Express静态文件</span></a></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
       
 
     </div>
