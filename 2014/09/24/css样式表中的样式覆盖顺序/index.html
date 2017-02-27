@@ -95,7 +95,7 @@
 <meta property="og:site_name" content="manlili blog">
 <meta property="og:description" content="有时候在写CSS的过程中，某些限制总是不起作用，这就涉及了CSS样式覆盖的问题，查找一些教材中（w3schools等），只说css的顺序是“元素上的style” &amp;gt; “文件头上的style元素” &amp;gt;“外部样式文件”，但对于样式文件中的多个相同样式的优先级怎样排列，没有详细说明。经过测试和继续搜索，得知优先级如下排列：
 样式表的元素选择器举个例子:12345678910#navigato">
-<meta property="og:updated_time" content="2014-09-24T02:13:05.156Z">
+<meta property="og:updated_time" content="2017-02-27T02:15:02.853Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="css样式表中的样式覆盖顺序">
 <meta name="twitter:description" content="有时候在写CSS的过程中，某些限制总是不起作用，这就涉及了CSS样式覆盖的问题，查找一些教材中（w3schools等），只说css的顺序是“元素上的style” &amp;gt; “文件头上的style元素” &amp;gt;“外部样式文件”，但对于样式文件中的多个相同样式的优先级怎样排列，没有详细说明。经过测试和继续搜索，得知优先级如下排列：
@@ -403,7 +403,7 @@
 <p>样式表的元素选择器选择越精确则其中的样式优先级越高：<br>id选择器指定的样式 &gt; 类选择器指定的样式 &gt; 元素类型选择器指定的样式<br>所以上例中，某个元素同时采用class=”current_block”和id=”navigator” ，#navigator的样式优先级大于.current_block的优先级，就算.current_block是最新添加的，也不起作用。</p>
 <h2 id="相同类型选择器"><a href="#相同类型选择器" class="headerlink" title="相同类型选择器"></a>相同类型选择器</h2><p>对于相同类型选择器制定的样式，在样式表文件中，越靠后的优先级越高<br>注意，这里是样式表文件中越靠后的优先级越高，而不是在元素class出现的顺序。比如.class2 在样式表中出现在.class1之后：<br>举个例子：<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line">.class1 &#123;  </div><div class="line">    color: black;  </div><div class="line">&#125;   </div><div class="line">.class2 &#123;  </div><div class="line">    color: red;  </div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
 <p>而某个元素指定class时采用 class=”class2 class1”这种方式指定，此时虽然class1在元素中指定时排在class2的后面，但因为在样式表文件中class1处于class2前面，此时仍然是class2的优先级更高，color的属性为red，而非black。</p>
-<p>##让某个样式的优先级变高<br>如果要让某个样式的优先级变高，可以使用!important来指定<br>举个例子：<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line">.class1 &#123;  </div><div class="line">    color: black !important;  </div><div class="line">&#125;   </div><div class="line">.class2 &#123;  </div><div class="line">    color: red;  </div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
+<h2 id="让某个样式的优先级变高"><a href="#让某个样式的优先级变高" class="headerlink" title="让某个样式的优先级变高"></a>让某个样式的优先级变高</h2><p>如果要让某个样式的优先级变高，可以使用!important来指定<br>举个例子：<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line">.class1 &#123;  </div><div class="line">    color: black !important;  </div><div class="line">&#125;   </div><div class="line">.class2 &#123;  </div><div class="line">    color: red;  </div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
 <p>而某个元素指定class时采用 class=”class2 class1”这种方式指定，此时class将使用black，而非red。</p>
 
       
@@ -619,7 +619,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#样式表的元素选择器"><span class="nav-number">1.</span> <span class="nav-text">样式表的元素选择器</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#相同类型选择器"><span class="nav-number">2.</span> <span class="nav-text">相同类型选择器</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#样式表的元素选择器"><span class="nav-number">1.</span> <span class="nav-text">样式表的元素选择器</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#相同类型选择器"><span class="nav-number">2.</span> <span class="nav-text">相同类型选择器</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#让某个样式的优先级变高"><span class="nav-number">3.</span> <span class="nav-text">让某个样式的优先级变高</span></a></li></ol></div>
             
 
           </div>
@@ -640,7 +640,7 @@
         <div class="copyright" >
   
   &copy; 
-  <span itemprop="copyrightYear">2014</span>
+  <span itemprop="copyrightYear">2017</span>
   <span class="with-love">
     <i class="fa fa-heart"></i>
   </span>
