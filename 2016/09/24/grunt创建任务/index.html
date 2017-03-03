@@ -68,7 +68,7 @@
 <link href="/css/main.css?v=5.1.0" rel="stylesheet" type="text/css" />
 
 
-  <meta name="keywords" content="manlili blogs" />
+  <meta name="keywords" content="grunt," />
 
 
 
@@ -84,16 +84,22 @@
 
 
 
-<meta name="description" content="前端开发/走向全栈/幽默有趣">
+<meta name="description" content="上一节提到了grunt的配置，配置好了以后紧接着是创建任务，然后运行任务。
+创建单任务语法格式:1grunt.registerTask(taskName, [description, ] taskList)
+如果你没有指定一个任务，并且你已经定义一个名为 “default” 的任务，那么该任务将会默认被执行.比如：1grunt.registerTask(&apos;default&apos;, [&apos;jshint&apos;,">
 <meta property="og:type" content="article">
 <meta property="og:title" content="grunt创建任务">
 <meta property="og:url" content="http://yoursite.com/2016/09/24/grunt创建任务/index.html">
 <meta property="og:site_name" content="manlili blog">
-<meta property="og:description" content="前端开发/走向全栈/幽默有趣">
-<meta property="og:updated_time" content="2016-09-24T05:33:27.560Z">
+<meta property="og:description" content="上一节提到了grunt的配置，配置好了以后紧接着是创建任务，然后运行任务。
+创建单任务语法格式:1grunt.registerTask(taskName, [description, ] taskList)
+如果你没有指定一个任务，并且你已经定义一个名为 “default” 的任务，那么该任务将会默认被执行.比如：1grunt.registerTask(&apos;default&apos;, [&apos;jshint&apos;,">
+<meta property="og:updated_time" content="2017-03-03T09:04:42.816Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="grunt创建任务">
-<meta name="twitter:description" content="前端开发/走向全栈/幽默有趣">
+<meta name="twitter:description" content="上一节提到了grunt的配置，配置好了以后紧接着是创建任务，然后运行任务。
+创建单任务语法格式:1grunt.registerTask(taskName, [description, ] taskList)
+如果你没有指定一个任务，并且你已经定义一个名为 “default” 的任务，那么该任务将会默认被执行.比如：1grunt.registerTask(&apos;default&apos;, [&apos;jshint&apos;,">
 
 
 
@@ -299,6 +305,28 @@
           </span>
 
           
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/grunt技术/" itemprop="url" rel="index">
+                    <span itemprop="name">grunt技术</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
 
           
             
@@ -345,7 +373,21 @@
       
 
       
-        
+        <p>上一节提到了grunt的配置，配置好了以后紧接着是创建任务，然后运行任务。</p>
+<h2 id="创建单任务"><a href="#创建单任务" class="headerlink" title="创建单任务"></a>创建单任务</h2><p>语法格式:<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">grunt.registerTask(taskName, [description, ] taskList)</div></pre></td></tr></table></figure></p>
+<p>如果你没有指定一个任务，并且你已经定义一个名为 “default” 的任务，那么该任务将会默认被执行.<br>比如：<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">grunt.registerTask(<span class="string">'default'</span>, [<span class="string">'jshint'</span>, <span class="string">'qunit'</span>, <span class="string">'concat'</span>, <span class="string">'uglify'</span>]);</div></pre></td></tr></table></figure></p>
+<p>上面定义了一个 ‘default’ 任务，如果右键打开gitBash运行Grunt时没有指定任何任务，它将自动执行’jshint’、’qunit’、’concat’ 和 ‘uglify’ 任务。</p>
+<p>再举个例子：<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">grunt.registerTask(<span class="string">'dist'</span>, [<span class="string">'concat:dist'</span>, <span class="string">'uglify:dist'</span>]);</div></pre></td></tr></table></figure></p>
+<p>上面定义了一个 “dist”任务，如果右键打开gitBash运行Grunt dist时， 将执行 “concat” 和 “uglify” 两个任务，并且它们都带有一个 “dist” 参数。</p>
+<h2 id="创建多任务"><a href="#创建多任务" class="headerlink" title="创建多任务"></a>创建多任务</h2><p>语法格式:<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">grunt.registerMultiTask(taskName, [description, ] taskFunction)</div></pre></td></tr></table></figure></p>
+<p>举个例子：<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line">grunt.initConfig(&#123;</div><div class="line">  <span class="built_in">log</span>: &#123;</div><div class="line">    foo: [1, 2, 3],</div><div class="line">    bar: <span class="string">'hello world'</span>,</div><div class="line">    baz: <span class="literal">false</span></div><div class="line">  &#125;</div><div class="line">&#125;);</div></pre></td></tr></table></figure></p>
+<p>上面例子：<br>①通过grunt log:foo运行Grunt，它会输出foo: 1,2,3<br>②通过grunt log:bar来运行Grunt，它会输出bar: hello world<br>③通过grunt log运行Grunt, 它会输出foo: 1,2,3，然后是bar: hello world，最后是baz: false</p>
+<h2 id="自定义任务"><a href="#自定义任务" class="headerlink" title="自定义任务"></a>自定义任务</h2><p>语法格式:<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">grunt.registerTask(<span class="string">'default'</span>, <span class="string">'自定义任务名称'</span>, <span class="keyword">function</span>(参数) &#123;</div><div class="line">  你的自定义任务执行的内容</div><div class="line">&#125;);</div></pre></td></tr></table></figure></p>
+<p>右键打开gitBash运行Grunt时，就会把你的自定义任务运行。</p>
+<p>在一个任务内部，你可以执行其他的任务。假设存在bar和baz两个任务，举个例子：<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">grunt.registerTask(<span class="string">'foo'</span>, <span class="string">'自定义任务名称'</span>, <span class="function"><span class="title">function</span></span>() &#123;</div><div class="line">  grunt.task.run(<span class="string">'bar'</span>, <span class="string">'baz'</span>);</div><div class="line">  // Or:</div><div class="line">  grunt.task.run([<span class="string">'bar'</span>, <span class="string">'baz'</span>]);</div><div class="line">&#125;);</div></pre></td></tr></table></figure></p>
+<p>注意：当运行自定义任务失败时，所有后续任务都将终止，除非指定 –force 。</p>
+<h2 id="异步执行任务"><a href="#异步执行任务" class="headerlink" title="异步执行任务"></a>异步执行任务</h2><p>自定义任务时可以异步执行任务<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">grunt.registerTask(<span class="string">'asyncme'</span>, <span class="string">'自定义任务名称'</span>, <span class="function"><span class="title">function</span></span>() &#123;</div><div class="line">  var <span class="keyword">done</span> = this.async(); //Grunt使用同步的编码风格，可以在task体中通过调用 this.async() 将其转换为异步的</div><div class="line">  <span class="keyword">do</span>SomethingAsync(<span class="keyword">done</span>);</div><div class="line">&#125;);</div></pre></td></tr></table></figure></p>
+
       
     </div>
 
@@ -386,6 +428,12 @@
 
 
     <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/grunt/" rel="tag"># grunt</a>
+          
+        </div>
       
 
       
@@ -455,8 +503,17 @@
       
 
       
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap" >
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview">
+            站点概览
+          </li>
+        </ul>
+      
 
-      <section class="site-overview sidebar-panel sidebar-panel-active">
+      <section class="site-overview sidebar-panel">
         <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
           <img class="site-author-image" itemprop="image"
                src="/uploads/avatar.jpg"
@@ -532,6 +589,22 @@
 
       </section>
 
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#创建单任务"><span class="nav-number">1.</span> <span class="nav-text">创建单任务</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#创建多任务"><span class="nav-number">2.</span> <span class="nav-text">创建多任务</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#自定义任务"><span class="nav-number">3.</span> <span class="nav-text">自定义任务</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#异步执行任务"><span class="nav-number">4.</span> <span class="nav-text">异步执行任务</span></a></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
       
 
     </div>
