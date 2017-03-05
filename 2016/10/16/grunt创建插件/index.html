@@ -84,16 +84,25 @@
 
 
 
-<meta name="description" content="前端开发/走向全栈/幽默有趣">
+<meta name="description" content="虽然自己的水平不怎么好，但是还是想了解一下grunt插件的书写，网上找了些资料尝试着写点东西。github地址：https://github.com/manlili/grunt_learn里面lesson03
+插件创建第一步安装 grunt-init使用命令如下：1npm install -g grunt-init
+第二步安装grunt插件模版使用命令如下：1git clone git://git">
 <meta property="og:type" content="article">
 <meta property="og:title" content="grunt创建插件">
 <meta property="og:url" content="http://yoursite.com/2016/10/16/grunt创建插件/index.html">
 <meta property="og:site_name" content="manlili blog">
-<meta property="og:description" content="前端开发/走向全栈/幽默有趣">
-<meta property="og:updated_time" content="2017-03-03T09:07:44.070Z">
+<meta property="og:description" content="虽然自己的水平不怎么好，但是还是想了解一下grunt插件的书写，网上找了些资料尝试着写点东西。github地址：https://github.com/manlili/grunt_learn里面lesson03
+插件创建第一步安装 grunt-init使用命令如下：1npm install -g grunt-init
+第二步安装grunt插件模版使用命令如下：1git clone git://git">
+<meta property="og:image" content="https://manlili.github.io/img/161016/1.png">
+<meta property="og:image" content="https://manlili.github.io/img/161016/2.png">
+<meta property="og:updated_time" content="2017-03-05T06:50:11.563Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="grunt创建插件">
-<meta name="twitter:description" content="前端开发/走向全栈/幽默有趣">
+<meta name="twitter:description" content="虽然自己的水平不怎么好，但是还是想了解一下grunt插件的书写，网上找了些资料尝试着写点东西。github地址：https://github.com/manlili/grunt_learn里面lesson03
+插件创建第一步安装 grunt-init使用命令如下：1npm install -g grunt-init
+第二步安装grunt插件模版使用命令如下：1git clone git://git">
+<meta name="twitter:image" content="https://manlili.github.io/img/161016/1.png">
 
 
 
@@ -367,7 +376,17 @@
       
 
       
-        
+        <p>虽然自己的水平不怎么好，但是还是想了解一下grunt插件的书写，网上找了些资料尝试着写点东西。<br>github地址：<a href="https://github.com/manlili/grunt_learn" target="_blank" rel="external">https://github.com/manlili/grunt_learn里面lesson03</a></p>
+<h2 id="插件创建"><a href="#插件创建" class="headerlink" title="插件创建"></a>插件创建</h2><h3 id="第一步"><a href="#第一步" class="headerlink" title="第一步"></a>第一步</h3><p>安装 grunt-init<br>使用命令如下：<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">npm install -g grunt-init</div></pre></td></tr></table></figure></p>
+<h3 id="第二步"><a href="#第二步" class="headerlink" title="第二步"></a>第二步</h3><p>安装grunt插件模版<br>使用命令如下：<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">git <span class="built_in">clone</span> git://github.com/gruntjs/grunt-init-gruntplugin.git ~/.grunt-init/gruntplugin</div></pre></td></tr></table></figure></p>
+<h3 id="第三步"><a href="#第三步" class="headerlink" title="第三步"></a>第三步</h3><p>在一个空的目录中执行<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">grunt-init gruntplugin</div></pre></td></tr></table></figure></p>
+<p>创建名字为”grunt-plug-in-test”的插件<br>步骤如下图：<br><img src="https://manlili.github.io/img/161016/1.png" alt="图"></p>
+<h3 id="第四步"><a href="#第四步" class="headerlink" title="第四步"></a>第四步</h3><p>准备开发环境<br>使用命令如下：<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">npm install</div></pre></td></tr></table></figure></p>
+<p>接着为你的插件书写代码，这里我技术有限，就不贴代码了，大概就是这个意思。</p>
+<h3 id="第五步"><a href="#第五步" class="headerlink" title="第五步"></a>第五步</h3><p>插件都已经写好了，需要将你创建的 Grunt 插件提发布npm.<br>命令如下：<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">npm publish</div></pre></td></tr></table></figure></p>
+<h3 id="第六步"><a href="#第六步" class="headerlink" title="第六步"></a>第六步</h3><p>安装你创建的插件。<br>使用命令如下：<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">npm install grunt-plug-in-test</div></pre></td></tr></table></figure></p>
+<p>出现下面结果：<br><img src="https://manlili.github.io/img/161016/2.png" alt="图"></p>
+
       
     </div>
 
@@ -483,8 +502,17 @@
       
 
       
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap" >
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview">
+            站点概览
+          </li>
+        </ul>
+      
 
-      <section class="site-overview sidebar-panel sidebar-panel-active">
+      <section class="site-overview sidebar-panel">
         <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
           <img class="site-author-image" itemprop="image"
                src="/uploads/avatar.jpg"
@@ -560,6 +588,22 @@
 
       </section>
 
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#插件创建"><span class="nav-number">1.</span> <span class="nav-text">插件创建</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#第一步"><span class="nav-number">1.1.</span> <span class="nav-text">第一步</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#第二步"><span class="nav-number">1.2.</span> <span class="nav-text">第二步</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#第三步"><span class="nav-number">1.3.</span> <span class="nav-text">第三步</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#第四步"><span class="nav-number">1.4.</span> <span class="nav-text">第四步</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#第五步"><span class="nav-number">1.5.</span> <span class="nav-text">第五步</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#第六步"><span class="nav-number">1.6.</span> <span class="nav-text">第六步</span></a></li></ol></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
       
 
     </div>
