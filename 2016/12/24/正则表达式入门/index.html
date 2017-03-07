@@ -102,7 +102,7 @@
 作用
 测试字符串内的模式。例如，可以测试输入字符串，以查看字符串内是否出现电话号码模式或信用卡号码模式。这称为数据验证。
 替换文本。可以使用正则表">
-<meta property="og:updated_time" content="2017-03-07T05:48:28.069Z">
+<meta property="og:updated_time" content="2017-03-07T05:50:02.764Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="正则表达式入门">
 <meta name="twitter:description" content="最近心血来潮想整理一下正则表达式。
@@ -416,8 +416,7 @@
 <li>它会覆盖整个目标然后尝试寻找匹配内容，但它只尝试一次，不会回溯。</li>
 <li>要使一个量词成为占有的，必须在普通量词后添加一个”+”</li>
 </ul>
-<p>举个例子：<br>例子①字符串 </p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line">a=====b=====b===</div><div class="line">``` </div><div class="line"></div><div class="line">检测它的用正则表达式</div><div class="line"></div><div class="line">```bash</div><div class="line">a.*b</div></pre></td></tr></table></figure>
+<p>举个例子：<br>例子①字符串<br>a=====b=====b===<br>检测它的用正则表达式<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">a.*b</div></pre></td></tr></table></figure></p>
 <p><strong>贪婪量词的工作方式</strong>：<br>首先将：a=====b=====b=== 全部吃掉，从右边一个一个地吐出来 </p>
 <ol>
 <li>a=====b=====b=== 不匹配，吐出一字符 </li>
@@ -426,8 +425,7 @@
 <li>a=====b=====b 匹配了，结束。如果再不匹配继续吐，直到没有字符了，匹配失败 </li>
 </ol>
 <p>最终将匹配满足条件最长的字符串 a=====b=====b，因为它比较贪，因此被称为贪婪量词。 </p>
-<p>例子②<br>字符串 </p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">a=====b=====b===</div><div class="line">``` </div><div class="line">检测它的用正则表达式</div><div class="line">```bash</div><div class="line">a.*?b</div></pre></td></tr></table></figure>
+<p>例子②<br>字符串<br>a=====b=====b===<br>检测它的用正则表达式<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">a.*?b</div></pre></td></tr></table></figure></p>
 <p>将匹配满足条件最短的字符串 a=====b ， *? 比较懒，因此称为懒惰或者是勉强量词。 </p>
 <p><strong>懒惰量词的工作方式</strong>：<br>从左边一个一个地吃掉字符 </p>
 <ol>
