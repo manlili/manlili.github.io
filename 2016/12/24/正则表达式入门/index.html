@@ -102,7 +102,7 @@
 作用
 测试字符串内的模式。例如，可以测试输入字符串，以查看字符串内是否出现电话号码模式或信用卡号码模式。这称为数据验证。
 替换文本。可以使用正则表">
-<meta property="og:updated_time" content="2017-03-07T05:50:02.764Z">
+<meta property="og:updated_time" content="2017-03-07T06:14:33.620Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="正则表达式入门">
 <meta name="twitter:description" content="最近心血来潮想整理一下正则表达式。
@@ -401,7 +401,7 @@
 <li>“\B”  匹配不是单词开头或结束的位置</li>
 <li>“[^abc]”  匹配除了abc以外的任意字符</li>
 </ul>
-<h2 id="查询方式"><a href="#查询方式" class="headerlink" title="查询方式"></a>查询方式</h2><h3 id="贪婪-贪心-方式"><a href="#贪婪-贪心-方式" class="headerlink" title="贪婪(贪心)方式"></a>贪婪(贪心)方式</h3><p>如”*”字符 贪婪量词会首先匹配整个字符串。</p>
+<h2 id="正则查询方式"><a href="#正则查询方式" class="headerlink" title="正则查询方式"></a>正则查询方式</h2><h3 id="贪婪-贪心-方式"><a href="#贪婪-贪心-方式" class="headerlink" title="贪婪(贪心)方式"></a>贪婪(贪心)方式</h3><p>如”*”字符 贪婪量词会首先匹配整个字符串。</p>
 <ul>
 <li>尝试匹配时，它会选定尽可能多的内容，也就是整个输入。</li>
 <li>量词首次尝试匹配整个字符串，如果失败则回退一个字符后再尝试，这个过程叫做回溯。</li>
@@ -416,8 +416,8 @@
 <li>它会覆盖整个目标然后尝试寻找匹配内容，但它只尝试一次，不会回溯。</li>
 <li>要使一个量词成为占有的，必须在普通量词后添加一个”+”</li>
 </ul>
-<p>举个例子：<br>例子①字符串<br>a=====b=====b===<br>检测它的用正则表达式<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">a.*b</div></pre></td></tr></table></figure></p>
-<p><strong>贪婪量词的工作方式</strong>：<br>首先将：a=====b=====b=== 全部吃掉，从右边一个一个地吐出来 </p>
+<p>举个例子：<br>例子①字符串”a=====b=====b===”检测它的用正则表达式<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">a.*b</div></pre></td></tr></table></figure></p>
+<p><strong>贪婪工作方式</strong>：<br>首先将：a=====b=====b=== 全部吃掉，从右边一个一个地吐出来 </p>
 <ol>
 <li>a=====b=====b=== 不匹配，吐出一字符 </li>
 <li>a=====b=====b== 不匹配，再吐出一字符 </li>
@@ -425,9 +425,9 @@
 <li>a=====b=====b 匹配了，结束。如果再不匹配继续吐，直到没有字符了，匹配失败 </li>
 </ol>
 <p>最终将匹配满足条件最长的字符串 a=====b=====b，因为它比较贪，因此被称为贪婪量词。 </p>
-<p>例子②<br>字符串<br>a=====b=====b===<br>检测它的用正则表达式<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">a.*?b</div></pre></td></tr></table></figure></p>
+<p>例子②字符串”a=====b=====b===”检测它的用正则表达式<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">a.*?b</div></pre></td></tr></table></figure></p>
 <p>将匹配满足条件最短的字符串 a=====b ， *? 比较懒，因此称为懒惰或者是勉强量词。 </p>
-<p><strong>懒惰量词的工作方式</strong>：<br>从左边一个一个地吃掉字符 </p>
+<p><strong>懒惰工作方式</strong>：<br>从左边一个一个地吃掉字符 </p>
 <ol>
 <li>a 不能匹配表达式，继续吃 </li>
 <li>a= 不能匹配表达式，继续吃 </li>
@@ -437,17 +437,23 @@
 <li>a===== 不能匹配表达式，继续吃 </li>
 <li>a=====b 呵呵，终于能匹配表达式了，匹配结束，匹配位置留于字符 b 后面，继续其他的匹配。如果不能匹配则一个一个地吃掉整个字符串直到吃完为止若还没有匹配则匹配失败。 </li>
 </ol>
-<h2 id="量词"><a href="#量词" class="headerlink" title="量词"></a>量词</h2><h3 id="主要量词"><a href="#主要量词" class="headerlink" title="主要量词"></a>主要量词</h3><p><strong>“*” 重复零次或更多</strong><br>例如”aaaaaaaa” 匹配字符串中所有的a  正则： “a*”   会出到所有的字符”a”</p>
+<p>例子③字符串”a=====b=====b===”检测它的用正则表达式<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">a.*+b</div></pre></td></tr></table></figure></p>
+<p><strong>占有工作方式</strong>：<br>首先将：a=====b=====b=== 全部吃掉，从右边一个一个地吐出来，结果没查到，匹配失败，结束。</p>
+<h2 id="正则量词"><a href="#正则量词" class="headerlink" title="正则量词"></a>正则量词</h2><h3 id="贪婪限定词-默认方式"><a href="#贪婪限定词-默认方式" class="headerlink" title="贪婪限定词(默认方式)"></a>贪婪限定词(默认方式)</h3><p>未经修饰的量词就是贪心量词</p>
+<p><strong>“*” 重复零次或更多</strong><br>例如”aaaaaaaa” 匹配字符串中所有的a  正则： “a*”   会出到所有的字符”a”</p>
 <p><strong>“+” 重复一次或更多次</strong><br>例如”aaaaaaaa” 匹配字符串中所有的a  正则： “a+”  会取到字符中所有的a字符，  “a+”与”a<em>“不同在于”+”至少是一次而”</em>“ 可以是0次，<br>稍后会与”?”字符结合来体现这种区别</p>
 <p><strong>“?” 重复零次或一次</strong><br>例如”aaaaaaaa” 匹配字符串中的a 正则 ： “a?” 只会匹配一次，也就是结果只是单个字符a</p>
 <p><strong>“{n}” 重复n次</strong><br>例如从”aaaaaaaa” 匹配字符串的a 并重复3次 正则：  “a{3}”  结果就是取到3个a字符  “aaa”;</p>
 <p><strong>“{n,m}” 重复n到m次</strong><br>例如正则 “a{3,4}” 将a重复匹配3次或者4次 所以供匹配的字符可以是三个”aaa”也可以是四个”aaaa” 正则都可以匹配到</p>
 <p><strong>“{n,}” 重复n次或更多次</strong><br>与{n,m}不同之处就在于匹配的次数将没有上限，但至少要重复n次 如 正则”a{3,}” a至少要重复3次</p>
-<h3 id="惰性限定词"><a href="#惰性限定词" class="headerlink" title="惰性限定词"></a>惰性限定词</h3><p><strong>“*?”   重复任意次，但尽可能少重复</strong><br>如 “acbacb”  正则  “a.*?b” 只会取到第一个”acb” 原本可以全部取到但加了限定符后，只会匹配尽可能少的字符 ，而”acbacb”最少字符的结果就是”acb” </p>
+<h3 id="惰性限定词"><a href="#惰性限定词" class="headerlink" title="惰性限定词"></a>惰性限定词</h3><p>懒惰的基本特性就是匹配尽可能少的字符。</p>
+<p><strong>“*?”   重复任意次，但尽可能少重复</strong><br>如 “acbacb”  正则  “a.*?b” 只会取到第一个”acb” 原本可以全部取到但加了限定符后，只会匹配尽可能少的字符 ，而”acbacb”最少字符的结果就是”acb” </p>
 <p><strong>“+?”  重复1次或更多次，但尽可能少重复</strong><br>与上面一样，只是至少要重复1次</p>
 <p><strong>“??”  重复0次或1次，但尽可能少重复</strong><br>如 “aaacb” 正则 “a.??b” 只会取到最后的三个字符”acb”</p>
 <p><strong>“{n,m}?”  重复n到m次，但尽可能少重复</strong><br>如 “aaaaaaaa”  正则 “a{0,m}” 因为最少是0次所以取到结果为空</p>
 <p><strong>“{n,}?”    重复n次以上，但尽可能少重复</strong><br>如 “aaaaaaa”  正则 “a{1,}” 最少是1次所以取到结果为 “a”</p>
+<h3 id="占有限定词"><a href="#占有限定词" class="headerlink" title="占有限定词"></a>占有限定词</h3><p>占有式量词很像贪心式量词，它会选择尽可能多的内容，但它不回溯。它不会放弃找到的内容，它很自私。优点是速度快。</p>
+<p>“*+”  重复任意次，只查询一次<br>“++”  重复1次或更多次，只查询一次<br>“?+”  重复0次或1次，只查询一次<br>“{n,m}+” 重复n到m次，只查询一次<br>“{n,}+”  重复n次以上，只查询一次</p>
 
       
     </div>
@@ -511,8 +517,8 @@
 
           <div class="post-nav-prev post-nav-item">
             
-              <a href="/2017/02/14/小程序开发中遇到的问题/" rel="prev" title="小程序开发中遇到的问题">
-                小程序开发中遇到的问题 <i class="fa fa-chevron-right"></i>
+              <a href="/2016/12/31/正则表达式进阶/" rel="prev" title="正则表达式进阶">
+                正则表达式进阶 <i class="fa fa-chevron-right"></i>
               </a>
             
           </div>
@@ -587,7 +593,7 @@
           
             <div class="site-state-item site-state-posts">
               <a href="/archives">
-                <span class="site-state-item-count">60</span>
+                <span class="site-state-item-count">62</span>
                 <span class="site-state-item-name">日志</span>
               </a>
             </div>
@@ -660,7 +666,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#定位"><span class="nav-number">1.</span> <span class="nav-text">定位</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#作用"><span class="nav-number">2.</span> <span class="nav-text">作用</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#常用的正则匹配工具"><span class="nav-number">3.</span> <span class="nav-text">常用的正则匹配工具</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#正则表达式字符"><span class="nav-number">4.</span> <span class="nav-text">正则表达式字符</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#元字符"><span class="nav-number">4.1.</span> <span class="nav-text">元字符</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#几种反义"><span class="nav-number">4.2.</span> <span class="nav-text">几种反义</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#查询方式"><span class="nav-number">5.</span> <span class="nav-text">查询方式</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#贪婪-贪心-方式"><span class="nav-number">5.1.</span> <span class="nav-text">贪婪(贪心)方式</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#懒惰-勉强-方式"><span class="nav-number">5.2.</span> <span class="nav-text">懒惰(勉强)方式</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#占有方式"><span class="nav-number">5.3.</span> <span class="nav-text">占有方式</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#量词"><span class="nav-number">6.</span> <span class="nav-text">量词</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#主要量词"><span class="nav-number">6.1.</span> <span class="nav-text">主要量词</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#惰性限定词"><span class="nav-number">6.2.</span> <span class="nav-text">惰性限定词</span></a></li></ol></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#定位"><span class="nav-number">1.</span> <span class="nav-text">定位</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#作用"><span class="nav-number">2.</span> <span class="nav-text">作用</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#常用的正则匹配工具"><span class="nav-number">3.</span> <span class="nav-text">常用的正则匹配工具</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#正则表达式字符"><span class="nav-number">4.</span> <span class="nav-text">正则表达式字符</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#元字符"><span class="nav-number">4.1.</span> <span class="nav-text">元字符</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#几种反义"><span class="nav-number">4.2.</span> <span class="nav-text">几种反义</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#正则查询方式"><span class="nav-number">5.</span> <span class="nav-text">正则查询方式</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#贪婪-贪心-方式"><span class="nav-number">5.1.</span> <span class="nav-text">贪婪(贪心)方式</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#懒惰-勉强-方式"><span class="nav-number">5.2.</span> <span class="nav-text">懒惰(勉强)方式</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#占有方式"><span class="nav-number">5.3.</span> <span class="nav-text">占有方式</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#正则量词"><span class="nav-number">6.</span> <span class="nav-text">正则量词</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#贪婪限定词-默认方式"><span class="nav-number">6.1.</span> <span class="nav-text">贪婪限定词(默认方式)</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#惰性限定词"><span class="nav-number">6.2.</span> <span class="nav-text">惰性限定词</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#占有限定词"><span class="nav-number">6.3.</span> <span class="nav-text">占有限定词</span></a></li></ol></li></ol></div>
             
 
           </div>
