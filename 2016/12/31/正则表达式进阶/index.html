@@ -84,16 +84,25 @@
 
 
 
-<meta name="description" content="前端开发/走向全栈/幽默有趣">
+<meta name="description" content="正则表达式方法学习最常用的 test exec match search  replace  split 6个方法
+test作用检查指定的字符串是否存在，返回true或者false。用法：正则.test(字符串) 
+举个例子：123var data = &quot;123123&quot;;var reCat = /123/gi;alert(reCat.test(data));  //true
+exec作用返回查询值">
 <meta property="og:type" content="article">
 <meta property="og:title" content="正则表达式进阶">
 <meta property="og:url" content="http://yoursite.com/2016/12/31/正则表达式进阶/index.html">
 <meta property="og:site_name" content="manlili blog">
-<meta property="og:description" content="前端开发/走向全栈/幽默有趣">
-<meta property="og:updated_time" content="2016-01-06T05:53:02.885Z">
+<meta property="og:description" content="正则表达式方法学习最常用的 test exec match search  replace  split 6个方法
+test作用检查指定的字符串是否存在，返回true或者false。用法：正则.test(字符串) 
+举个例子：123var data = &quot;123123&quot;;var reCat = /123/gi;alert(reCat.test(data));  //true
+exec作用返回查询值">
+<meta property="og:updated_time" content="2017-03-07T07:44:24.483Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="正则表达式进阶">
-<meta name="twitter:description" content="前端开发/走向全栈/幽默有趣">
+<meta name="twitter:description" content="正则表达式方法学习最常用的 test exec match search  replace  split 6个方法
+test作用检查指定的字符串是否存在，返回true或者false。用法：正则.test(字符串) 
+举个例子：123var data = &quot;123123&quot;;var reCat = /123/gi;alert(reCat.test(data));  //true
+exec作用返回查询值">
 
 
 
@@ -356,7 +365,20 @@
       
 
       
-        
+        <h2 id="正则表达式方法"><a href="#正则表达式方法" class="headerlink" title="正则表达式方法"></a>正则表达式方法</h2><p>学习最常用的 test exec match search  replace  split 6个方法</p>
+<h3 id="test"><a href="#test" class="headerlink" title="test"></a>test</h3><p>作用检查指定的字符串是否存在，返回true或者false。<br>用法：正则.test(字符串) </p>
+<p>举个例子：<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">var data = <span class="string">"123123"</span>;</div><div class="line">var reCat = /123/gi;</div><div class="line">alert(reCat.test(data));  //<span class="literal">true</span></div></pre></td></tr></table></figure></p>
+<h3 id="exec"><a href="#exec" class="headerlink" title="exec"></a>exec</h3><p>作用返回查询值，如果有则返回，没有的话就返回null。<br>用法：正则.test(字符串)</p>
+<p>举个例子：<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">var data = <span class="string">"123123,213,12312,312,3,Cat,cat,dsfsdfs,"</span>;</div><div class="line">var reCat = /cat/i;</div><div class="line">alert(reCat.exec(data));  //Cat</div></pre></td></tr></table></figure></p>
+<h3 id="match"><a href="#match" class="headerlink" title="match"></a>match</h3><p>作用得到查询数组。<br>用法：字符串.search(正则)</p>
+<p>举个例子：<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div></pre></td><td class="code"><pre><div class="line">var data = <span class="string">"123123,213,12312,312,3,Cat,cat,dsfsdfs,"</span>;</div><div class="line"> var reCat = /cat/gi;</div><div class="line"> var arrMactches = data.match(reCat)</div><div class="line"></div><div class="line"> <span class="keyword">for</span> (var i=0;i &lt; arrMactches.length ; i++)</div><div class="line"> &#123;</div><div class="line">      alert(arrMactches[i]);   //Cat  cat</div><div class="line"> &#125;</div></pre></td></tr></table></figure></p>
+<h3 id="search"><a href="#search" class="headerlink" title="search"></a>search</h3><p>作用返回搜索位置索引值，类似于indexof。<br>用法：字符串.search(正则)</p>
+<p>举个例子：<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">var data = <span class="string">"123123,213,12312,312,3,Cat,cat,dsfsdfs,"</span>;</div><div class="line">var reCat = /cat/gi;</div><div class="line">alert(data.search(reCat));  //23</div></pre></td></tr></table></figure></p>
+<h3 id="replace"><a href="#replace" class="headerlink" title="replace"></a>replace</h3><p>作用替换字符。<br>用法：字符串.search(正则)</p>
+<p>举个例子：<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">var data = <span class="string">"123123,213,12312,312,3,Cat,cat,dsfsdfs,"</span>;</div><div class="line">var reCat = /cat/gi;</div><div class="line">alert(data.replace(reCat,<span class="string">"libinqq"</span>));  //输出：123123,213,12312,312,3,libinqq,libinqq,dsfsdfs,</div></pre></td></tr></table></figure></p>
+<h3 id="split"><a href="#split" class="headerlink" title="split"></a>split</h3><p>利用正则分割数组。<br>用法：字符串.search(正则)</p>
+<p>举个例子：<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div></pre></td><td class="code"><pre><div class="line">var data = <span class="string">"123123,213,12312,312,3,Cat,cat,dsfsdfs,"</span>;</div><div class="line">var reCat = /\,/;</div><div class="line">var arrdata = data.split(reCat);</div><div class="line"></div><div class="line"><span class="keyword">for</span> (var i = 0; i &lt; arrdata.length; i++)</div><div class="line">&#123;</div><div class="line">    alert(arrdata[i]);  //输出：123123 213 12312 312 3 Cat cat dsfsdfs  </div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
+
       
     </div>
 
@@ -472,8 +494,17 @@
       
 
       
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap" >
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview">
+            站点概览
+          </li>
+        </ul>
+      
 
-      <section class="site-overview sidebar-panel sidebar-panel-active">
+      <section class="site-overview sidebar-panel">
         <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
           <img class="site-author-image" itemprop="image"
                src="/uploads/avatar.jpg"
@@ -549,6 +580,22 @@
 
       </section>
 
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#正则表达式方法"><span class="nav-number">1.</span> <span class="nav-text">正则表达式方法</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#test"><span class="nav-number">1.1.</span> <span class="nav-text">test</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#exec"><span class="nav-number">1.2.</span> <span class="nav-text">exec</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#match"><span class="nav-number">1.3.</span> <span class="nav-text">match</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#search"><span class="nav-number">1.4.</span> <span class="nav-text">search</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#replace"><span class="nav-number">1.5.</span> <span class="nav-text">replace</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#split"><span class="nav-number">1.6.</span> <span class="nav-text">split</span></a></li></ol></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
       
 
     </div>
