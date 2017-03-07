@@ -102,7 +102,7 @@
 作用
 测试字符串内的模式。例如，可以测试输入字符串，以查看字符串内是否出现电话号码模式或信用卡号码模式。这称为数据验证。
 替换文本。可以使用正则表">
-<meta property="og:updated_time" content="2017-03-07T05:42:34.999Z">
+<meta property="og:updated_time" content="2017-03-07T05:43:58.182Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="正则表达式入门">
 <meta name="twitter:description" content="最近心血来潮想整理一下正则表达式。
@@ -447,11 +447,11 @@
 <p><strong>“{n}” 重复n次</strong><br>例如从”aaaaaaaa” 匹配字符串的a 并重复3次 正则：  “a{3}”  结果就是取到3个a字符  “aaa”;</p>
 <p><strong>“{n,m}” 重复n到m次</strong><br>例如正则 “a{3,4}” 将a重复匹配3次或者4次 所以供匹配的字符可以是三个”aaa”也可以是四个”aaaa” 正则都可以匹配到</p>
 <p><strong>“{n,}” 重复n次或更多次</strong><br>与{n,m}不同之处就在于匹配的次数将没有上限，但至少要重复n次 如 正则”a{3,}” a至少要重复3次</p>
-<h3 id="惰性限定词"><a href="#惰性限定词" class="headerlink" title="惰性限定词"></a>惰性限定词</h3><p>“<em>?”   重复任意次，但尽可能少重复<br>如 “acbacb”  正则  “a.</em>?b” 只会取到第一个”acb” 原本可以全部取到但加了限定符后，只会匹配尽可能少的字符 ，而”acbacb”最少字符的结果就是”acb” </p>
-<p>“+?”  重复1次或更多次，但尽可能少重复<br>与上面一样，只是至少要重复1次</p>
-<p>“??”  重复0次或1次，但尽可能少重复<br>如 “aaacb” 正则 “a.??b” 只会取到最后的三个字符”acb”</p>
-<p>“{n,m}?”  重复n到m次，但尽可能少重复<br>如 “aaaaaaaa”  正则 “a{0,m}” 因为最少是0次所以取到结果为空</p>
-<p>“{n,}?”    重复n次以上，但尽可能少重复<br>如 “aaaaaaa”  正则 “a{1,}” 最少是1次所以取到结果为 “a”</p>
+<h3 id="惰性限定词"><a href="#惰性限定词" class="headerlink" title="惰性限定词"></a>惰性限定词</h3><p><strong>“*?”   重复任意次，但尽可能少重复</strong><br>如 “acbacb”  正则  “a.*?b” 只会取到第一个”acb” 原本可以全部取到但加了限定符后，只会匹配尽可能少的字符 ，而”acbacb”最少字符的结果就是”acb” </p>
+<p><strong>“+?”  重复1次或更多次，但尽可能少重复</strong><br>与上面一样，只是至少要重复1次</p>
+<p><strong>“??”  重复0次或1次，但尽可能少重复</strong><br>如 “aaacb” 正则 “a.??b” 只会取到最后的三个字符”acb”</p>
+<p><strong>“{n,m}?”  重复n到m次，但尽可能少重复</strong><br>如 “aaaaaaaa”  正则 “a{0,m}” 因为最少是0次所以取到结果为空</p>
+<p><strong>“{n,}?”    重复n次以上，但尽可能少重复</strong><br>如 “aaaaaaa”  正则 “a{1,}” 最少是1次所以取到结果为 “a”</p>
 
       
     </div>
