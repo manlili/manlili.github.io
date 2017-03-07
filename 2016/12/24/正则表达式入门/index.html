@@ -102,7 +102,7 @@
 作用
 测试字符串内的模式。例如，可以测试输入字符串，以查看字符串内是否出现电话号码模式或信用卡号码模式。这称为数据验证。
 替换文本。可以使用正则表">
-<meta property="og:updated_time" content="2017-03-07T05:36:04.664Z">
+<meta property="og:updated_time" content="2017-03-07T05:42:34.999Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="正则表达式入门">
 <meta name="twitter:description" content="最近心血来潮想整理一下正则表达式。
@@ -384,21 +384,23 @@
 <li>基于模式匹配从字符串中提取子字符串。<br>可以查找文档内或输入域内特定的文本。</li>
 </ul>
 <h2 id="常用的正则匹配工具"><a href="#常用的正则匹配工具" class="headerlink" title="常用的正则匹配工具"></a>常用的正则匹配工具</h2><p>(1) (<a href="https://c.runoob.com/front-end/854)[https://c.runoob.com/front-end/854" target="_blank" rel="external">https://c.runoob.com/front-end/854)[https://c.runoob.com/front-end/854</a>]</p>
-<h2 id="正则表达式字符"><a href="#正则表达式字符" class="headerlink" title="正则表达式字符"></a>正则表达式字符</h2><h3 id="元字符"><a href="#元字符" class="headerlink" title="元字符"></a>元字符</h3><p>“^” ：^会匹配行或者字符串的起始位置，有时还会匹配整个文档的起始位置，<strong>但是在[]里面使用^代表取反</strong>。 </p>
-<p>“$”  ：$会匹配行或字符串的结尾</p>
-<p>“\b” :不会消耗任何字符只匹配一个位置，常用于匹配单词边界 如 我想从字符串中”This is Regex”匹配单独的单词 “is” 正则就要写成 “\bis\b”<br>　　  \b 不会匹配is 两边的字符，但它会识别is 两边是否为单词的边界 </p>
-<p> “\d”: 匹配数字，<br>　　  例如要匹配一个固定格式的电话号码以0开头前4位后7位，如0737-5686123  正则:^0\d\d\d-\d\d\d\d\d\d\d$ 这里只是为了介绍”\d”字符，实际上有更好的写法会在     下面介绍。</p>
-<p> “\w”：匹配字母，数字，下划线.<br>　　  例如我要匹配”a2345BCD__TTz” 正则：”\w+”  这里的”+”字符为一个量词指重复的次数，稍后会详细介绍。</p>
-<p> “\s”：匹配空格 </p>
-<p>　　  例如字符 “a b c” 正则：”\w\s\w\s\w”  一个字符后跟一个空格，如有字符间有多个空格直接把”\s” 写成 “\s+” 让空格重复</p>
-<p>  “.”：匹配除了换行符以外的任何字符</p>
-<p>　　  这个算是”\w”的加强版了”\w”不能匹配 空格 如果把字符串加上空格用”\w”就受限了，看下用 “.”是如何匹配字符”a23 4 5 B C D__TTz”  正则：”.+”</p>
-<p>  “[abc]”: 字符组  匹配包含括号内元素的字符<br>        这个比较简单了只匹配括号内存在的字符，还可以写成[a-z]匹配a至z的所以字母就等于可以用来控制只能输入英文了</p>
-<h2 id="几种反义"><a href="#几种反义" class="headerlink" title="几种反义"></a>几种反义</h2><p>写法很简单改成大写就行了，意思与原来的相反，这里就不举例子了<br>“\W”   匹配任意不是字母，数字，下划线 的字符</p>
-<p>“\S”   匹配任意不是空白符的字符</p>
-<p>“\D”  匹配任意非数字的字符</p>
-<p>“\B”  匹配不是单词开头或结束的位置</p>
-<p>“[^abc]”  匹配除了abc以外的任意字符</p>
+<h2 id="正则表达式字符"><a href="#正则表达式字符" class="headerlink" title="正则表达式字符"></a>正则表达式字符</h2><h3 id="元字符"><a href="#元字符" class="headerlink" title="元字符"></a>元字符</h3><ul>
+<li>“^” ：^会匹配行或者字符串的起始位置，有时还会匹配整个文档的起始位置，<strong>但是在[]里面使用^代表取反</strong>。 </li>
+<li>“$”  ：$会匹配行或字符串的结尾</li>
+<li>“\b” :不会消耗任何字符只匹配一个位置，常用于匹配单词边界</li>
+<li>“\d”: 匹配数字</li>
+<li>“\w”：匹配字母，数字，下划线</li>
+<li>“\s”：匹配空格 </li>
+<li>“.”：匹配除了换行符以外的任何字符</li>
+<li>“[abc]”: 字符组  匹配包含括号内元素的字符 </li>
+</ul>
+<h3 id="几种反义"><a href="#几种反义" class="headerlink" title="几种反义"></a>几种反义</h3><p>写法很简单改成大写就行了，意思与原来的相反，这里就不举例子了</p>
+<ul>
+<li>“\W”   匹配任意不是字母，数字，下划线 的字符</li>
+<li>“\D”  匹配任意非数字的字符</li>
+<li>“\B”  匹配不是单词开头或结束的位置</li>
+<li>“[^abc]”  匹配除了abc以外的任意字符</li>
+</ul>
 <h2 id="查询方式"><a href="#查询方式" class="headerlink" title="查询方式"></a>查询方式</h2><h3 id="贪婪-贪心-方式"><a href="#贪婪-贪心-方式" class="headerlink" title="贪婪(贪心)方式"></a>贪婪(贪心)方式</h3><p>如”*”字符 贪婪量词会首先匹配整个字符串。</p>
 <ul>
 <li>尝试匹配时，它会选定尽可能多的内容，也就是整个输入。</li>
@@ -662,7 +664,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#定位"><span class="nav-number">1.</span> <span class="nav-text">定位</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#作用"><span class="nav-number">2.</span> <span class="nav-text">作用</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#常用的正则匹配工具"><span class="nav-number">3.</span> <span class="nav-text">常用的正则匹配工具</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#正则表达式字符"><span class="nav-number">4.</span> <span class="nav-text">正则表达式字符</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#元字符"><span class="nav-number">4.1.</span> <span class="nav-text">元字符</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#几种反义"><span class="nav-number">5.</span> <span class="nav-text">几种反义</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#查询方式"><span class="nav-number">6.</span> <span class="nav-text">查询方式</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#贪婪-贪心-方式"><span class="nav-number">6.1.</span> <span class="nav-text">贪婪(贪心)方式</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#懒惰-勉强-方式"><span class="nav-number">6.2.</span> <span class="nav-text">懒惰(勉强)方式</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#占有方式"><span class="nav-number">6.3.</span> <span class="nav-text">占有方式</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#量词"><span class="nav-number">7.</span> <span class="nav-text">量词</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#主要量词"><span class="nav-number">7.1.</span> <span class="nav-text">主要量词</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#惰性限定词"><span class="nav-number">7.2.</span> <span class="nav-text">惰性限定词</span></a></li></ol></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#定位"><span class="nav-number">1.</span> <span class="nav-text">定位</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#作用"><span class="nav-number">2.</span> <span class="nav-text">作用</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#常用的正则匹配工具"><span class="nav-number">3.</span> <span class="nav-text">常用的正则匹配工具</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#正则表达式字符"><span class="nav-number">4.</span> <span class="nav-text">正则表达式字符</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#元字符"><span class="nav-number">4.1.</span> <span class="nav-text">元字符</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#几种反义"><span class="nav-number">4.2.</span> <span class="nav-text">几种反义</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#查询方式"><span class="nav-number">5.</span> <span class="nav-text">查询方式</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#贪婪-贪心-方式"><span class="nav-number">5.1.</span> <span class="nav-text">贪婪(贪心)方式</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#懒惰-勉强-方式"><span class="nav-number">5.2.</span> <span class="nav-text">懒惰(勉强)方式</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#占有方式"><span class="nav-number">5.3.</span> <span class="nav-text">占有方式</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#量词"><span class="nav-number">6.</span> <span class="nav-text">量词</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#主要量词"><span class="nav-number">6.1.</span> <span class="nav-text">主要量词</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#惰性限定词"><span class="nav-number">6.2.</span> <span class="nav-text">惰性限定词</span></a></li></ol></li></ol></div>
             
 
           </div>
