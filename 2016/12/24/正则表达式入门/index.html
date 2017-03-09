@@ -102,7 +102,7 @@
 作用
 测试字符串内的模式。例如，可以测试输入字符串，以查看字符串内是否出现电话号码模式或信用卡号码模式。这称为数据验证。
 替换文本。可以使用正则表">
-<meta property="og:updated_time" content="2017-03-07T07:38:59.388Z">
+<meta property="og:updated_time" content="2017-03-09T02:39:33.552Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="正则表达式入门">
 <meta name="twitter:description" content="最近心血来潮想整理一下正则表达式。
@@ -389,7 +389,7 @@
 </blockquote>
 <p>区别在于：<br>1.采用字面量的写法新建的正则表达式对象在代码编译时就会生成，是平常开发中常用的方式；<br>2.采用构造函数生成的正则对象要在代码运行时生成</p>
 <p>举个例子：<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">var re = new RegExp();//RegExp是一个对象,和Aarray一样  </div><div class="line">//但这样没有任何效果,需要将正则表达式的内容作为字符串传递进去</div><div class="line"></div><div class="line">re =new RegExp(<span class="string">"a"</span>);//最简单的正则表达式,将匹配字母a  </div><div class="line">re=new RegExp(<span class="string">"a"</span>,<span class="string">"i"</span>);//第二个参数,表示匹配时不分大小写</div></pre></td></tr></table></figure></p>
-<h2 id="使用正则表达式"><a href="#使用正则表达式" class="headerlink" title="使用正则表达式"></a>使用正则表达式</h2><p>正则对象的方法是指这样使用的： RegExp对象.方法(字符串)<br>字符串对象的方法是这样使用：字符串.方法(RegExp对象)</p>
+<h2 id="使用正则表达式"><a href="#使用正则表达式" class="headerlink" title="使用正则表达式"></a>使用正则表达式</h2><p>正则对象的方法是指这样使用的：RegExp对象.方法(字符串)<br>字符串对象的方法是这样使用：字符串.方法(RegExp对象)</p>
 <h2 id="正则查找范围"><a href="#正则查找范围" class="headerlink" title="正则查找范围"></a>正则查找范围</h2><p>•g （全文查找，可以查看所有的匹配而不是只找到第一个匹配后就停止）<br>•i （忽略大小写）<br>•m （多行查找）<br>举个例子：<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">var re = new RegExp(<span class="string">"a"</span>,<span class="string">"gi"</span>);//匹配所有的a或A</div></pre></td></tr></table></figure></p>
 <p>正则表达式还有另一种正则表达式字面量的声明方式,上面例子可改写为:<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">var re = /a/gi;</div></pre></td></tr></table></figure></p>
 <h2 id="正则表达式字符"><a href="#正则表达式字符" class="headerlink" title="正则表达式字符"></a>正则表达式字符</h2><h3 id="元字符"><a href="#元字符" class="headerlink" title="元字符"></a>元字符</h3><ul>
