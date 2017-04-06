@@ -91,7 +91,7 @@
 <meta property="og:site_name" content="manlili blog">
 <meta property="og:description" content="Babel 是一个广泛使用的 ES6 转码器，可以将 ES6 代码转为 ES5 代码，从而在现有环境执行。这意味着，你可以用 ES6 的方式编写程序，又不用担心现有环境是否支持。下面是一个例子。1234567// 转码前input.map(item =&amp;gt; item + 1);// 转码后input.map(function (item) &amp;#123;  return item + 1;&amp;#1">
 <meta property="og:image" content="https://manlili.github.io/img/170324/1.png">
-<meta property="og:updated_time" content="2017-04-06T06:43:28.749Z">
+<meta property="og:updated_time" content="2017-04-06T06:46:42.245Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="ES6转换工具-babel介绍">
 <meta name="twitter:description" content="Babel 是一个广泛使用的 ES6 转码器，可以将 ES6 代码转为 ES5 代码，从而在现有环境执行。这意味着，你可以用 ES6 的方式编写程序，又不用担心现有环境是否支持。下面是一个例子。1234567// 转码前input.map(item =&amp;gt; item + 1);// 转码后input.map(function (item) &amp;#123;  return item + 1;&amp;#1">
@@ -362,7 +362,7 @@
 <h2 id="babel安装"><a href="#babel安装" class="headerlink" title="babel安装"></a>babel安装</h2><p>要使用Babel， 我们需要nodeJS的环境和npm， 主要安装了nodeJS， npm就默认安装了 ， 现在安装nodeJS很简单了， 直接下载安装就好了；</p>
 <h3 id="第一步"><a href="#第一步" class="headerlink" title="第一步"></a>第一步</h3><p>在使用Babel之前，我们要先检测一下当前node对es6的支持情况， 我们使用先es-checker， 命令行下执行：<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">npm -g install es-checker</div></pre></td></tr></table></figure></p>
 <p>es-checker安装完毕以后，命令行执行：es-checker<br>本人的电脑执行完出现以下的情况：<br><img src="https://manlili.github.io/img/170324/1.png" alt="图"></p>
-<p>当然还有方法二，这个比较简单一点，直接用在线网站检测，<a href="ruanyf.github.io/es-checker">测试浏览器是否支持ES6</a></p>
+<p>当然还有方法二，这个比较简单一点，直接用在线网站检测，<a href="http://ruanyf.github.io/es-checker" target="_blank" rel="external">测试浏览器是否支持ES6</a></p>
 <h3 id="第二步"><a href="#第二步" class="headerlink" title="第二步"></a>第二步</h3><p>所以我们来安装babel吧，有了babel， 能够使用更多高级词法！<br>你可以根据babel官方网站安装步骤安装,或者跟着我的教程安装，(点击我跳转到官方网站地址)[<a href="http://babeljs.io/docs/setup/" target="_blank" rel="external">http://babeljs.io/docs/setup/</a>] 。</p>
 <p>首先新建一个工作目录， 然后创建一个package.json的文件，内部内容为：<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line">&#123;</div><div class="line">  <span class="string">"name"</span>: <span class="string">"my-project"</span>,</div><div class="line">  <span class="string">"version"</span>: <span class="string">"1.0.0"</span>,</div><div class="line">  <span class="string">"devDependencies"</span>: &#123;</div><div class="line">  &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
 <p>然后再打开cmd(命令行), 在工作目录下执行命令安装babel-cli：<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">npm  --save-dev install babel-cli</div></pre></td></tr></table></figure></p>
