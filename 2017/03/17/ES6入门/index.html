@@ -94,7 +94,7 @@ ECMAScript 和 JavaScript 的关系ECMAScript 和">
 <meta property="og:description" content="一直以来都没有弄透ES6，接下来跟着阮一峰老师的教程慢慢学习，希望最后可以学懂和学透。
 什么是ES6ECMAScript 6.0（以下简称 ES6）是 JavaScript 语言的下一代标准，已经在2015年6月正式发布了。它的目标，是使得 JavaScript 语言可以用来编写复杂的大型应用程序，成为企业级开发语言。
 ECMAScript 和 JavaScript 的关系ECMAScript 和">
-<meta property="og:updated_time" content="2017-04-06T06:35:18.798Z">
+<meta property="og:updated_time" content="2017-04-06T06:39:11.020Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="ES6入门">
 <meta name="twitter:description" content="一直以来都没有弄透ES6，接下来跟着阮一峰老师的教程慢慢学习，希望最后可以学懂和学透。
@@ -367,8 +367,8 @@ ECMAScript 和 JavaScript 的关系ECMAScript 和">
 <h2 id="ECMAScript-和-JavaScript-的关系"><a href="#ECMAScript-和-JavaScript-的关系" class="headerlink" title="ECMAScript 和 JavaScript 的关系"></a>ECMAScript 和 JavaScript 的关系</h2><p>ECMAScript 和 JavaScript 的关系是，前者是后者的规格，后者是前者的一种实现。</p>
 <h2 id="ES6-与-ECMAScript-2015-的关系"><a href="#ES6-与-ECMAScript-2015-的关系" class="headerlink" title="ES6 与 ECMAScript 2015 的关系"></a>ES6 与 ECMAScript 2015 的关系</h2><p>ES6 的第一个版本，就这样在2015年6月发布了，正式名称就是《ECMAScript 2015标准》（简称 ES2015），ES6 既是一个历史名词，也是一个泛指，含义是5.1版以后的 JavaScript 的下一代标准，涵盖了ES2015、ES2016、ES2017等等。</p>
 <h2 id="ES6的支持度以及测试工具"><a href="#ES6的支持度以及测试工具" class="headerlink" title="ES6的支持度以及测试工具"></a>ES6的支持度以及测试工具</h2><ol>
-<li><a href="kangax.github.io/es5-compat-table/es6/">支持度网址</a></li>
-<li><a href="ruanyf.github.io/es-checker">测试浏览器是否支持ES6</a></li>
+<li><a href="http://kangax.github.io/es5-compat-table/es6/" target="_blank" rel="external">支持度网址</a><a href="http://kangax.github.io/es5-compat-table/es6/" target="_blank" rel="external">http://kangax.github.io/es5-compat-table/es6/</a></li>
+<li><a href="http://ruanyf.github.io/es-checker" target="_blank" rel="external">测试浏览器是否支持ES6</a><a href="http://ruanyf.github.io/es-checker" target="_blank" rel="external">http://ruanyf.github.io/es-checker</a></li>
 </ol>
 <h2 id="将ES6转换为ES5工具"><a href="#将ES6转换为ES5工具" class="headerlink" title="将ES6转换为ES5工具"></a>将ES6转换为ES5工具</h2><h3 id="babel"><a href="#babel" class="headerlink" title="babel"></a>babel</h3><p>Babel 是一个广泛使用的 ES6 转码器，可以将 ES6 代码转为 ES5 代码，从而在现有环境执行。这意味着，你可以用 ES6 的方式编写程序，又不用担心现有环境是否支持。下面是一个例子。<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line">// 转码前</div><div class="line">input.map(item =&gt; item + 1);</div><div class="line"></div><div class="line">// 转码后</div><div class="line">input.map(<span class="keyword">function</span> (item) &#123;</div><div class="line">  <span class="built_in">return</span> item + 1;</div><div class="line">&#125;);</div></pre></td></tr></table></figure></p>
 <p>接着会写一篇专门介绍Babel的文章。</p>
