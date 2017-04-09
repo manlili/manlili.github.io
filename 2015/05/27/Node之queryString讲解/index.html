@@ -84,16 +84,22 @@
 
 
 
-<meta name="description" content="前端开发/走向全栈/幽默有趣">
+<meta name="description" content="在nodejs中，提供了querystring这个模块，用来做url查询参数的解析。在做node服务端开发的时候基本都会用到，使用非常简单。github地址:https://github.com/manlili/node_learn里面的lesson05
+parse方法作用是解析url查询参数，定义如下：1querystring.parse(str[, sep[, eq[, options]]])">
 <meta property="og:type" content="article">
 <meta property="og:title" content="Node之querystring讲解">
 <meta property="og:url" content="http://yoursite.com/2015/05/27/Node之querystring讲解/index.html">
 <meta property="og:site_name" content="manlili blog">
-<meta property="og:description" content="前端开发/走向全栈/幽默有趣">
-<meta property="og:updated_time" content="2017-04-09T03:30:10.574Z">
+<meta property="og:description" content="在nodejs中，提供了querystring这个模块，用来做url查询参数的解析。在做node服务端开发的时候基本都会用到，使用非常简单。github地址:https://github.com/manlili/node_learn里面的lesson05
+parse方法作用是解析url查询参数，定义如下：1querystring.parse(str[, sep[, eq[, options]]])">
+<meta property="og:image" content="https://manlili.github.io/img/150527/1.png">
+<meta property="og:image" content="https://manlili.github.io/img/150527/2.png">
+<meta property="og:updated_time" content="2017-04-09T03:33:31.151Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Node之querystring讲解">
-<meta name="twitter:description" content="前端开发/走向全栈/幽默有趣">
+<meta name="twitter:description" content="在nodejs中，提供了querystring这个模块，用来做url查询参数的解析。在做node服务端开发的时候基本都会用到，使用非常简单。github地址:https://github.com/manlili/node_learn里面的lesson05
+parse方法作用是解析url查询参数，定义如下：1querystring.parse(str[, sep[, eq[, options]]])">
+<meta name="twitter:image" content="https://manlili.github.io/img/150527/1.png">
 
 
 
@@ -376,7 +382,12 @@
       
 
       
-        
+        <p>在nodejs中，提供了querystring这个模块，用来做url查询参数的解析。在做node服务端开发的时候基本都会用到，使用非常简单。<br>github地址:<a href="https://github.com/manlili/node_learn" target="_blank" rel="external">https://github.com/manlili/node_learn</a>里面的lesson05</p>
+<h2 id="parse方法"><a href="#parse方法" class="headerlink" title="parse方法"></a>parse方法</h2><p>作用是解析url查询参数，定义如下：<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">querystring.parse(str[, sep[, eq[, options]]])</div></pre></td></tr></table></figure></p>
+<p>使用方法①<br>先进入node控制台，然后输入querystring.parse,就可以解析这个地址<br><img src="https://manlili.github.io/img/150527/1.png" alt="图"></p>
+<p>使用方法②<br>由于queryString是node自带的模块，可以直接引用<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">var querystring = require(<span class="string">"querystring"</span>);</div><div class="line">var a = querystring.parse(<span class="string">'foo=bra&amp;haha=lli&amp;haha=568'</span>);</div><div class="line">console.log(a);</div></pre></td></tr></table></figure></p>
+<p>然后进入js所在的文件夹执行：<br><img src="https://manlili.github.io/img/150527/2.png" alt="图"></p>
+
       
     </div>
 
@@ -492,8 +503,17 @@
       
 
       
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap" >
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview">
+            站点概览
+          </li>
+        </ul>
+      
 
-      <section class="site-overview sidebar-panel sidebar-panel-active">
+      <section class="site-overview sidebar-panel">
         <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
           <img class="site-author-image" itemprop="image"
                src="/uploads/avatar.jpg"
@@ -569,6 +589,22 @@
 
       </section>
 
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#parse方法"><span class="nav-number">1.</span> <span class="nav-text">parse方法</span></a></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
       
 
     </div>
