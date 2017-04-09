@@ -68,7 +68,7 @@
 <link href="/css/main.css?v=5.1.0" rel="stylesheet" type="text/css" />
 
 
-  <meta name="keywords" content="queryString," />
+  <meta name="keywords" content="回调,事件," />
 
 
 
@@ -84,16 +84,19 @@
 
 
 
-<meta name="description" content="123">
+<meta name="description" content="回调函数Node.js 异步编程的直接体现就是回调。异步编程依托于回调来实现，但不能说使用了回调后程序就异步化了。回调函数在完成任务后就会被调用，Node 使用了大量的回调函数，Node 所有 API 都支持回调函数。举个很形象的例子：上图可以看出，同步模式很容易遭到卡死，一旦进程卡死，后面的进程也无法执行，而且查询的过程中浪费时间，但是异步模式可以很好地解决这个问题，客户端发送请求完毕后继续做自">
 <meta property="og:type" content="article">
-<meta property="og:title" content="Node之queryString讲解">
+<meta property="og:title" content="Node回调和事件">
 <meta property="og:url" content="http://yoursite.com/2015/05/28/Node之querystring讲解/index.html">
 <meta property="og:site_name" content="manlili blog">
-<meta property="og:description" content="123">
-<meta property="og:updated_time" content="2017-04-09T03:41:59.470Z">
+<meta property="og:description" content="回调函数Node.js 异步编程的直接体现就是回调。异步编程依托于回调来实现，但不能说使用了回调后程序就异步化了。回调函数在完成任务后就会被调用，Node 使用了大量的回调函数，Node 所有 API 都支持回调函数。举个很形象的例子：上图可以看出，同步模式很容易遭到卡死，一旦进程卡死，后面的进程也无法执行，而且查询的过程中浪费时间，但是异步模式可以很好地解决这个问题，客户端发送请求完毕后继续做自">
+<meta property="og:image" content="https://manlili.github.io/img/150507/1.png">
+<meta property="og:image" content="https://manlili.github.io/img/150507/2.jpg">
+<meta property="og:updated_time" content="2017-04-09T05:26:04.441Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Node之queryString讲解">
-<meta name="twitter:description" content="123">
+<meta name="twitter:title" content="Node回调和事件">
+<meta name="twitter:description" content="回调函数Node.js 异步编程的直接体现就是回调。异步编程依托于回调来实现，但不能说使用了回调后程序就异步化了。回调函数在完成任务后就会被调用，Node 使用了大量的回调函数，Node 所有 API 都支持回调函数。举个很形象的例子：上图可以看出，同步模式很容易遭到卡死，一旦进程卡死，后面的进程也无法执行，而且查询的过程中浪费时间，但是异步模式可以很好地解决这个问题，客户端发送请求完毕后继续做自">
+<meta name="twitter:image" content="https://manlili.github.io/img/150507/1.png">
 
 
 
@@ -127,7 +130,7 @@
 
 
 
-  <title> Node之queryString讲解 | manlili blog </title>
+  <title> Node回调和事件 | manlili blog </title>
 </head>
 
 <body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
@@ -293,7 +296,7 @@
             
             
               
-                Node之queryString讲解
+                Node回调和事件
               
             
           </h1>
@@ -376,7 +379,10 @@
       
 
       
-        <p>123</p>
+        <h2 id="回调函数"><a href="#回调函数" class="headerlink" title="回调函数"></a>回调函数</h2><p>Node.js 异步编程的直接体现就是回调。<br>异步编程依托于回调来实现，但不能说使用了回调后程序就异步化了。<br>回调函数在完成任务后就会被调用，Node 使用了大量的回调函数，Node 所有 API 都支持回调函数。<br>举个很形象的例子：<br><img src="https://manlili.github.io/img/150507/1.png" alt="图"><br>上图可以看出，同步模式很容易遭到卡死，一旦进程卡死，后面的进程也无法执行，而且查询的过程中浪费时间，但是异步模式可以很好地解决这个问题，客户端发送请求完毕后继续做自己的事情，无需等待服务器返回，等服务器查询完毕返回结果后再去处理数据，大大节约了时间。</p>
+<h2 id="事件循环"><a href="#事件循环" class="headerlink" title="事件循环"></a>事件循环</h2><p>(1)Node.js 是单进程单线程应用程序，但是通过事件和回调支持并发，所以性能非常高。<br>(2)Node.js 的每一个 API 都是异步的，并作为一个独立线程运行，使用异步函数调用，并处理并发。<br>(3)Node.js 基本上所有的事件机制都是用设计模式中观察者模式实现。<br>(4)Node.js 单线程类似进入一个while(true)的事件循环，直到没有事件观察者退出，每个异步事件都生成一个事件观察者，如果有事件发生就调用该回调函数.</p>
+<h2 id="事件驱动原理"><a href="#事件驱动原理" class="headerlink" title="事件驱动原理"></a>事件驱动原理</h2><p>用一张图表达：<br><img src="https://manlili.github.io/img/150507/2.jpg" alt="图"><br>上图简单说就是Node.js 使用事件驱动模型，<br>(1)当EventEmitter发送事件请求，然后web server接收到请求，就把它关闭然后进行处理，然后去服务下一个web请求。<br>(2)此时会生成一个主循环来监听事件，当检测到事件返回时触发回调函数。<br>(3)回调函数将返回的数据放回处理队列，当到达队列开头，这个结果被返回给用户。<br>这个模型非常高效可扩展性非常强，因为webserver一直接受请求而不等待任何读写操作。（这也被称之为非阻塞式IO或者事件驱动IO）</p>
+<p>整个事件驱动的流程就是这么实现的，非常简洁。有点类似于观察者模式，事件相当于一个主题(Subject)，而所有注册到这个事件上的处理函数相当于观察者(Observer)。</p>
 
       
     </div>
@@ -421,7 +427,9 @@
       
         <div class="post-tags">
           
-            <a href="/tags/queryString/" rel="tag"># queryString</a>
+            <a href="/tags/回调/" rel="tag"># 回调</a>
+          
+            <a href="/tags/事件/" rel="tag"># 事件</a>
           
         </div>
       
@@ -469,7 +477,7 @@
   <div class="comments" id="comments">
     
       <div class="ds-thread" data-thread-key="2015/05/28/Node之querystring讲解/"
-           data-title="Node之queryString讲解" data-url="http://yoursite.com/2015/05/28/Node之querystring讲解/">
+           data-title="Node回调和事件" data-url="http://yoursite.com/2015/05/28/Node之querystring讲解/">
       </div>
     
   </div>
@@ -493,8 +501,17 @@
       
 
       
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap" >
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview">
+            站点概览
+          </li>
+        </ul>
+      
 
-      <section class="site-overview sidebar-panel sidebar-panel-active">
+      <section class="site-overview sidebar-panel">
         <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
           <img class="site-author-image" itemprop="image"
                src="/uploads/avatar.jpg"
@@ -525,7 +542,7 @@
           
             <div class="site-state-item site-state-tags">
               <a href="/tags">
-                <span class="site-state-item-count">73</span>
+                <span class="site-state-item-count">72</span>
                 <span class="site-state-item-name">标签</span>
               </a>
             </div>
@@ -570,6 +587,22 @@
 
       </section>
 
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#回调函数"><span class="nav-number">1.</span> <span class="nav-text">回调函数</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#事件循环"><span class="nav-number">2.</span> <span class="nav-text">事件循环</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#事件驱动原理"><span class="nav-number">3.</span> <span class="nav-text">事件驱动原理</span></a></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
       
 
     </div>
