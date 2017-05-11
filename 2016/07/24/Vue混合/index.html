@@ -84,14 +84,14 @@
 
 
 
-<meta name="description" content="class和style绑定的方法很多，本文写下来总结一下：gitHub地址:[https://github.com/manlili/vue_learn]里面的lesson13
-定位混合以一种灵活的方式为组件提供分布复用功能。混合对象可以包含任意的组件选项。当组件使用了混合对象时，混合对象的所有选项将被“混入”组件自己的选项中。实际上,我也没搞懂这句话,项目中也没用到，先研究再说,放个一年也许就自己">
+<meta name="description" content="class和style绑定的方法很多，本文写下来总结一下：gitHub地址:https://github.com/manlili/vue_learn里面的lesson13
+定位混合以一种灵活的方式为组件提供分布复用功能。混合对象可以包含任意的组件选项。当组件使用了混合对象时，混合对象的所有选项将被“混入”组件自己的选项中。实际上,我也没搞懂这句话,项目中也没用到，先研究再说,放个一年也许就自己慢慢">
 <meta property="og:type" content="article">
 <meta property="og:title" content="Vue混合">
 <meta property="og:url" content="http://yoursite.com/2016/07/24/Vue混合/index.html">
 <meta property="og:site_name" content="manlili blog">
-<meta property="og:description" content="class和style绑定的方法很多，本文写下来总结一下：gitHub地址:[https://github.com/manlili/vue_learn]里面的lesson13
-定位混合以一种灵活的方式为组件提供分布复用功能。混合对象可以包含任意的组件选项。当组件使用了混合对象时，混合对象的所有选项将被“混入”组件自己的选项中。实际上,我也没搞懂这句话,项目中也没用到，先研究再说,放个一年也许就自己">
+<meta property="og:description" content="class和style绑定的方法很多，本文写下来总结一下：gitHub地址:https://github.com/manlili/vue_learn里面的lesson13
+定位混合以一种灵活的方式为组件提供分布复用功能。混合对象可以包含任意的组件选项。当组件使用了混合对象时，混合对象的所有选项将被“混入”组件自己的选项中。实际上,我也没搞懂这句话,项目中也没用到，先研究再说,放个一年也许就自己慢慢">
 <meta property="og:image" content="https://manlili.github.io/img/160724/1.png">
 <meta property="og:image" content="https://manlili.github.io/img/160724/2.png">
 <meta property="og:image" content="https://manlili.github.io/img/160724/3.png">
@@ -99,11 +99,11 @@
 <meta property="og:image" content="https://manlili.github.io/img/160724/5.png">
 <meta property="og:image" content="https://manlili.github.io/img/160724/6.png">
 <meta property="og:image" content="https://manlili.github.io/img/160724/7.png">
-<meta property="og:updated_time" content="2017-02-17T05:32:00.863Z">
+<meta property="og:updated_time" content="2017-05-11T11:05:58.464Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Vue混合">
-<meta name="twitter:description" content="class和style绑定的方法很多，本文写下来总结一下：gitHub地址:[https://github.com/manlili/vue_learn]里面的lesson13
-定位混合以一种灵活的方式为组件提供分布复用功能。混合对象可以包含任意的组件选项。当组件使用了混合对象时，混合对象的所有选项将被“混入”组件自己的选项中。实际上,我也没搞懂这句话,项目中也没用到，先研究再说,放个一年也许就自己">
+<meta name="twitter:description" content="class和style绑定的方法很多，本文写下来总结一下：gitHub地址:https://github.com/manlili/vue_learn里面的lesson13
+定位混合以一种灵活的方式为组件提供分布复用功能。混合对象可以包含任意的组件选项。当组件使用了混合对象时，混合对象的所有选项将被“混入”组件自己的选项中。实际上,我也没搞懂这句话,项目中也没用到，先研究再说,放个一年也许就自己慢慢">
 <meta name="twitter:image" content="https://manlili.github.io/img/160724/1.png">
 
 
@@ -387,7 +387,7 @@
       
 
       
-        <p>class和style绑定的方法很多，本文写下来总结一下：<br>gitHub地址:[<a href="https://github.com/manlili/vue_learn]里面的lesson13" target="_blank" rel="external">https://github.com/manlili/vue_learn]里面的lesson13</a></p>
+        <p>class和style绑定的方法很多，本文写下来总结一下：<br>gitHub地址:<a href="https://github.com/manlili/vue_learn" target="_blank" rel="external">https://github.com/manlili/vue_learn里面的lesson13</a></p>
 <h2 id="定位"><a href="#定位" class="headerlink" title="定位"></a>定位</h2><p>混合以一种灵活的方式为组件提供分布复用功能。混合对象可以包含任意的组件选项。当组件使用了混合对象时，混合对象的所有选项将被“混入”组件自己的选项中。<br>实际上,我也没搞懂这句话,项目中也没用到，先研究再说,放个一年也许就自己慢慢懂了,时间这玩意可以发酵</p>
 <h2 id="定义"><a href="#定义" class="headerlink" title="定义"></a>定义</h2><p>先拿个例子说明：<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div></pre></td><td class="code"><pre><div class="line">&lt;!DOCTYPE html&gt;</div><div class="line">&lt;html&gt;</div><div class="line">    &lt;head&gt;</div><div class="line">        &lt;meta charset=<span class="string">"UTF-8"</span>&gt;</div><div class="line">        &lt;title&gt;Vue混合--定义&lt;/title&gt;</div><div class="line">        &lt;script src=<span class="string">"../js/vue.js"</span> <span class="built_in">type</span>=<span class="string">"text/javascript"</span> charset=<span class="string">"utf-8"</span>&gt;&lt;/script&gt;</div><div class="line">        &lt;meta name=<span class="string">"viewport"</span> content=<span class="string">"width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no"</span> /&gt;</div><div class="line">    &lt;/head&gt;</div><div class="line">    &lt;body&gt;</div><div class="line">        &lt;script <span class="built_in">type</span>=<span class="string">"text/javascript"</span>&gt;</div><div class="line">            var myMinxin= &#123;             //第一步,创建一个混合数据</div><div class="line">                created: <span class="function"><span class="title">function</span></span> () &#123;</div><div class="line">                    this.hello();</div><div class="line">                &#125;,</div><div class="line">                methods: &#123;</div><div class="line">                    hello: <span class="function"><span class="title">function</span></span> () &#123;</div><div class="line">                        alert(<span class="string">'你好'</span>);</div><div class="line">                    &#125;</div><div class="line">                &#125;</div><div class="line">            &#125;</div><div class="line">            </div><div class="line">            var myComponent = Vue.extend(&#123;    //将混合注册到Vue</div><div class="line">                mixins: [myMinxin]</div><div class="line">            &#125;)</div><div class="line">            </div><div class="line">            new myComponent();    //实例化这个混合</div><div class="line">        &lt;/script&gt;</div><div class="line">    &lt;/body&gt;</div><div class="line">&lt;/html&gt;</div></pre></td></tr></table></figure></p>
 <p>上面代码,弹出:<br><img src="https://manlili.github.io/img/160724/1.png" alt="图"></p>
@@ -536,7 +536,7 @@
           
             <div class="site-state-item site-state-posts">
               <a href="/archives">
-                <span class="site-state-item-count">83</span>
+                <span class="site-state-item-count">84</span>
                 <span class="site-state-item-name">日志</span>
               </a>
             </div>
@@ -545,7 +545,7 @@
           
             <div class="site-state-item site-state-categories">
               <a href="/categories">
-                <span class="site-state-item-count">13</span>
+                <span class="site-state-item-count">14</span>
                 <span class="site-state-item-name">分类</span>
               </a>
             </div>
@@ -554,7 +554,7 @@
           
             <div class="site-state-item site-state-tags">
               <a href="/tags">
-                <span class="site-state-item-count">93</span>
+                <span class="site-state-item-count">94</span>
                 <span class="site-state-item-name">标签</span>
               </a>
             </div>
