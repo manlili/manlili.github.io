@@ -1,0 +1,767 @@
+<!doctype html>
+
+
+
+  
+
+
+<html class="theme-next mist use-motion" lang="zh-Hans">
+<head>
+  <meta charset="UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+  <link href="/lib/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css" />
+
+
+
+
+  
+  
+  
+  
+
+  
+    
+    
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+    
+    
+    <link href="//fonts.googleapis.com/css?family=Lato:300,300italic,400,400italic,700,700italic&subset=latin,latin-ext" rel="stylesheet" type="text/css">
+  
+
+
+
+
+
+
+<link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css" />
+
+<link href="/css/main.css?v=5.1.0" rel="stylesheet" type="text/css" />
+
+
+  <meta name="keywords" content="webpack,loaders,plugins,entry,output,四大核心," />
+
+
+
+
+
+
+
+
+  <link rel="shortcut icon" type="image/x-icon" href="/favicon.ico?v=5.1.0" />
+
+
+
+
+
+
+<meta name="description" content="基本上每个项目都配置有一个 webpack.config.js ，它的作用如同常规的 gulpfile.js/Gruntfile.js ，就是一个配置项,上一节中提到一段代码1234567891011121314151617181920212223242526272829303132333435var webpack = require(&apos;webpack&apos;);var commonsPlugin =">
+<meta property="og:type" content="article">
+<meta property="og:title" content="webpack四大核心概念">
+<meta property="og:url" content="http://yoursite.com/2017/05/14/webpack四大核心概念/index.html">
+<meta property="og:site_name" content="manlili blog">
+<meta property="og:description" content="基本上每个项目都配置有一个 webpack.config.js ，它的作用如同常规的 gulpfile.js/Gruntfile.js ，就是一个配置项,上一节中提到一段代码1234567891011121314151617181920212223242526272829303132333435var webpack = require(&apos;webpack&apos;);var commonsPlugin =">
+<meta property="og:updated_time" content="2017-06-07T07:25:33.877Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="webpack四大核心概念">
+<meta name="twitter:description" content="基本上每个项目都配置有一个 webpack.config.js ，它的作用如同常规的 gulpfile.js/Gruntfile.js ，就是一个配置项,上一节中提到一段代码1234567891011121314151617181920212223242526272829303132333435var webpack = require(&apos;webpack&apos;);var commonsPlugin =">
+
+
+
+<script type="text/javascript" id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Mist',
+    sidebar: {"position":"left","display":"post"},
+    fancybox: true,
+    motion: true,
+    duoshuo: {
+      userId: '0',
+      author: '博主'
+    },
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
+
+
+
+  <link rel="canonical" href="http://yoursite.com/2017/05/14/webpack四大核心概念/"/>
+
+
+
+
+
+  <title> webpack四大核心概念 | manlili blog </title>
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
+
+  
+
+
+
+  <script type="text/javascript">
+    var _hmt = _hmt || [];
+    (function() {
+      var hm = document.createElement("script");
+      hm.src = "https://hm.baidu.com/hm.js?f37e17c195d69bf54199e99faa624b7b　";
+      var s = document.getElementsByTagName("script")[0];
+      s.parentNode.insertBefore(hm, s);
+    })();
+  </script>
+
+
+
+
+
+
+
+
+  
+  
+    
+  
+
+  <div class="container one-collumn sidebar-position-left page-post-detail ">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-meta ">
+  
+
+  <div class="custom-logo-site-title">
+    <a href="/"  class="brand" rel="start">
+      <span class="logo-line-before"><i></i></span>
+      <span class="site-title">manlili blog</span>
+      <span class="logo-line-after"><i></i></span>
+    </a>
+  </div>
+    
+      <p class="site-subtitle">记录技术上的点点心得</p>
+    
+</div>
+
+<div class="site-nav-toggle">
+  <button>
+    <span class="btn-bar"></span>
+    <span class="btn-bar"></span>
+    <span class="btn-bar"></span>
+  </button>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-home"></i> <br />
+            
+            首页
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/archives" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-archive"></i> <br />
+            
+            归档
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-categories">
+          <a href="/categories" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-th"></i> <br />
+            
+            分类
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-tags">
+          <a href="/tags" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-tags"></i> <br />
+            
+            标签
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-about">
+          <a href="/about" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-user"></i> <br />
+            
+            关于
+          </a>
+        </li>
+      
+
+      
+    </ul>
+  
+
+  
+</nav>
+
+
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+  <link itemprop="mainEntityOfPage" href="http://yoursite.com/2017/05/14/webpack四大核心概念/">
+
+  <span style="display:none" itemprop="author" itemscope itemtype="http://schema.org/Person">
+    <meta itemprop="name" content="满利利">
+    <meta itemprop="description" content="">
+    <meta itemprop="image" content="/uploads/avatar.jpg">
+  </span>
+
+  <span style="display:none" itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+    <meta itemprop="name" content="manlili blog">
+    <span style="display:none" itemprop="logo" itemscope itemtype="http://schema.org/ImageObject">
+      <img style="display:none;" itemprop="url image" alt="manlili blog" src="">
+    </span>
+  </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+            
+            
+              
+                webpack四大核心概念
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2017-05-14T17:20:27+08:00">
+                2017-05-14
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/webpack技术/" itemprop="url" rel="index">
+                    <span itemprop="name">webpack技术</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+
+          
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <p>基本上每个项目都配置有一个 webpack.config.js ，它的作用如同常规的 gulpfile.js/Gruntfile.js ，就是一个配置项,上一节中提到一段代码<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div></pre></td><td class="code"><pre><div class="line">var webpack = require(<span class="string">'webpack'</span>);</div><div class="line">var commonsPlugin = new webpack.optimize.CommonsChunkPlugin(<span class="string">'common.js'</span>);</div><div class="line"> </div><div class="line">module.exports = &#123;</div><div class="line">    //插件项</div><div class="line">    plugins: [commonsPlugin],</div><div class="line">    //页面入口文件配置</div><div class="line">    entry: &#123;</div><div class="line">        index : <span class="string">'./src/js/page/index.js'</span></div><div class="line">    &#125;,</div><div class="line">    //入口文件输出配置</div><div class="line">    output: &#123;</div><div class="line">        path: <span class="string">'dist/js/page'</span>,</div><div class="line">        filename: <span class="string">'[name].js'</span></div><div class="line">    &#125;,</div><div class="line">    module: &#123;</div><div class="line">        //加载器配置</div><div class="line">        loaders: [</div><div class="line">            &#123; <span class="built_in">test</span>: /\.css$/, loader: <span class="string">'style-loader!css-loader'</span> &#125;,</div><div class="line">            &#123; <span class="built_in">test</span>: /\.js$/, loader: <span class="string">'jsx-loader?harmony'</span> &#125;,</div><div class="line">            &#123; <span class="built_in">test</span>: /\.scss$/, loader: <span class="string">'style!css!sass?sourceMap'</span>&#125;,</div><div class="line">            &#123; <span class="built_in">test</span>: /\.(png|jpg)$/, loader: <span class="string">'url-loader?limit=8192'</span>&#125;</div><div class="line">        ]</div><div class="line">    &#125;,</div><div class="line">    //其它解决方案配置</div><div class="line">    resolve: &#123;</div><div class="line">        root: <span class="string">'E:/github/flux-example/src'</span>, //绝对路径</div><div class="line">        extensions: [<span class="string">''</span>, <span class="string">'.js'</span>, <span class="string">'.json'</span>, <span class="string">'.scss'</span>],</div><div class="line">        <span class="built_in">alias</span>: &#123;</div><div class="line">            AppStore : <span class="string">'js/stores/AppStores.js'</span>,</div><div class="line">            ActionType : <span class="string">'js/actions/ActionType.js'</span>,</div><div class="line">            AppAction : <span class="string">'js/actions/AppAction.js'</span></div><div class="line">        &#125;</div><div class="line">    &#125;</div><div class="line">&#125;;</div></pre></td></tr></table></figure></p>
+<p>下面来详细介绍一下webpack的四大核心概念</p>
+<h2 id="入口entry"><a href="#入口entry" class="headerlink" title="入口entry"></a>入口entry</h2><h3 id="entry的字符串或者数组写法"><a href="#entry的字符串或者数组写法" class="headerlink" title="entry的字符串或者数组写法"></a>entry的字符串或者数组写法</h3><p>语法：<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">用法：entry: string|Array&lt;string&gt;</div></pre></td></tr></table></figure></p>
+<p>举个例子，我们需要在webpack.config.js引入一个入口<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line">const config = &#123;</div><div class="line">  entry: &#123;</div><div class="line">    main: <span class="string">'file.js'</span></div><div class="line">  &#125;</div><div class="line">&#125;;</div><div class="line">module.exports = config;</div></pre></td></tr></table></figure></p>
+<p>由于上面是entry 属性的单个入口语法，可以简写为：<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">const config = &#123;</div><div class="line">  entry: <span class="string">'file.js'</span></div><div class="line">&#125;;</div><div class="line"></div><div class="line">module.exports = config;</div></pre></td></tr></table></figure></p>
+<p>但是我们经常遇见将两个不相干的文件打包成一个文件，这样就需要写成数组方式，举个例子：<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">const config = &#123;</div><div class="line">  entry: [<span class="string">'file.js'</span>, <span class="string">'index.js'</span>]</div><div class="line">&#125;;</div><div class="line"></div><div class="line">module.exports = config;</div></pre></td></tr></table></figure></p>
+<h3 id="entry-对象写法"><a href="#entry-对象写法" class="headerlink" title="entry 对象写法"></a>entry 对象写法</h3><p>语法:<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">用法：entry: &#123;[entryChunkName: string]: string|Array&lt;string&gt;&#125;</div></pre></td></tr></table></figure></p>
+<p>举个例子，我们需要在webpack.config.js引入多个入口（多页面应用），就需要采用对象的方法<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line">const config = &#123;</div><div class="line">  entry: &#123;</div><div class="line">    app: <span class="string">'./src/app.js'</span>,</div><div class="line">    vendors: <span class="string">'./src/vendors.js'</span></div><div class="line">  &#125;</div><div class="line">&#125;;</div><div class="line">module.exports = config;</div></pre></td></tr></table></figure></p>
+<p>上面需要注意的是entry使用了对象的方式，输出的output需要采用动态命名的方法，这个后面介绍到output会详细说明</p>
+<h2 id="打包输出output"><a href="#打包输出output" class="headerlink" title="打包输出output"></a>打包输出output</h2><p>需要注意的是output使用的绝对路径，webpack1.0可以不用担心，但是webpack2.0需要对路径引进path进行处理一下</p>
+<h3 id="用法"><a href="#用法" class="headerlink" title="用法"></a>用法</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div></pre></td><td class="code"><pre><div class="line">var path = require(<span class="string">"path"</span>); //webpack升级到2.0以后，路径需要引用这个模块</div><div class="line">const config = &#123;</div><div class="line">  output: &#123;</div><div class="line">    filename: <span class="string">'bundle.js'</span>,  </div><div class="line">    path: path.resolve(__dirname, <span class="string">'./dist/js'</span>),    //打包后文件放在本地，并且在生成的html引入本地路径js,css等比如</div><div class="line">    publicPath: <span class="string">"http://cdn.example.com/assets/"</span>    //打包后文件放在本地，但是当本地文件被推到生产服务器，比如地址是http://cdn.example.com/assets/，这个时候文件需要引进http://cdn.example.com/assets/打包后文件的名字，publicPath就是将打包后的文件在本地直接引进线上的文件</div><div class="line">  &#125;</div><div class="line">&#125;;</div><div class="line"></div><div class="line">module.exports = config;</div></pre></td></tr></table></figure>
+<p>下面来介绍下output的主要参数</p>
+<h3 id="output-filename"><a href="#output-filename" class="headerlink" title="output.filename"></a>output.filename</h3><p>指定硬盘每个输出文件的名称。在这里你不能指定为绝对路径！output.path 选项规定了文件被写入硬盘的位置。filename 仅用于命名每个文件。<br>单个入口你可以写成：<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div></pre></td><td class="code"><pre><div class="line">var path = require(<span class="string">"path"</span>); //webpack升级到2.0以后，路径需要引用这个模块</div><div class="line">const config = &#123;</div><div class="line">  entry: <span class="string">'file.js'</span>,</div><div class="line">  output: &#123;</div><div class="line">    filename: <span class="string">'bundle.js'</span>,  </div><div class="line">    path: path.resolve(__dirname, <span class="string">'./dist/js'</span>)</div><div class="line">  &#125;</div><div class="line">&#125;;</div><div class="line"></div><div class="line">module.exports = config;</div></pre></td></tr></table></figure></p>
+<p>多个入口的话：<br>你应该使用以下的替换方式来确保每个文件名都不重复。<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">[name] 被 chunk 的 name 替换。</div><div class="line">[<span class="built_in">hash</span>] 被 compilation 生命周期的 <span class="built_in">hash</span> 替换。</div><div class="line">[chunkhash] 被 chunk 的 <span class="built_in">hash</span> 替换。</div></pre></td></tr></table></figure></p>
+<p>举个例子：<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div></pre></td><td class="code"><pre><div class="line">var path = require(<span class="string">"path"</span>); //webpack升级到2.0以后，路径需要引用这个模块</div><div class="line">const config = &#123;</div><div class="line">  entry: &#123;</div><div class="line">  	a: <span class="string">'file.js'</span>,</div><div class="line">  	b: <span class="string">'test.js'</span></div><div class="line">  &#125;</div><div class="line">  output: &#123;</div><div class="line">    filename: <span class="string">'[name]-[hash].js'</span>,  </div><div class="line">    path: path.resolve(__dirname, <span class="string">'./dist/js'</span>)</div><div class="line">  &#125;</div><div class="line">&#125;;</div><div class="line"></div><div class="line">module.exports = config;</div></pre></td></tr></table></figure></p>
+<h3 id="output-path-必选"><a href="#output-path-必选" class="headerlink" title="output.path(必选)"></a>output.path(必选)</h3><p>导出目录为绝对路径，需要注意的是output使用的绝对路径，webpack1.0可以不用担心，但是webpack2.0需要对路径引进path进行处理一下<br>举个例子：<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div></pre></td><td class="code"><pre><div class="line">var path = require(<span class="string">"path"</span>); //webpack升级到2.0以后，路径需要引用这个模块</div><div class="line">const config = &#123;</div><div class="line">  entry: &#123;</div><div class="line">  	a: <span class="string">'file.js'</span>,</div><div class="line">  	b: <span class="string">'test.js'</span></div><div class="line">  &#125;</div><div class="line">  output: &#123;</div><div class="line">    filename: <span class="string">'[name]-[hash].js'</span>,  </div><div class="line">    path: path.resolve(__dirname, <span class="string">'./dist/js'</span>)</div><div class="line">  &#125;</div><div class="line">&#125;;</div><div class="line"></div><div class="line">module.exports = config;</div></pre></td></tr></table></figure></p>
+<p>其他参数详见<a href="https://webpack.js.org/concepts/output/" target="_blank" rel="external">output.options</a></p>
+<h2 id="加载器Loaders"><a href="#加载器Loaders" class="headerlink" title="加载器Loaders"></a>加载器Loaders</h2><p>loader 是对应用程序中资源文件进行转换。它们是（运行在 Node.js 中的）函数，可以将资源文件作为参数的来源，然后返回新的资源文件,说成大白话就是将本地文件翻译成浏览器识别的文件。</p>
+<h3 id="webpack中有三种方式引用loaders"><a href="#webpack中有三种方式引用loaders" class="headerlink" title="webpack中有三种方式引用loaders"></a>webpack中有三种方式引用loaders</h3><p>(1) require方式<br>举个例子:<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">require(<span class="string">'style-loader!css-loader?modules!./styles.css'</span>);</div></pre></td></tr></table></figure></p>
+<p>上面！是区分多个loaders的标志，?是loaders带的处理参数，类似于web的query。</p>
+<p>(2) webpack CLI<br>也就是直接在gitBash里面执行打包代码的时候直接带上<br>举个例子:<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">webpack --module-bind jade-loader --module-bind <span class="string">'css=style-loader!css-loader'</span></div></pre></td></tr></table></figure></p>
+<p>上面这句话是将.jade后缀的文件用jade-loader处理，将.css后缀的文件用style-loader和css-loader处理。</p>
+<p>(3)直接在webpack.config.js配置(这个常用)<br>举个例子:<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div></pre></td><td class="code"><pre><div class="line">module.exports = &#123;</div><div class="line">  module: &#123;</div><div class="line">    rules: [</div><div class="line">      &#123;<span class="built_in">test</span>: /\.css$/, use: <span class="string">'css-loader'</span>&#125;,</div><div class="line">      &#123;<span class="built_in">test</span>: /\.ts$/, use: <span class="string">'ts-loader'</span>&#125;</div><div class="line">    ]</div><div class="line">  &#125;</div><div class="line">&#125;;</div></pre></td></tr></table></figure></p>
+<p>上面的意思是将所有以.css后缀结尾的文件用css-loader处理，将所有以.ts后缀结尾的文件用ts-loader处理<br>如果我们绑定多个loaders,配置如下:<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div></pre></td><td class="code"><pre><div class="line">module.exports = &#123;</div><div class="line">  module: &#123;</div><div class="line">    rules: [</div><div class="line">      &#123;<span class="built_in">test</span>: /\.css$/, use: <span class="string">'css-loader'</span>&#125;,</div><div class="line">      &#123;</div><div class="line">      	<span class="built_in">test</span>: /\.ts$/, </div><div class="line">      	use: [</div><div class="line">          &#123; loader: <span class="string">'style-loader'</span>&#125;,</div><div class="line">          &#123; loader: <span class="string">'css-loader'</span>&#125;</div><div class="line">        ]</div><div class="line">       &#125;</div><div class="line">    ]</div><div class="line">  &#125;</div><div class="line">&#125;;</div></pre></td></tr></table></figure></p>
+<p>如果给loaders配置参数,配置如下:<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div></pre></td><td class="code"><pre><div class="line">module.exports = &#123;</div><div class="line">  module: &#123;</div><div class="line">    rules: [</div><div class="line">      &#123;<span class="built_in">test</span>: /\.css$/, use: <span class="string">'css-loader'</span>&#125;,</div><div class="line">      &#123;</div><div class="line">      	<span class="built_in">test</span>: /\.ts$/, </div><div class="line">      	use: [</div><div class="line">          &#123; loader: <span class="string">'style-loader'</span>&#125;,</div><div class="line">          &#123; </div><div class="line">          	loader: <span class="string">'css-loader'</span>,</div><div class="line">          	options: &#123;</div><div class="line">              modules: <span class="literal">true</span></div><div class="line">            &#125;</div><div class="line">          &#125;</div><div class="line">        ]</div><div class="line">      &#125;</div><div class="line">    ]</div><div class="line">  &#125;</div><div class="line">&#125;;</div></pre></td></tr></table></figure></p>
+<h2 id="插件Plugins"><a href="#插件Plugins" class="headerlink" title="插件Plugins"></a>插件Plugins</h2><p>插件是 webpack 的支柱功能。在你使用 webpack 配置时，webpack 自身也构建于同样的插件系统上，插件目的在于解决 loader 无法实现的其他事。</p>
+<h3 id="用法："><a href="#用法：" class="headerlink" title="用法："></a>用法：</h3><p>由于 plugin 可以携带参数/选项，你必须在 wepback 配置中，向 plugins 属性传入 new 实例。<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div></pre></td><td class="code"><pre><div class="line">var path = require(<span class="string">"path"</span>); //webpack升级到2.0以后，路径需要引用这个模块</div><div class="line">var htmlWebpackPlugin = require(<span class="string">'html-webpack-plugin'</span>); //采用CMD的方式引进html-webpack-plugin插件</div><div class="line">module.exports = &#123;</div><div class="line">	entry: &#123;</div><div class="line">		mian: <span class="string">'./src/script/main.js'</span>,</div><div class="line">		<span class="built_in">test</span>: <span class="string">'./src/script/test.js'</span></div><div class="line">	&#125;,</div><div class="line">	output: &#123;</div><div class="line">		path: path.resolve(__dirname, <span class="string">'./dist/js'</span>),</div><div class="line">		filename: <span class="string">'[name]-[hash].js'</span>    //区分文件有[name], [<span class="built_in">hash</span>], [chunkhash]</div><div class="line">	&#125;,</div><div class="line">	plugins: [  //注意这里是数组的方式</div><div class="line">		new htmlWebpackPlugin()</div><div class="line">	]</div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
+<p>关于plugin的寻找，可以去npm官网上找你需要的插件，上面有配套的参数说明</p>
+
+      
+    </div>
+
+    <div>
+      
+        
+
+      
+    </div>
+
+    <div>
+      
+        
+  <div style="padding: 10px 0; margin: 20px auto; width: 90%; text-align: center;">
+    <div>打赏我的人运气不会太差哦！</div>
+    <button id="rewardButton" disable="enable" onclick="var qr = document.getElementById('QR'); if (qr.style.display === 'none') {qr.style.display='block';} else {qr.style.display='none'}">
+      <span>赏</span>
+    </button>
+    <div id="QR" style="display: none;">
+      
+        <div id="wechat" style="display: inline-block">
+          <img id="wechat_qr" src="https://manlili.github.io/img/pay/wetcharpay.png" alt="满利利 WeChat Pay"/>
+          <p>微信打赏</p>
+        </div>
+      
+      
+        <div id="alipay" style="display: inline-block">
+          <img id="alipay_qr" src="https://manlili.github.io/img/pay/Alipay.jpg" alt="满利利 Alipay"/>
+          <p>支付宝打赏</p>
+        </div>
+      
+    </div>
+  </div>
+
+
+      
+    </div>
+
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/webpack/" rel="tag"># webpack</a>
+          
+            <a href="/tags/loaders/" rel="tag"># loaders</a>
+          
+            <a href="/tags/plugins/" rel="tag"># plugins</a>
+          
+            <a href="/tags/entry/" rel="tag"># entry</a>
+          
+            <a href="/tags/output/" rel="tag"># output</a>
+          
+            <a href="/tags/四大核心/" rel="tag"># 四大核心</a>
+          
+        </div>
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2017/05/11/webpack入门指南/" rel="next" title="webpack入门指南">
+                <i class="fa fa-chevron-left"></i> webpack入门指南
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2017/05/19/webpack之plugins例子/" rel="prev" title="webpack之plugins例子">
+                webpack之plugins例子 <i class="fa fa-chevron-right"></i>
+              </a>
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </article>
+
+
+
+    <div class="post-spread">
+      
+    </div>
+  </div>
+
+          
+          </div>
+          
+
+
+          
+  <div class="comments" id="comments">
+    
+  </div>
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap" >
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview">
+            站点概览
+          </li>
+        </ul>
+      
+
+      <section class="site-overview sidebar-panel">
+        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+          <img class="site-author-image" itemprop="image"
+               src="/uploads/avatar.jpg"
+               alt="满利利" />
+          <p class="site-author-name" itemprop="name">满利利</p>
+          <p class="site-description motion-element" itemprop="description">前端开发工程师</p>
+        </div>
+        <nav class="site-state motion-element">
+        
+          
+            <div class="site-state-item site-state-posts">
+              <a href="/archives">
+                <span class="site-state-item-count">88</span>
+                <span class="site-state-item-name">日志</span>
+              </a>
+            </div>
+          
+
+          
+            <div class="site-state-item site-state-categories">
+              <a href="/categories">
+                <span class="site-state-item-count">14</span>
+                <span class="site-state-item-name">分类</span>
+              </a>
+            </div>
+          
+
+          
+            <div class="site-state-item site-state-tags">
+              <a href="/tags">
+                <span class="site-state-item-count">101</span>
+                <span class="site-state-item-name">标签</span>
+              </a>
+            </div>
+          
+
+        </nav>
+
+        
+
+        <div class="links-of-author motion-element">
+          
+            
+              <span class="links-of-author-item">
+                <a href="https://github.com/manlili" target="_blank" title="GitHub">
+                  
+                    <i class="fa fa-fw fa-github"></i>
+                  
+                  GitHub
+                </a>
+              </span>
+            
+              <span class="links-of-author-item">
+                <a href="" target="_blank" title="manlili1010@qq.com">
+                  
+                    <i class="fa fa-fw fa-qq"></i>
+                  
+                  manlili1010@qq.com
+                </a>
+              </span>
+            
+          
+        </div>
+
+        
+        
+
+        
+        
+
+        <div class="trunk"><div><div><div><div><div><div><div><div></div><div></div></div><div><div></div><div></div></div></div><div><div><div></div><div></div></div><div><div></div><div></div></div></div></div><div><div><div><div></div><div></div></div><div><div></div><div></div></div></div><div><div><div></div><div></div></div><div><div></div><div></div></div></div></div></div><div><div><div><div><div></div><div></div></div><div><div></div><div></div></div></div><div><div><div></div><div></div></div><div><div></div><div></div></div></div></div><div><div><div><div></div><div></div></div><div><div></div><div></div></div></div><div><div><div></div><div></div></div><div><div></div><div></div></div></div></div></div></div><div><div><div><div><div><div></div><div></div></div><div><div></div><div></div></div></div><div><div><div></div><div></div></div><div><div></div><div></div></div></div></div><div><div><div><div></div><div></div></div><div><div></div><div></div></div></div><div><div><div></div><div></div></div><div><div></div><div></div></div></div></div></div><div><div><div><div><div></div><div></div></div><div><div></div><div></div></div></div><div><div><div></div><div></div></div><div><div></div><div></div></div></div></div><div><div><div><div></div><div></div></div><div><div></div><div></div></div></div><div><div><div></div><div></div></div><div><div></div><div></div></div></div></div></div></div></div><div><div><div><div><div><div><div></div><div></div></div><div><div></div><div></div></div></div><div><div><div></div><div></div></div><div><div></div><div></div></div></div></div><div><div><div><div></div><div></div></div><div><div></div><div></div></div></div><div><div><div></div><div></div></div><div><div></div><div></div></div></div></div></div><div><div><div><div><div></div><div></div></div><div><div></div><div></div></div></div><div><div><div></div><div></div></div><div><div></div><div></div></div></div></div><div><div><div><div></div><div></div></div><div><div></div><div></div></div></div><div><div><div></div><div></div></div><div><div></div><div></div></div></div></div></div></div><div><div><div><div><div><div></div><div></div></div><div><div></div><div></div></div></div><div><div><div></div><div></div></div><div><div></div><div></div></div></div></div><div><div><div><div></div><div></div></div><div><div></div><div></div></div></div><div><div><div></div><div></div></div><div><div></div><div></div></div></div></div></div><div><div><div><div><div></div><div></div></div><div><div></div><div></div></div></div><div><div><div></div><div></div></div><div><div></div><div></div></div></div></div><div><div><div><div></div><div></div></div><div><div></div><div></div></div></div><div><div><div></div><div></div></div><div><div></div><div></div></div></div></div></div></div></div></div><div><div><div><div><div><div><div><div></div><div></div></div><div><div></div><div></div></div></div><div><div><div></div><div></div></div><div><div></div><div></div></div></div></div><div><div><div><div></div><div></div></div><div><div></div><div></div></div></div><div><div><div></div><div></div></div><div><div></div><div></div></div></div></div></div><div><div><div><div><div></div><div></div></div><div><div></div><div></div></div></div><div><div><div></div><div></div></div><div><div></div><div></div></div></div></div><div><div><div><div></div><div></div></div><div><div></div><div></div></div></div><div><div><div></div><div></div></div><div><div></div><div></div></div></div></div></div></div><div><div><div><div><div><div></div><div></div></div><div><div></div><div></div></div></div><div><div><div></div><div></div></div><div><div></div><div></div></div></div></div><div><div><div><div></div><div></div></div><div><div></div><div></div></div></div><div><div><div></div><div></div></div><div><div></div><div></div></div></div></div></div><div><div><div><div><div></div><div></div></div><div><div></div><div></div></div></div><div><div><div></div><div></div></div><div><div></div><div></div></div></div></div><div><div><div><div></div><div></div></div><div><div></div><div></div></div></div><div><div><div></div><div></div></div><div><div></div><div></div></div></div></div></div></div></div><div><div><div><div><div><div><div></div><div></div></div><div><div></div><div></div></div></div><div><div><div></div><div></div></div><div><div></div><div></div></div></div></div><div><div><div><div></div><div></div></div><div><div></div><div></div></div></div><div><div><div></div><div></div></div><div><div></div><div></div></div></div></div></div><div><div><div><div><div></div><div></div></div><div><div></div><div></div></div></div><div><div><div></div><div></div></div><div><div></div><div></div></div></div></div><div><div><div><div></div><div></div></div><div><div></div><div></div></div></div><div><div><div></div><div></div></div><div><div></div><div></div></div></div></div></div></div><div><div><div><div><div><div></div><div></div></div><div><div></div><div></div></div></div><div><div><div></div><div></div></div><div><div></div><div></div></div></div></div><div><div><div><div></div><div></div></div><div><div></div><div></div></div></div><div><div><div></div><div></div></div><div><div></div><div></div></div></div></div></div><div><div><div><div><div></div><div></div></div><div><div></div><div></div></div></div><div><div><div></div><div></div></div><div><div></div><div></div></div></div></div><div><div><div><div></div><div></div></div><div><div></div><div></div></div></div><div><div><div></div><div></div></div><div><div></div><div></div></div></div></div></div></div></div></div></div>
+
+
+      </section>
+
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#入口entry"><span class="nav-number">1.</span> <span class="nav-text">入口entry</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#entry的字符串或者数组写法"><span class="nav-number">1.1.</span> <span class="nav-text">entry的字符串或者数组写法</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#entry-对象写法"><span class="nav-number">1.2.</span> <span class="nav-text">entry 对象写法</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#打包输出output"><span class="nav-number">2.</span> <span class="nav-text">打包输出output</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#用法"><span class="nav-number">2.1.</span> <span class="nav-text">用法</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#output-filename"><span class="nav-number">2.2.</span> <span class="nav-text">output.filename</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#output-path-必选"><span class="nav-number">2.3.</span> <span class="nav-text">output.path(必选)</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#加载器Loaders"><span class="nav-number">3.</span> <span class="nav-text">加载器Loaders</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#webpack中有三种方式引用loaders"><span class="nav-number">3.1.</span> <span class="nav-text">webpack中有三种方式引用loaders</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#插件Plugins"><span class="nav-number">4.</span> <span class="nav-text">插件Plugins</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#用法："><span class="nav-number">4.1.</span> <span class="nav-text">用法：</span></a></li></ol></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright" >
+  
+  &copy; 
+  <span itemprop="copyrightYear">2017</span>
+  <span class="with-love">
+    <i class="fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">满利利</span>
+</div>
+
+
+
+        
+
+        
+      </div>
+    </footer>
+
+    <div class="back-to-top">
+      <i class="fa fa-arrow-up"></i>
+    </div>
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+  
+  <script type="text/javascript" src="/lib/jquery/index.js?v=2.1.3"></script>
+
+  
+  <script type="text/javascript" src="/lib/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+
+  
+  <script type="text/javascript" src="/lib/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+
+  
+  <script type="text/javascript" src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+
+  
+  <script type="text/javascript" src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+
+  
+  <script type="text/javascript" src="/lib/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=5.1.0"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=5.1.0"></script>
+
+
+
+  
+  
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.0"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.1.0"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.1.0"></script>
+
+
+
+  
+
+
+
+  
+
+
+
+
+	
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+  
+      <!-- UY BEGIN -->
+      <script type="text/javascript" src="http://v2.uyan.cc/code/uyan.js?uid="></script>
+      <!-- UY END -->
+  
+
+
+
+
+  
+  
+
+  
+
+  
+
+  
+
+  
+
+
+</body>
+</html>
