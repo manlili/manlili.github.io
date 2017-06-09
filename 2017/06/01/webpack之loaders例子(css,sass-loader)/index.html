@@ -84,26 +84,23 @@
 
 
 
-<meta name="description" content="下面来介绍css或者less的打包转义后插入html，一般打包用css-loader,插入html用的style-loader,下面来看下步骤
-第一步在空白的文件夹正确的安装webpack，这一步webpack入门指南已经讲过了。然后创建源文件夹src,在src下面创建app.js和css文件夹，css文件夹下面创建个common.css，然后创建个目标文件夹dist,用来盛放打包生成的文件.
-第">
+<meta name="description" content="下面来介绍css或者less的打包转义后插入html，一般打包用css-loader,插入html用的style-loader,源码地址https://github.com/manlili/webpack_learn里面的lesson09下面来看下步骤
+第一步在空白的文件夹正确的安装webpack，这一步webpack入门指南已经讲过了。然后创建源文件夹src,在src下面创建app.js和css">
 <meta property="og:type" content="article">
 <meta property="og:title" content="webpack之loaders例子(css,sass-loader)">
 <meta property="og:url" content="http://yoursite.com/2017/06/01/webpack之loaders例子(css,sass-loader)/index.html">
 <meta property="og:site_name" content="manlili blog">
-<meta property="og:description" content="下面来介绍css或者less的打包转义后插入html，一般打包用css-loader,插入html用的style-loader,下面来看下步骤
-第一步在空白的文件夹正确的安装webpack，这一步webpack入门指南已经讲过了。然后创建源文件夹src,在src下面创建app.js和css文件夹，css文件夹下面创建个common.css，然后创建个目标文件夹dist,用来盛放打包生成的文件.
-第">
+<meta property="og:description" content="下面来介绍css或者less的打包转义后插入html，一般打包用css-loader,插入html用的style-loader,源码地址https://github.com/manlili/webpack_learn里面的lesson09下面来看下步骤
+第一步在空白的文件夹正确的安装webpack，这一步webpack入门指南已经讲过了。然后创建源文件夹src,在src下面创建app.js和css">
 <meta property="og:image" content="https://manlili.github.io/img/170601/1.png">
 <meta property="og:image" content="https://manlili.github.io/img/170601/2.png">
 <meta property="og:image" content="https://manlili.github.io/img/170601/3.png">
 <meta property="og:image" content="https://manlili.github.io/img/170601/4.png">
-<meta property="og:updated_time" content="2017-06-09T07:28:46.190Z">
+<meta property="og:updated_time" content="2017-06-09T08:03:15.226Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="webpack之loaders例子(css,sass-loader)">
-<meta name="twitter:description" content="下面来介绍css或者less的打包转义后插入html，一般打包用css-loader,插入html用的style-loader,下面来看下步骤
-第一步在空白的文件夹正确的安装webpack，这一步webpack入门指南已经讲过了。然后创建源文件夹src,在src下面创建app.js和css文件夹，css文件夹下面创建个common.css，然后创建个目标文件夹dist,用来盛放打包生成的文件.
-第">
+<meta name="twitter:description" content="下面来介绍css或者less的打包转义后插入html，一般打包用css-loader,插入html用的style-loader,源码地址https://github.com/manlili/webpack_learn里面的lesson09下面来看下步骤
+第一步在空白的文件夹正确的安装webpack，这一步webpack入门指南已经讲过了。然后创建源文件夹src,在src下面创建app.js和css">
 <meta name="twitter:image" content="https://manlili.github.io/img/170601/1.png">
 
 
@@ -378,7 +375,7 @@
       
 
       
-        <p>下面来介绍css或者less的打包转义后插入html，一般打包用css-loader,插入html用的style-loader,下面来看下步骤</p>
+        <p>下面来介绍css或者less的打包转义后插入html，一般打包用css-loader,插入html用的style-loader,<br><a href="https://github.com/manlili/webpack_learn" target="_blank" rel="external">源码地址https://github.com/manlili/webpack_learn里面的lesson09</a><br>下面来看下步骤</p>
 <h2 id="第一步"><a href="#第一步" class="headerlink" title="第一步"></a>第一步</h2><p>在空白的文件夹正确的安装webpack，这一步<a href="https://manlili.github.io/2017/05/11/webpack%E5%85%A5%E9%97%A8%E6%8C%87%E5%8D%97/" target="_blank" rel="external">webpack入门指南</a>已经讲过了。<br>然后创建源文件夹src,在src下面创建app.js和css文件夹，css文件夹下面创建个common.css，然后创建个目标文件夹dist,用来盛放打包生成的文件.</p>
 <h2 id="第二步"><a href="#第二步" class="headerlink" title="第二步"></a>第二步</h2><p>在根目录下面创建index.html,内容是:<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div></pre></td><td class="code"><pre><div class="line">&lt;!DOCTYPE html&gt;</div><div class="line">&lt;html&gt;</div><div class="line">	&lt;head&gt;</div><div class="line">		&lt;meta charset=<span class="string">"UTF-8"</span>&gt;</div><div class="line">		&lt;title&gt;&lt;%= htmlWebpackPlugin.options.title %&gt;&lt;/title&gt;</div><div class="line">	&lt;/head&gt;</div><div class="line">	&lt;body&gt;</div><div class="line"></div><div class="line">	&lt;/body&gt;</div><div class="line">&lt;/html&gt;</div></pre></td></tr></table></figure></p>
 <p>来看下common.css文件内容:<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">html , body &#123;</div><div class="line">	padding: 0;</div><div class="line">	margin: 0;</div><div class="line">	background-color: red;</div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
