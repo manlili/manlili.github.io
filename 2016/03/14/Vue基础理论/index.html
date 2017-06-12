@@ -84,21 +84,21 @@
 
 
 
-<meta name="description" content="大概了解下vue的基础理论gitHub地址:[https://github.com/manlili/vue_learn]
-vue的定位(1)Vue.js是一个构建数据驱动的 web 界面的库。(2)Vue.js 的目标是通过尽可能简单的 API 实现响应的数据绑定和组合的视图组件。(3)Vue.js 自身不是一个全能框架——它只聚焦于视图层。因此它非常容易学习，非常容易与其它库或已有项目整合。(4">
+<meta name="description" content="大概了解下vue的基础理论github地址:https://github.com/manlili/vue_learn里面的lesson02
+vue的定位(1)Vue.js是一个构建数据驱动的 web 界面的库。(2)Vue.js 的目标是通过尽可能简单的 API 实现响应的数据绑定和组合的视图组件。(3)Vue.js 自身不是一个全能框架——它只聚焦于视图层。因此它非常容易学习，非常容易与其它库或">
 <meta property="og:type" content="article">
 <meta property="og:title" content="Vue基础理论">
 <meta property="og:url" content="http://yoursite.com/2016/03/14/Vue基础理论/index.html">
 <meta property="og:site_name" content="manlili blog">
-<meta property="og:description" content="大概了解下vue的基础理论gitHub地址:[https://github.com/manlili/vue_learn]
-vue的定位(1)Vue.js是一个构建数据驱动的 web 界面的库。(2)Vue.js 的目标是通过尽可能简单的 API 实现响应的数据绑定和组合的视图组件。(3)Vue.js 自身不是一个全能框架——它只聚焦于视图层。因此它非常容易学习，非常容易与其它库或已有项目整合。(4">
+<meta property="og:description" content="大概了解下vue的基础理论github地址:https://github.com/manlili/vue_learn里面的lesson02
+vue的定位(1)Vue.js是一个构建数据驱动的 web 界面的库。(2)Vue.js 的目标是通过尽可能简单的 API 实现响应的数据绑定和组合的视图组件。(3)Vue.js 自身不是一个全能框架——它只聚焦于视图层。因此它非常容易学习，非常容易与其它库或">
 <meta property="og:image" content="https://manlili.github.io/img/160314/1.png">
 <meta property="og:image" content="https://manlili.github.io/img/160314/2.png">
-<meta property="og:updated_time" content="2017-02-16T12:32:15.126Z">
+<meta property="og:updated_time" content="2017-06-12T09:35:50.893Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Vue基础理论">
-<meta name="twitter:description" content="大概了解下vue的基础理论gitHub地址:[https://github.com/manlili/vue_learn]
-vue的定位(1)Vue.js是一个构建数据驱动的 web 界面的库。(2)Vue.js 的目标是通过尽可能简单的 API 实现响应的数据绑定和组合的视图组件。(3)Vue.js 自身不是一个全能框架——它只聚焦于视图层。因此它非常容易学习，非常容易与其它库或已有项目整合。(4">
+<meta name="twitter:description" content="大概了解下vue的基础理论github地址:https://github.com/manlili/vue_learn里面的lesson02
+vue的定位(1)Vue.js是一个构建数据驱动的 web 界面的库。(2)Vue.js 的目标是通过尽可能简单的 API 实现响应的数据绑定和组合的视图组件。(3)Vue.js 自身不是一个全能框架——它只聚焦于视图层。因此它非常容易学习，非常容易与其它库或">
 <meta name="twitter:image" content="https://manlili.github.io/img/160314/1.png">
 
 
@@ -373,7 +373,7 @@ vue的定位(1)Vue.js是一个构建数据驱动的 web 界面的库。(2)Vue.js
       
 
       
-        <p>大概了解下vue的基础理论<br>gitHub地址:[<a href="https://github.com/manlili/vue_learn" target="_blank" rel="external">https://github.com/manlili/vue_learn</a>]</p>
+        <p>大概了解下vue的基础理论<br>github地址:<a href="https://github.com/manlili/vue_learn" target="_blank" rel="external">https://github.com/manlili/vue_learn里面的lesson02</a></p>
 <h2 id="vue的定位"><a href="#vue的定位" class="headerlink" title="vue的定位"></a>vue的定位</h2><p>(1)Vue.js是一个构建数据驱动的 web 界面的库。<br>(2)Vue.js 的目标是通过尽可能简单的 API 实现响应的数据绑定和组合的视图组件。<br>(3)Vue.js 自身不是一个全能框架——它只聚焦于视图层。因此它非常容易学习，非常容易与其它库或已有项目整合。<br>(4)在与相关工具和支持库一起使用时，Vue.js 也能完美地驱动复杂的单页应用。</p>
 <h2 id="响应的数据绑定"><a href="#响应的数据绑定" class="headerlink" title="响应的数据绑定"></a>响应的数据绑定</h2><p>通俗地讲，它意味着我们在普通 HTML 模板中使用特殊的语法将 DOM “绑定”到底层数据。一旦创建了绑定，DOM 将与数据保持同步。每当修改了数据，DOM 便相应地更新。这样我们应用中的逻辑就几乎都是直接修改数据了，不必像jquery与 DOM 更新搅在一起。这种思想可以概括为数据驱动的视图,具体用下图展示<br><img src="https://manlili.github.io/img/160314/1.png" alt="图"><br>用程序说明上图的意义,如下:(绑定 DOM 文本到数据)<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div></pre></td><td class="code"><pre><div class="line">&lt;!DOCTYPE html&gt;</div><div class="line">&lt;html&gt;</div><div class="line">    &lt;head&gt;</div><div class="line">        &lt;meta charset=<span class="string">"UTF-8"</span>&gt;</div><div class="line">        &lt;title&gt;vue基础理论&lt;/title&gt;</div><div class="line">        &lt;script src=<span class="string">"../js/vue.js"</span> <span class="built_in">type</span>=<span class="string">"text/javascript"</span> charset=<span class="string">"utf-8"</span>&gt;&lt;/script&gt;</div><div class="line">    &lt;/head&gt;</div><div class="line">    &lt;body&gt;</div><div class="line">        &lt;div class=<span class="string">"test"</span>&gt; &lt;!--视图View--&gt;</div><div class="line">            &#123;&#123;name&#125;&#125;</div><div class="line">        &lt;/div&gt;</div><div class="line">        &lt;script <span class="built_in">type</span>=<span class="string">"text/javascript"</span>&gt;</div><div class="line">            var datas=&#123;    //数据Model</div><div class="line">                name:<span class="string">"lili"</span></div><div class="line">            &#125;;</div><div class="line">            </div><div class="line">            var myVue = new Vue(&#123;   //vue库,连接View和Model</div><div class="line">                el:<span class="string">".test"</span>,</div><div class="line">                data:datas</div><div class="line">            &#125;)</div><div class="line">        &lt;/script&gt;</div><div class="line">    &lt;/body&gt;</div><div class="line">&lt;/html&gt;</div></pre></td></tr></table></figure></p>
 <p>注意我们不需要撰写任何 DOM 操作代码：被绑定增强的 HTML 模板是底层数据状态的声明式的映射，数据不过是普通 JavaScript 对象。我们的视图完全由数据驱动。</p>
