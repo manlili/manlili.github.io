@@ -84,25 +84,25 @@
 
 
 
-<meta name="description" content="今天继续学习Vue实例和方法，写了几个测试例子，记点笔记。gitHub地址:https://github.com/manlili/vue_learn
-实例每个 Vue 实例都会代理其 data 对象里所有的属性,改变data,vue实例同时改变,当然改变vue实例,data也同时改变,即   vue实例&amp;lt;=&amp;gt;data12345678910111213141516171819202122">
+<meta name="description" content="今天继续学习Vue实例和方法，写了几个测试例子，记点笔记。gitHub地址:github地址:https://github.com/manlili/vue_learn里面的lesson03
+实例每个 Vue 实例都会代理其 data 对象里所有的属性,改变data,vue实例同时改变,当然改变vue实例,data也同时改变,即   vue实例&amp;lt;=&amp;gt;data123456789101112">
 <meta property="og:type" content="article">
 <meta property="og:title" content="Vue实例和方法">
 <meta property="og:url" content="http://yoursite.com/2016/04/14/Vue实例和方法/index.html">
 <meta property="og:site_name" content="manlili blog">
-<meta property="og:description" content="今天继续学习Vue实例和方法，写了几个测试例子，记点笔记。gitHub地址:https://github.com/manlili/vue_learn
-实例每个 Vue 实例都会代理其 data 对象里所有的属性,改变data,vue实例同时改变,当然改变vue实例,data也同时改变,即   vue实例&amp;lt;=&amp;gt;data12345678910111213141516171819202122">
+<meta property="og:description" content="今天继续学习Vue实例和方法，写了几个测试例子，记点笔记。gitHub地址:github地址:https://github.com/manlili/vue_learn里面的lesson03
+实例每个 Vue 实例都会代理其 data 对象里所有的属性,改变data,vue实例同时改变,当然改变vue实例,data也同时改变,即   vue实例&amp;lt;=&amp;gt;data123456789101112">
 <meta property="og:image" content="https://manlili.github.io/img/160414/1.png">
 <meta property="og:image" content="https://manlili.github.io/img/160414/2.png">
 <meta property="og:image" content="https://manlili.github.io/img/160414/3.png">
 <meta property="og:image" content="https://manlili.github.io/img/160414/4.png">
 <meta property="og:image" content="https://manlili.github.io/img/160414/5.png">
 <meta property="og:image" content="https://manlili.github.io/img/160414/6.png">
-<meta property="og:updated_time" content="2016-10-10T05:55:04.035Z">
+<meta property="og:updated_time" content="2017-06-12T09:27:01.841Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Vue实例和方法">
-<meta name="twitter:description" content="今天继续学习Vue实例和方法，写了几个测试例子，记点笔记。gitHub地址:https://github.com/manlili/vue_learn
-实例每个 Vue 实例都会代理其 data 对象里所有的属性,改变data,vue实例同时改变,当然改变vue实例,data也同时改变,即   vue实例&amp;lt;=&amp;gt;data12345678910111213141516171819202122">
+<meta name="twitter:description" content="今天继续学习Vue实例和方法，写了几个测试例子，记点笔记。gitHub地址:github地址:https://github.com/manlili/vue_learn里面的lesson03
+实例每个 Vue 实例都会代理其 data 对象里所有的属性,改变data,vue实例同时改变,当然改变vue实例,data也同时改变,即   vue实例&amp;lt;=&amp;gt;data123456789101112">
 <meta name="twitter:image" content="https://manlili.github.io/img/160414/1.png">
 
 
@@ -377,7 +377,7 @@
       
 
       
-        <p>今天继续学习Vue实例和方法，写了几个测试例子，记点笔记。<br>gitHub地址:<a href="https://github.com/manlili/vue_learn" target="_blank" rel="external">https://github.com/manlili/vue_learn</a></p>
+        <p>今天继续学习Vue实例和方法，写了几个测试例子，记点笔记。<br>gitHub地址:github地址:<a href="https://github.com/manlili/vue_learn" target="_blank" rel="external">https://github.com/manlili/vue_learn里面的lesson03</a></p>
 <h2 id="实例"><a href="#实例" class="headerlink" title="实例"></a>实例</h2><p>每个 Vue 实例都会代理其 data 对象里所有的属性,改变data,vue实例同时改变,当然改变vue实例,data也同时改变,即   vue实例&lt;=&gt;data<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div></pre></td><td class="code"><pre><div class="line">&lt;!DOCTYPE html&gt;</div><div class="line">&lt;html&gt;</div><div class="line">    &lt;head&gt;</div><div class="line">        &lt;meta charset=<span class="string">"UTF-8"</span>&gt;</div><div class="line">        &lt;title&gt;vue实例与方法&lt;/title&gt;</div><div class="line">        &lt;script src=<span class="string">"../js/vue.js"</span> <span class="built_in">type</span>=<span class="string">"text/javascript"</span> charset=<span class="string">"utf-8"</span>&gt;&lt;/script&gt;</div><div class="line">        &lt;meta name=<span class="string">"viewport"</span> content=<span class="string">"width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no"</span> /&gt;</div><div class="line">    &lt;/head&gt;</div><div class="line">    &lt;body&gt;</div><div class="line">        &lt;div class=<span class="string">"test"</span>&gt;</div><div class="line">            &#123;&#123;a&#125;&#125;</div><div class="line">        &lt;/div&gt;</div><div class="line">        &lt;script <span class="built_in">type</span>=<span class="string">"text/javascript"</span>&gt;</div><div class="line">            var data = &#123;</div><div class="line">                a: 1</div><div class="line">            &#125;</div><div class="line">            var myVue = new Vue(&#123;</div><div class="line">                el: <span class="string">".test"</span>,</div><div class="line">                data: data</div><div class="line">            &#125;)</div><div class="line">        &lt;/script&gt;</div><div class="line">    &lt;/body&gt;</div><div class="line">&lt;/html&gt;</div></pre></td></tr></table></figure></p>
 <p>在console控制台操作是:(其中每种颜色框起来的代码都是一组改变)<br><img src="https://manlili.github.io/img/160414/1.png" alt="图"></p>
 <h2 id="实例数据如何被追踪变化"><a href="#实例数据如何被追踪变化" class="headerlink" title="实例数据如何被追踪变化"></a>实例数据如何被追踪变化</h2><p>注意只有这些被代理的属性是响应的。如果在实例创建之后添加新的属性到实例上，它不会触发视图更新.那么就要讲下实例数据如何被追踪变化<br>把一个普通对象传给 Vue 实例作为它的 data 选项，Vue.js 将遍历它的属性，用Object.defineProperty 将它们转为 getter/setter,在内部它们让 Vue.js 追踪依赖，在属性被访问和修改时通知变化,<br>举个例子:(我们访问接口时返回的数据通常是get和set)<br><img src="https://manlili.github.io/img/160414/2.png" alt="图"></p>

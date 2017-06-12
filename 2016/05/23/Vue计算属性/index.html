@@ -84,25 +84,25 @@
 
 
 
-<meta name="description" content="写一下最近用到的vue计算属性gitHub地址:[https://github.com/manlili/vue_learn]
+<meta name="description" content="写一下最近用到的vue计算属性github地址:https://github.com/manlili/vue_learn里面的lesson06
 计算属性定位当一些数据需要根据其它数据变化时,这时候就需要计算属性
-$watch实现计算属性举个例子123456789101112131415161718192021222324252627&amp;lt;!DOCTYPE html&amp;gt;&amp;lt;html&amp;gt;    &amp;lt;h">
+$watch实现计算属性举个例子123456789101112131415161718192021222324252627&amp;lt;!DOCTYPE html&amp;gt;&amp;lt;html&amp;gt;">
 <meta property="og:type" content="article">
 <meta property="og:title" content="Vue计算属性">
 <meta property="og:url" content="http://yoursite.com/2016/05/23/Vue计算属性/index.html">
 <meta property="og:site_name" content="manlili blog">
-<meta property="og:description" content="写一下最近用到的vue计算属性gitHub地址:[https://github.com/manlili/vue_learn]
+<meta property="og:description" content="写一下最近用到的vue计算属性github地址:https://github.com/manlili/vue_learn里面的lesson06
 计算属性定位当一些数据需要根据其它数据变化时,这时候就需要计算属性
-$watch实现计算属性举个例子123456789101112131415161718192021222324252627&amp;lt;!DOCTYPE html&amp;gt;&amp;lt;html&amp;gt;    &amp;lt;h">
+$watch实现计算属性举个例子123456789101112131415161718192021222324252627&amp;lt;!DOCTYPE html&amp;gt;&amp;lt;html&amp;gt;">
 <meta property="og:image" content="https://manlili.github.io/img/160523/1.png">
 <meta property="og:image" content="https://manlili.github.io/img/160523/2.png">
 <meta property="og:image" content="https://manlili.github.io/img/160523/3.png">
-<meta property="og:updated_time" content="2017-02-17T03:18:46.467Z">
+<meta property="og:updated_time" content="2017-06-12T09:28:35.653Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Vue计算属性">
-<meta name="twitter:description" content="写一下最近用到的vue计算属性gitHub地址:[https://github.com/manlili/vue_learn]
+<meta name="twitter:description" content="写一下最近用到的vue计算属性github地址:https://github.com/manlili/vue_learn里面的lesson06
 计算属性定位当一些数据需要根据其它数据变化时,这时候就需要计算属性
-$watch实现计算属性举个例子123456789101112131415161718192021222324252627&amp;lt;!DOCTYPE html&amp;gt;&amp;lt;html&amp;gt;    &amp;lt;h">
+$watch实现计算属性举个例子123456789101112131415161718192021222324252627&amp;lt;!DOCTYPE html&amp;gt;&amp;lt;html&amp;gt;">
 <meta name="twitter:image" content="https://manlili.github.io/img/160523/1.png">
 
 
@@ -377,7 +377,7 @@ $watch实现计算属性举个例子12345678910111213141516171819202122232425262
       
 
       
-        <p>写一下最近用到的vue计算属性<br>gitHub地址:[<a href="https://github.com/manlili/vue_learn" target="_blank" rel="external">https://github.com/manlili/vue_learn</a>]</p>
+        <p>写一下最近用到的vue计算属性<br>github地址:<a href="https://github.com/manlili/vue_learn" target="_blank" rel="external">https://github.com/manlili/vue_learn里面的lesson06</a></p>
 <h2 id="计算属性定位"><a href="#计算属性定位" class="headerlink" title="计算属性定位"></a>计算属性定位</h2><p>当一些数据需要根据其它数据变化时,这时候就需要计算属性</p>
 <h2 id="watch实现计算属性"><a href="#watch实现计算属性" class="headerlink" title="$watch实现计算属性"></a>$watch实现计算属性</h2><p>举个例子<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div></pre></td><td class="code"><pre><div class="line">&lt;!DOCTYPE html&gt;</div><div class="line">&lt;html&gt;</div><div class="line">    &lt;head&gt;</div><div class="line">        &lt;meta charset=<span class="string">"UTF-8"</span>&gt;</div><div class="line">        &lt;title&gt;vue计算属性&lt;/title&gt;</div><div class="line">        &lt;meta name=<span class="string">"viewport"</span> content=<span class="string">"width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no"</span> /&gt;</div><div class="line">        &lt;script src=<span class="string">"../js/vue.js"</span> <span class="built_in">type</span>=<span class="string">"text/javascript"</span> charset=<span class="string">"utf-8"</span>&gt;&lt;/script&gt;</div><div class="line">    &lt;/head&gt;</div><div class="line">    &lt;body&gt;</div><div class="line">        &lt;div class=<span class="string">"test"</span>&gt;</div><div class="line">            a的值是&#123;&#123;a&#125;&#125;</div><div class="line">            b的值是&#123;&#123;b&#125;&#125;</div><div class="line">        &lt;/div&gt;</div><div class="line">        &lt;script <span class="built_in">type</span>=<span class="string">"text/javascript"</span>&gt;</div><div class="line">            var myVue = new Vue(&#123;</div><div class="line">                el: <span class="string">".test"</span>,</div><div class="line">                data: &#123;</div><div class="line">                    a: 1,</div><div class="line">                    b: 0</div><div class="line">                &#125;</div><div class="line">            &#125;)</div><div class="line">            myVue.<span class="variable">$watch</span>(<span class="string">"a"</span>,<span class="function"><span class="title">function</span></span> () &#123;</div><div class="line">                this.b = this.a+3;</div><div class="line">            &#125;)</div><div class="line">        &lt;/script&gt;</div><div class="line">    &lt;/body&gt;</div><div class="line">&lt;/html&gt;</div></pre></td></tr></table></figure></p>
 <p>正常输出时:a的值是1,b的值为0,但是当在控制台输入:<br><img src="https://manlili.github.io/img/160523/1.png" alt="图"><br>说明b的数据是根据a变化而变化的</p>
