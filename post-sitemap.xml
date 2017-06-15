@@ -7,6 +7,14 @@
     </url>
 
     <url>
+        <loc>http://yoursite.com/2017/06/15/GET%EF%BC%8CPOST%EF%BC%8CPUT%EF%BC%8CDELETE%E7%9A%84%E5%8C%BA%E5%88%AB/</loc>
+        <lastmod>2017-06-15T06:26:36.856Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.6</priority>
+
+    </url>
+
+    <url>
         <loc>http://yoursite.com/2016/03/14/Vue%E5%9F%BA%E7%A1%80%E7%90%86%E8%AE%BA/</loc>
         <lastmod>2017-06-12T09:35:50.893Z</lastmod>
         <changefreq>weekly</changefreq>
