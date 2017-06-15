@@ -90,7 +90,7 @@
 <meta property="og:url" content="http://yoursite.com/2017/06/15/GET，POST，PUT，DELETE的区别/index.html">
 <meta property="og:site_name" content="manlili blog">
 <meta property="og:description" content="Http协议，发起请求成功，首先是通过DNS域名解析器，将www.baidu.com这个域名，解析到正确的ip地址的服务器上，一般情况没有指定后面具体的资源，浏览器会将自动定位到根目录”/“下即将www.baidu.com拼凑成www.baidu.com/ ,www.baidu.com只是DNS可以解析到ip的域名，”/“是指定资源的位置，一般根目录下会默认为index文件（当然这个随意服务器配置">
-<meta property="og:updated_time" content="2017-06-15T06:26:36.856Z">
+<meta property="og:updated_time" content="2017-06-15T06:34:36.707Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="GET，POST，PUT，DELETE的区别">
 <meta name="twitter:description" content="Http协议，发起请求成功，首先是通过DNS域名解析器，将www.baidu.com这个域名，解析到正确的ip地址的服务器上，一般情况没有指定后面具体的资源，浏览器会将自动定位到根目录”/“下即将www.baidu.com拼凑成www.baidu.com/ ,www.baidu.com只是DNS可以解析到ip的域名，”/“是指定资源的位置，一般根目录下会默认为index文件（当然这个随意服务器配置">
@@ -395,7 +395,7 @@
 <h2 id="根据HTTP规范，GET用于信息获取，而且应该是安全的和幂等的。"><a href="#根据HTTP规范，GET用于信息获取，而且应该是安全的和幂等的。" class="headerlink" title="根据HTTP规范，GET用于信息获取，而且应该是安全的和幂等的。"></a>根据HTTP规范，GET用于信息获取，而且应该是安全的和幂等的。</h2><p>(1).所谓安全的意味着该操作用于获取信息而非修改信息。换句话说，GET 请求一般不应产生副作用。就是说，它仅仅是获取资源信息，就像数据库查询一样，不会修改，增加数据，不会影响资源的状态。<br><strong>注意：这里安全的含义仅仅是指是非修改信息</strong></p>
 <p>(2).幂等的意味着对同一URL的多个请求应该返回同样的结果。这里我再解释一下幂等这个概念：</p>
 <blockquote>
-<p>幂等（idempotent、idempotence）是一个数学或计算机学概念，常见于抽象代数中。<br>幂等有一下几种定义：<br>  对于单目运算，如果一个运算对于在范围内的所有的一个数多次进行该运算所得的结果和进行一次该运算所得的结果是一样的，那么我们就称该运算是幂等的。比如绝对值运算就是一个例子，在实数集中，有abs(a)=abs(abs(a))。<br>　对于双目运算，则要求当参与运算的两个值是等值的情况下，如果满足运算结果与参与运算的两个值相等，则称该运算幂等，如求两个数的最大值的函数，有在在实数集中幂等，即max(x,x) = x。</p>
+<p>幂等（idempotent、idempotence）是一个数学或计算机学概念，常见于抽象代数中。<br>幂等有一下几种定义：<br>  对于单目运算，如果一个运算对于在范围内的所有的一个数多次进行该运算所得的结果和进行一次该运算所得的结果是一样的，那么我们就称该运算是幂等的。比如绝对值运算就是一个例子，在实数集中，有abs(a)=abs(abs(a))。<br>  对于双目运算，则要求当参与运算的两个值是等值的情况下，如果满足运算结果与参与运算的两个值相等，则称该运算幂等，如求两个数的最大值的函数，有在在实数集中幂等，即max(x,x) = x。</p>
 </blockquote>
 <p>看完上述解释后，应该可以理解GET幂等的含义了。</p>
 <p>但在实际应用中，以上2条规定并没有这么严格。引用别人文章的例子：比如，新闻站点的头版不断更新。虽然第二次请求会返回不同的一批新闻，该操作仍然被认为是安全的和幂等的，因为它总是返回当前的新闻。从根本上说，如果目标是当用户打开一个链接时，他可以确信从自身的角度来看没有改变资源即可。</p>
@@ -404,10 +404,13 @@
 <h2 id="GET和POST的区别"><a href="#GET和POST的区别" class="headerlink" title="GET和POST的区别"></a>GET和POST的区别</h2><p>说完原理性的问题，我们再从表面现像上面看看GET和POST的区别：</p>
 <h3 id="数据请求方式"><a href="#数据请求方式" class="headerlink" title="数据请求方式"></a>数据请求方式</h3><p>GET请求的数据会附在URL之后（就是把数据放置在HTTP协议头中），以?分割URL和传输数据，参数之间以&amp;相连，如：login.action?name=hyddd&amp;password=idontknow&amp;verify=%E4%BD%A0%E5%A5%BD。如果数据是英文字母/数字，原样发送，如果是空格，转换为+，如果是中文/其他字符，则直接把字符串用BASE64加密，得出如：%E4%BD%A0%E5%A5%BD，其中％XX中的XX为该符号以16进制表示的ASCII。</p>
 <p>POST把提交的数据则放置在是HTTP包的包体中。</p>
-<h3 id="提交的数据长度"><a href="#提交的数据长度" class="headerlink" title="提交的数据长度"></a>提交的数据长度</h3><p>“GET方式提交的数据最多只能是1024字节，理论上POST没有限制，可传较大量的数据，IIS4中最大为80KB，IIS5中为100KB”？？！以上这句是我从其他文章转过来的，其实这样说是错误的，不准确的：<br>(1)首先是”GET方式提交的数据最多只能是1024字节”，因为GET是通过URL提交数据，那么GET可提交的数据量就跟URL的长度有直接关系了。而实际上，URL不存在参数上限的问题，HTTP协议规范没有对URL长度进行限制。这个限制是特定的浏览器及服务器对它的限制。IE对URL长度的限制是2083字节(2K+35)。对于其他浏览器，如Netscape、FireFox等，理论上没有长度限制，其限制取决于操作系统的支持。</p>
+<h3 id="提交的数据长度"><a href="#提交的数据长度" class="headerlink" title="提交的数据长度"></a>提交的数据长度</h3><p>“GET方式提交的数据最多只能是1024字节，理论上POST没有限制，可传较大量的数据，IIS4中最大为80KB，IIS5中为100KB”？？！以上这句是我从其他文章转过来的，其实这样说是错误的，不准确的：</p>
+<p>(1)首先是”GET方式提交的数据最多只能是1024字节”，因为GET是通过URL提交数据，那么GET可提交的数据量就跟URL的长度有直接关系了。而实际上，URL不存在参数上限的问题，HTTP协议规范没有对URL长度进行限制。这个限制是特定的浏览器及服务器对它的限制。IE对URL长度的限制是2083字节(2K+35)。对于其他浏览器，如Netscape、FireFox等，理论上没有长度限制，其限制取决于操作系统的支持。</p>
 <p>注意这是限制是整个URL长度，而不仅仅是你的参数值数据长度。</p>
 <p>(2)理论上讲，POST是没有大小限制的，HTTP协议规范也没有进行大小限制，说“POST数据量存在80K/100K的大小限制”是不准确的，POST数据是没有限制的，起限制作用的是服务器的处理程序的处理能力。</p>
-<h3 id="POST的安全性要比GET的安全性高"><a href="#POST的安全性要比GET的安全性高" class="headerlink" title="POST的安全性要比GET的安全性高"></a>POST的安全性要比GET的安全性高</h3><p>上面“安全”的含义仅仅是不作数据修改，而这里安全的含义是真正的Security的含义，比如：通过GET提交数据，用户名和密码将明文出现在URL上，因为：<br>(1)登录页面有可能被浏览器缓存。<br>(2)其他人查看浏览器的历史纪录，那么别人就可以拿到你的账号和密码了，除此之外，使用GET提交数据还可能会造成Cross-site request forgery攻击。<br>其实就算是在POST下，我们也可以用charles等抓包工具将数据获取到，这里的安全也是相对的。</p>
+<h3 id="POST的安全性要比GET的安全性高"><a href="#POST的安全性要比GET的安全性高" class="headerlink" title="POST的安全性要比GET的安全性高"></a>POST的安全性要比GET的安全性高</h3><p>上面“安全”的含义仅仅是不作数据修改，而这里安全的含义是真正的Security的含义，比如：通过GET提交数据，用户名和密码将明文出现在URL上，因为：</p>
+<p>(1)登录页面有可能被浏览器缓存。</p>
+<p>(2)其他人查看浏览器的历史纪录，那么别人就可以拿到你的账号和密码了，除此之外，使用GET提交数据还可能会造成Cross-site request forgery攻击。<br>其实就算是在POST下，我们也可以用charles等抓包工具将数据获取到，这里的安全也是相对的。</p>
 <p>总结一下，Get是向服务器发索取数据的一种请求，而Post是向服务器提交数据的一种请求，在FORM（表单）中，Method默认为”GET”，实质上，GET和POST只是发送机制不同，并不是一个取一个发！</p>
 
       
