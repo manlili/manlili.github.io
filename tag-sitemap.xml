@@ -58,6 +58,13 @@
     </url>
 
     <url>
+        <loc>http://yoursite.com/tags/%E7%AB%8B%E5%8D%B3%E6%89%A7%E8%A1%8C%E5%87%BD%E6%95%B0/</loc>
+        <lastmod>2016-05-24T10:15:42.201Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.2</priority>
+    </url>
+
+    <url>
         <loc>http://yoursite.com/tags/vueJS/</loc>
         <lastmod>2016-10-25T06:48:02.498Z</lastmod>
         <changefreq>weekly</changefreq>
@@ -345,20 +352,6 @@
     </url>
 
     <url>
-        <loc>http://yoursite.com/tags/let/</loc>
-        <lastmod>2017-04-06T06:48:17.211Z</lastmod>
-        <changefreq>weekly</changefreq>
-        <priority>0.2</priority>
-    </url>
-
-    <url>
-        <loc>http://yoursite.com/tags/const/</loc>
-        <lastmod>2017-04-06T06:48:17.211Z</lastmod>
-        <changefreq>weekly</changefreq>
-        <priority>0.2</priority>
-    </url>
-
-    <url>
         <loc>http://yoursite.com/tags/javascript/</loc>
         <lastmod>2017-04-06T06:52:23.123Z</lastmod>
         <changefreq>weekly</changefreq>
@@ -387,71 +380,8 @@
     </url>
 
     <url>
-        <loc>http://yoursite.com/tags/%E5%8F%98%E9%87%8F/</loc>
-        <lastmod>2017-04-11T06:09:38.216Z</lastmod>
-        <changefreq>weekly</changefreq>
-        <priority>0.2</priority>
-    </url>
-
-    <url>
-        <loc>http://yoursite.com/tags/%E5%AD%97%E7%AC%A6%E4%B8%B2/</loc>
-        <lastmod>2017-04-11T07:21:21.646Z</lastmod>
-        <changefreq>weekly</changefreq>
-        <priority>0.2</priority>
-    </url>
-
-    <url>
-        <loc>http://yoursite.com/tags/%E6%95%B0%E5%80%BC/</loc>
-        <lastmod>2017-04-11T08:14:50.150Z</lastmod>
-        <changefreq>weekly</changefreq>
-        <priority>0.2</priority>
-    </url>
-
-    <url>
         <loc>http://yoursite.com/tags/setTimeout/</loc>
         <lastmod>2017-04-12T11:40:10.131Z</lastmod>
-        <changefreq>weekly</changefreq>
-        <priority>0.2</priority>
-    </url>
-
-    <url>
-        <loc>http://yoursite.com/tags/%E5%87%BD%E6%95%B0/</loc>
-        <lastmod>2017-04-13T02:23:18.515Z</lastmod>
-        <changefreq>weekly</changefreq>
-        <priority>0.2</priority>
-    </url>
-
-    <url>
-        <loc>http://yoursite.com/tags/%E5%AF%B9%E8%B1%A1/</loc>
-        <lastmod>2017-04-18T08:53:37.904Z</lastmod>
-        <changefreq>weekly</changefreq>
-        <priority>0.2</priority>
-    </url>
-
-    <url>
-        <loc>http://yoursite.com/tags/%E6%95%B0%E7%BB%84/</loc>
-        <lastmod>2017-04-18T08:53:37.904Z</lastmod>
-        <changefreq>weekly</changefreq>
-        <priority>0.2</priority>
-    </url>
-
-    <url>
-        <loc>http://yoursite.com/tags/Symbol/</loc>
-        <lastmod>2017-04-19T02:45:18.596Z</lastmod>
-        <changefreq>weekly</changefreq>
-        <priority>0.2</priority>
-    </url>
-
-    <url>
-        <loc>http://yoursite.com/tags/Set/</loc>
-        <lastmod>2017-04-19T06:27:30.639Z</lastmod>
-        <changefreq>weekly</changefreq>
-        <priority>0.2</priority>
-    </url>
-
-    <url>
-        <loc>http://yoursite.com/tags/Map/</loc>
-        <lastmod>2017-04-19T06:27:30.639Z</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.2</priority>
     </url>
@@ -466,20 +396,6 @@
     <url>
         <loc>http://yoursite.com/tags/Reflect/</loc>
         <lastmod>2017-04-23T08:51:47.367Z</lastmod>
-        <changefreq>weekly</changefreq>
-        <priority>0.2</priority>
-    </url>
-
-    <url>
-        <loc>http://yoursite.com/tags/ES6/</loc>
-        <lastmod>2017-04-25T09:37:22.487Z</lastmod>
-        <changefreq>weekly</changefreq>
-        <priority>0.2</priority>
-    </url>
-
-    <url>
-        <loc>http://yoursite.com/tags/Promise/</loc>
-        <lastmod>2017-04-25T09:37:22.487Z</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.2</priority>
     </url>
@@ -724,28 +640,168 @@
 
     <url>
         <loc>http://yoursite.com/tags/GET/</loc>
-        <lastmod>2017-06-15T06:26:36.856Z</lastmod>
+        <lastmod>2017-06-15T06:34:36.707Z</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.2</priority>
     </url>
 
     <url>
         <loc>http://yoursite.com/tags/POST/</loc>
-        <lastmod>2017-06-15T06:26:36.856Z</lastmod>
+        <lastmod>2017-06-15T06:34:36.707Z</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.2</priority>
     </url>
 
     <url>
         <loc>http://yoursite.com/tags/PUT/</loc>
-        <lastmod>2017-06-15T06:26:36.856Z</lastmod>
+        <lastmod>2017-06-15T06:34:36.707Z</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.2</priority>
     </url>
 
     <url>
         <loc>http://yoursite.com/tags/DELETE/</loc>
-        <lastmod>2017-06-15T06:26:36.856Z</lastmod>
+        <lastmod>2017-06-15T06:34:36.707Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.2</priority>
+    </url>
+
+    <url>
+        <loc>http://yoursite.com/tags/typeof/</loc>
+        <lastmod>2017-06-22T07:06:29.135Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.2</priority>
+    </url>
+
+    <url>
+        <loc>http://yoursite.com/tags/instanceof/</loc>
+        <lastmod>2017-06-22T07:06:29.135Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.2</priority>
+    </url>
+
+    <url>
+        <loc>http://yoursite.com/tags/%E9%97%AD%E5%8C%85/</loc>
+        <lastmod>2017-06-22T07:32:40.622Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.2</priority>
+    </url>
+
+    <url>
+        <loc>http://yoursite.com/tags/Symbol/</loc>
+        <lastmod>2017-07-31T07:50:48.815Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.2</priority>
+    </url>
+
+    <url>
+        <loc>http://yoursite.com/tags/let/</loc>
+        <lastmod>2017-08-23T06:50:46.798Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.2</priority>
+    </url>
+
+    <url>
+        <loc>http://yoursite.com/tags/const/</loc>
+        <lastmod>2017-08-23T06:50:46.798Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.2</priority>
+    </url>
+
+    <url>
+        <loc>http://yoursite.com/tags/%E5%8F%98%E9%87%8F/</loc>
+        <lastmod>2017-08-23T07:13:27.945Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.2</priority>
+    </url>
+
+    <url>
+        <loc>http://yoursite.com/tags/%E5%AD%97%E7%AC%A6%E4%B8%B2/</loc>
+        <lastmod>2017-08-23T07:14:04.569Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.2</priority>
+    </url>
+
+    <url>
+        <loc>http://yoursite.com/tags/%E6%95%B0%E5%80%BC/</loc>
+        <lastmod>2017-08-23T07:14:41.617Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.2</priority>
+    </url>
+
+    <url>
+        <loc>http://yoursite.com/tags/%E6%95%B0%E7%BB%84/</loc>
+        <lastmod>2017-08-23T07:14:59.873Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.2</priority>
+    </url>
+
+    <url>
+        <loc>http://yoursite.com/tags/%E5%87%BD%E6%95%B0/</loc>
+        <lastmod>2017-08-23T07:15:29.137Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.2</priority>
+    </url>
+
+    <url>
+        <loc>http://yoursite.com/tags/%E5%AF%B9%E8%B1%A1/</loc>
+        <lastmod>2017-08-23T07:16:10.521Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.2</priority>
+    </url>
+
+    <url>
+        <loc>http://yoursite.com/tags/Set/</loc>
+        <lastmod>2017-08-23T07:16:45.153Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.2</priority>
+    </url>
+
+    <url>
+        <loc>http://yoursite.com/tags/Map/</loc>
+        <lastmod>2017-08-23T07:16:45.153Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.2</priority>
+    </url>
+
+    <url>
+        <loc>http://yoursite.com/tags/Promise/</loc>
+        <lastmod>2017-08-23T07:17:25.153Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.2</priority>
+    </url>
+
+    <url>
+        <loc>http://yoursite.com/tags/ES6/</loc>
+        <lastmod>2017-08-23T07:33:34.461Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.2</priority>
+    </url>
+
+    <url>
+        <loc>http://yoursite.com/tags/Iterator/</loc>
+        <lastmod>2017-08-23T07:33:34.461Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.2</priority>
+    </url>
+
+    <url>
+        <loc>http://yoursite.com/tags/for-of/</loc>
+        <lastmod>2017-08-23T07:33:34.461Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.2</priority>
+    </url>
+
+    <url>
+        <loc>http://yoursite.com/tags/Module/</loc>
+        <lastmod>2017-08-23T07:34:03.188Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.2</priority>
+    </url>
+
+    <url>
+        <loc>http://yoursite.com/tags/Class/</loc>
+        <lastmod>2017-08-23T07:34:26.788Z</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.2</priority>
     </url>

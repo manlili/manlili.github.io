@@ -318,6 +318,28 @@
 
     
   <url>
+    <loc>http://yoursite.com/2017/07/31/ES6%E4%B9%8BSymbol/</loc>
+    <lastmod>2017-07-31T07:50:48.815Z</lastmod>
+    <data>
+        <display>
+        <title>ES6之Symbol</title>
+        <pubTime>2017-07-31T07:50:20.226Z</pubTime>
+        
+        <tag>ES6</tag>
+         
+        <tag>Symbol</tag>
+         
+         
+           
+             
+              <breadCrumb title="ES6技术" url="http://yoursite.com/categories/ES6%E6%8A%80%E6%9C%AF/"/>
+          
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
     <loc>http://yoursite.com/2016/04/10/%E9%97%AD%E5%8C%85/</loc>
     <lastmod>2017-06-22T07:32:40.622Z</lastmod>
     <data>
@@ -931,28 +953,6 @@
         <tag>ES6</tag>
          
         <tag>proxy</tag>
-         
-         
-           
-             
-              <breadCrumb title="ES6技术" url="http://yoursite.com/categories/ES6%E6%8A%80%E6%9C%AF/"/>
-          
-        </display>
-    </data>
-    </url>
-
-    
-  <url>
-    <loc>http://yoursite.com/2017/04/19/ES6%E4%B9%8BSymbol/</loc>
-    <lastmod>2017-04-19T02:45:18.596Z</lastmod>
-    <data>
-        <display>
-        <title>ES6之Symbol</title>
-        <pubTime>2017-04-19T02:10:23.590Z</pubTime>
-        
-        <tag>ES6</tag>
-         
-        <tag>Symbol</tag>
          
          
            
