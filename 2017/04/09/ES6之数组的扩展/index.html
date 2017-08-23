@@ -84,16 +84,15 @@
 
 
 
-<meta name="description" content="Array.from()Array.from方法用于将两类对象转为真正的数组：类似数组的对象（array-like object）和可遍历（iterable）的对象（包括ES6新增的数据结构Set和Map）.所谓类似数组的对象，本质特征只有一点，即必须有length属性。因此，任何有length属性的对象，都可以通过Array.from方法转为数组，而此时扩展运算符就无法转换.1234567891">
 <meta property="og:type" content="article">
 <meta property="og:title" content="ES6之数组的扩展">
 <meta property="og:url" content="http://yoursite.com/2017/04/09/ES6之数组的扩展/index.html">
 <meta property="og:site_name" content="manlili blog">
-<meta property="og:description" content="Array.from()Array.from方法用于将两类对象转为真正的数组：类似数组的对象（array-like object）和可遍历（iterable）的对象（包括ES6新增的数据结构Set和Map）.所谓类似数组的对象，本质特征只有一点，即必须有length属性。因此，任何有length属性的对象，都可以通过Array.from方法转为数组，而此时扩展运算符就无法转换.1234567891">
-<meta property="og:updated_time" content="2017-04-12T02:00:30.358Z">
+<meta property="og:image" content="https://manlili.github.io/img/170409/2.png">
+<meta property="og:updated_time" content="2017-08-23T07:14:59.873Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="ES6之数组的扩展">
-<meta name="twitter:description" content="Array.from()Array.from方法用于将两类对象转为真正的数组：类似数组的对象（array-like object）和可遍历（iterable）的对象（包括ES6新增的数据结构Set和Map）.所谓类似数组的对象，本质特征只有一点，即必须有length属性。因此，任何有length属性的对象，都可以通过Array.from方法转为数组，而此时扩展运算符就无法转换.1234567891">
+<meta name="twitter:image" content="https://manlili.github.io/img/170409/2.png">
 
 
 
@@ -390,22 +389,7 @@
       
 
       
-        <h2 id="Array-from"><a href="#Array-from" class="headerlink" title="Array.from()"></a>Array.from()</h2><p>Array.from方法用于将两类对象转为真正的数组：类似数组的对象（array-like object）和可遍历（iterable）的对象（包括ES6新增的数据结构Set和Map）.<br>所谓类似数组的对象，本质特征只有一点，即必须有length属性。因此，任何有length属性的对象，都可以通过Array.from方法转为数组，而此时扩展运算符就无法转换.<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div></pre></td><td class="code"><pre><div class="line">Array.from(&#123; length: 3 &#125;); // [ undefined, undefined, undefined ]</div><div class="line"></div><div class="line"><span class="built_in">let</span> arrayLike = &#123;</div><div class="line">    <span class="string">'0'</span>: <span class="string">'a'</span>,</div><div class="line">    <span class="string">'1'</span>: <span class="string">'b'</span>,</div><div class="line">    <span class="string">'2'</span>: <span class="string">'c'</span>,</div><div class="line">    length: 3</div><div class="line">&#125;;</div><div class="line"></div><div class="line">// ES5的写法</div><div class="line">var arr1 = [].slice.call(arrayLike); // [<span class="string">'a'</span>, <span class="string">'b'</span>, <span class="string">'c'</span>]</div><div class="line"></div><div class="line">// ES6的写法</div><div class="line"><span class="built_in">let</span> arr2 = Array.from(arrayLike); // [<span class="string">'a'</span>, <span class="string">'b'</span>, <span class="string">'c'</span>]</div><div class="line"></div><div class="line">Array.from(<span class="string">'hello'</span>) // [<span class="string">'h'</span>, <span class="string">'e'</span>, <span class="string">'l'</span>, <span class="string">'l'</span>, <span class="string">'o'</span>]</div><div class="line"></div><div class="line"><span class="built_in">let</span> namesSet = new Set([<span class="string">'a'</span>, <span class="string">'b'</span>])</div><div class="line">Array.from(namesSet) // [<span class="string">'a'</span>, <span class="string">'b'</span>]</div></pre></td></tr></table></figure></p>
-<p>Array.from()可以将各种值转为真正的数组，并且还提供map功能。<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">Array.from([1, , 2, , 3], (n) =&gt; n || 0)  // [1, 0, 2, 0, 3]</div></pre></td></tr></table></figure></p>
-<h2 id="Array-of"><a href="#Array-of" class="headerlink" title="Array.of()"></a>Array.of()</h2><p>先来讲数组构造函数Array(),因为参数个数的不同，会导致Array()的行为有差异。<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">Array() // []</div><div class="line">Array(3) // [, , ,]</div><div class="line">Array(3, 11, 8) // [3, 11, 8]</div></pre></td></tr></table></figure></p>
-<p>Array.of方法用于将一组值，转换为数组,并且不存在由于参数不同而导致的重载。它的行为非常统一。<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">Array.of(3, 11, 8) // [3,11,8]</div><div class="line">Array.of(3) // [3]</div><div class="line">Array.of(3).length // 1</div></pre></td></tr></table></figure></p>
-<h2 id="copyWithin"><a href="#copyWithin" class="headerlink" title="copyWithin()"></a>copyWithin()</h2><p>数组实例的copyWithin方法，在当前数组内部，将指定位置的成员复制到其他位置（会覆盖原有成员），然后返回当前数组。<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">Array.prototype.copyWithin(target, start = 0, end = this.length)</div></pre></td></tr></table></figure></p>
-<ul>
-<li>target（必需）：从该位置开始替换数据。</li>
-<li>start（可选）：从该位置开始读取数据，默认为0。如果为负值，表示倒数。</li>
-<li>end（可选）：到该位置前停止读取数据，默认等于数组长度。如果为负值，表示倒数。<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">[1, 2, 3, 4, 5].copyWithin(0, 3)  // [4, 5, 3, 4, 5]</div><div class="line"></div><div class="line">[1, 2, 3, 4, 5].copyWithin(0, -2, -1) // -2相当于3号位，-1相当于4号位 [4, 2, 3, 4, 5]</div></pre></td></tr></table></figure>
-</li>
-</ul>
-<h2 id="find-和findIndex"><a href="#find-和findIndex" class="headerlink" title="find()和findIndex()"></a>find()和findIndex()</h2><p>数组实例的find方法，用于找出第一个符合条件的数组成员。<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">[1, 5, 10, 15].find(<span class="keyword">function</span>(value, index, arr) &#123;</div><div class="line">  <span class="built_in">return</span> value &gt; 9;</div><div class="line">&#125;) // 10</div></pre></td></tr></table></figure></p>
-<p>数组实例的findIndex方法的用法与find方法非常类似，返回第一个符合条件的数组成员的位置，如果所有成员都不符合条件，则返回-1。<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">[1, 5, 10, 15].findIndex(<span class="keyword">function</span>(value, index, arr) &#123;</div><div class="line">  <span class="built_in">return</span> value &gt; 9;</div><div class="line">&#125;) // 2</div></pre></td></tr></table></figure></p>
-<h2 id="fill"><a href="#fill" class="headerlink" title="fill()"></a>fill()</h2><p>fill方法使用给定值，填充一个数组,法还可以接受第二个和第三个参数，用于指定填充的起始位置和结束位置.<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">[<span class="string">'a'</span>, <span class="string">'b'</span>, <span class="string">'c'</span>].fill(7, 1, 2)  // [<span class="string">'a'</span>, 7, <span class="string">'c'</span>]</div></pre></td></tr></table></figure></p>
-<h2 id="entries-，keys-和values"><a href="#entries-，keys-和values" class="headerlink" title="entries()，keys()和values()"></a>entries()，keys()和values()</h2><p>ES6提供三个新的方法——entries()，keys()和values()——用于遍历数组.<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">for</span> (<span class="built_in">let</span> index of [<span class="string">'a'</span>, <span class="string">'b'</span>].keys()) &#123;</div><div class="line">  console.log(index);</div><div class="line">&#125;</div><div class="line">// 0</div><div class="line">// 1</div><div class="line"></div><div class="line"><span class="keyword">for</span> (<span class="built_in">let</span> elem of [<span class="string">'a'</span>, <span class="string">'b'</span>].values()) &#123;</div><div class="line">  console.log(elem);</div><div class="line">&#125;</div><div class="line">// <span class="string">'a'</span></div><div class="line">// <span class="string">'b'</span></div><div class="line"></div><div class="line"><span class="keyword">for</span> (<span class="built_in">let</span> [index, elem] of [<span class="string">'a'</span>, <span class="string">'b'</span>].entries()) &#123;</div><div class="line">  console.log(index, elem);</div><div class="line">&#125;</div><div class="line">// 0 <span class="string">"a"</span></div><div class="line">// 1 <span class="string">"b"</span></div></pre></td></tr></table></figure></p>
-<h2 id="includes"><a href="#includes" class="headerlink" title="includes()"></a>includes()</h2><p>Array.prototype.includes方法返回一个布尔值，表示某个数组是否包含给定的值，与字符串的includes方法类似.该方法的第二个参数表示搜索的起始位置，默认为0.<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">[1, 2, 3].includes(2);     // <span class="literal">true</span></div><div class="line">[1, 2, 3].includes(4);     // <span class="literal">false</span></div><div class="line"></div><div class="line">[1, 2, 3].includes(3, 3);  // <span class="literal">false</span></div><div class="line">[1, 2, 3].includes(3, -1); // <span class="literal">true</span></div></pre></td></tr></table></figure></p>
+        <p><img src="https://manlili.github.io/img/170409/2.png" alt="图"></p>
 
       
     </div>
@@ -520,17 +504,8 @@
       
 
       
-        <ul class="sidebar-nav motion-element">
-          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap" >
-            文章目录
-          </li>
-          <li class="sidebar-nav-overview" data-target="site-overview">
-            站点概览
-          </li>
-        </ul>
-      
 
-      <section class="site-overview sidebar-panel">
+      <section class="site-overview sidebar-panel sidebar-panel-active">
         <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
           <img class="site-author-image" itemprop="image"
                src="/uploads/avatar.jpg"
@@ -543,7 +518,7 @@
           
             <div class="site-state-item site-state-posts">
               <a href="/archives">
-                <span class="site-state-item-count">95</span>
+                <span class="site-state-item-count">94</span>
                 <span class="site-state-item-name">日志</span>
               </a>
             </div>
@@ -561,7 +536,7 @@
           
             <div class="site-state-item site-state-tags">
               <a href="/tags">
-                <span class="site-state-item-count">113</span>
+                <span class="site-state-item-count">111</span>
                 <span class="site-state-item-name">标签</span>
               </a>
             </div>
@@ -606,22 +581,6 @@
 
       </section>
 
-      
-      <!--noindex-->
-        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
-          <div class="post-toc">
-
-            
-              
-            
-
-            
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#Array-from"><span class="nav-number">1.</span> <span class="nav-text">Array.from()</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Array-of"><span class="nav-number">2.</span> <span class="nav-text">Array.of()</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#copyWithin"><span class="nav-number">3.</span> <span class="nav-text">copyWithin()</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#find-和findIndex"><span class="nav-number">4.</span> <span class="nav-text">find()和findIndex()</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#fill"><span class="nav-number">5.</span> <span class="nav-text">fill()</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#entries-，keys-和values"><span class="nav-number">6.</span> <span class="nav-text">entries()，keys()和values()</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#includes"><span class="nav-number">7.</span> <span class="nav-text">includes()</span></a></li></ol></div>
-            
-
-          </div>
-        </section>
-      <!--/noindex-->
       
 
     </div>

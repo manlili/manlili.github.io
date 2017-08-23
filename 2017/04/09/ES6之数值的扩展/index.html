@@ -84,19 +84,15 @@
 
 
 
-<meta name="description" content="Number.isFinite()Number.isFinite()用来检查一个数值是否为有限的（finite）123Number.isFinite(15); // trueNumber.isFinite(Infinity); // falseNumber.isFinite(-Infinity); // false
-它与传统的全局方法isFinite()的区别在于，传统方法先调用Number()将">
 <meta property="og:type" content="article">
 <meta property="og:title" content="ES6之数值的扩展">
 <meta property="og:url" content="http://yoursite.com/2017/04/09/ES6之数值的扩展/index.html">
 <meta property="og:site_name" content="manlili blog">
-<meta property="og:description" content="Number.isFinite()Number.isFinite()用来检查一个数值是否为有限的（finite）123Number.isFinite(15); // trueNumber.isFinite(Infinity); // falseNumber.isFinite(-Infinity); // false
-它与传统的全局方法isFinite()的区别在于，传统方法先调用Number()将">
-<meta property="og:updated_time" content="2017-04-11T08:14:50.150Z">
+<meta property="og:image" content="https://manlili.github.io/img/170409/1.png">
+<meta property="og:updated_time" content="2017-08-23T07:14:41.617Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="ES6之数值的扩展">
-<meta name="twitter:description" content="Number.isFinite()Number.isFinite()用来检查一个数值是否为有限的（finite）123Number.isFinite(15); // trueNumber.isFinite(Infinity); // falseNumber.isFinite(-Infinity); // false
-它与传统的全局方法isFinite()的区别在于，传统方法先调用Number()将">
+<meta name="twitter:image" content="https://manlili.github.io/img/170409/1.png">
 
 
 
@@ -393,43 +389,7 @@
       
 
       
-        <h2 id="Number-isFinite"><a href="#Number-isFinite" class="headerlink" title="Number.isFinite()"></a>Number.isFinite()</h2><p>Number.isFinite()用来检查一个数值是否为有限的（finite）<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">Number.isFinite(15); // <span class="literal">true</span></div><div class="line">Number.isFinite(Infinity); // <span class="literal">false</span></div><div class="line">Number.isFinite(-Infinity); // <span class="literal">false</span></div></pre></td></tr></table></figure></p>
-<p>它与传统的全局方法isFinite()的区别在于，传统方法先调用Number()将非数值的值转为数值，再进行判断，而这方法只对数值有效，Number.isFinite()对于非数值一律返回false.</p>
-<h2 id="Number-isNaN"><a href="#Number-isNaN" class="headerlink" title="Number.isNaN()"></a>Number.isNaN()</h2><p>Number.isNaN()用来检查一个值是否为NaN<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">Number.isNaN(NaN) // <span class="literal">true</span></div><div class="line">Number.isNaN(15) // <span class="literal">false</span></div></pre></td></tr></table></figure></p>
-<p>它与传统的全局方法isNaN()的区别在于，传统方法先调用Number()将非数值的值转为数值，再进行判断，而这方法只对数值有效，Number.isNaN()只有对于NaN才返回true，非NaN一律返回false.</p>
-<h2 id="Number-parseInt-Number-parseFloat"><a href="#Number-parseInt-Number-parseFloat" class="headerlink" title="Number.parseInt(), Number.parseFloat()"></a>Number.parseInt(), Number.parseFloat()</h2><p>ES6将全局方法parseInt()和parseFloat()，移植到Number对象上面，行为完全保持不变。<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line">// ES5的写法</div><div class="line">parseInt(<span class="string">'12.34'</span>) // 12</div><div class="line">parseFloat(<span class="string">'123.45#'</span>) // 123.45</div><div class="line"></div><div class="line">// ES6的写法</div><div class="line">Number.parseInt(<span class="string">'12.34'</span>) // 12</div><div class="line">Number.parseFloat(<span class="string">'123.45#'</span>) // 123.45</div></pre></td></tr></table></figure></p>
-<h2 id="Number-isInteger"><a href="#Number-isInteger" class="headerlink" title="Number.isInteger()"></a>Number.isInteger()</h2><p>Number.isInteger()用来判断一个值是否为整数<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">Number.isInteger(25) // <span class="literal">true</span></div><div class="line">Number.isInteger(25.0) // <span class="literal">true</span></div><div class="line">Number.isInteger(25.1) // <span class="literal">false</span></div></pre></td></tr></table></figure></p>
-<h2 id="Number-EPSILON"><a href="#Number-EPSILON" class="headerlink" title="Number.EPSILON"></a>Number.EPSILON</h2><p>作用：极小的常量<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">Number.EPSILON</div><div class="line">// 2.220446049250313e-16</div><div class="line">Number.EPSILON.toFixed(20)</div><div class="line">// <span class="string">'0.00000000000000022204'</span></div></pre></td></tr></table></figure></p>
-<h2 id="安全整数和Number-isSafeInteger"><a href="#安全整数和Number-isSafeInteger" class="headerlink" title="安全整数和Number.isSafeInteger()"></a>安全整数和Number.isSafeInteger()</h2><p>JavaScript能够准确表示的整数范围在-2^53到2^53之间（不含两个端点），超过这个范围，无法精确表示这个值。<br>ES6引入了Number.MAX_SAFE_INTEGER和Number.MIN_SAFE_INTEGER这两个常量，用来表示这个范围的上下限.<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div></pre></td><td class="code"><pre><div class="line">Number.MAX_SAFE_INTEGER === Math.pow(2, 53) - 1</div><div class="line">// <span class="literal">true</span></div><div class="line">Number.MAX_SAFE_INTEGER === 9007199254740991</div><div class="line">// <span class="literal">true</span></div><div class="line"></div><div class="line">Number.MIN_SAFE_INTEGER === -Number.MAX_SAFE_INTEGER</div><div class="line">// <span class="literal">true</span></div><div class="line">Number.MIN_SAFE_INTEGER === -9007199254740991</div><div class="line">// <span class="literal">true</span></div></pre></td></tr></table></figure></p>
-<p>Number.isSafeInteger()则是用来判断一个整数是否落在这个范围之内。<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">Number.isSafeInteger(3) // <span class="literal">true</span></div><div class="line">Number.isSafeInteger(Infinity) // <span class="literal">false</span></div><div class="line">Number.isSafeInteger(-Infinity) // <span class="literal">false</span></div></pre></td></tr></table></figure></p>
-<h2 id="Math对象的扩展"><a href="#Math对象的扩展" class="headerlink" title="Math对象的扩展"></a>Math对象的扩展</h2><p>ES6在Math对象上新增了17个与数学相关的方法。所有这些方法都是静态方法，只能在Math对象上调用。</p>
-<h3 id="Math-trunc"><a href="#Math-trunc" class="headerlink" title="Math.trunc()"></a>Math.trunc()</h3><p>Math.trunc方法用于去除一个数的小数部分，返回整数部分。<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">Math.trunc(4.1) // 4</div><div class="line">Math.trunc(4.9) // 4</div><div class="line">Math.trunc(-4.1) // -4</div><div class="line">Math.trunc(-4.9) // -4</div><div class="line">Math.trunc(-0.1234) // -0</div></pre></td></tr></table></figure></p>
-<h3 id="Math-sign"><a href="#Math-sign" class="headerlink" title="Math.sign()"></a>Math.sign()</h3><p>Math.sign方法用来判断一个数到底是正数、负数、还是零</p>
-<ul>
-<li>参数为正数，返回+1；</li>
-<li>参数为负数，返回-1；</li>
-<li>参数为0，返回0；</li>
-<li>参数为-0，返回-0;</li>
-<li>其他值，返回NaN。<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line">Math.sign(-5) // -1</div><div class="line">Math.sign(5) // +1</div><div class="line">Math.sign(0) // +0</div><div class="line">Math.sign(-0) // -0</div><div class="line">Math.sign(NaN) // NaN</div><div class="line">Math.sign(<span class="string">'foo'</span>); // NaN</div><div class="line">Math.sign();      // NaN</div></pre></td></tr></table></figure>
-</li>
-</ul>
-<h3 id="Math-cbrt"><a href="#Math-cbrt" class="headerlink" title="Math.cbrt()"></a>Math.cbrt()</h3><p>Math.cbrt方法用于计算一个数的立方根。<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">Math.cbrt(-1) // -1</div><div class="line">Math.cbrt(0)  // 0</div><div class="line">Math.cbrt(1)  // 1</div><div class="line">Math.cbrt(2)  // 1.2599210498948734</div></pre></td></tr></table></figure></p>
-<h3 id="Math-imul"><a href="#Math-imul" class="headerlink" title="Math.imul()"></a>Math.imul()</h3><p>作用：两个数相乘<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">Math.imul(2, 4)   // 8</div><div class="line">Math.imul(-1, 8)  // -8</div><div class="line">Math.imul(-2, -2) // 4</div></pre></td></tr></table></figure></p>
-<h3 id="Math-hypot"><a href="#Math-hypot" class="headerlink" title="Math.hypot()"></a>Math.hypot()</h3><p>Math.hypot方法返回所有参数的平方和的平方根。<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">Math.hypot(3, 4);        // 5</div></pre></td></tr></table></figure></p>
-<h3 id="Math-expm1"><a href="#Math-expm1" class="headerlink" title="Math.expm1()"></a>Math.expm1()</h3><p>Math.expm1(x)返回ex - 1，即Math.exp(x) - 1。<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">Math.expm1(-1) // -0.6321205588285577</div><div class="line">Math.expm1(0)  // 0</div><div class="line">Math.expm1(1)  // 1.718281828459045</div></pre></td></tr></table></figure></p>
-<h3 id="Math-log1p"><a href="#Math-log1p" class="headerlink" title="Math.log1p()"></a>Math.log1p()</h3><p>Math.log1p(x)方法返回1 + x的自然对数，即Math.log(1 + x)。如果x小于-1，返回NaN。<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">Math.log1p(1)  // 0.6931471805599453</div><div class="line">Math.log1p(0)  // 0</div><div class="line">Math.log1p(-1) // -Infinity</div><div class="line">Math.log1p(-2) // NaN</div></pre></td></tr></table></figure></p>
-<h3 id="Math-log10"><a href="#Math-log10" class="headerlink" title="Math.log10()"></a>Math.log10()</h3><p>Math.log10(x)返回以10为底的x的对数。如果x小于0，则返回NaN。<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">Math.log10(2)      // 0.3010299956639812</div><div class="line">Math.log10(1)      // 0</div><div class="line">Math.log10(0)      // -Infinity</div><div class="line">Math.log10(-2)     // NaN</div><div class="line">Math.log10(100000) // 5</div></pre></td></tr></table></figure></p>
-<h3 id="Math-log2"><a href="#Math-log2" class="headerlink" title="Math.log2()"></a>Math.log2()</h3><p>Math.log2(x)返回以2为底的x的对数。如果x小于0，则返回NaN。<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">Math.log2(3)       // 1.584962500721156</div><div class="line">Math.log2(2)       // 1</div><div class="line">Math.log2(1)       // 0</div></pre></td></tr></table></figure></p>
-<h3 id="三角函数方法"><a href="#三角函数方法" class="headerlink" title="三角函数方法"></a>三角函数方法</h3><ul>
-<li>Math.sinh(x) 返回x的双曲正弦（hyperbolic sine）</li>
-<li>Math.cosh(x) 返回x的双曲余弦（hyperbolic cosine）</li>
-<li>Math.tanh(x) 返回x的双曲正切（hyperbolic tangent）</li>
-<li>Math.asinh(x) 返回x的反双曲正弦（inverse hyperbolic sine）</li>
-<li>Math.acosh(x) 返回x的反双曲余弦（inverse hyperbolic cosine）</li>
-<li>Math.atanh(x) 返回x的反双曲正切（inverse hyperbolic tangent）</li>
-</ul>
-<h3 id="Math-signbit"><a href="#Math-signbit" class="headerlink" title="Math.signbit()"></a>Math.signbit()</h3><p>Math.sign()用来判断一个值是否为负.<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">Math.signbit(2) //<span class="literal">false</span></div><div class="line">Math.signbit(-2) //<span class="literal">true</span></div></pre></td></tr></table></figure></p>
-<h2 id="指数运算符"><a href="#指数运算符" class="headerlink" title="指数运算符"></a>指数运算符</h2><p>ES2016 新增了一个指数运算符（**）<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">2 ** 2 // 4</div><div class="line">2 ** 3 // 8</div></pre></td></tr></table></figure></p>
+        <p><img src="https://manlili.github.io/img/170409/1.png" alt="图"></p>
 
       
     </div>
@@ -544,17 +504,8 @@
       
 
       
-        <ul class="sidebar-nav motion-element">
-          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap" >
-            文章目录
-          </li>
-          <li class="sidebar-nav-overview" data-target="site-overview">
-            站点概览
-          </li>
-        </ul>
-      
 
-      <section class="site-overview sidebar-panel">
+      <section class="site-overview sidebar-panel sidebar-panel-active">
         <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
           <img class="site-author-image" itemprop="image"
                src="/uploads/avatar.jpg"
@@ -567,7 +518,7 @@
           
             <div class="site-state-item site-state-posts">
               <a href="/archives">
-                <span class="site-state-item-count">95</span>
+                <span class="site-state-item-count">94</span>
                 <span class="site-state-item-name">日志</span>
               </a>
             </div>
@@ -585,7 +536,7 @@
           
             <div class="site-state-item site-state-tags">
               <a href="/tags">
-                <span class="site-state-item-count">113</span>
+                <span class="site-state-item-count">111</span>
                 <span class="site-state-item-name">标签</span>
               </a>
             </div>
@@ -630,22 +581,6 @@
 
       </section>
 
-      
-      <!--noindex-->
-        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
-          <div class="post-toc">
-
-            
-              
-            
-
-            
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#Number-isFinite"><span class="nav-number">1.</span> <span class="nav-text">Number.isFinite()</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Number-isNaN"><span class="nav-number">2.</span> <span class="nav-text">Number.isNaN()</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Number-parseInt-Number-parseFloat"><span class="nav-number">3.</span> <span class="nav-text">Number.parseInt(), Number.parseFloat()</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Number-isInteger"><span class="nav-number">4.</span> <span class="nav-text">Number.isInteger()</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Number-EPSILON"><span class="nav-number">5.</span> <span class="nav-text">Number.EPSILON</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#安全整数和Number-isSafeInteger"><span class="nav-number">6.</span> <span class="nav-text">安全整数和Number.isSafeInteger()</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Math对象的扩展"><span class="nav-number">7.</span> <span class="nav-text">Math对象的扩展</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#Math-trunc"><span class="nav-number">7.1.</span> <span class="nav-text">Math.trunc()</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Math-sign"><span class="nav-number">7.2.</span> <span class="nav-text">Math.sign()</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Math-cbrt"><span class="nav-number">7.3.</span> <span class="nav-text">Math.cbrt()</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Math-imul"><span class="nav-number">7.4.</span> <span class="nav-text">Math.imul()</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Math-hypot"><span class="nav-number">7.5.</span> <span class="nav-text">Math.hypot()</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Math-expm1"><span class="nav-number">7.6.</span> <span class="nav-text">Math.expm1()</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Math-log1p"><span class="nav-number">7.7.</span> <span class="nav-text">Math.log1p()</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Math-log10"><span class="nav-number">7.8.</span> <span class="nav-text">Math.log10()</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Math-log2"><span class="nav-number">7.9.</span> <span class="nav-text">Math.log2()</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#三角函数方法"><span class="nav-number">7.10.</span> <span class="nav-text">三角函数方法</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Math-signbit"><span class="nav-number">7.11.</span> <span class="nav-text">Math.signbit()</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#指数运算符"><span class="nav-number">8.</span> <span class="nav-text">指数运算符</span></a></li></ol></div>
-            
-
-          </div>
-        </section>
-      <!--/noindex-->
       
 
     </div>

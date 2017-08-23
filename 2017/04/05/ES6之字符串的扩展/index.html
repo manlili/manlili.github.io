@@ -84,19 +84,15 @@
 
 
 
-<meta name="description" content="codePointAtcodePointAt方法是测试一个字符由两个字节还是由四个字节组成的最简单方法123456function is32Bit(c) &amp;#123;  return c.codePointAt(0) &amp;gt; 0xFFFF;&amp;#125;is32Bit(&quot;𠮷&quot;) // trueis32Bit(&quot;a&quot;) // false
-String.fromCodePoint()作用：从码点返回">
 <meta property="og:type" content="article">
 <meta property="og:title" content="ES6之字符串的扩展">
 <meta property="og:url" content="http://yoursite.com/2017/04/05/ES6之字符串的扩展/index.html">
 <meta property="og:site_name" content="manlili blog">
-<meta property="og:description" content="codePointAtcodePointAt方法是测试一个字符由两个字节还是由四个字节组成的最简单方法123456function is32Bit(c) &amp;#123;  return c.codePointAt(0) &amp;gt; 0xFFFF;&amp;#125;is32Bit(&quot;𠮷&quot;) // trueis32Bit(&quot;a&quot;) // false
-String.fromCodePoint()作用：从码点返回">
-<meta property="og:updated_time" content="2017-04-11T07:21:21.646Z">
+<meta property="og:image" content="https://manlili.github.io/img/170405/1.png">
+<meta property="og:updated_time" content="2017-08-23T07:14:04.569Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="ES6之字符串的扩展">
-<meta name="twitter:description" content="codePointAtcodePointAt方法是测试一个字符由两个字节还是由四个字节组成的最简单方法123456function is32Bit(c) &amp;#123;  return c.codePointAt(0) &amp;gt; 0xFFFF;&amp;#125;is32Bit(&quot;𠮷&quot;) // trueis32Bit(&quot;a&quot;) // false
-String.fromCodePoint()作用：从码点返回">
+<meta name="twitter:image" content="https://manlili.github.io/img/170405/1.png">
 
 
 
@@ -393,30 +389,7 @@ String.fromCodePoint()作用：从码点返回">
       
 
       
-        <h2 id="codePointAt"><a href="#codePointAt" class="headerlink" title="codePointAt"></a>codePointAt</h2><p>codePointAt方法是测试一个字符由两个字节还是由四个字节组成的最简单方法<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">function</span> is32Bit(c) &#123;</div><div class="line">  <span class="built_in">return</span> c.codePointAt(0) &gt; 0xFFFF;</div><div class="line">&#125;</div><div class="line"></div><div class="line">is32Bit(<span class="string">"𠮷"</span>) // <span class="literal">true</span></div><div class="line">is32Bit(<span class="string">"a"</span>) // <span class="literal">false</span></div></pre></td></tr></table></figure></p>
-<h2 id="String-fromCodePoint"><a href="#String-fromCodePoint" class="headerlink" title="String.fromCodePoint()"></a>String.fromCodePoint()</h2><p>作用：从码点返回对应字符<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">String.fromCodePoint(0x20BB7) // <span class="string">"𠮷"</span></div><div class="line">String.fromCodePoint(0x78, 0x1f680, 0x79) === <span class="string">'x\uD83D\uDE80y'</span>   // <span class="literal">true</span></div></pre></td></tr></table></figure></p>
-<p>上面代码中，如果String.fromCodePoint方法有多个参数，则它们会被合并成一个字符串返回。</p>
-<p>注意，fromCodePoint方法定义在String对象上，而codePointAt方法定义在字符串的实例对象上。</p>
-<h2 id="字符串的遍历器接口"><a href="#字符串的遍历器接口" class="headerlink" title="字符串的遍历器接口"></a>字符串的遍历器接口</h2><p>ES6为字符串添加了遍历器接口，使得字符串可以被for…of循环遍历<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">for</span> (<span class="built_in">let</span> codePoint of <span class="string">'foo'</span>) &#123;</div><div class="line">  console.log(codePoint)         //<span class="string">"f"</span> <span class="string">"o"</span> <span class="string">"o"</span></div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
-<h2 id="at"><a href="#at" class="headerlink" title="at()"></a>at()</h2><p>ES5对字符串对象提供charAt方法，返回字符串给定位置的字符,该方法不能识别码点大于0xFFFF的字符。但是at可以解决。<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line"><span class="string">'abc'</span>.charAt(0) // <span class="string">"a"</span></div><div class="line"><span class="string">'𠮷'</span>.charAt(0) // <span class="string">"\uD842"</span></div><div class="line"></div><div class="line"><span class="string">'abc'</span>.at(0) // <span class="string">"a"</span></div><div class="line"><span class="string">'𠮷'</span>.at(0) // <span class="string">"𠮷"</span></div></pre></td></tr></table></figure></p>
-<h2 id="搜索函数"><a href="#搜索函数" class="headerlink" title="搜索函数"></a>搜索函数</h2><p>传统上，JavaScript只有indexOf方法，可以用来确定一个字符串是否包含在另一个字符串中。ES6又提供了三种新方法。</p>
-<ul>
-<li>includes()：返回布尔值，表示是否找到了参数字符串。使用第二个参数n时，从第n个位置直到字符串结束。</li>
-<li>startsWith()：返回布尔值，表示参数字符串是否在源字符串的头部。使用第二个参数n时，从第n个位置直到字符串结束。</li>
-<li>endsWith()：返回布尔值，表示参数字符串是否在源字符串的尾部。使用第二个参数n时，endsWith的行为与其他两个方法有所不同。它针对前n个字符<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div></pre></td><td class="code"><pre><div class="line">var s = <span class="string">'Hello world!'</span>;</div><div class="line"></div><div class="line">s.startsWith(<span class="string">'Hello'</span>) // <span class="literal">true</span></div><div class="line">s.endsWith(<span class="string">'!'</span>) // <span class="literal">true</span></div><div class="line">s.includes(<span class="string">'o'</span>) // <span class="literal">true</span></div><div class="line"></div><div class="line">s.startsWith(<span class="string">'world'</span>, 6) // <span class="literal">true</span></div><div class="line">s.endsWith(<span class="string">'Hello'</span>, 5) // <span class="literal">true</span></div><div class="line">s.includes(<span class="string">'Hello'</span>, 6) // <span class="literal">false</span></div></pre></td></tr></table></figure>
-</li>
-</ul>
-<h2 id="repeat"><a href="#repeat" class="headerlink" title="repeat()"></a>repeat()</h2><p>repeat方法返回一个新字符串，表示将原字符串重复n次。<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line"><span class="string">'x'</span>.repeat(3) // <span class="string">"xxx"</span></div><div class="line"><span class="string">'hello'</span>.repeat(2) // <span class="string">"hellohello"</span></div><div class="line"><span class="string">'na'</span>.repeat(0) // <span class="string">""</span></div></pre></td></tr></table></figure></p>
-<h2 id="padStart-，padEnd"><a href="#padStart-，padEnd" class="headerlink" title="padStart()，padEnd()"></a>padStart()，padEnd()</h2><p>ES2017 引入了字符串补全长度的功能。如果某个字符串不够指定长度，会在头部或尾部补全。</p>
-<ul>
-<li>padStart()用于头部补全</li>
-<li>padEnd()用于尾部补全。<br>(1)padStart和padEnd一共接受两个参数，第一个参数用来指定字符串的最小长度，第二个参数是用来补全的字符串。省略第二个参数，默认使用空格补全长度。<br>(2)原字符串的长度，等于或大于指定的最小长度，则返回原字符串<br>(3)如果用来补全的字符串与原字符串，两者的长度之和超过了指定的最小长度，则会截去超出位数的补全字符串。<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div></pre></td><td class="code"><pre><div class="line"><span class="string">'x'</span>.padStart(5, <span class="string">'ab'</span>) // <span class="string">'ababx'</span></div><div class="line"><span class="string">'x'</span>.padStart(4, <span class="string">'ab'</span>) // <span class="string">'abax'</span></div><div class="line"></div><div class="line"><span class="string">'x'</span>.padEnd(5, <span class="string">'ab'</span>) // <span class="string">'xabab'</span></div><div class="line"><span class="string">'x'</span>.padEnd(4, <span class="string">'ab'</span>) // <span class="string">'xaba'</span></div><div class="line"></div><div class="line"><span class="string">'xxx'</span>.padStart(2, <span class="string">'ab'</span>) // <span class="string">'xxx'</span></div><div class="line"></div><div class="line"><span class="string">'abc'</span>.padStart(10, <span class="string">'0123456789'</span>)  // <span class="string">'0123456abc'</span></div></pre></td></tr></table></figure>
-</li>
-</ul>
-<h2 id="模板字符串"><a href="#模板字符串" class="headerlink" title="模板字符串"></a>模板字符串</h2><p>模板字符串（template string）是增强版的字符串，用反引号（`）标识。<br>传统的JavaScript语言，输出模板通常是这样写的<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line">$(<span class="string">'#result'</span>).append(</div><div class="line">  <span class="string">'There are &lt;b&gt;'</span> + basket.count + <span class="string">'&lt;/b&gt; '</span> +</div><div class="line">  <span class="string">'items in your basket, '</span> +</div><div class="line">  <span class="string">'&lt;em&gt;'</span> + basket.onSale +</div><div class="line">  <span class="string">'&lt;/em&gt; are on sale!'</span></div><div class="line">);</div></pre></td></tr></table></figure></p>
-<p>ES6引入了模板字符串解决这个问题<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">$(<span class="string">'#result'</span>).append(`</div><div class="line">  There are &lt;b&gt;<span class="variable">$&#123;basket.count&#125;</span>&lt;/b&gt; items</div><div class="line">   <span class="keyword">in</span> your basket, &lt;em&gt;<span class="variable">$&#123;basket.onSale&#125;</span>&lt;/em&gt;</div><div class="line">  are on sale!</div><div class="line">`);</div></pre></td></tr></table></figure></p>
-<p>如果使用模板字符串表示多行字符串，所有的空格和缩进都会被保留在输出之中。如果你不想要这个换行，可以使用trim方法消除它。<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line">$(<span class="string">'#list'</span>).html(`</div><div class="line">&lt;ul&gt;</div><div class="line">  &lt;li&gt;first&lt;/li&gt;</div><div class="line">  &lt;li&gt;second&lt;/li&gt;</div><div class="line">&lt;/ul&gt;</div><div class="line">`.trim());</div></pre></td></tr></table></figure></p>
-<p>模板字符串中嵌入变量，需要将变量名写在${}之中。<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div></pre></td><td class="code"><pre><div class="line">var x = 1;</div><div class="line">var y = 2;</div><div class="line">`<span class="variable">$&#123;x&#125;</span> + <span class="variable">$&#123;y&#125;</span> = <span class="variable">$&#123;x + y&#125;</span>` // <span class="string">"1 + 2 = 3"</span></div><div class="line"></div><div class="line"><span class="keyword">function</span> <span class="function"><span class="title">fn</span></span>() &#123;</div><div class="line">  <span class="built_in">return</span> <span class="string">"Hello World"</span>;</div><div class="line">&#125;</div><div class="line">`foo <span class="variable">$&#123;fn()&#125;</span> bar`</div></pre></td></tr></table></figure></p>
+        <p><img src="https://manlili.github.io/img/170405/1.png" alt="图"></p>
 
       
     </div>
@@ -531,17 +504,8 @@ String.fromCodePoint()作用：从码点返回">
       
 
       
-        <ul class="sidebar-nav motion-element">
-          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap" >
-            文章目录
-          </li>
-          <li class="sidebar-nav-overview" data-target="site-overview">
-            站点概览
-          </li>
-        </ul>
-      
 
-      <section class="site-overview sidebar-panel">
+      <section class="site-overview sidebar-panel sidebar-panel-active">
         <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
           <img class="site-author-image" itemprop="image"
                src="/uploads/avatar.jpg"
@@ -554,7 +518,7 @@ String.fromCodePoint()作用：从码点返回">
           
             <div class="site-state-item site-state-posts">
               <a href="/archives">
-                <span class="site-state-item-count">95</span>
+                <span class="site-state-item-count">94</span>
                 <span class="site-state-item-name">日志</span>
               </a>
             </div>
@@ -572,7 +536,7 @@ String.fromCodePoint()作用：从码点返回">
           
             <div class="site-state-item site-state-tags">
               <a href="/tags">
-                <span class="site-state-item-count">113</span>
+                <span class="site-state-item-count">111</span>
                 <span class="site-state-item-name">标签</span>
               </a>
             </div>
@@ -617,22 +581,6 @@ String.fromCodePoint()作用：从码点返回">
 
       </section>
 
-      
-      <!--noindex-->
-        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
-          <div class="post-toc">
-
-            
-              
-            
-
-            
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#codePointAt"><span class="nav-number">1.</span> <span class="nav-text">codePointAt</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#String-fromCodePoint"><span class="nav-number">2.</span> <span class="nav-text">String.fromCodePoint()</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#字符串的遍历器接口"><span class="nav-number">3.</span> <span class="nav-text">字符串的遍历器接口</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#at"><span class="nav-number">4.</span> <span class="nav-text">at()</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#搜索函数"><span class="nav-number">5.</span> <span class="nav-text">搜索函数</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#repeat"><span class="nav-number">6.</span> <span class="nav-text">repeat()</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#padStart-，padEnd"><span class="nav-number">7.</span> <span class="nav-text">padStart()，padEnd()</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#模板字符串"><span class="nav-number">8.</span> <span class="nav-text">模板字符串</span></a></li></ol></div>
-            
-
-          </div>
-        </section>
-      <!--/noindex-->
       
 
     </div>

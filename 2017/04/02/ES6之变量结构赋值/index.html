@@ -84,16 +84,15 @@
 
 
 
-<meta name="description" content="数组方式解构赋值此方法必须等号左右两边都是数组，数组的元素是按次序排列的,数组定义变量的方法：12345678910111213let [a, b, c] = [1, 2, 3];   //直接数组定义多个let [foo, [[bar], baz]] = [1, [[2], 3]]; let [x, , y] = [1, 2, 3];  //不报错，但不建议这样写let [x, y] = [1,">
 <meta property="og:type" content="article">
 <meta property="og:title" content="ES6之变量结构赋值">
 <meta property="og:url" content="http://yoursite.com/2017/04/02/ES6之变量结构赋值/index.html">
 <meta property="og:site_name" content="manlili blog">
-<meta property="og:description" content="数组方式解构赋值此方法必须等号左右两边都是数组，数组的元素是按次序排列的,数组定义变量的方法：12345678910111213let [a, b, c] = [1, 2, 3];   //直接数组定义多个let [foo, [[bar], baz]] = [1, [[2], 3]]; let [x, , y] = [1, 2, 3];  //不报错，但不建议这样写let [x, y] = [1,">
-<meta property="og:updated_time" content="2017-04-11T06:09:38.216Z">
+<meta property="og:image" content="https://manlili.github.io/img/170402/1.png">
+<meta property="og:updated_time" content="2017-08-23T07:13:27.945Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="ES6之变量结构赋值">
-<meta name="twitter:description" content="数组方式解构赋值此方法必须等号左右两边都是数组，数组的元素是按次序排列的,数组定义变量的方法：12345678910111213let [a, b, c] = [1, 2, 3];   //直接数组定义多个let [foo, [[bar], baz]] = [1, [[2], 3]]; let [x, , y] = [1, 2, 3];  //不报错，但不建议这样写let [x, y] = [1,">
+<meta name="twitter:image" content="https://manlili.github.io/img/170402/1.png">
 
 
 
@@ -390,27 +389,7 @@
       
 
       
-        <h2 id="数组方式解构赋值"><a href="#数组方式解构赋值" class="headerlink" title="数组方式解构赋值"></a>数组方式解构赋值</h2><p><strong>此方法必须等号左右两边都是数组</strong>，数组的元素是按次序排列的,数组定义变量的方法：<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div></pre></td><td class="code"><pre><div class="line"><span class="built_in">let</span> [a, b, c] = [1, 2, 3];   //直接数组定义多个</div><div class="line"><span class="built_in">let</span> [foo, [[bar], baz]] = [1, [[2], 3]]; </div><div class="line"></div><div class="line"><span class="built_in">let</span> [x, , y] = [1, 2, 3];  //不报错，但不建议这样写</div><div class="line"><span class="built_in">let</span> [x, y] = [1, 2, 3];  //不报错，但不建议这样写</div><div class="line"></div><div class="line"><span class="built_in">let</span> [head, ...tail] = [1, 2, 3, 4];  //head =&gt;1  tail =&gt; [2, 3, 4]</div><div class="line"></div><div class="line"><span class="built_in">let</span> [x, y = <span class="string">'b'</span>] = [<span class="string">'a'</span>, undefined]; // 默认赋值x=<span class="string">'a'</span>, y=<span class="string">'b'</span></div><div class="line"><span class="built_in">let</span> [x = 1] = [null]; // x=null,如果一个数组成员是null，默认值就不会生效，因为null不严格等于undefined</div><div class="line"></div><div class="line"><span class="built_in">let</span> [x = 1, y = x] = [];     // x=1; y=1</div><div class="line"><span class="built_in">let</span> [x = y, y = 1] = [];     // ReferenceError 默认值可以引用解构赋值的其他变量，但该变量必须已经声明。</div></pre></td></tr></table></figure></p>
-<p>如果解构不成功，变量的值就等于undefined<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line"><span class="built_in">let</span> [bar, foo] = [1];  //bar=&gt;1   foo=&gt;undefined</div></pre></td></tr></table></figure></p>
-<h2 id="对象方式解构赋值"><a href="#对象方式解构赋值" class="headerlink" title="对象方式解构赋值"></a>对象方式解构赋值</h2><p>对象的属性没有次序，变量必须与属性同名,对象定义变量的方法：<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div></pre></td><td class="code"><pre><div class="line"><span class="built_in">let</span> &#123; foo: foo, bar: bar &#125; = &#123; foo: <span class="string">"aaa"</span>, bar: <span class="string">"bbb"</span> &#125;;</div><div class="line"><span class="built_in">let</span> &#123; foo, bar &#125; = &#123; foo: <span class="string">"aaa"</span>, bar: <span class="string">"bbb"</span> &#125;; //foo = aaa  bar = bbb,这是上面的简写</div><div class="line"></div><div class="line"><span class="built_in">let</span> &#123;x, y&#125; =&#123;x: 1, y: 2&#125;</div><div class="line"><span class="built_in">let</span> &#123;x = 3, y&#125; =&#123;y: 2&#125; //不报错，但不建议这样写</div><div class="line"></div><div class="line"><span class="built_in">let</span> &#123;foo&#125; = &#123;bar: <span class="string">'baz'</span>&#125;; //foo=</div><div class="line"></div><div class="line">//foo是匹配的模式，baz才是变量。真正被赋值的是变量baz，而不是模式foo</div><div class="line"><span class="built_in">let</span> &#123; foo: baz &#125; = &#123; foo: <span class="string">"aaa"</span>, bar: <span class="string">"bbb"</span> &#125;; //baz = <span class="string">"aaa"</span>   foo = error: foo is not defined  </div><div class="line"></div><div class="line"><span class="built_in">let</span> &#123; bar, foo &#125; = &#123; foo: <span class="string">"aaa"</span>, bar: <span class="string">"bbb"</span> &#125;; //bar = bbb  foo = aaa ,对象的属性没有次序，变量必须与属性同名</div></pre></td></tr></table></figure></p>
-<p>解构也可以用于嵌套结构的对象<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div></pre></td><td class="code"><pre><div class="line">var node = &#123;</div><div class="line">  loc: &#123;</div><div class="line">    start: &#123;</div><div class="line">      line: 1,</div><div class="line">      column: 5</div><div class="line">    &#125;</div><div class="line">  &#125;</div><div class="line">&#125;;</div><div class="line"></div><div class="line">var &#123; loc: &#123; start: &#123; line &#125;&#125; &#125; = node;</div><div class="line">line // 1</div><div class="line">loc  // error: loc is undefined</div><div class="line">start // error: start is undefined</div></pre></td></tr></table></figure></p>
-<p>上面只有line是变量，loc和start都是模式，不会被赋值。</p>
-<p>如果解构不成功，变量的值就等于undefined<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line"><span class="built_in">let</span> &#123;bar, foo&#125; = &#123;bar: 1&#125;;  //bar=&gt;1   foo=&gt;undefined</div></pre></td></tr></table></figure></p>
-<p>特殊用法：<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line"><span class="built_in">let</span> &#123; <span class="built_in">log</span>, sin, cos &#125; = Math;</div></pre></td></tr></table></figure></p>
-<p>上面代码将Math对象的对数、正弦、余弦三个方法，赋值到对应的变量上，使用起来就会方便很多。</p>
-<h2 id="字符串的解构赋值"><a href="#字符串的解构赋值" class="headerlink" title="字符串的解构赋值"></a>字符串的解构赋值</h2><p>字符串也可以解构赋值。这是因为此时，字符串被转换成了一个类似数组的对象<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">const [a, b, c, d, e] = <span class="string">'hello'</span>;  //a =&gt; <span class="string">"h"</span>  b =&gt; <span class="string">"e"</span> c =&gt; <span class="string">"l"</span> d =&gt; <span class="string">"l"</span> e =&gt; <span class="string">"o"</span></div></pre></td></tr></table></figure></p>
-<p>类似数组的对象都有一个length属性，因此还可以对这个属性解构赋值。<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line"><span class="built_in">let</span> &#123;length : len&#125; = <span class="string">'hello'</span>;  //len =&gt; 5</div></pre></td></tr></table></figure></p>
-<h2 id="数值和布尔值的解构赋值"><a href="#数值和布尔值的解构赋值" class="headerlink" title="数值和布尔值的解构赋值"></a>数值和布尔值的解构赋值</h2><p>解构赋值时，如果等号右边是数值和布尔值，则会先转为对象。<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line"><span class="built_in">let</span> &#123;toString: s&#125; = 123;</div><div class="line">s === Number.prototype.toString // <span class="literal">true</span></div><div class="line"></div><div class="line"><span class="built_in">let</span> &#123;toString: s&#125; = <span class="literal">true</span>;</div><div class="line">s === Boolean.prototype.toString // <span class="literal">true</span></div></pre></td></tr></table></figure></p>
-<p>注意上面是将右边转化为对象，对象有toString属性，所以s是右边对象的属性toString赋值后结果</p>
-<h2 id="undefined和null赋值"><a href="#undefined和null赋值" class="headerlink" title="undefined和null赋值"></a>undefined和null赋值</h2><p>解构赋值的规则是，只要等号右边的值不是对象或数组，就先将其转为对象。由于undefined和null无法转为对象，所以对它们进行解构赋值，都会报错。<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line"><span class="built_in">let</span> &#123; prop: x &#125; = undefined; // TypeError</div><div class="line"><span class="built_in">let</span> &#123; prop: y &#125; = null; // TypeError</div></pre></td></tr></table></figure></p>
-<h2 id="函数的解构赋值"><a href="#函数的解构赋值" class="headerlink" title="函数的解构赋值"></a>函数的解构赋值</h2><p>函数的参数也可以使用数组和对象解构赋值。</p>
-<h3 id="函数使用数组解构值"><a href="#函数使用数组解构值" class="headerlink" title="函数使用数组解构值"></a>函数使用数组解构值</h3><p>举个例子：<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">function</span> add([x, y])&#123;</div><div class="line">  <span class="built_in">return</span> x + y;</div><div class="line">&#125;</div><div class="line"></div><div class="line">add([1, 2]); // 3</div></pre></td></tr></table></figure></p>
-<h3 id="函数使用对象解构值"><a href="#函数使用对象解构值" class="headerlink" title="函数使用对象解构值"></a>函数使用对象解构值</h3><p>千万注意使用对象解构值指定默认值的情况<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div></pre></td><td class="code"><pre><div class="line">//使用下面的方式</div><div class="line"><span class="keyword">function</span> move(&#123;x = 0, y = 0&#125; = &#123;&#125;) &#123;</div><div class="line">  <span class="built_in">return</span> [x, y];</div><div class="line">&#125;</div><div class="line">move(&#123;x: 3, y: 8&#125;); // [3, 8]</div><div class="line">move(&#123;x: 3&#125;); // [3, 0]</div><div class="line">move(&#123;&#125;); // [0, 0]</div><div class="line">move(); // [0, 0]</div><div class="line">而不能使用下面的方式，函数move的参数指定默认值，而不是为变量x和y指定默认值</div><div class="line"><span class="keyword">function</span> move(&#123;x, y&#125; = &#123;x: 0, y: 0&#125;) &#123;</div><div class="line">  <span class="built_in">return</span> [x, y];</div><div class="line">&#125;</div><div class="line">move(&#123;x: 3, y: 8&#125;); // [3, 8]</div><div class="line">move(&#123;x: 3&#125;); // [3, undefined]</div><div class="line">move(&#123;&#125;); // [undefined, undefined]</div><div class="line">move(); // [0, 0]</div></pre></td></tr></table></figure></p>
-<h2 id="解构值的重点用法"><a href="#解构值的重点用法" class="headerlink" title="解构值的重点用法"></a>解构值的重点用法</h2><h3 id="提取JSON数据"><a href="#提取JSON数据" class="headerlink" title="提取JSON数据"></a>提取JSON数据</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div></pre></td><td class="code"><pre><div class="line"><span class="built_in">let</span> jsonData = &#123;</div><div class="line">  id: 42,</div><div class="line">  status: <span class="string">"OK"</span>,</div><div class="line">  data: [867, 5309]</div><div class="line">&#125;;</div><div class="line"></div><div class="line"><span class="built_in">let</span> &#123; id, status, data: number &#125; = jsonData;</div><div class="line"></div><div class="line">console.log(id, status, number);</div><div class="line">// 42, <span class="string">"OK"</span>, [867, 5309]</div></pre></td></tr></table></figure>
-<h3 id="函数参数的默认值"><a href="#函数参数的默认值" class="headerlink" title="函数参数的默认值"></a>函数参数的默认值</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div></pre></td><td class="code"><pre><div class="line">jQuery.ajax = <span class="keyword">function</span> (url, &#123;</div><div class="line">  async = <span class="literal">true</span>,</div><div class="line">  beforeSend = <span class="function"><span class="title">function</span></span> () &#123;&#125;,</div><div class="line">  cache = <span class="literal">true</span>,</div><div class="line">  complete = <span class="function"><span class="title">function</span></span> () &#123;&#125;,</div><div class="line">  crossDomain = <span class="literal">false</span>,</div><div class="line">  global = <span class="literal">true</span>,</div><div class="line">  // ... more config</div><div class="line">&#125;) &#123;</div><div class="line">  // ... <span class="keyword">do</span> stuff</div><div class="line">&#125;;</div></pre></td></tr></table></figure>
-<h3 id="遍历Map结构"><a href="#遍历Map结构" class="headerlink" title="遍历Map结构"></a>遍历Map结构</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div></pre></td><td class="code"><pre><div class="line">var map = new Map();</div><div class="line">map.set(<span class="string">'first'</span>, <span class="string">'hello'</span>);</div><div class="line">map.set(<span class="string">'second'</span>, <span class="string">'world'</span>);</div><div class="line"></div><div class="line"><span class="keyword">for</span> (<span class="built_in">let</span> [key, value] of map) &#123;</div><div class="line">  console.log(key + <span class="string">" is "</span> + value);</div><div class="line">&#125;</div><div class="line">// first is hello</div><div class="line">// second is world</div></pre></td></tr></table></figure>
-<p>如果只想获取键名，或者只想获取键值，可以写成下面这样。<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div></pre></td><td class="code"><pre><div class="line">// 获取键名</div><div class="line"><span class="keyword">for</span> (<span class="built_in">let</span> [key] of map) &#123;</div><div class="line">  // ...</div><div class="line">&#125;</div><div class="line"></div><div class="line">// 获取键值</div><div class="line"><span class="keyword">for</span> (<span class="built_in">let</span> [,value] of map) &#123;</div><div class="line">  // ...</div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
-<h3 id="输入模块的指定方法"><a href="#输入模块的指定方法" class="headerlink" title="输入模块的指定方法"></a>输入模块的指定方法</h3><p>加载模块时，往往需要指定输入哪些方法。解构赋值使得输入语句非常清晰。<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">const &#123; SourceMapConsumer, SourceNode &#125; = require(<span class="string">"source-map"</span>);</div></pre></td></tr></table></figure></p>
+        <p><img src="https://manlili.github.io/img/170402/1.png" alt="图"></p>
 
       
     </div>
@@ -525,17 +504,8 @@
       
 
       
-        <ul class="sidebar-nav motion-element">
-          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap" >
-            文章目录
-          </li>
-          <li class="sidebar-nav-overview" data-target="site-overview">
-            站点概览
-          </li>
-        </ul>
-      
 
-      <section class="site-overview sidebar-panel">
+      <section class="site-overview sidebar-panel sidebar-panel-active">
         <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
           <img class="site-author-image" itemprop="image"
                src="/uploads/avatar.jpg"
@@ -548,7 +518,7 @@
           
             <div class="site-state-item site-state-posts">
               <a href="/archives">
-                <span class="site-state-item-count">95</span>
+                <span class="site-state-item-count">94</span>
                 <span class="site-state-item-name">日志</span>
               </a>
             </div>
@@ -566,7 +536,7 @@
           
             <div class="site-state-item site-state-tags">
               <a href="/tags">
-                <span class="site-state-item-count">113</span>
+                <span class="site-state-item-count">111</span>
                 <span class="site-state-item-name">标签</span>
               </a>
             </div>
@@ -611,22 +581,6 @@
 
       </section>
 
-      
-      <!--noindex-->
-        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
-          <div class="post-toc">
-
-            
-              
-            
-
-            
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#数组方式解构赋值"><span class="nav-number">1.</span> <span class="nav-text">数组方式解构赋值</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#对象方式解构赋值"><span class="nav-number">2.</span> <span class="nav-text">对象方式解构赋值</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#字符串的解构赋值"><span class="nav-number">3.</span> <span class="nav-text">字符串的解构赋值</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#数值和布尔值的解构赋值"><span class="nav-number">4.</span> <span class="nav-text">数值和布尔值的解构赋值</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#undefined和null赋值"><span class="nav-number">5.</span> <span class="nav-text">undefined和null赋值</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#函数的解构赋值"><span class="nav-number">6.</span> <span class="nav-text">函数的解构赋值</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#函数使用数组解构值"><span class="nav-number">6.1.</span> <span class="nav-text">函数使用数组解构值</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#函数使用对象解构值"><span class="nav-number">6.2.</span> <span class="nav-text">函数使用对象解构值</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#解构值的重点用法"><span class="nav-number">7.</span> <span class="nav-text">解构值的重点用法</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#提取JSON数据"><span class="nav-number">7.1.</span> <span class="nav-text">提取JSON数据</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#函数参数的默认值"><span class="nav-number">7.2.</span> <span class="nav-text">函数参数的默认值</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#遍历Map结构"><span class="nav-number">7.3.</span> <span class="nav-text">遍历Map结构</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#输入模块的指定方法"><span class="nav-number">7.4.</span> <span class="nav-text">输入模块的指定方法</span></a></li></ol></li></ol></div>
-            
-
-          </div>
-        </section>
-      <!--/noindex-->
       
 
     </div>
