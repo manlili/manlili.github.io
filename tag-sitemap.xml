@@ -58,13 +58,6 @@
     </url>
 
     <url>
-        <loc>http://yoursite.com/tags/%E7%AB%8B%E5%8D%B3%E6%89%A7%E8%A1%8C%E5%87%BD%E6%95%B0/</loc>
-        <lastmod>2016-05-24T10:15:42.201Z</lastmod>
-        <changefreq>weekly</changefreq>
-        <priority>0.2</priority>
-    </url>
-
-    <url>
         <loc>http://yoursite.com/tags/vueJS/</loc>
         <lastmod>2016-10-25T06:48:02.498Z</lastmod>
         <changefreq>weekly</changefreq>
@@ -291,13 +284,6 @@
     <url>
         <loc>http://yoursite.com/tags/java/</loc>
         <lastmod>2017-03-05T07:29:37.615Z</lastmod>
-        <changefreq>weekly</changefreq>
-        <priority>0.2</priority>
-    </url>
-
-    <url>
-        <loc>http://yoursite.com/tags/this/</loc>
-        <lastmod>2017-03-06T01:31:19.681Z</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.2</priority>
     </url>
@@ -695,6 +681,34 @@
     </url>
 
     <url>
+        <loc>http://yoursite.com/tags/this/</loc>
+        <lastmod>2017-08-10T03:15:51.258Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.2</priority>
+    </url>
+
+    <url>
+        <loc>http://yoursite.com/tags/call/</loc>
+        <lastmod>2017-08-10T03:15:51.258Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.2</priority>
+    </url>
+
+    <url>
+        <loc>http://yoursite.com/tags/apply/</loc>
+        <lastmod>2017-08-10T03:15:51.258Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.2</priority>
+    </url>
+
+    <url>
+        <loc>http://yoursite.com/tags/bind/</loc>
+        <lastmod>2017-08-10T03:15:51.258Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.2</priority>
+    </url>
+
+    <url>
         <loc>http://yoursite.com/tags/let/</loc>
         <lastmod>2017-08-23T06:50:46.798Z</lastmod>
         <changefreq>weekly</changefreq>
@@ -802,6 +816,34 @@
     <url>
         <loc>http://yoursite.com/tags/Class/</loc>
         <lastmod>2017-08-23T07:34:26.788Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.2</priority>
+    </url>
+
+    <url>
+        <loc>http://yoursite.com/tags/proto/</loc>
+        <lastmod>2017-08-28T08:54:48.465Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.2</priority>
+    </url>
+
+    <url>
+        <loc>http://yoursite.com/tags/%E7%AB%8B%E5%8D%B3%E6%89%A7%E8%A1%8C%E5%87%BD%E6%95%B0/</loc>
+        <lastmod>2017-08-28T09:10:17.950Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.2</priority>
+    </url>
+
+    <url>
+        <loc>http://yoursite.com/tags/zepto/</loc>
+        <lastmod>2017-08-28T10:01:10.124Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.2</priority>
+    </url>
+
+    <url>
+        <loc>http://yoursite.com/tags/%E6%9E%B6%E6%9E%84%E8%AE%BE%E8%AE%A1/</loc>
+        <lastmod>2017-08-28T10:01:10.124Z</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.2</priority>
     </url>

@@ -4,8 +4,50 @@
 
     
   <url>
+    <loc>http://yoursite.com/2017/08/28/zepto%E6%BA%90%E7%A0%81%E8%A7%A3%E8%AF%BB2%E4%B9%8B%E6%9E%B6%E6%9E%84%E8%AE%BE%E8%AE%A1/</loc>
+    <lastmod>2017-08-28T10:01:10.124Z</lastmod>
+    <data>
+        <display>
+        <title>zepto源码解读2之架构设计</title>
+        <pubTime>2017-08-28T07:50:11.733Z</pubTime>
+        
+        <tag>zepto</tag>
+         
+        <tag>架构设计</tag>
+         
+         
+           
+             
+              <breadCrumb title="zepto源码解读" url="http://yoursite.com/categories/zepto%E6%BA%90%E7%A0%81%E8%A7%A3%E8%AF%BB/"/>
+          
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
+    <loc>http://yoursite.com/2016/05/24/%E7%AB%8B%E5%8D%B3%E6%89%A7%E8%A1%8C%E5%87%BD%E6%95%B0IIFE/</loc>
+    <lastmod>2017-08-28T09:10:17.950Z</lastmod>
+    <data>
+        <display>
+        <title>立即执行函数IIFE</title>
+        <pubTime>2016-05-24T10:14:01.307Z</pubTime>
+        
+        <tag>立即执行函数</tag>
+         
+         
+           
+             
+              <breadCrumb title="心得体会" url="http://yoursite.com/categories/%E5%BF%83%E5%BE%97%E4%BD%93%E4%BC%9A/"/>
+          
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
     <loc>http://yoursite.com/2017/08/16/zepto%E6%BA%90%E7%A0%81%E8%A7%A3%E8%AF%BB1%E4%B9%8B%E5%BC%95%E8%A8%80/</loc>
-    <lastmod>2017-09-12T07:37:14.317Z</lastmod>
+    <lastmod>2017-08-28T08:54:48.465Z</lastmod>
     <data>
         <display>
         <title>zepto源码解读1之引言</title>
@@ -1020,9 +1062,9 @@
         <title>JS的浅拷贝与深拷贝研究</title>
         <pubTime>2017-04-17T07:43:52.198Z</pubTime>
         
-        <tag>对象</tag>
-         
         <tag>数组</tag>
+         
+        <tag>对象</tag>
          
          
            
@@ -1961,26 +2003,6 @@
            
              
               <breadCrumb title="SPA" url="http://yoursite.com/categories/SPA/"/>
-          
-        </display>
-    </data>
-    </url>
-
-    
-  <url>
-    <loc>http://yoursite.com/2016/05/24/%E7%AB%8B%E5%8D%B3%E6%89%A7%E8%A1%8C%E5%87%BD%E6%95%B0IIFE/</loc>
-    <lastmod>2016-05-24T10:15:42.201Z</lastmod>
-    <data>
-        <display>
-        <title>立即执行函数IIFE</title>
-        <pubTime>2016-05-24T10:14:01.307Z</pubTime>
-        
-        <tag>立即执行函数</tag>
-         
-         
-           
-             
-              <breadCrumb title="心得体会" url="http://yoursite.com/categories/%E5%BF%83%E5%BE%97%E4%BD%93%E4%BC%9A/"/>
           
         </display>
     </data>

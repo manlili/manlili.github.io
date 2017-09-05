@@ -85,21 +85,21 @@
 
 
 <meta name="description" content="最近的感觉非常爽，有一种忽然开窍的感觉，瞬间可以看懂项目的框架代码，我觉得可以深入学习一下框架的内容了，后面准备写一下zepto的源码解读的内容，将学习的心得记录下来。
-这篇文章主要写的是引言，所以比较简单。首先来讲下原型，为后面讲源码做准备，直接在console控制器里面下面代码12var arr = [1,2,3];arr.__proto__   //寻找arr的原型对象
+这篇文章主要写的是引言，所以比较简单。首先来讲下原型，为后面讲源码做准备，直接在console控制台里面下面代码12var arr = [1,2,3];arr.__proto__   //寻找arr的原型对象
 如上代码，arr.p">
 <meta property="og:type" content="article">
 <meta property="og:title" content="zepto源码解读1之引言">
 <meta property="og:url" content="http://yoursite.com/2017/08/16/zepto源码解读1之引言/index.html">
 <meta property="og:site_name" content="manlili blog">
 <meta property="og:description" content="最近的感觉非常爽，有一种忽然开窍的感觉，瞬间可以看懂项目的框架代码，我觉得可以深入学习一下框架的内容了，后面准备写一下zepto的源码解读的内容，将学习的心得记录下来。
-这篇文章主要写的是引言，所以比较简单。首先来讲下原型，为后面讲源码做准备，直接在console控制器里面下面代码12var arr = [1,2,3];arr.__proto__   //寻找arr的原型对象
+这篇文章主要写的是引言，所以比较简单。首先来讲下原型，为后面讲源码做准备，直接在console控制台里面下面代码12var arr = [1,2,3];arr.__proto__   //寻找arr的原型对象
 如上代码，arr.p">
 <meta property="og:image" content="https://manlili.github.io/img/170816/1.png">
-<meta property="og:updated_time" content="2017-09-12T07:37:14.317Z">
+<meta property="og:updated_time" content="2017-08-28T08:54:48.465Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="zepto源码解读1之引言">
 <meta name="twitter:description" content="最近的感觉非常爽，有一种忽然开窍的感觉，瞬间可以看懂项目的框架代码，我觉得可以深入学习一下框架的内容了，后面准备写一下zepto的源码解读的内容，将学习的心得记录下来。
-这篇文章主要写的是引言，所以比较简单。首先来讲下原型，为后面讲源码做准备，直接在console控制器里面下面代码12var arr = [1,2,3];arr.__proto__   //寻找arr的原型对象
+这篇文章主要写的是引言，所以比较简单。首先来讲下原型，为后面讲源码做准备，直接在console控制台里面下面代码12var arr = [1,2,3];arr.__proto__   //寻找arr的原型对象
 如上代码，arr.p">
 <meta name="twitter:image" content="https://manlili.github.io/img/170816/1.png">
 
@@ -399,7 +399,7 @@
 
       
         <p>最近的感觉非常爽，有一种忽然开窍的感觉，瞬间可以看懂项目的框架代码，我觉得可以深入学习一下框架的内容了，后面准备写一下zepto的源码解读的内容，将学习的心得记录下来。</p>
-<p>这篇文章主要写的是引言，所以比较简单。<br>首先来讲下原型，为后面讲源码做准备，直接在console控制器里面下面代码<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">var arr = [1,2,3];</div><div class="line">arr.__proto__   //寻找arr的原型对象</div></pre></td></tr></table></figure></p>
+<p>这篇文章主要写的是引言，所以比较简单。<br>首先来讲下原型，为后面讲源码做准备，直接在console控制台里面下面代码<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">var arr = [1,2,3];</div><div class="line">arr.__proto__   //寻找arr的原型对象</div></pre></td></tr></table></figure></p>
 <p>如上代码，arr.<strong>proto</strong>输出了一个对象，对象里面包含了我们常用的操作数组的函数，例如concat,push,map等，其实就是数组自带的方法<br>接着再来看一下全部的运行图片<br><img src="https://manlili.github.io/img/170816/1.png" alt="图"><br>上面代码看不懂的可以自行百度，这里只是简单的提一下</p>
 <p>我们都知道数组没有addClass这个方法,比如下面这段代码<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">var attr = [1,2,3]</div><div class="line">attr.addClass() //这时会提示无这个方法</div></pre></td></tr></table></figure></p>
 <p>上面的过程需要记住一句话，当你想使用一个对象某个方法的时候，如果该对象本身具有这个方法，那么直接使用便可，如果该对象本身没有这个功能，则去<code>__proto__</code>中去找，显然上面的代码本身没有这个方法，那么就回去Array里面去找，也没找到。</p>
@@ -470,6 +470,10 @@
 
           <div class="post-nav-prev post-nav-item">
             
+              <a href="/2017/08/28/zepto源码解读2之架构设计/" rel="prev" title="zepto源码解读2之架构设计">
+                zepto源码解读2之架构设计 <i class="fa fa-chevron-right"></i>
+              </a>
+            
           </div>
         </div>
       
@@ -529,7 +533,7 @@
           
             <div class="site-state-item site-state-posts">
               <a href="/archives">
-                <span class="site-state-item-count">102</span>
+                <span class="site-state-item-count">103</span>
                 <span class="site-state-item-name">日志</span>
               </a>
             </div>
@@ -547,7 +551,7 @@
           
             <div class="site-state-item site-state-tags">
               <a href="/tags">
-                <span class="site-state-item-count">120</span>
+                <span class="site-state-item-count">121</span>
                 <span class="site-state-item-name">标签</span>
               </a>
             </div>
