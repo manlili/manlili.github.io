@@ -1,6 +1,18 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
+    <title><![CDATA[zepto源码解读3之典型函数]]></title>
+    <url>%2F2017%2F09%2F05%2Fzepto%E6%BA%90%E7%A0%81%E8%A7%A3%E8%AF%BB3%E4%B9%8B%E5%85%B8%E5%9E%8B%E5%87%BD%E6%95%B0%2F</url>
+    <content type="text"><![CDATA[zepto.init 函数先来看看zepto.init 函数12345678910111213141516171819202122var Zepto = (function()&#123; var $, zepto = &#123;&#125; //内部定义的zepto，非外部的Zepto // ...省略N行代码... zepto.init = function(selector, context) &#123; // 函数内容 &#125; $ = function(selector, context)&#123; return zepto.init(selector, context) &#125; // ...省略N行代码... return $&#125;)()window.Zepto = Zeptowindow.$ === undefined &amp;&amp; (window.$ = Zepto)]]></content>
+      <categories>
+        <category>zepto源码解读</category>
+      </categories>
+      <tags>
+        <tag>zepto</tag>
+        <tag>架构设计</tag>
+      </tags>
+  </entry>
+  <entry>
     <title><![CDATA[zepto源码解读2之架构设计]]></title>
     <url>%2F2017%2F08%2F28%2Fzepto%E6%BA%90%E7%A0%81%E8%A7%A3%E8%AF%BB2%E4%B9%8B%E6%9E%B6%E6%9E%84%E8%AE%BE%E8%AE%A1%2F</url>
     <content type="text"><![CDATA[源码地址https://github.com/manlili/zepto-source-analysis里面的introduction.html Zepto原理说明先来看一段代码12345678910111213141516&lt;!DOCTYPE html&gt;&lt;html&gt; &lt;head&gt; &lt;meta charset="UTF-8"&gt; &lt;title&gt;&lt;/title&gt; &lt;script src="zepto.js" type="text/javascript" charset="utf-8"&gt;&lt;/script&gt; &lt;/head&gt; &lt;body&gt; &lt;p id="p1"&gt;测试&lt;/p&gt; &lt;div&gt; &lt;span&gt;test&lt;/span&gt; &lt;span&gt;test&lt;/span&gt; &lt;span&gt;test&lt;/span&gt; &lt;/div&gt; &lt;/body&gt;&lt;/html&gt; 这个时候再打开console控制台输入123456789101112var $p = $('p'); // $p 是数组var $span = $('span'); // $span 是数组var arr = [1,2,3];var $p = $('p');// 对比1arr.__proto__.constructor === Array; // true$p.__proto__.constructor === Array; // false// 对比2arr instanceof Array; // true$p instanceof Array; // false 这个时候发现上面两个输出的都是数组，下面再来一段代码1$("span").addClass('test') 会发现浏览器html中所有P标签都加了类名test，但是数组没有内置的addClass方法，这就是我们《zepto源码解读1之引言》提到的扩展隐式原型来实现的。 如果此时我想创建一个新的对象，他调用原生数组的内置对象concat和push,同时又自定义addClass方法,只需要12345678var attr = [1,2,3]attr.__proto__ = &#123; concat: Array.prototype.concat, push: Array.prototype.push, addClass: function () &#123; console.log("this is addClass") &#125;&#125; 这个时候再打开console控制台输入12345attr.push(4)attrvar test = attr.concat([5,6,7,8])console(test)attr.addClass() 经测试上面的代码都是正确的。 实际上zepto.js设计的时候，并不像上面的那么简单，但是原理都是一致的 紧接着上面的attr创建新方法addClass，这里需要注意的是，实际上addClass方法只在attr上面起作用，假设我们再创建一个1var attr2 = [11,12,13] 这个时候的attr2依然没有addClass方法，如果想让attr2也有的话，就需要用123attr.__proto__.constructor.prototype.addClass = function () &#123; console.log("this is addClass")&#125; 上面attr.__proto__.constructor是Array,也就是直接扩展了Array，这也是我们扩展插件的主要思想 Zepto架构设计下来看一段代码12345var Zepto = (function () &#123; &#125;)() //使用函数表达式风格的自执行函数window.Zepto = Zeptowindow.$ === undefined &amp;&amp; (window.$ = Zepto) 关于自执行函数建议看我的另外一篇博客立即执行函数IIFE上面代码最难理解的是1window.$ === undefined &amp;&amp; (window.$ = Zepto) 解释起来就是如果window.$还没有被定义，就将Zepto赋值给window 细心的人就会发现，立即执行函数里面没有return,下面来改下代码12345678910111213141516var Zepto = (function()&#123; var $ // ...省略N行代码... $ = function(selector, context)&#123; return zepto.init(selector, context) &#125; // ...省略N行代码... return $&#125;)()window.Zepto = Zeptowindow.$ === undefined &amp;&amp; (window.$ = Zepto) 这个时候再打开console控制台输入和结果是12345678910111213window.Zeptoƒ (selector, context)&#123; return zepto.init(selector, context) &#125;window.$ƒ (selector, context)&#123; return zepto.init(selector, context) &#125;typeof window.$"function" 由上面的代码可以看出window.$也就是Zepto最终是个函数]]></content>
@@ -285,8 +297,8 @@
         <category>心得体会</category>
       </categories>
       <tags>
-        <tag>数组</tag>
         <tag>对象</tag>
+        <tag>数组</tag>
       </tags>
   </entry>
   <entry>
