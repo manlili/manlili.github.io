@@ -318,6 +318,32 @@
 
     
   <url>
+    <loc>http://yoursite.com/2017/08/10/call-apply-bind/</loc>
+    <lastmod>2017-08-10T03:15:51.258Z</lastmod>
+    <data>
+        <display>
+        <title>call apply bind</title>
+        <pubTime>2017-08-10T02:45:53.611Z</pubTime>
+        
+        <tag>this</tag>
+         
+        <tag>call</tag>
+         
+        <tag>apply</tag>
+         
+        <tag>bind</tag>
+         
+         
+           
+             
+              <breadCrumb title="js技术" url="http://yoursite.com/categories/js%E6%8A%80%E6%9C%AF/"/>
+          
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
     <loc>http://yoursite.com/2017/07/31/ES6%E4%B9%8BSymbol/</loc>
     <lastmod>2017-07-31T07:50:48.815Z</lastmod>
     <data>

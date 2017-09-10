@@ -1,6 +1,20 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
+    <title><![CDATA[call apply bind]]></title>
+    <url>%2F2017%2F08%2F10%2Fcall-apply-bind%2F</url>
+    <content type="text"><![CDATA[使用call apply bind的原因看过一篇文章的作者很接地气描述过,在javascript OOP中，我们经常会这样定义：123456789function cat()&#123;&#125;cat.prototype=&#123; food:"fish", say: function()&#123; alert("I love "+this.food); &#125;&#125;var blackCat = new cat;blackCat.say(); 但是如果我们有一个对象123whiteDog = &#123; food:"bone"&#125; 我们不想对它重新定义say方法，那么我们可以通过call或apply用blackCat的say方法：1234blackCat.say.call(whiteDog);blackCat.say.apply(whiteDog);或者blackCat.say.bind(whiteDog)() 所以，可以看出call和apply是为了动态改变this而出现的，当一个object没有某个方法，但是其他的有，我们可以借助call或apply用其它对象的方法来操作,当然bind也可以实现this指向的改变，只是apply和call改变this后直接调用这个函数，而bind只是绑定，绑定后还需要使用()使它执行。 call apply bind区别先来看一段示例代码：12obj.call(thisObj, arg1, arg2, ...);obj.apply(thisObj, [arg1, arg2, ...]); 两者作用一致，都是把obj(即this)绑定到thisObj,唯一区别是apply接受的是数组参数，call接受的是连续参数 下面来看看bind用法123456obj.bind(thisObj, arg1, arg2, ...)或者obj.bind(thisObj, [arg1, arg2, ...])但是上面仅仅是绑定，还需要运行obj() 用一句话总结就是该方法创建一个新函数，称为绑定函数，绑定函数会以创建它时传入bind方法的第一个参数作为this，传入bind方法的第二个以及以后的参数加上绑定函数运行时本身的参数按照顺序作为原函数的参数来调用原函数]]></content>
+      <categories>
+        <category>js技术</category>
+      </categories>
+      <tags>
+        <tag>this</tag>
+        <tag>call</tag>
+        <tag>apply</tag>
+        <tag>bind</tag>
+      </tags>
+  </entry>
+  <entry>
     <title><![CDATA[ES6之Symbol]]></title>
     <url>%2F2017%2F07%2F31%2FES6%E4%B9%8BSymbol%2F</url>
     <content type="text"><![CDATA[]]></content>
