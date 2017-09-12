@@ -1,6 +1,18 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
+    <title><![CDATA[zepto源码解读1之引言]]></title>
+    <url>%2F2017%2F08%2F16%2Fzepto%E6%BA%90%E7%A0%81%E8%A7%A3%E8%AF%BB1%E4%B9%8B%E5%BC%95%E8%A8%80%2F</url>
+    <content type="text"><![CDATA[最近的感觉非常爽，有一种忽然开窍的感觉，瞬间可以看懂项目的框架代码，我觉得可以深入学习一下框架的内容了，后面准备写一下zepto的源码解读的内容，将学习的心得记录下来。 这篇文章主要写的是引言，所以比较简单。首先来讲下原型，为后面讲源码做准备，直接在console控制器里面下面代码12var arr = [1,2,3];arr.__proto__ //寻找arr的原型对象 如上代码，arr.proto输出了一个对象，对象里面包含了我们常用的操作数组的函数，例如concat,push,map等，其实就是数组自带的方法接着再来看一下全部的运行图片上面代码看不懂的可以自行百度，这里只是简单的提一下 我们都知道数组没有addClass这个方法,比如下面这段代码12var attr = [1,2,3]attr.addClass() //这时会提示无这个方法 上面的过程需要记住一句话，当你想使用一个对象某个方法的时候，如果该对象本身具有这个方法，那么直接使用便可，如果该对象本身没有这个功能，则去proto中去找，显然上面的代码本身没有这个方法，那么就回去Array里面去找，也没找到。 但是我又想用这个方法，这时候可以在原型链上绑定12345var attr = [1,2,3]attr.__proto__.addClass = function () &#123; //这里说明隐式原型可以被重新赋值 alert('成功')&#125;attr.addClass() //浏览器中出现弹窗 下面总结一下：(1)每个对象都有一个prototype属性，无论是你定义的，还是系统内置的(2)所有的对象都有一个隐式原型proto原型指向这个函数的prototype(3)当你想使用一个对象的某个方法的时候，如果该对象本身具有这个方法，那么直接使用便可，如果该对象本身没有这个功能，则去proto中去找]]></content>
+      <categories>
+        <category>zepto源码解读</category>
+      </categories>
+      <tags>
+        <tag>zepto</tag>
+        <tag>__proto__</tag>
+      </tags>
+  </entry>
+  <entry>
     <title><![CDATA[call apply bind]]></title>
     <url>%2F2017%2F08%2F10%2Fcall-apply-bind%2F</url>
     <content type="text"><![CDATA[使用call apply bind的原因看过一篇文章的作者很接地气描述过,在javascript OOP中，我们经常会这样定义：123456789function cat()&#123;&#125;cat.prototype=&#123; food:"fish", say: function()&#123; alert("I love "+this.food); &#125;&#125;var blackCat = new cat;blackCat.say(); 但是如果我们有一个对象123whiteDog = &#123; food:"bone"&#125; 我们不想对它重新定义say方法，那么我们可以通过call或apply用blackCat的say方法：1234blackCat.say.call(whiteDog);blackCat.say.apply(whiteDog);或者blackCat.say.bind(whiteDog)() 所以，可以看出call和apply是为了动态改变this而出现的，当一个object没有某个方法，但是其他的有，我们可以借助call或apply用其它对象的方法来操作,当然bind也可以实现this指向的改变，只是apply和call改变this后直接调用这个函数，而bind只是绑定，绑定后还需要使用()使它执行。 call apply bind区别先来看一段示例代码：12obj.call(thisObj, arg1, arg2, ...);obj.apply(thisObj, [arg1, arg2, ...]); 两者作用一致，都是把obj(即this)绑定到thisObj,唯一区别是apply接受的是数组参数，call接受的是连续参数 下面来看看bind用法123456obj.bind(thisObj, arg1, arg2, ...)或者obj.bind(thisObj, [arg1, arg2, ...])但是上面仅仅是绑定，还需要运行obj() 用一句话总结就是该方法创建一个新函数，称为绑定函数，绑定函数会以创建它时传入bind方法的第一个参数作为this，传入bind方法的第二个以及以后的参数加上绑定函数运行时本身的参数按照顺序作为原函数的参数来调用原函数]]></content>
@@ -261,8 +273,8 @@
         <category>心得体会</category>
       </categories>
       <tags>
-        <tag>对象</tag>
         <tag>数组</tag>
+        <tag>对象</tag>
       </tags>
   </entry>
   <entry>
