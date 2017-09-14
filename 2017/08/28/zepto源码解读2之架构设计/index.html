@@ -92,7 +92,7 @@ Zepto原理说明先来看一段代码12345678910111213141516&amp;lt;!DOCTYPE ht
 <meta property="og:site_name" content="manlili blog">
 <meta property="og:description" content="源码地址https://github.com/manlili/zepto-source-analysis里面的introduction.html
 Zepto原理说明先来看一段代码12345678910111213141516&amp;lt;!DOCTYPE html&amp;gt;&amp;lt;html&amp;gt;  &amp;lt;head&amp;gt;    &amp;lt;meta charset=&quot;UTF-8&quot;&amp;gt;    &amp;lt;t">
-<meta property="og:updated_time" content="2017-08-28T10:01:10.124Z">
+<meta property="og:updated_time" content="2017-09-14T02:11:20.349Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="zepto源码解读2之架构设计">
 <meta name="twitter:description" content="源码地址https://github.com/manlili/zepto-source-analysis里面的introduction.html
@@ -358,8 +358,8 @@ Zepto原理说明先来看一段代码12345678910111213141516&amp;lt;!DOCTYPE ht
               
               
                 <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/zepto源码解读/" itemprop="url" rel="index">
-                    <span itemprop="name">zepto源码解读</span>
+                  <a href="/categories/Zepto源码解读/" itemprop="url" rel="index">
+                    <span itemprop="name">Zepto源码解读</span>
                   </a>
                 </span>
 
@@ -408,8 +408,8 @@ Zepto原理说明先来看一段代码12345678910111213141516&amp;lt;!DOCTYPE ht
 <h2 id="Zepto架构设计"><a href="#Zepto架构设计" class="headerlink" title="Zepto架构设计"></a>Zepto架构设计</h2><p>下来看一段代码<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">var Zepto = (<span class="function"><span class="title">function</span></span> () &#123;</div><div class="line">  </div><div class="line">&#125;)()   //使用函数表达式风格的自执行函数</div><div class="line">window.Zepto = Zepto</div><div class="line">window.$ === undefined &amp;&amp; (window.$ = Zepto)</div></pre></td></tr></table></figure></p>
 <p>关于自执行函数建议看我的另外一篇博客<a href="https://manlili.github.io/2016/05/24/%E7%AB%8B%E5%8D%B3%E6%89%A7%E8%A1%8C%E5%87%BD%E6%95%B0IIFE/" target="_blank" rel="external">立即执行函数IIFE</a><br>上面代码最难理解的是<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">window.$ === undefined &amp;&amp; (window.$ = Zepto)</div></pre></td></tr></table></figure></p>
 <p>解释起来就是如果window.$还没有被定义，就将Zepto赋值给window</p>
-<p>细心的人就会发现，立即执行函数里面没有return,下面来改下代码<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div></pre></td><td class="code"><pre><div class="line">var Zepto = (<span class="function"><span class="title">function</span></span>()&#123;</div><div class="line">    var $</div><div class="line">    </div><div class="line">    // ...省略N行代码...</div><div class="line">    </div><div class="line">    $ = <span class="keyword">function</span>(selector, context)&#123;</div><div class="line">        <span class="built_in">return</span> zepto.init(selector, context)</div><div class="line">    &#125;</div><div class="line">    </div><div class="line">    // ...省略N行代码...</div><div class="line">    </div><div class="line">    <span class="built_in">return</span> $</div><div class="line">&#125;)()</div><div class="line"></div><div class="line">window.Zepto = Zepto</div><div class="line">window.$ === undefined &amp;&amp; (window.$ = Zepto)</div></pre></td></tr></table></figure></p>
-<p>这个时候再打开console控制台输入和结果是<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div></pre></td><td class="code"><pre><div class="line">window.Zepto</div><div class="line">ƒ (selector, context)&#123;</div><div class="line">    <span class="built_in">return</span> zepto.init(selector, context)</div><div class="line">  &#125;</div><div class="line"></div><div class="line">window.$</div><div class="line">ƒ (selector, context)&#123;</div><div class="line">    <span class="built_in">return</span> zepto.init(selector, context)</div><div class="line">  &#125;</div><div class="line"></div><div class="line"></div><div class="line">typeof window.$</div><div class="line"><span class="string">"function"</span></div></pre></td></tr></table></figure></p>
+<p>细心的人就会发现，立即执行函数里面没有return,下面来看下稍微完整点的代码<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div></pre></td><td class="code"><pre><div class="line">var Zepto = (<span class="function"><span class="title">function</span></span>()&#123;</div><div class="line">    var $</div><div class="line">    </div><div class="line">    // ...省略N行代码...</div><div class="line">    </div><div class="line">    $ = <span class="keyword">function</span>(selector, context)&#123;</div><div class="line">        <span class="built_in">return</span> zepto.init(selector, context)</div><div class="line">    &#125;</div><div class="line">    </div><div class="line">    // ...省略N行代码...</div><div class="line">    </div><div class="line">    <span class="built_in">return</span> $</div><div class="line">&#125;)()</div><div class="line"></div><div class="line">window.Zepto = Zepto</div><div class="line">window.$ === undefined &amp;&amp; (window.$ = Zepto)</div></pre></td></tr></table></figure></p>
+<p>这个时候再打开console控制台输入和结果是<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div></pre></td><td class="code"><pre><div class="line">window.Zepto</div><div class="line">ƒ (selector, context)&#123;</div><div class="line">    <span class="built_in">return</span> zepto.init(selector, context)</div><div class="line">  &#125;</div><div class="line"></div><div class="line">window.$</div><div class="line">ƒ (selector, context)&#123;</div><div class="line">    <span class="built_in">return</span> zepto.init(selector, context)</div><div class="line">  &#125;</div><div class="line"></div><div class="line">typeof window.$</div><div class="line"><span class="string">"function"</span></div></pre></td></tr></table></figure></p>
 <p>由上面的代码可以看出window.$也就是Zepto最终是个函数</p>
 
       
@@ -548,7 +548,7 @@ Zepto原理说明先来看一段代码12345678910111213141516&amp;lt;!DOCTYPE ht
           
             <div class="site-state-item site-state-posts">
               <a href="/archives">
-                <span class="site-state-item-count">104</span>
+                <span class="site-state-item-count">105</span>
                 <span class="site-state-item-name">日志</span>
               </a>
             </div>
@@ -557,7 +557,7 @@ Zepto原理说明先来看一段代码12345678910111213141516&amp;lt;!DOCTYPE ht
           
             <div class="site-state-item site-state-categories">
               <a href="/categories">
-                <span class="site-state-item-count">15</span>
+                <span class="site-state-item-count">16</span>
                 <span class="site-state-item-name">分类</span>
               </a>
             </div>
@@ -566,7 +566,7 @@ Zepto原理说明先来看一段代码12345678910111213141516&amp;lt;!DOCTYPE ht
           
             <div class="site-state-item site-state-tags">
               <a href="/tags">
-                <span class="site-state-item-count">121</span>
+                <span class="site-state-item-count">123</span>
                 <span class="site-state-item-name">标签</span>
               </a>
             </div>

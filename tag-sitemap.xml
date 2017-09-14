@@ -821,13 +821,6 @@
     </url>
 
     <url>
-        <loc>http://yoursite.com/tags/proto/</loc>
-        <lastmod>2017-08-28T08:54:48.465Z</lastmod>
-        <changefreq>weekly</changefreq>
-        <priority>0.2</priority>
-    </url>
-
-    <url>
         <loc>http://yoursite.com/tags/%E7%AB%8B%E5%8D%B3%E6%89%A7%E8%A1%8C%E5%87%BD%E6%95%B0/</loc>
         <lastmod>2017-08-28T09:10:17.950Z</lastmod>
         <changefreq>weekly</changefreq>
@@ -835,15 +828,36 @@
     </url>
 
     <url>
+        <loc>http://yoursite.com/tags/proto/</loc>
+        <lastmod>2017-09-14T02:11:24.538Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.2</priority>
+    </url>
+
+    <url>
+        <loc>http://yoursite.com/tags/sublime/</loc>
+        <lastmod>2017-09-14T02:12:47.617Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.2</priority>
+    </url>
+
+    <url>
+        <loc>http://yoursite.com/tags/sublimeLinter/</loc>
+        <lastmod>2017-09-14T02:12:47.617Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.2</priority>
+    </url>
+
+    <url>
         <loc>http://yoursite.com/tags/zepto/</loc>
-        <lastmod>2017-08-28T10:01:10.124Z</lastmod>
+        <lastmod>2017-09-14T07:14:36.692Z</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.2</priority>
     </url>
 
     <url>
         <loc>http://yoursite.com/tags/%E6%9E%B6%E6%9E%84%E8%AE%BE%E8%AE%A1/</loc>
-        <lastmod>2017-08-28T10:01:10.124Z</lastmod>
+        <lastmod>2017-09-14T07:14:36.692Z</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.2</priority>
     </url>
