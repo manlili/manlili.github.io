@@ -2,13 +2,6 @@
 <urlset xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:image="http://www.google.com/schemas/sitemap-image/1.1" xsi:schemaLocation="http://www.sitemaps.org/schemas/sitemap/0.9 http://www.sitemaps.org/schemas/sitemap/0.9/sitemap.xsd" xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
 
     <url>
-        <loc>http://yoursite.com/tags/%E5%B8%A7%E5%8A%A8%E7%94%BB/</loc>
-        <lastmod>2014-11-01T12:24:05.231Z</lastmod>
-        <changefreq>weekly</changefreq>
-        <priority>0.2</priority>
-    </url>
-
-    <url>
         <loc>http://yoursite.com/tags/juery/</loc>
         <lastmod>2014-11-23T09:57:42.991Z</lastmod>
         <changefreq>weekly</changefreq>
@@ -207,48 +200,6 @@
     <url>
         <loc>http://yoursite.com/tags/AMD/</loc>
         <lastmod>2017-02-27T12:54:53.679Z</lastmod>
-        <changefreq>weekly</changefreq>
-        <priority>0.2</priority>
-    </url>
-
-    <url>
-        <loc>http://yoursite.com/tags/%E9%81%AE%E7%BD%A9/</loc>
-        <lastmod>2017-02-28T05:34:49.946Z</lastmod>
-        <changefreq>weekly</changefreq>
-        <priority>0.2</priority>
-    </url>
-
-    <url>
-        <loc>http://yoursite.com/tags/box-shadow/</loc>
-        <lastmod>2017-02-28T05:34:49.946Z</lastmod>
-        <changefreq>weekly</changefreq>
-        <priority>0.2</priority>
-    </url>
-
-    <url>
-        <loc>http://yoursite.com/tags/translate/</loc>
-        <lastmod>2017-02-28T05:37:12.830Z</lastmod>
-        <changefreq>weekly</changefreq>
-        <priority>0.2</priority>
-    </url>
-
-    <url>
-        <loc>http://yoursite.com/tags/css3/</loc>
-        <lastmod>2017-02-28T05:37:39.105Z</lastmod>
-        <changefreq>weekly</changefreq>
-        <priority>0.2</priority>
-    </url>
-
-    <url>
-        <loc>http://yoursite.com/tags/%E5%8A%A8%E7%94%BB/</loc>
-        <lastmod>2017-02-28T05:37:39.105Z</lastmod>
-        <changefreq>weekly</changefreq>
-        <priority>0.2</priority>
-    </url>
-
-    <url>
-        <loc>http://yoursite.com/tags/css/</loc>
-        <lastmod>2017-02-28T05:37:50.661Z</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.2</priority>
     </url>
@@ -837,6 +788,83 @@
     <url>
         <loc>http://yoursite.com/tags/sublimeLinter/</loc>
         <lastmod>2017-09-14T02:12:47.617Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.2</priority>
+    </url>
+
+    <url>
+        <loc>http://yoursite.com/tags/Zepto/</loc>
+        <lastmod>2017-09-17T02:45:05.685Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.2</priority>
+    </url>
+
+    <url>
+        <loc>http://yoursite.com/tags/%E6%9E%B6%E6%9E%84%E8%AE%BE%E8%AE%A1/</loc>
+        <lastmod>2017-09-17T02:45:11.220Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.2</priority>
+    </url>
+
+    <url>
+        <loc>http://yoursite.com/tags/zepto/</loc>
+        <lastmod>2017-09-17T02:45:21.004Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.2</priority>
+    </url>
+
+    <url>
+        <loc>http://yoursite.com/tags/proto/</loc>
+        <lastmod>2017-09-17T02:45:21.004Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.2</priority>
+    </url>
+
+    <url>
+        <loc>http://yoursite.com/tags/translate/</loc>
+        <lastmod>2017-09-17T02:58:44.050Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.2</priority>
+    </url>
+
+    <url>
+        <loc>http://yoursite.com/tags/%E5%8A%A8%E7%94%BB/</loc>
+        <lastmod>2017-09-17T02:59:06.233Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.2</priority>
+    </url>
+
+    <url>
+        <loc>http://yoursite.com/tags/%E5%B8%A7%E5%8A%A8%E7%94%BB/</loc>
+        <lastmod>2017-09-17T02:59:16.265Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.2</priority>
+    </url>
+
+    <url>
+        <loc>http://yoursite.com/tags/css3/</loc>
+        <lastmod>2017-09-17T02:59:26.105Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.2</priority>
+    </url>
+
+    <url>
+        <loc>http://yoursite.com/tags/%E9%81%AE%E7%BD%A9/</loc>
+        <lastmod>2017-09-17T02:59:26.105Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.2</priority>
+    </url>
+
+    <url>
+        <loc>http://yoursite.com/tags/box-shadow/</loc>
+        <lastmod>2017-09-17T02:59:26.105Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.2</priority>
+    </url>
+
+    <url>
+        <loc>http://yoursite.com/tags/css/</loc>
+        <lastmod>2017-09-17T02:59:36.641Z</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.2</priority>
     </url>
