@@ -828,13 +828,6 @@
     </url>
 
     <url>
-        <loc>http://yoursite.com/tags/proto/</loc>
-        <lastmod>2017-09-14T02:11:24.538Z</lastmod>
-        <changefreq>weekly</changefreq>
-        <priority>0.2</priority>
-    </url>
-
-    <url>
         <loc>http://yoursite.com/tags/sublime/</loc>
         <lastmod>2017-09-14T02:12:47.617Z</lastmod>
         <changefreq>weekly</changefreq>
@@ -844,20 +837,6 @@
     <url>
         <loc>http://yoursite.com/tags/sublimeLinter/</loc>
         <lastmod>2017-09-14T02:12:47.617Z</lastmod>
-        <changefreq>weekly</changefreq>
-        <priority>0.2</priority>
-    </url>
-
-    <url>
-        <loc>http://yoursite.com/tags/zepto/</loc>
-        <lastmod>2017-09-14T07:14:36.692Z</lastmod>
-        <changefreq>weekly</changefreq>
-        <priority>0.2</priority>
-    </url>
-
-    <url>
-        <loc>http://yoursite.com/tags/%E6%9E%B6%E6%9E%84%E8%AE%BE%E8%AE%A1/</loc>
-        <lastmod>2017-09-14T07:14:36.692Z</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.2</priority>
     </url>
