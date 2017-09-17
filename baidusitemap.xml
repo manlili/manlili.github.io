@@ -4,6 +4,26 @@
 
     
   <url>
+    <loc>http://yoursite.com/2016/08/26/%E5%BC%95%E7%94%A8%E6%96%87%E4%BB%B6%E7%9A%84%E8%B7%AF%E5%BE%84/</loc>
+    <lastmod>2017-09-17T03:11:36.089Z</lastmod>
+    <data>
+        <display>
+        <title>引用文件的路径</title>
+        <pubTime>2016-08-26T07:12:01.623Z</pubTime>
+        
+        <tag>文件</tag>
+         
+         
+           
+             
+              <breadCrumb title="样式css技术" url="http://yoursite.com/categories/%E6%A0%B7%E5%BC%8Fcss%E6%8A%80%E6%9C%AF/"/>
+          
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
     <loc>http://yoursite.com/2014/11/29/%E7%88%B6%E5%B1%82%E4%B8%8E%E5%AD%90%E5%B1%82%E7%9A%84-position-%E5%B1%9E%E6%80%A7%E5%9C%A8%E4%B8%8D%E5%90%8C%E7%BB%84%E5%90%88%E4%B8%8B%E7%9A%84%E6%83%85%E5%86%B5/</loc>
     <lastmod>2017-09-17T03:04:32.424Z</lastmod>
     <data>
@@ -1765,26 +1785,6 @@
            
              
               <breadCrumb title="js模块" url="http://yoursite.com/categories/js%E6%A8%A1%E5%9D%97/"/>
-          
-        </display>
-    </data>
-    </url>
-
-    
-  <url>
-    <loc>http://yoursite.com/2016/08/26/%E5%BC%95%E7%94%A8%E6%96%87%E4%BB%B6%E7%9A%84%E8%B7%AF%E5%BE%84/</loc>
-    <lastmod>2017-02-26T07:38:57.876Z</lastmod>
-    <data>
-        <display>
-        <title>引用文件的路径</title>
-        <pubTime>2016-08-26T07:12:01.623Z</pubTime>
-        
-        <tag>文件</tag>
-         
-         
-           
-             
-              <breadCrumb title="css技术" url="http://yoursite.com/categories/css%E6%8A%80%E6%9C%AF/"/>
           
         </display>
     </data>
