@@ -87,7 +87,7 @@
 <meta name="description" content="前端开发工程师">
 <meta property="og:type" content="website">
 <meta property="og:title" content="manlili blog">
-<meta property="og:url" content="http://yoursite.com/tags/zepto/index.html">
+<meta property="og:url" content="http://yoursite.com/tags/Zepto/index.html">
 <meta property="og:site_name" content="manlili blog">
 <meta property="og:description" content="前端开发工程师">
 <meta name="twitter:card" content="summary">
@@ -120,13 +120,13 @@
 
 
 
-  <link rel="canonical" href="http://yoursite.com/tags/zepto/"/>
+  <link rel="canonical" href="http://yoursite.com/tags/Zepto/"/>
 
 
 
 
 
-  <title> 标签: zepto | manlili blog </title>
+  <title> 标签: Zepto | manlili blog </title>
 </head>
 
 <body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
@@ -285,7 +285,7 @@
   <div id="posts" class="posts-collapse">
     <div class="collection-title">
       <h2 >
-        zepto
+        Zepto
         <small>标签</small>
       </h2>
     </div>
@@ -300,7 +300,7 @@
         
             <a class="post-title-link" href="/2017/09/05/zepto源码解读3之典型函数/" itemprop="url">
               
-                <span itemprop="name">zepto源码解读3之典型函数</span>
+                <span itemprop="name">Zepto源码解读3之典型函数</span>
               
             </a>
         
@@ -311,62 +311,6 @@
               datetime="2017-09-05T18:06:16+08:00"
               content="2017-09-05" >
           09-05
-        </time>
-      </div>
-
-    </header>
-  </article>
-
-
-    
-      
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
-
-      <h1 class="post-title">
-        
-            <a class="post-title-link" href="/2017/08/28/zepto源码解读2之架构设计/" itemprop="url">
-              
-                <span itemprop="name">zepto源码解读2之架构设计</span>
-              
-            </a>
-        
-      </h1>
-
-      <div class="post-meta">
-        <time class="post-time" itemprop="dateCreated"
-              datetime="2017-08-28T15:50:11+08:00"
-              content="2017-08-28" >
-          08-28
-        </time>
-      </div>
-
-    </header>
-  </article>
-
-
-    
-      
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
-
-      <h1 class="post-title">
-        
-            <a class="post-title-link" href="/2017/08/16/zepto源码解读1之引言/" itemprop="url">
-              
-                <span itemprop="name">zepto源码解读1之引言</span>
-              
-            </a>
-        
-      </h1>
-
-      <div class="post-meta">
-        <time class="post-time" itemprop="dateCreated"
-              datetime="2017-08-16T11:20:40+08:00"
-              content="2017-08-16" >
-          08-16
         </time>
       </div>
 
@@ -436,7 +380,7 @@
           
             <div class="site-state-item site-state-tags">
               <a href="/tags">
-                <span class="site-state-item-count">123</span>
+                <span class="site-state-item-count">124</span>
                 <span class="site-state-item-name">标签</span>
               </a>
             </div>
@@ -705,6 +649,45 @@
             str += "</ul>";
             if (matchcounts == 0) { str = '<div id="no-result"><i class="fa fa-frown-o fa-5x" /></div>' }
             if (keywords == "") { str = '<div id="no-result"><i class="fa fa-search fa-5x" /></div>' }
+            $resultContent.innerHTML = str;
+          });
+          proceedsearch();
+        }
+      });}
+
+    // handle and trigger popup window;
+    $('.popup-trigger').click(function(e) {
+      e.stopPropagation();
+      if (isfetched == false) {
+        searchFunc(path, 'local-search-input', 'local-search-result');
+      } else {
+        proceedsearch();
+      };
+    });
+
+    $('.popup-btn-close').click(function(e){
+      $('.popup').hide();
+      $(".popoverlay").remove();
+      $('body').css('overflow', '');
+    });
+    $('.popup').click(function(e){
+      e.stopPropagation();
+    });
+  </script>
+
+
+  
+
+  
+
+  
+
+  
+
+
+</body>
+</html>
+rch fa-5x" /></div>' }
             $resultContent.innerHTML = str;
           });
           proceedsearch();
