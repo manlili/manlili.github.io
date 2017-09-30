@@ -4,6 +4,28 @@
 
     
   <url>
+    <loc>http://yoursite.com/2017/09/21/Vue%E6%8F%92%E4%BB%B6%E7%9A%84%E5%BC%80%E5%8F%91%E6%B5%81%E7%A8%8B/</loc>
+    <lastmod>2017-09-30T09:12:16.882Z</lastmod>
+    <data>
+        <display>
+        <title>Vue插件的开发流程</title>
+        <pubTime>2017-09-21T07:31:00.000Z</pubTime>
+        
+        <tag>vue</tag>
+         
+        <tag>插件</tag>
+         
+         
+           
+             
+              <breadCrumb title="vue技术" url="http://yoursite.com/categories/vue%E6%8A%80%E6%9C%AF/"/>
+          
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
     <loc>http://yoursite.com/2016/08/26/%E5%BC%95%E7%94%A8%E6%96%87%E4%BB%B6%E7%9A%84%E8%B7%AF%E5%BE%84/</loc>
     <lastmod>2017-09-17T03:11:36.089Z</lastmod>
     <data>
@@ -1316,9 +1338,9 @@
         <title>JS的浅拷贝与深拷贝研究</title>
         <pubTime>2017-04-17T07:43:52.198Z</pubTime>
         
-        <tag>对象</tag>
-         
         <tag>数组</tag>
+         
+        <tag>对象</tag>
          
          
            

@@ -1,0 +1,928 @@
+<!doctype html>
+
+
+
+  
+
+
+<html class="theme-next mist use-motion" lang="zh-Hans">
+<head>
+  <meta charset="UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+  <link href="/lib/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css" />
+
+
+
+
+  
+  
+  
+  
+
+  
+    
+    
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+    
+    
+    <link href="//fonts.googleapis.com/css?family=Lato:300,300italic,400,400italic,700,700italic&subset=latin,latin-ext" rel="stylesheet" type="text/css">
+  
+
+
+
+
+
+
+<link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css" />
+
+<link href="/css/main.css?v=5.1.0" rel="stylesheet" type="text/css" />
+
+
+  <meta name="keywords" content="vue,插件," />
+
+
+
+
+
+
+
+
+  <link rel="shortcut icon" type="image/x-icon" href="/favicon.ico?v=5.1.0" />
+
+
+
+
+
+
+<meta name="description" content="这篇文章主要是介绍如何给vue添加插件，方便更多人去使用这个框架,废话不多说，直接进去正题本项目源代码的gitHub地址:传送门
+搭建vue项目首先我为了方便并没有自己一步步去搭建vue的项目，因为我们的目的是如何开发插件，而不是如何搭建框架，这里我是使用vue作者开发的vue-cli快速搭建项目，使用方法如下
+node环境安装 https://nodejs.org/en/download/
+安装">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Vue插件的开发流程">
+<meta property="og:url" content="http://yoursite.com/2017/09/21/Vue插件的开发流程/index.html">
+<meta property="og:site_name" content="manlili blog">
+<meta property="og:description" content="这篇文章主要是介绍如何给vue添加插件，方便更多人去使用这个框架,废话不多说，直接进去正题本项目源代码的gitHub地址:传送门
+搭建vue项目首先我为了方便并没有自己一步步去搭建vue的项目，因为我们的目的是如何开发插件，而不是如何搭建框架，这里我是使用vue作者开发的vue-cli快速搭建项目，使用方法如下
+node环境安装 https://nodejs.org/en/download/
+安装">
+<meta property="og:image" content="https://manlili.github.io/img/170921/1.jpg">
+<meta property="og:updated_time" content="2017-09-30T09:12:16.882Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="Vue插件的开发流程">
+<meta name="twitter:description" content="这篇文章主要是介绍如何给vue添加插件，方便更多人去使用这个框架,废话不多说，直接进去正题本项目源代码的gitHub地址:传送门
+搭建vue项目首先我为了方便并没有自己一步步去搭建vue的项目，因为我们的目的是如何开发插件，而不是如何搭建框架，这里我是使用vue作者开发的vue-cli快速搭建项目，使用方法如下
+node环境安装 https://nodejs.org/en/download/
+安装">
+<meta name="twitter:image" content="https://manlili.github.io/img/170921/1.jpg">
+
+
+
+<script type="text/javascript" id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Mist',
+    sidebar: {"position":"left","display":"post"},
+    fancybox: true,
+    motion: true,
+    duoshuo: {
+      userId: '0',
+      author: '博主'
+    },
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
+
+
+
+  <link rel="canonical" href="http://yoursite.com/2017/09/21/Vue插件的开发流程/"/>
+
+
+
+
+
+  <title> Vue插件的开发流程 | manlili blog </title>
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
+
+  
+
+
+
+  <script type="text/javascript">
+    var _hmt = _hmt || [];
+    (function() {
+      var hm = document.createElement("script");
+      hm.src = "https://hm.baidu.com/hm.js?f37e17c195d69bf54199e99faa624b7b　";
+      var s = document.getElementsByTagName("script")[0];
+      s.parentNode.insertBefore(hm, s);
+    })();
+  </script>
+
+
+
+
+
+
+
+
+  
+  
+    
+  
+
+  <div class="container one-collumn sidebar-position-left page-post-detail ">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-meta ">
+  
+
+  <div class="custom-logo-site-title">
+    <a href="/"  class="brand" rel="start">
+      <span class="logo-line-before"><i></i></span>
+      <span class="site-title">manlili blog</span>
+      <span class="logo-line-after"><i></i></span>
+    </a>
+  </div>
+    
+      <p class="site-subtitle">记录技术上的点点心得</p>
+    
+</div>
+
+<div class="site-nav-toggle">
+  <button>
+    <span class="btn-bar"></span>
+    <span class="btn-bar"></span>
+    <span class="btn-bar"></span>
+  </button>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-home"></i> <br />
+            
+            首页
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/archives" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-archive"></i> <br />
+            
+            归档
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-categories">
+          <a href="/categories" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-th"></i> <br />
+            
+            分类
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-tags">
+          <a href="/tags" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-tags"></i> <br />
+            
+            标签
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-about">
+          <a href="/about" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-user"></i> <br />
+            
+            关于
+          </a>
+        </li>
+      
+
+      
+        <li class="menu-item menu-item-search">
+          
+            <a href="javascript:;" class="popup-trigger">
+          
+            
+              <i class="menu-item-icon fa fa-search fa-fw"></i> <br />
+            
+            搜索
+          </a>
+        </li>
+      
+    </ul>
+  
+
+  
+    <div class="site-search">
+      
+  <div class="popup">
+ <span class="search-icon fa fa-search"></span>
+ <input type="text" id="local-search-input">
+ <div id="local-search-result"></div>
+ <span class="popup-btn-close">close</span>
+</div>
+
+
+    </div>
+  
+</nav>
+
+
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+  <link itemprop="mainEntityOfPage" href="http://yoursite.com/2017/09/21/Vue插件的开发流程/">
+
+  <span style="display:none" itemprop="author" itemscope itemtype="http://schema.org/Person">
+    <meta itemprop="name" content="满利利">
+    <meta itemprop="description" content="">
+    <meta itemprop="image" content="/uploads/avatar.jpg">
+  </span>
+
+  <span style="display:none" itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+    <meta itemprop="name" content="manlili blog">
+    <span style="display:none" itemprop="logo" itemscope itemtype="http://schema.org/ImageObject">
+      <img style="display:none;" itemprop="url image" alt="manlili blog" src="">
+    </span>
+  </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+            
+            
+              
+                Vue插件的开发流程
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2017-09-21T15:31:00+08:00">
+                2017-09-21
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/vue技术/" itemprop="url" rel="index">
+                    <span itemprop="name">vue技术</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+
+          
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <p>这篇文章主要是介绍如何给vue添加插件，方便更多人去使用这个框架,废话不多说，直接进去正题<br>本项目源代码的gitHub地址:<a href="https://github.com/manlili/vue-plugin-research" target="_blank" rel="external">传送门</a></p>
+<h2 id="搭建vue项目"><a href="#搭建vue项目" class="headerlink" title="搭建vue项目"></a>搭建vue项目</h2><p>首先我为了方便并没有自己一步步去搭建vue的项目，因为我们的目的是如何开发插件，而不是如何搭建框架，这里我是使用vue作者开发的vue-cli快速搭建项目，使用方法如下</p>
+<h3 id="node环境安装"><a href="#node环境安装" class="headerlink" title="node环境安装"></a>node环境安装</h3><p> <a href="https://nodejs.org/en/download/" target="_blank" rel="external">https://nodejs.org/en/download/</a></p>
+<h3 id="安装vue-cli"><a href="#安装vue-cli" class="headerlink" title="安装vue-cli"></a>安装vue-cli</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">npm install -g vue-cli</div></pre></td></tr></table></figure>
+<h3 id="使用vue-cli初始化项目"><a href="#使用vue-cli初始化项目" class="headerlink" title="使用vue-cli初始化项目"></a>使用vue-cli初始化项目</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">vue init webpack-simple vue-plugin-research</div></pre></td></tr></table></figure>
+<p>然后根据提示安装项目</p>
+<h3 id="进入目录"><a href="#进入目录" class="headerlink" title="进入目录"></a>进入目录</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line"><span class="built_in">cd</span> vue-plugin-research</div></pre></td></tr></table></figure>
+<h3 id="安装依赖"><a href="#安装依赖" class="headerlink" title="安装依赖"></a>安装依赖</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">npm install</div></pre></td></tr></table></figure>
+<h3 id="运行项目"><a href="#运行项目" class="headerlink" title="运行项目"></a>运行项目</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">npm run dev</div></pre></td></tr></table></figure>
+<h3 id="访问项目"><a href="#访问项目" class="headerlink" title="访问项目"></a>访问项目</h3><p>打开浏览器，输入<a href="http://localhost:8080/" target="_blank" rel="external">http://localhost:8080/</a></p>
+<h2 id="插件类型"><a href="#插件类型" class="headerlink" title="插件类型"></a>插件类型</h2><p>我们先来看官网的文件说明<a href="https://vuefe.cn/v2/guide/plugins.html" target="_blank" rel="external">传送门</a><br>大概就是官网实例中写的那样<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div></pre></td><td class="code"><pre><div class="line">MyPlugin.install = <span class="keyword">function</span> (Vue, options) &#123;</div><div class="line">  // 1. 添加全局方法或属性</div><div class="line">  Vue.myGlobalMethod = <span class="function"><span class="title">function</span></span> () &#123;</div><div class="line">    // 一些逻辑……</div><div class="line">  &#125;</div><div class="line">  // 2. 添加一个全局资源(asset)</div><div class="line">  Vue.directive(<span class="string">'my-directive'</span>, &#123;</div><div class="line">    <span class="built_in">bind</span> (el, binding, vnode, oldVnode) &#123;</div><div class="line">      // 一些逻辑……</div><div class="line">    &#125;</div><div class="line">    ...</div><div class="line">  &#125;)</div><div class="line">  // 3. 注入一些组件选项</div><div class="line">  Vue.mixin(&#123;</div><div class="line">    created: <span class="function"><span class="title">function</span></span> () &#123;</div><div class="line">      // 一些逻辑……</div><div class="line">    &#125;</div><div class="line">    ...</div><div class="line">  &#125;)</div><div class="line">  // 4. 添加一个实例方法</div><div class="line">  Vue.prototype.<span class="variable">$myMethod</span> = <span class="keyword">function</span> (methodOptions) &#123;</div><div class="line">    // 一些逻辑……</div><div class="line">  &#125;</div><div class="line">  // 5.添加一个模板</div><div class="line">  Vue.component(<span class="string">'模板引用名'</span>, 模板路径)</div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
+<h2 id="实现alert插件"><a href="#实现alert插件" class="headerlink" title="实现alert插件"></a>实现alert插件</h2><p>这个插件主要是是用方法1: 添加全局方法或属性<br>首先在src文件下面建个components文件夹，专门用来盛放自己写的各种插件，然后我又在components文件夹建了一个alert文件夹，再在alert文件夹建立index.js用来盛放我准备要写的alert插件内容，下面来看下index.js里面的代码<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div></pre></td><td class="code"><pre><div class="line">const alert = &#123;</div><div class="line">	install (Vue, options) &#123;</div><div class="line">		Vue.alert = <span class="function"><span class="title">function</span></span> () &#123;</div><div class="line">			window.alert(<span class="string">'这是全局方法alert'</span>)</div><div class="line">		&#125;</div><div class="line">	&#125;</div><div class="line">&#125;</div><div class="line"></div><div class="line"><span class="built_in">export</span> default alert</div></pre></td></tr></table></figure></p>
+<p>接着需要在main.js引入这个插件和使用这个插件<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div></pre></td><td class="code"><pre><div class="line">import Vue from <span class="string">'vue'</span></div><div class="line">import App from <span class="string">'./App.vue'</span></div><div class="line"></div><div class="line">//使用方法1创建alert插件</div><div class="line">import alert from <span class="string">'./plugins/alert'</span></div><div class="line">Vue.use(alert)</div><div class="line">//注意这里是alert使用的方式,因为alert是Vue全局方法</div><div class="line">Vue.alert() </div><div class="line"></div><div class="line">new Vue(&#123;</div><div class="line">  el: <span class="string">'#app'</span>,</div><div class="line">  render: h =&gt; h(App)</div><div class="line">&#125;)</div></pre></td></tr></table></figure></p>
+<p>到此为止，我们已经实现了一个具体的插件，就发可以发布到npm或者其他社区上面  </p>
+<p>运行项目命令<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">npm run dev</div></pre></td></tr></table></figure></p>
+<p>访问项目地址<br>打开浏览器，输入<a href="http://localhost:8080/" target="_blank" rel="external">http://localhost:8080/</a></p>
+<h2 id="实现numberFilter插件"><a href="#实现numberFilter插件" class="headerlink" title="实现numberFilter插件"></a>实现numberFilter插件</h2><p>这个插件主要是是用方法2: 添加一个全局资源<br>首先在src文件下面建个components文件夹，专门用来盛放自己写的各种插件，然后我又在components文件夹建了一个numberFilter文件夹，再在numberFilter文件夹建立index.js用来盛放我准备要写的numberFilter插件内容，下面来看下index.js里面的代码<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div></pre></td><td class="code"><pre><div class="line">const numberFilter = &#123;</div><div class="line">	install(Vue, options) &#123;</div><div class="line">		Vue.filter(<span class="string">'number'</span>, <span class="keyword">function</span> (val) &#123;</div><div class="line">			<span class="keyword">if</span> (val &lt; 10) &#123;</div><div class="line">				<span class="built_in">return</span> <span class="string">'0'</span> + val</div><div class="line">			&#125;<span class="keyword">else</span> &#123;</div><div class="line">				<span class="built_in">return</span> val</div><div class="line">			&#125;</div><div class="line">		&#125;)</div><div class="line">	&#125;</div><div class="line">&#125;</div><div class="line"></div><div class="line"><span class="built_in">export</span> default numberFilter</div></pre></td></tr></table></figure></p>
+<p>接着需要在main.js引入这个插件<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div></pre></td><td class="code"><pre><div class="line">import Vue from <span class="string">'vue'</span></div><div class="line">import App from <span class="string">'./App.vue'</span></div><div class="line"></div><div class="line">//使用方法2创建numberFilter组件</div><div class="line">import numberFilter from <span class="string">'./plugins/numberFilter'</span></div><div class="line">Vue.use (numberFilter)</div><div class="line"></div><div class="line">new Vue(&#123;</div><div class="line">  el: <span class="string">'#app'</span>,</div><div class="line">  render: h =&gt; h(App)</div><div class="line">&#125;)</div></pre></td></tr></table></figure></p>
+<p>上面就实现了numberFilter插件绑定在Vue上面，然后在具体的地方html使用，我这里是在App.vue里面实现的<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div></pre></td><td class="code"><pre><div class="line">&lt;!--使用方法2创建numberFilter插件--&gt;</div><div class="line">&lt;template&gt;</div><div class="line">	&lt;div id=<span class="string">"app"</span>&gt;</div><div class="line">		&#123;&#123;num | number&#125;&#125;</div><div class="line">	&lt;/div&gt;</div><div class="line">&lt;/template&gt;</div><div class="line">&lt;script&gt;</div><div class="line">	<span class="built_in">export</span> default &#123;</div><div class="line">		<span class="function"><span class="title">data</span></span> () &#123;</div><div class="line">			<span class="built_in">return</span> &#123;</div><div class="line">				num: 7   //将这行注释掉将发现页面显示的是3,是因为我在doubleNumber插件里面定义了这个变量</div><div class="line">			&#125;</div><div class="line">		&#125;</div><div class="line">	&#125;</div><div class="line">&lt;/script&gt;</div></pre></td></tr></table></figure></p>
+<p>到此为止，我们已经实现了一个具体的插件，就发可以发布到npm或者其他社区上面  </p>
+<p>运行项目命令<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">npm run dev</div></pre></td></tr></table></figure></p>
+<p>访问项目地址<br>打开浏览器，输入<a href="http://localhost:8080/" target="_blank" rel="external">http://localhost:8080/</a></p>
+<h2 id="实现sendUbt插件"><a href="#实现sendUbt插件" class="headerlink" title="实现sendUbt插件"></a>实现sendUbt插件</h2><p>这个插件主要是使用方法3：注入一些组件选项<br>首先在src文件下面建个components文件夹，专门用来盛放自己写的各种插件，然后我又在components文件夹建了一个sendUbt文件夹，再在sendUbt文件夹建立index.js用来盛放我准备要写的sendUbt插件内容，下面来看下index.js里面的代码<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div></pre></td><td class="code"><pre><div class="line">const sendUbt = &#123;</div><div class="line">	install (Vue, options) &#123;</div><div class="line">		Vue.mixin (&#123;</div><div class="line">			methods: &#123;</div><div class="line">				sendUbt: <span class="function"><span class="title">function</span></span> () &#123;</div><div class="line">					console.log(<span class="string">'ubt has sended'</span>)</div><div class="line">				&#125;</div><div class="line">			&#125;</div><div class="line">		&#125;)</div><div class="line">	&#125;</div><div class="line">&#125;</div><div class="line"></div><div class="line"><span class="built_in">export</span> default sendUbt</div></pre></td></tr></table></figure></p>
+<p>接着需要在main.js引入这个插件<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div></pre></td><td class="code"><pre><div class="line">import Vue from <span class="string">'vue'</span></div><div class="line">import App from <span class="string">'./App.vue'</span></div><div class="line"></div><div class="line">//使用方法3创建sendUbt组件</div><div class="line">import sendUbt from <span class="string">'./plugins/sendUbt'</span></div><div class="line">Vue.use (sendUbt)</div><div class="line"></div><div class="line">new Vue(&#123;</div><div class="line">  el: <span class="string">'#app'</span>,</div><div class="line">  render: h =&gt; h(App)</div><div class="line">&#125;)</div></pre></td></tr></table></figure></p>
+<p>上面就实现了sendUbt插件绑定在Vue上面，然后在具体的地方html使用，我这里是在App.vue里面实现的<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line">&lt;!--使用方法3创建ubt插件--&gt;</div><div class="line">&lt;template&gt;</div><div class="line">	&lt;div id=<span class="string">"app"</span>&gt;</div><div class="line">		&lt;button @click=<span class="string">"sendUbt"</span>&gt;点击我发送ubt,注意观察console&lt;/button&gt;</div><div class="line">	&lt;/div&gt;</div><div class="line">&lt;/template&gt;</div></pre></td></tr></table></figure></p>
+<p>到此为止，我们已经实现了一个抽象的插件，当然，把ubt统计的代码不同完整就算一个完整的插件了，然后就发可以发布到npm或者其他社区上面</p>
+<p>运行项目命令<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">npm run dev</div></pre></td></tr></table></figure></p>
+<p>访问项目地址<br>打开浏览器，输入<a href="http://localhost:8080/" target="_blank" rel="external">http://localhost:8080/</a></p>
+<h2 id="实现doubleNumber插件"><a href="#实现doubleNumber插件" class="headerlink" title="实现doubleNumber插件"></a>实现doubleNumber插件</h2><p>这个插件主要是是用方法4: 添加一个实例方法<br>首先在src文件下面建个components文件夹，专门用来盛放自己写的各种插件，然后我又在components文件夹建了一个doubleNumber文件夹，再在doubleNumber文件夹建立index.js用来盛放我准备要写的doubleNumber插件内容，下面来看下index.js里面的代码<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div></pre></td><td class="code"><pre><div class="line">const doubleNumber = &#123;</div><div class="line">	install (Vue, options) &#123;</div><div class="line">		Vue.prototype.doubleNumber = <span class="keyword">function</span> (val) &#123;</div><div class="line">			<span class="keyword">if</span> (typeof val === <span class="string">'number'</span>) &#123;</div><div class="line">				<span class="built_in">return</span> val*2</div><div class="line">			&#125;<span class="keyword">else</span> &#123;</div><div class="line">				<span class="built_in">return</span> Number(val) * 2</div><div class="line">			&#125;</div><div class="line">		&#125;</div><div class="line">		</div><div class="line">		Vue.prototype.num = 3</div><div class="line">	&#125;</div><div class="line">&#125;</div><div class="line"></div><div class="line"><span class="built_in">export</span> default doubleNumber</div></pre></td></tr></table></figure></p>
+<p>接着需要在main.js引入这个插件<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div></pre></td><td class="code"><pre><div class="line">import Vue from <span class="string">'vue'</span></div><div class="line">import App from <span class="string">'./App.vue'</span></div><div class="line"></div><div class="line">//使用方法4创建doubleNumber 插件</div><div class="line">import doubleNumber from <span class="string">'./plugins/doubleNumber'</span></div><div class="line">Vue.use(doubleNumber)</div><div class="line"></div><div class="line">new Vue(&#123;</div><div class="line">  el: <span class="string">'#app'</span>,</div><div class="line">  render: h =&gt; h(App)</div><div class="line">&#125;)</div></pre></td></tr></table></figure></p>
+<p>上面就实现了doubleNumber插件绑定在Vue上面，然后在具体的地方html使用，我这里是在App.vue里面实现的<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div></pre></td><td class="code"><pre><div class="line">&lt;template&gt;</div><div class="line">	&lt;div id=<span class="string">"app"</span>&gt;</div><div class="line">		&lt;div&gt;</div><div class="line">			&#123;&#123;num&#125;&#125;</div><div class="line">		&lt;/div&gt;</div><div class="line">		&lt;button @click=<span class="string">"double"</span>&gt;点击我数字加倍&lt;/button&gt;</div><div class="line">	&lt;/div&gt;</div><div class="line">&lt;/template&gt;</div><div class="line">&lt;script&gt;</div><div class="line">	<span class="built_in">export</span> default &#123;</div><div class="line">		<span class="function"><span class="title">data</span></span> () &#123;</div><div class="line">			<span class="built_in">return</span> &#123;</div><div class="line">				num: 1   //将这行注释掉将发现页面显示的是3,是因为我在doubleNumber插件里面定义了这个变量</div><div class="line">			&#125;</div><div class="line">		&#125;,</div><div class="line">		methods: &#123;</div><div class="line">			<span class="function"><span class="title">double</span></span> () &#123;</div><div class="line">				this.num = this.doubleNumber(this.num)</div><div class="line">			&#125;</div><div class="line">		&#125;</div><div class="line">	&#125;</div><div class="line">&lt;/script&gt;</div></pre></td></tr></table></figure></p>
+<p>上面需要注意的是我在Vue显式原型上面定义了一个变量num，当插件提供一个属性时，组件里没这个属性，就用插件的属性；组件有，就用组件自己的。<br>到此为止，我们已经实现了一个具体的插件，就发可以发布到npm或者其他社区上面  </p>
+<p>运行项目命令<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">npm run dev</div></pre></td></tr></table></figure></p>
+<p>访问项目地址<br>打开浏览器，输入<a href="http://localhost:8080/" target="_blank" rel="external">http://localhost:8080/</a></p>
+<h2 id="实现loading插件"><a href="#实现loading插件" class="headerlink" title="实现loading插件"></a>实现loading插件</h2><p>这个插件主要是是用方法5: 添加一个模板，创建的一个loading插件<br>首先在src文件下面建个components文件夹，专门用来盛放自己写的插件，这里我又在components文件夹建了一个loading文件夹，用来盛放我准备要写的loading组件，下面来看下文件目录<br><img src="https://manlili.github.io/img/170921/1.jpg" alt="图"></p>
+<h3 id="loading插件模板"><a href="#loading插件模板" class="headerlink" title="loading插件模板"></a>loading插件模板</h3><p>loading.vue是用来写这个组件的模板、样式，下面来看下代码<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div></pre></td><td class="code"><pre><div class="line">&lt;template&gt;</div><div class="line">    &lt;div class=<span class="string">"loading-wrap"</span>&gt;</div><div class="line">    	&lt;h4&gt;组件一:loading组件展示&lt;/h4&gt;</div><div class="line">        &lt;div class=<span class="string">"loading-cont"</span>&gt;</div><div class="line">        	Loading...</div><div class="line">        &lt;/div&gt;</div><div class="line">    &lt;/div&gt;</div><div class="line">&lt;/template&gt;</div><div class="line"></div><div class="line">&lt;script&gt;</div><div class="line">//	控制2秒后消失</div><div class="line">	<span class="built_in">set</span>Timeout(<span class="function"><span class="title">function</span></span> () &#123;</div><div class="line">		document.querySelector(<span class="string">'.loading-cont'</span>).setAttribute(<span class="string">'style'</span>, <span class="string">'display: none'</span>)</div><div class="line">	&#125;, 2000)</div><div class="line">&lt;/script&gt;</div><div class="line"></div><div class="line">&lt;style&gt;</div><div class="line">	.loading-cont &#123;</div><div class="line">		width: 100px;</div><div class="line">		height: 100px;</div><div class="line">		line-height: 100px;</div><div class="line">		background-color: rgba(0, 0, 0, .5);</div><div class="line">		border-radius: 5px;</div><div class="line">		padding: 5px;</div><div class="line">		text-align: center;</div><div class="line">		color: <span class="comment">#fff;</span></div><div class="line">		margin: 0 auto;</div><div class="line">	&#125;</div><div class="line">&lt;/style&gt;</div></pre></td></tr></table></figure></p>
+<h3 id="loading挂载在Vue上面"><a href="#loading挂载在Vue上面" class="headerlink" title="loading挂载在Vue上面"></a>loading挂载在Vue上面</h3><p>这里介绍的loading组件是在index.js暴露出调用的方法，下面来看下index.js的内容<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div></pre></td><td class="code"><pre><div class="line">import loadingComponent from <span class="string">'./loading.vue'</span></div><div class="line"></div><div class="line">const loading = &#123;</div><div class="line">	install (Vue, option) &#123;</div><div class="line">		Vue.component(<span class="string">'Loading'</span>, loadingComponent)</div><div class="line">	&#125;</div><div class="line">&#125;</div><div class="line"><span class="built_in">export</span> default loading</div></pre></td></tr></table></figure></p>
+<p>注意上面主要使用了ES6的语法的<code>export</code>,<code>import</code>语法，这个不懂得的话，请自行百度，我想说的千万别把CMD和ES6语法搞混，当然如果以前就不会CMD，不妨自行研究一下。</p>
+<h3 id="使用loading插件"><a href="#使用loading插件" class="headerlink" title="使用loading插件"></a>使用loading插件</h3><p>通过调用全局方法 Vue.use()使用插件，我这里是在main.js实现，来看下具体代码<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div></pre></td><td class="code"><pre><div class="line">import Vue from <span class="string">'vue'</span></div><div class="line">import App from <span class="string">'./App.vue'</span></div><div class="line">import Loading from <span class="string">'./plugins/loading'</span></div><div class="line"></div><div class="line">Vue.use(Loading)</div><div class="line"></div><div class="line">new Vue(&#123;</div><div class="line">  el: <span class="string">'#app'</span>,</div><div class="line">  render: h =&gt; h(App)</div><div class="line">&#125;)</div></pre></td></tr></table></figure></p>
+<p>上面就实现了Loading组件绑定在Vue上面，然后在具体的地方html使用，我这里是在App.vue里面实现的<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">&lt;template&gt;</div><div class="line">  &lt;div id=<span class="string">"app"</span>&gt;</div><div class="line">    &lt;Loading&gt;&lt;/Loading&gt;</div><div class="line">  &lt;/div&gt;</div><div class="line">&lt;/template&gt;</div></pre></td></tr></table></figure></p>
+<p>到此为止，我们已经实现了一个具体的插件，就发可以发布到npm或者其他社区上面  </p>
+<p>运行项目命令<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">npm run dev</div></pre></td></tr></table></figure></p>
+<p>访问项目地址<br>打开浏览器，输入<a href="http://localhost:8080/" target="_blank" rel="external">http://localhost:8080/</a></p>
+
+      
+    </div>
+
+    <div>
+      
+        
+
+      
+    </div>
+
+    <div>
+      
+        
+  <div style="padding: 10px 0; margin: 20px auto; width: 90%; text-align: center;">
+    <div>请我喝杯果汁吧！</div>
+    <button id="rewardButton" disable="enable" onclick="var qr = document.getElementById('QR'); if (qr.style.display === 'none') {qr.style.display='block';} else {qr.style.display='none'}">
+      <span>赏</span>
+    </button>
+    <div id="QR" style="display: none;">
+      
+        <div id="wechat" style="display: inline-block">
+          <img id="wechat_qr" src="https://manlili.github.io/img/pay/wetcharpay.png" alt="满利利 WeChat Pay"/>
+          <p>微信打赏</p>
+        </div>
+      
+      
+        <div id="alipay" style="display: inline-block">
+          <img id="alipay_qr" src="https://manlili.github.io/img/pay/Alipay.jpg" alt="满利利 Alipay"/>
+          <p>支付宝打赏</p>
+        </div>
+      
+    </div>
+  </div>
+
+
+      
+    </div>
+
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/vue/" rel="tag"># vue</a>
+          
+            <a href="/tags/插件/" rel="tag"># 插件</a>
+          
+        </div>
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2017/09/14/sublime之插件sublimeLinter使用/" rel="next" title="sublime之插件sublimeLinter使用">
+                <i class="fa fa-chevron-left"></i> sublime之插件sublimeLinter使用
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </article>
+
+
+
+    <div class="post-spread">
+      
+    </div>
+  </div>
+
+          
+          </div>
+          
+
+
+          
+  <div class="comments" id="comments">
+    
+  </div>
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap" >
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview">
+            站点概览
+          </li>
+        </ul>
+      
+
+      <section class="site-overview sidebar-panel">
+        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+          <img class="site-author-image" itemprop="image"
+               src="/uploads/avatar.jpg"
+               alt="满利利" />
+          <p class="site-author-name" itemprop="name">满利利</p>
+          <p class="site-description motion-element" itemprop="description">前端开发工程师</p>
+        </div>
+        <nav class="site-state motion-element">
+        
+          
+            <div class="site-state-item site-state-posts">
+              <a href="/archives">
+                <span class="site-state-item-count">106</span>
+                <span class="site-state-item-name">日志</span>
+              </a>
+            </div>
+          
+
+          
+            <div class="site-state-item site-state-categories">
+              <a href="/categories">
+                <span class="site-state-item-count">16</span>
+                <span class="site-state-item-name">分类</span>
+              </a>
+            </div>
+          
+
+          
+            <div class="site-state-item site-state-tags">
+              <a href="/tags">
+                <span class="site-state-item-count">125</span>
+                <span class="site-state-item-name">标签</span>
+              </a>
+            </div>
+          
+
+        </nav>
+
+        
+
+        <div class="links-of-author motion-element">
+          
+            
+              <span class="links-of-author-item">
+                <a href="https://github.com/manlili" target="_blank" title="GitHub">
+                  
+                    <i class="fa fa-fw fa-github"></i>
+                  
+                  GitHub
+                </a>
+              </span>
+            
+              <span class="links-of-author-item">
+                <a href="" target="_blank" title="manlili1010@qq.com">
+                  
+                    <i class="fa fa-fw fa-qq"></i>
+                  
+                  manlili1010@qq.com
+                </a>
+              </span>
+            
+          
+        </div>
+
+        
+        
+
+        
+        
+
+        <div class="trunk"><div><div><div><div><div><div><div><div></div><div></div></div><div><div></div><div></div></div></div><div><div><div></div><div></div></div><div><div></div><div></div></div></div></div><div><div><div><div></div><div></div></div><div><div></div><div></div></div></div><div><div><div></div><div></div></div><div><div></div><div></div></div></div></div></div><div><div><div><div><div></div><div></div></div><div><div></div><div></div></div></div><div><div><div></div><div></div></div><div><div></div><div></div></div></div></div><div><div><div><div></div><div></div></div><div><div></div><div></div></div></div><div><div><div></div><div></div></div><div><div></div><div></div></div></div></div></div></div><div><div><div><div><div><div></div><div></div></div><div><div></div><div></div></div></div><div><div><div></div><div></div></div><div><div></div><div></div></div></div></div><div><div><div><div></div><div></div></div><div><div></div><div></div></div></div><div><div><div></div><div></div></div><div><div></div><div></div></div></div></div></div><div><div><div><div><div></div><div></div></div><div><div></div><div></div></div></div><div><div><div></div><div></div></div><div><div></div><div></div></div></div></div><div><div><div><div></div><div></div></div><div><div></div><div></div></div></div><div><div><div></div><div></div></div><div><div></div><div></div></div></div></div></div></div></div><div><div><div><div><div><div><div></div><div></div></div><div><div></div><div></div></div></div><div><div><div></div><div></div></div><div><div></div><div></div></div></div></div><div><div><div><div></div><div></div></div><div><div></div><div></div></div></div><div><div><div></div><div></div></div><div><div></div><div></div></div></div></div></div><div><div><div><div><div></div><div></div></div><div><div></div><div></div></div></div><div><div><div></div><div></div></div><div><div></div><div></div></div></div></div><div><div><div><div></div><div></div></div><div><div></div><div></div></div></div><div><div><div></div><div></div></div><div><div></div><div></div></div></div></div></div></div><div><div><div><div><div><div></div><div></div></div><div><div></div><div></div></div></div><div><div><div></div><div></div></div><div><div></div><div></div></div></div></div><div><div><div><div></div><div></div></div><div><div></div><div></div></div></div><div><div><div></div><div></div></div><div><div></div><div></div></div></div></div></div><div><div><div><div><div></div><div></div></div><div><div></div><div></div></div></div><div><div><div></div><div></div></div><div><div></div><div></div></div></div></div><div><div><div><div></div><div></div></div><div><div></div><div></div></div></div><div><div><div></div><div></div></div><div><div></div><div></div></div></div></div></div></div></div></div><div><div><div><div><div><div><div><div></div><div></div></div><div><div></div><div></div></div></div><div><div><div></div><div></div></div><div><div></div><div></div></div></div></div><div><div><div><div></div><div></div></div><div><div></div><div></div></div></div><div><div><div></div><div></div></div><div><div></div><div></div></div></div></div></div><div><div><div><div><div></div><div></div></div><div><div></div><div></div></div></div><div><div><div></div><div></div></div><div><div></div><div></div></div></div></div><div><div><div><div></div><div></div></div><div><div></div><div></div></div></div><div><div><div></div><div></div></div><div><div></div><div></div></div></div></div></div></div><div><div><div><div><div><div></div><div></div></div><div><div></div><div></div></div></div><div><div><div></div><div></div></div><div><div></div><div></div></div></div></div><div><div><div><div></div><div></div></div><div><div></div><div></div></div></div><div><div><div></div><div></div></div><div><div></div><div></div></div></div></div></div><div><div><div><div><div></div><div></div></div><div><div></div><div></div></div></div><div><div><div></div><div></div></div><div><div></div><div></div></div></div></div><div><div><div><div></div><div></div></div><div><div></div><div></div></div></div><div><div><div></div><div></div></div><div><div></div><div></div></div></div></div></div></div></div><div><div><div><div><div><div><div></div><div></div></div><div><div></div><div></div></div></div><div><div><div></div><div></div></div><div><div></div><div></div></div></div></div><div><div><div><div></div><div></div></div><div><div></div><div></div></div></div><div><div><div></div><div></div></div><div><div></div><div></div></div></div></div></div><div><div><div><div><div></div><div></div></div><div><div></div><div></div></div></div><div><div><div></div><div></div></div><div><div></div><div></div></div></div></div><div><div><div><div></div><div></div></div><div><div></div><div></div></div></div><div><div><div></div><div></div></div><div><div></div><div></div></div></div></div></div></div><div><div><div><div><div><div></div><div></div></div><div><div></div><div></div></div></div><div><div><div></div><div></div></div><div><div></div><div></div></div></div></div><div><div><div><div></div><div></div></div><div><div></div><div></div></div></div><div><div><div></div><div></div></div><div><div></div><div></div></div></div></div></div><div><div><div><div><div></div><div></div></div><div><div></div><div></div></div></div><div><div><div></div><div></div></div><div><div></div><div></div></div></div></div><div><div><div><div></div><div></div></div><div><div></div><div></div></div></div><div><div><div></div><div></div></div><div><div></div><div></div></div></div></div></div></div></div></div></div>
+
+
+      </section>
+
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#搭建vue项目"><span class="nav-number">1.</span> <span class="nav-text">搭建vue项目</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#node环境安装"><span class="nav-number">1.1.</span> <span class="nav-text">node环境安装</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#安装vue-cli"><span class="nav-number">1.2.</span> <span class="nav-text">安装vue-cli</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#使用vue-cli初始化项目"><span class="nav-number">1.3.</span> <span class="nav-text">使用vue-cli初始化项目</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#进入目录"><span class="nav-number">1.4.</span> <span class="nav-text">进入目录</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#安装依赖"><span class="nav-number">1.5.</span> <span class="nav-text">安装依赖</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#运行项目"><span class="nav-number">1.6.</span> <span class="nav-text">运行项目</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#访问项目"><span class="nav-number">1.7.</span> <span class="nav-text">访问项目</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#插件类型"><span class="nav-number">2.</span> <span class="nav-text">插件类型</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#实现alert插件"><span class="nav-number">3.</span> <span class="nav-text">实现alert插件</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#实现numberFilter插件"><span class="nav-number">4.</span> <span class="nav-text">实现numberFilter插件</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#实现sendUbt插件"><span class="nav-number">5.</span> <span class="nav-text">实现sendUbt插件</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#实现doubleNumber插件"><span class="nav-number">6.</span> <span class="nav-text">实现doubleNumber插件</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#实现loading插件"><span class="nav-number">7.</span> <span class="nav-text">实现loading插件</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#loading插件模板"><span class="nav-number">7.1.</span> <span class="nav-text">loading插件模板</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#loading挂载在Vue上面"><span class="nav-number">7.2.</span> <span class="nav-text">loading挂载在Vue上面</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#使用loading插件"><span class="nav-number">7.3.</span> <span class="nav-text">使用loading插件</span></a></li></ol></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright" >
+  
+  &copy; 
+  <span itemprop="copyrightYear">2017</span>
+  <span class="with-love">
+    <i class="fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">满利利</span>
+</div>
+
+
+
+        
+
+        
+      </div>
+    </footer>
+
+    <div class="back-to-top">
+      <i class="fa fa-arrow-up"></i>
+    </div>
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+  
+  <script type="text/javascript" src="/lib/jquery/index.js?v=2.1.3"></script>
+
+  
+  <script type="text/javascript" src="/lib/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+
+  
+  <script type="text/javascript" src="/lib/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+
+  
+  <script type="text/javascript" src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+
+  
+  <script type="text/javascript" src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+
+  
+  <script type="text/javascript" src="/lib/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=5.1.0"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=5.1.0"></script>
+
+
+
+  
+  
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.0"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.1.0"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.1.0"></script>
+
+
+
+  
+
+
+
+  
+
+
+
+
+	
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+  
+      <!-- UY BEGIN -->
+      <script type="text/javascript" src="http://v2.uyan.cc/code/uyan.js?uid="></script>
+      <!-- UY END -->
+  
+
+
+
+
+  
+  
+  <script type="text/javascript">
+    // Popup Window;
+    var isfetched = false;
+    // Search DB path;
+    var search_path = "search.xml";
+    if (search_path.length == 0) {
+      search_path = "search.xml";
+    }
+    var path = "/" + search_path;
+    // monitor main search box;
+
+    function proceedsearch() {
+      $("body").append('<div class="popoverlay">').css('overflow', 'hidden');
+      $('.popup').toggle();
+    }
+    // search function;
+    var searchFunc = function(path, search_id, content_id) {
+      'use strict';
+      $.ajax({
+        url: path,
+        dataType: "xml",
+        async: true,
+        success: function( xmlResponse ) {
+          // get the contents from search data
+          isfetched = true;
+          $('.popup').detach().appendTo('.header-inner');
+          var datas = $( "entry", xmlResponse ).map(function() {
+            return {
+              title: $( "title", this ).text(),
+              content: $("content",this).text(),
+              url: $( "url" , this).text()
+            };
+          }).get();
+          var $input = document.getElementById(search_id);
+          var $resultContent = document.getElementById(content_id);
+          $input.addEventListener('input', function(){
+            var matchcounts = 0;
+            var str='<ul class=\"search-result-list\">';
+            var keywords = this.value.trim().toLowerCase().split(/[\s\-]+/);
+            $resultContent.innerHTML = "";
+            if (this.value.trim().length > 1) {
+              // perform local searching
+              datas.forEach(function(data) {
+                var isMatch = false;
+                var content_index = [];
+                var data_title = data.title.trim().toLowerCase();
+                var data_content = data.content.trim().replace(/<[^>]+>/g,"").toLowerCase();
+                var data_url = decodeURIComponent(data.url);
+                var index_title = -1;
+                var index_content = -1;
+                var first_occur = -1;
+                // only match artiles with not empty titles and contents
+                if(data_title != '') {
+                  keywords.forEach(function(keyword, i) {
+                    index_title = data_title.indexOf(keyword);
+                    index_content = data_content.indexOf(keyword);
+                    if( index_title >= 0 || index_content >= 0 ){
+                      isMatch = true;
+                      if (i == 0) {
+                        first_occur = index_content;
+                      }
+                    }
+
+                  });
+                }
+                // show search results
+                if (isMatch) {
+                  matchcounts += 1;
+                  str += "<li><a href='"+ data_url +"' class='search-result-title'>"+ data_title +"</a>";
+                  var content = data.content.trim().replace(/<[^>]+>/g,"");
+                  if (first_occur >= 0) {
+                    // cut out 100 characters
+                    var start = first_occur - 20;
+                    var end = first_occur + 80;
+                    if(start < 0){
+                      start = 0;
+                    }
+                    if(start == 0){
+                      end = 50;
+                    }
+                    if(end > content.length){
+                      end = content.length;
+                    }
+                    var match_content = content.substring(start, end);
+                    // highlight all keywords
+                    keywords.forEach(function(keyword){
+                      var regS = new RegExp(keyword, "gi");
+                      match_content = match_content.replace(regS, "<b class=\"search-keyword\">"+keyword+"</b>");
+                    });
+
+                    str += "<p class=\"search-result\">" + match_content +"...</p>"
+                  }
+                  str += "</li>";
+                }
+              })};
+            str += "</ul>";
+            if (matchcounts == 0) { str = '<div id="no-result"><i class="fa fa-frown-o fa-5x" /></div>' }
+            if (keywords == "") { str = '<div id="no-result"><i class="fa fa-search fa-5x" /></div>' }
+            $resultContent.innerHTML = str;
+          });
+          proceedsearch();
+        }
+      });}
+
+    // handle and trigger popup window;
+    $('.popup-trigger').click(function(e) {
+      e.stopPropagation();
+      if (isfetched == false) {
+        searchFunc(path, 'local-search-input', 'local-search-result');
+      } else {
+        proceedsearch();
+      };
+    });
+
+    $('.popup-btn-close').click(function(e){
+      $('.popup').hide();
+      $(".popoverlay").remove();
+      $('body').css('overflow', '');
+    });
+    $('.popup').click(function(e){
+      e.stopPropagation();
+    });
+  </script>
+
+
+  
+
+  
+
+  
+
+  
+
+
+</body>
+</html>
